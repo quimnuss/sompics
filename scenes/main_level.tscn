@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://gs5x3ib5i4hr"]
+
+[ext_resource type="PackedScene" uid="uid://cfa1h1cv5i3ab" path="res://actors/pic.tscn" id="1_0iakq"]
+[ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_w0rah"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Pic" parent="." instance=ExtResource("1_0iakq")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_w0rah")
+format = 2
