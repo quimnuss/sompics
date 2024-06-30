@@ -20,6 +20,10 @@ const person_dict : Dictionary = {
 
 func _ready():
     head.region_rect = person_dict[person]
+    add_to_group('pics')
+
+func enter_door():
+    queue_free()
 
 func _physics_process(delta):
     # Add the gravity.

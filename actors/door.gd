@@ -1,25 +1,45 @@
 extends Node2D
+class_name Door
 
 @onready var door_sprite = $DoorSprite
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass # Replace with function body.
+const level_dir : String = 'res://scenes/'
+
+@export var next_level : String = 'main_level.tscn'
+
+var is_open : bool = false
+
+signal level_exit
+signal all_in
+
+var pics_in : int = 0
+var num_pics : int = 2
+
 
 func open():
     door_sprite.play('open')
+    await door_sprite.animation_finished
+    is_open = true
 
 func close():
+    is_open = false
     door_sprite.play('close')
     await door_sprite.animation_finished
     door_sprite.play('default')
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
-
+func pic_exit():
+    level_exit.emit()
+    pics_in += 1
+    if pics_in >= num_pics:
+        all_in.emit()
+        get_tree().change_scene_to_file(level_dir + next_level)
 
 func _on_area_2d_body_entered(body):
     if body is Key:
         body.use()
         self.open()
+
+    if body is Pic and is_open:
+        body.enter_door()
+        pic_exit()
+
