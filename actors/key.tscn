@@ -108,8 +108,9 @@ shape = SubResource("RectangleShape2D_6vglu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bilgt")
-frame = 5
-frame_progress = 0.115828
+autoplay = "default"
+frame = 8
+frame_progress = 0.546825
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
