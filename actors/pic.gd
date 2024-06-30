@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Pic
 @onready var head : Sprite2D = $Head
 
-@export var SPEED = 300.0
+@export var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -19,16 +19,28 @@ const person_dict : Dictionary = {
 }
 
 func _ready():
-    head.region_rect = person_dict[person]
+    set_person(person)
     add_to_group('pics')
+    if person == 'pol':
+        self.SPEED = 150
+
+func set_person(person_name : String):
+    head.region_rect = person_dict[person_name]
 
 func enter_door():
     queue_free()
 
 func _physics_process(delta):
+
     # Add the gravity.
     if not is_on_floor():
         velocity.y += gravity * delta
+
+    # debugging on one computer
+    if Persistence.pics[Persistence.active_pic] != person:
+        velocity.x = move_toward(velocity.x, 0, SPEED)
+        move_and_slide()
+        return
 
     if Input.is_action_just_pressed("jump") and is_on_floor():
         velocity.y = JUMP_VELOCITY

@@ -1,13 +1,16 @@
-extends Node2D
-@onready var door : Door = $Door
+extends Area2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    var pics : Array = get_tree().get_nodes_in_group("pics")
-    door.num_pics = len(pics)
+    pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
     pass
+
+
+func _on_body_entered(body):
+    if body is Pic:
+        body.global_position = owner.get_node('PlayerSpawner').global_position

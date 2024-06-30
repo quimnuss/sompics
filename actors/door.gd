@@ -7,7 +7,7 @@ const level_dir : String = 'res://scenes/'
 
 @export var next_level : String = 'main_level.tscn'
 
-var is_open : bool = false
+@export var is_open : bool = false
 
 signal level_exit
 signal all_in
@@ -15,6 +15,10 @@ signal all_in
 var pics_in : int = 0
 var num_pics : int = 2
 
+func _ready():
+    num_pics = len(Persistence.pics)
+    if is_open:
+        door_sprite.play('open')
 
 func open():
     door_sprite.play('open')
