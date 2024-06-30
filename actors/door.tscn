@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://31y11begqd5e"]
+
+[ext_resource type="Script" path="res://actors/door.gd" id="1_jq57x"]
+[ext_resource type="SpriteFrames" uid="uid://cu3btbkmvpgbv" path="res://actors/door_spriteframes.tres" id="2_hivc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5icyh"]
+size = Vector2(46, 56)
+
+[node name="Door" type="Node2D"]
+z_index = -1
+script = ExtResource("1_jq57x")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_hivc1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5icyh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
