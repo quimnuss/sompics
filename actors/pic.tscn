@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfa1h1cv5i3ab"]
+[gd_scene load_steps=4 format=3 uid="uid://cfa1h1cv5i3ab"]
 
 [ext_resource type="Script" path="res://actors/pic.gd" id="1_5ledp"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_srj8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x3hx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uy6lh"]
-atlas = ExtResource("2_srj8h")
-region = Rect2(431, 434, 121, 167)
+size = Vector2(30, 40)
 
 [node name="Pic" type="CharacterBody2D"]
 collision_layer = 2
@@ -17,5 +14,7 @@ script = ExtResource("1_5ledp")
 shape = SubResource("RectangleShape2D_7x3hx")
 
 [node name="Head" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = SubResource("AtlasTexture_uy6lh")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_srj8h")
+region_enabled = true
+region_rect = Rect2(418, 10, 144, 161)
