@@ -32,7 +32,7 @@ func pic_exit():
     pics_in += 1
     if pics_in >= num_pics:
         all_in.emit()
-        get_tree().change_scene_to_file(level_dir + next_level)
+        get_tree().call_deferred('change_scene_to_file',(level_dir + next_level))
 
 func _on_area_2d_body_entered(body):
     if body is Key:
