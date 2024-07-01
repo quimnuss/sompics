@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var person : String = 'marta'
 
+
 const person_dict : Dictionary = {
     'marta': Rect2(431, 434, 121, 167),
     'pol': Rect2(595, 232, 121, 140),
@@ -46,6 +47,11 @@ func hold(key_ : Key):
 func drop():
     if key:
         key.drop()
+
+func attach(pic : Pic):
+    var friend_path = pic.get_path()
+    #rope.node_b = friend_path
+
 
 func _physics_process(delta):
 

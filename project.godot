@@ -13,7 +13,7 @@ config_version=5
 config/name="Sompics"
 run/main_scene="res://scenes/welcome_level.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://assets/icon.png"
+config/icon="res://assets/Items/icon.png"
 
 [autoload]
 

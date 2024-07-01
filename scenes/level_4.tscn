@@ -29,10 +29,10 @@ position = Vector2(952, 520)
 next_level = "level_3.tscn"
 
 [node name="Key" parent="." instance=ExtResource("3_aosym")]
-position = Vector2(858, 426)
+position = Vector2(890, 426)
 
 [node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(858, 426)
+position = Vector2(890, 426)
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(168, 152)
@@ -49,7 +49,7 @@ position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_l2dor")
 
 [node name="Button" parent="." instance=ExtResource("6_n0y8q")]
-position = Vector2(480, 528)
+position = Vector2(840, 528)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="button_pressed" from="Button" to="." method="_on_button_button_pressed"]
