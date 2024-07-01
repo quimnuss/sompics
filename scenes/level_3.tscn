@@ -19,7 +19,7 @@ layer_2/tile_data = PackedInt32Array(196611, 65537, 7, 262147, 65537, 8, 327683,
 
 [node name="Door" parent="." instance=ExtResource("2_vk1h4")]
 position = Vector2(480, 392)
-next_level = "welcome_level.tscn"
+next_level = "level_4.tscn"
 
 [node name="Key" parent="." instance=ExtResource("3_ia61t")]
 position = Vector2(456, 216)

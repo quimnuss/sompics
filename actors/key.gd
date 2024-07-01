@@ -22,6 +22,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
     if body is Pic and joint_2d.node_b != body.get_path():
         joint_2d.set_node_b(body.get_path())
+        body.hold(self)
 
     #if body is Pic and body != self.get_parent():
         #self.call_deferred("reparent",body)

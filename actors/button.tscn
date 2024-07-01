@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxpnihdumldpm"]
+
+[ext_resource type="Script" path="res://actors/button.gd" id="1_3u0o2"]
+[ext_resource type="Texture2D" uid="uid://0ssrtrhjdjmv" path="res://assets/Items/buttonRed.png" id="1_hwefk"]
+[ext_resource type="Texture2D" uid="uid://bbdck52rpy8uf" path="res://assets/Items/buttonRed_pressed.png" id="2_p7mvf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1sni"]
+radius = 16.4924
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsg76"]
+size = Vector2(34, 14)
+
+[node name="Button" type="Node2D"]
+script = ExtResource("1_3u0o2")
+
+[node name="Off" type="Sprite2D" parent="."]
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("1_hwefk")
+
+[node name="On" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("2_p7mvf")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -10)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_h1sni")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_rsg76")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -18,11 +18,19 @@ const person_dict : Dictionary = {
     'juanpe': Rect2(255, 11, 125, 151),
 }
 
+var move_left : String = 'move_left'
+var move_right : String = 'move_right'
+var jump : String = 'jump'
+
 func _ready():
     set_person(person)
     add_to_group('pics')
     if person == 'pol':
-        self.SPEED = 150
+        self.SPEED = 200
+        var player_num = 2
+        self.move_left = self.move_left + '_' + str(player_num)
+        self.move_right = self.move_right  + '_' + str(player_num)
+        self.jump = self.jump  + '_' + str(player_num)
 
 func set_person(person_name : String):
     head.region_rect = person_dict[person_name]
@@ -30,22 +38,25 @@ func set_person(person_name : String):
 func enter_door():
     queue_free()
 
+var key : Key
+
+func hold(key_ : Key):
+    key = key_
+
+func drop():
+    if key:
+        key.drop()
+
 func _physics_process(delta):
 
     # Add the gravity.
     if not is_on_floor():
         velocity.y += gravity * delta
 
-    # debugging on one computer
-    if Persistence.pics[Persistence.active_pic] != person:
-        velocity.x = move_toward(velocity.x, 0, SPEED)
-        move_and_slide()
-        return
-
-    if Input.is_action_just_pressed("jump") and is_on_floor():
+    if Input.is_action_just_pressed(self.jump) and is_on_floor():
         velocity.y = JUMP_VELOCITY
 
-    var direction = Input.get_axis("move_left", "move_right")
+    var direction = Input.get_axis(self.move_left, self.move_right)
     if direction:
         velocity.x = direction * SPEED
     else:

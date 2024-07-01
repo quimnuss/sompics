@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_srj8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x3hx"]
-size = Vector2(30, 40)
+size = Vector2(32, 32)
 
 [node name="Pic" type="CharacterBody2D"]
 collision_layer = 2
@@ -15,7 +15,8 @@ script = ExtResource("1_5ledp")
 shape = SubResource("RectangleShape2D_7x3hx")
 
 [node name="Head" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+position = Vector2(0, 0.0625)
+scale = Vector2(0.208333, 0.207686)
 texture = ExtResource("2_srj8h")
 region_enabled = true
 region_rect = Rect2(418, 10, 144, 161)
