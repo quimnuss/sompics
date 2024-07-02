@@ -11,3 +11,5 @@ func _input(event):
         active_pic = (active_pic+1)%len(pics)
     elif event.is_action_pressed("level_select"):
         get_tree().change_scene_to_file('res://ui/level_select_menu.tscn')
+    elif event.is_action_pressed("quit"):
+        get_tree().quit()
