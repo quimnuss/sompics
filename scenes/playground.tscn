@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bifg0om83dt7j"]
+[gd_scene load_steps=13 format=3 uid="uid://bifg0om83dt7j"]
 
 [ext_resource type="Script" path="res://scenes/playground.gd" id="1_77m0m"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_c81co"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://actors/respawn.gd" id="7_djybp"]
 [ext_resource type="Texture2D" uid="uid://cnr7jd458p5nk" path="res://assets/Items/door_openMid.png" id="8_5c4go"]
 [ext_resource type="PackedScene" uid="uid://c5erylmd5leup" path="res://actors/drop_box.tscn" id="9_5ywgi"]
+[ext_resource type="PackedScene" uid="uid://4x0l8tl5cstu" path="res://actors/weight_platform.tscn" id="10_qsupa"]
+[ext_resource type="PackedScene" uid="uid://bh44brmlp1s8k" path="res://actors/platform.tscn" id="11_sskg7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp76t"]
 size = Vector2(60, 42)
@@ -27,7 +29,7 @@ layer_2/name = "Background"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Door" parent="." instance=ExtResource("2_518a5")]
-position = Vector2(952, 512)
+position = Vector2(952, 520)
 next_level = "welcome_level.tscn"
 
 [node name="Key" parent="." instance=ExtResource("3_vaqfn")]
@@ -69,6 +71,11 @@ position = Vector2(504, 464)
 
 [node name="DropBox4" parent="." instance=ExtResource("9_5ywgi")]
 position = Vector2(536, 464)
+
+[node name="WeightPlatform" parent="." instance=ExtResource("10_qsupa")]
+
+[node name="Platform" parent="." instance=ExtResource("11_sskg7")]
+position = Vector2(352, 432)
 
 [connection signal="button_pressed" from="Button" to="." method="_on_button_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

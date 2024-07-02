@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://4x0l8tl5cstu"]
+
+[ext_resource type="Script" path="res://actors/weight_platform.gd" id="1_auaht"]
+[ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_v47gs"]
+
+[sub_resource type="Curve2D" id="Curve2D_h6c8s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 16, -216)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojee8"]
+size = Vector2(96, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0enr"]
+size = Vector2(96, 10)
+
+[node name="WeightPlatform" type="Node2D"]
+position = Vector2(592, 456)
+script = ExtResource("1_auaht")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_h6c8s")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(16, 0)
+rotation = -1.5708
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+position = Vector2(0, -16)
+rotation = 1.5708
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(16, -4)
+shape = SubResource("RectangleShape2D_ojee8")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Path2D/PathFollow2D"]
+position = Vector2(0, -16)
+rotation = 1.5708
+
+[node name="TileMap" type="TileMap" parent="Path2D/PathFollow2D/AnimatableBody2D"]
+tile_set = ExtResource("2_v47gs")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 262146, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/AnimatableBody2D"]
+position = Vector2(16, 5)
+shape = SubResource("RectangleShape2D_f0enr")
+
+[node name="Label" type="Label" parent="Path2D/PathFollow2D/AnimatableBody2D"]
+z_index = -1
+offset_left = -8.00018
+offset_top = -48.0
+offset_right = 31.9998
+offset_bottom = -8.99997
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="_Timer_17481" type="Timer" parent="Path2D/PathFollow2D"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_body_exited"]

@@ -29,6 +29,10 @@ window/stretch/scale_mode="integer"
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom_font="res://assets/fonts/glacial_indifference/GlacialIndifference-Regular.otf"
+
 [input]
 
 move_left={
