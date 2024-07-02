@@ -26,3 +26,8 @@ A silly Game for Funk together
 
 - [ ] noves cares
 - [ ] cares distorció
+
+# Done
+
+- [x] weight platform
+- [x] buttons
