@@ -12,7 +12,7 @@ func use():
 func drop():
     joint_2d.set_node_b('')
 
-func _process(delta):
+func _process(_delta):
     if Input.is_action_just_pressed("drop"):
         #TODO check he's the ownera
         drop()
