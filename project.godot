@@ -31,7 +31,7 @@ import/blender/enabled=false
 
 [gui]
 
-theme/custom_font="res://assets/fonts/glacial_indifference/GlacialIndifference-Regular.otf"
+theme/custom_font="res://assets/fonts/glacial_indifference/GlacialIndifference-Bold.otf"
 
 [input]
 
