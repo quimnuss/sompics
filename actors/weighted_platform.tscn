@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkohvbefn4gms"]
+
+[ext_resource type="Script" path="res://actors/weight_platform.gd" id="1_5ogpc"]
+[ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_6f4lt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojee8"]
+size = Vector2(96, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0enr"]
+size = Vector2(96, 10)
+
+[node name="WeightedPlatform" type="PathFollow2D"]
+position = Vector2(16, 0)
+rotation = -1.5708
+script = ExtResource("1_5ogpc")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -16)
+rotation = 1.5708
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, -4)
+shape = SubResource("RectangleShape2D_ojee8")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(0, -16)
+rotation = 1.5708
+
+[node name="TileMap" type="TileMap" parent="AnimatableBody2D"]
+tile_set = ExtResource("2_6f4lt")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 262146, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(16, 5)
+shape = SubResource("RectangleShape2D_f0enr")
+
+[node name="Label" type="Label" parent="AnimatableBody2D"]
+z_index = -1
+offset_left = -8.00018
+offset_top = -48.0
+offset_right = 31.9998
+offset_bottom = -8.99997
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

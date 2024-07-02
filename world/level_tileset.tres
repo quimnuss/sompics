@@ -1,7 +1,10 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c537katjoknov"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://c537katjoknov"]
 
 [ext_resource type="Texture2D" uid="uid://cs163wtnwdyaq" path="res://world/assets/terrains.png" id="1_dih3w"]
 [ext_resource type="Texture2D" uid="uid://6085fqe7cqfa" path="res://world/assets/decorations.png" id="2_4cg42"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_msn8g"]
+tile_data = PackedInt32Array(0, 131074, 3, 65536, 131074, 4, 1, 196610, 3, 65537, 196610, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4v3w1"]
 texture = ExtResource("1_dih3w")
@@ -1424,3 +1427,4 @@ terrain_set_0/terrain_2/name = "Outside"
 terrain_set_0/terrain_2/color = Color(0, 0, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_4v3w1")
 sources/2 = SubResource("TileSetAtlasSource_xv7g6")
+pattern_0 = SubResource("TileMapPattern_msn8g")
