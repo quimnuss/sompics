@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwqln5wqhyxtg"]
+
+[ext_resource type="Script" path="res://actors/ripic.gd" id="1_2rijk"]
+[ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_pkowj"]
+[ext_resource type="Script" path="res://actors/head.gd" id="3_0g28i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr2vd"]
+
+[node name="Ripic" type="RigidBody2D"]
+script = ExtResource("1_2rijk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tr2vd")
+
+[node name="Head" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_pkowj")
+region_enabled = true
+region_rect = Rect2(433, 640, 139, 151)
+script = ExtResource("3_0g28i")

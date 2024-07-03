@@ -11,20 +11,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var person : String = 'marta'
 
 
-const person_dict : Dictionary = {
-    'marta': Rect2(431, 434, 121, 167),
-    'pol': Rect2(595, 232, 121, 140),
-    'joana': Rect2(418, 10, 144, 161),
-    'david': Rect2(54, 13, 135, 168),
-    'juanpe': Rect2(255, 11, 125, 151),
-}
 
 var move_left : String = 'move_left'
 var move_right : String = 'move_right'
 var jump : String = 'jump'
 
 func _ready():
-    set_person(person)
+    head.set_person(person)
     add_to_group('pics')
     if person == 'pol':
         self.SPEED = 200
@@ -32,9 +25,6 @@ func _ready():
         self.move_left = self.move_left + '_' + str(player_num)
         self.move_right = self.move_right  + '_' + str(player_num)
         self.jump = self.jump  + '_' + str(player_num)
-
-func set_person(person_name : String):
-    head.region_rect = person_dict[person_name]
 
 func enter_door():
     queue_free()

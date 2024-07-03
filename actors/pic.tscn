@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfa1h1cv5i3ab"]
+[gd_scene load_steps=5 format=3 uid="uid://cfa1h1cv5i3ab"]
 
 [ext_resource type="Script" path="res://actors/pic.gd" id="1_5ledp"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_srj8h"]
+[ext_resource type="Script" path="res://actors/head.gd" id="3_h8ejj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x3hx"]
 size = Vector2(32, 32)
@@ -20,3 +21,4 @@ scale = Vector2(0.208333, 0.207686)
 texture = ExtResource("2_srj8h")
 region_enabled = true
 region_rect = Rect2(418, 10, 144, 161)
+script = ExtResource("3_h8ejj")
