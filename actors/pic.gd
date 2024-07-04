@@ -87,10 +87,10 @@ func _physics_process(delta):
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
 
-    if attached_pic and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
+    if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
         constrain_velocity(delta, just_jumped)
 
-    if rope and attached_pic:
+    if rope and attached_pic and is_instance_valid(attached_pic):
         rope.set_point_position(0, Vector2(0,0))
         rope.set_point_position(1, attached_pic.global_position - self.global_position)
 

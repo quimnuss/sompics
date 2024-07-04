@@ -25,9 +25,10 @@ A silly Game for Funk together
 ## nata del pastís
 
 - [ ] noves cares
-- [ ] cares distorció
+- [ ] fix cares distorsió
 
 # Done
 
 - [x] weight platform
 - [x] buttons
+- [x] rope
