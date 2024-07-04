@@ -18,7 +18,7 @@ var jump : String = 'jump'
 
 var rope : Line2D
 
-const ROPELENGTH = 100
+const ROPELENGTH = 120
 
 func _ready():
     head.set_person(person)
@@ -62,12 +62,13 @@ func constrain_velocity(delta, just_jumped):
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
     var lambda = self.velocity.dot(attached_direction.normalized())
     if lambda < 10: # moving away + 10 px margin
-        self.velocity = self.velocity - self.velocity.project(attached_direction.normalized()) + 3*attached_direction.length()*attached_direction.normalized()
+        self.velocity = self.velocity - self.velocity.project(attached_direction.normalized()) + 3*attached_direction.length()*attached_direction.normalized()*Vector2(3,1)
     else:
         self.velocity = 5*attached_direction.length()*attached_direction.normalized()
-#
-    if just_jumped and not is_on_floor():
-        velocity.y = JUMP_VELOCITY*0.5
+
+    # not working as intended
+    #if just_jumped and not is_on_floor():
+        #velocity.y = JUMP_VELOCITY*0.5
 
 func _physics_process(delta):
 
