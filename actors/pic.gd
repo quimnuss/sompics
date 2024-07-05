@@ -55,7 +55,6 @@ func drop():
     if key:
         key.drop()
 
-
 func attach(pic : Pic):
     var friend_path = pic.get_path()
     #rope.node_b = friend_path
@@ -93,8 +92,12 @@ func _physics_process(delta):
     if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
         constrain_velocity(delta, just_jumped)
 
-    if rope and attached_pic and is_instance_valid(attached_pic):
-        rope.set_point_position(0, Vector2(0,0))
-        rope.set_point_position(1, attached_pic.global_position - self.global_position)
+    if rope:
+        if attached_pic and is_instance_valid(attached_pic):
+            rope.set_point_position(0, Vector2(0,0))
+            rope.set_point_position(1, attached_pic.global_position - self.global_position)
+            rope.visible = true
+        else:
+            rope.visible = false
 
     move_and_slide()
