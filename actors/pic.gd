@@ -15,6 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var move_left : String = 'move_left'
 var move_right : String = 'move_right'
 var jump : String = 'jump'
+var down : String = 'down'
 
 var rope : Line2D
 
@@ -29,6 +30,7 @@ func _ready():
         self.move_left = self.move_left + '_' + str(player_num)
         self.move_right = self.move_right  + '_' + str(player_num)
         self.jump = self.jump  + '_' + str(player_num)
+        self.down = self.down  + '_' + str(player_num)
 
     if attached_pic:
         rope = Line2D.new()
