@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://4x0l8tl5cstu"]
+[gd_scene load_steps=5 format=3 uid="uid://4x0l8tl5cstu"]
 
 [ext_resource type="Script" path="res://actors/weight_platform.gd" id="1_auaht"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_v47gs"]
@@ -11,9 +11,6 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojee8"]
 size = Vector2(96, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0enr"]
-size = Vector2(96, 10)
 
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_h6c8s")
@@ -40,10 +37,6 @@ rotation = 1.5708
 tile_set = ExtResource("2_v47gs")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 262146, 2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowPath2D/AnimatableBody2D"]
-position = Vector2(16, 5)
-shape = SubResource("RectangleShape2D_f0enr")
 
 [node name="Label" type="Label" parent="FollowPath2D/AnimatableBody2D"]
 z_index = -1
