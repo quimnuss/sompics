@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://jjtgymn8mon0"]
+[gd_scene load_steps=8 format=3 uid="uid://jjtgymn8mon0"]
 
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_4mt0h"]
 [ext_resource type="Script" path="res://scenes/level_2.gd" id="1_72a0w"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="2_did2c"]
+[ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_howyk"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="3_jlmd0"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_auvvl"]
 [ext_resource type="PackedScene" uid="uid://4x0l8tl5cstu" path="res://actors/weight_platform.tscn" id="5_o0ewb"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_72a0w")
+
+[node name="UI" parent="." instance=ExtResource("2_howyk")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_4mt0h")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5k3ie1rdhst5"]
+[gd_scene load_steps=10 format=3 uid="uid://c5k3ie1rdhst5"]
 
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_i2phw"]
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="1_nru55"]
+[ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_3klaw"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="2_lgui0"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="3_aosym"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_qhwex"]
@@ -13,6 +14,8 @@ size = Vector2(224, 42)
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_nru55")
+
+[node name="UI" parent="." instance=ExtResource("2_3klaw")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_i2phw")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxf38aj4k5ewl"]
+[gd_scene load_steps=15 format=3 uid="uid://cxf38aj4k5ewl"]
 
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="1_p6j08"]
+[ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_frhip"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_iiy7s"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_2deta"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_71ryk"]
@@ -36,6 +37,8 @@ point_count = 2
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_p6j08")
 
+[node name="UI" parent="." instance=ExtResource("2_frhip")]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_iiy7s")
 format = 2
@@ -65,7 +68,7 @@ position = Vector2(-48, 128)
 shape = SubResource("RectangleShape2D_l2dor")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(216, 264)
+position = Vector2(608, 264)
 
 [node name="WeightPlatform" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_h6c8s")
@@ -108,35 +111,35 @@ collision_mask = 2
 position = Vector2(-32, -4)
 shape = SubResource("RectangleShape2D_cmo8k")
 
-[node name="PlatformOrigin" type="Node2D" parent="."]
-position = Vector2(544, 392)
+[node name="PlatformVertical" type="Node2D" parent="."]
+position = Vector2(224, 384)
 
-[node name="PathPlatform" type="Path2D" parent="PlatformOrigin"]
+[node name="PathPlatform" type="Path2D" parent="PlatformVertical"]
 curve = SubResource("Curve2D_mdhi4")
 script = ExtResource("7_pxnt8")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PlatformOrigin/PathPlatform"]
+[node name="PathFollow2D" type="PathFollow2D" parent="PlatformVertical/PathPlatform"]
 rotates = false
 loop = false
 
-[node name="TileMap" type="TileMap" parent="PlatformOrigin/PathPlatform/PathFollow2D"]
+[node name="TileMap" type="TileMap" parent="PlatformVertical/PathPlatform/PathFollow2D"]
 tile_set = ExtResource("2_iiy7s")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 262146, 2)
 
-[node name="PlatformOrigin2" type="Node2D" parent="."]
+[node name="PlatformHorizontal" type="Node2D" parent="."]
 position = Vector2(752, 224)
 rotation = -1.5708
 
-[node name="PathPlatform" type="Path2D" parent="PlatformOrigin2"]
+[node name="PathPlatform" type="Path2D" parent="PlatformHorizontal"]
 curve = SubResource("Curve2D_t6oah")
 script = ExtResource("7_pxnt8")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PlatformOrigin2/PathPlatform"]
+[node name="PathFollow2D" type="PathFollow2D" parent="PlatformHorizontal/PathPlatform"]
 rotates = false
 loop = false
 
-[node name="TileMap" type="TileMap" parent="PlatformOrigin2/PathPlatform/PathFollow2D"]
+[node name="TileMap" type="TileMap" parent="PlatformHorizontal/PathPlatform/PathFollow2D"]
 tile_set = ExtResource("2_iiy7s")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 196610, 2, 2, 196610, 2, 3, 196610, 2)
