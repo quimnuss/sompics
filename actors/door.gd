@@ -38,12 +38,22 @@ func pic_exit():
         all_in.emit()
         get_tree().call_deferred('change_scene_to_file',(level_dir + next_level))
 
+func pic_enter():
+    pics_in -= 1
+
 func _on_area_2d_body_entered(body):
     if body is Key:
         body.use()
         self.open()
 
     if body is Pic and is_open:
-        body.enter_door()
+        body.is_on_door = true
+        #TODO pic exits by itself
         pic_exit()
 
+
+
+func _on_area_2d_body_exited(body):
+    if body is Pic and is_open:
+        body.is_on_door = false
+        pic_enter()

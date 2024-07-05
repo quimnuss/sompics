@@ -43,8 +43,19 @@ func _ready():
         rope.add_point(self.attached_pic.global_position)
         add_child(rope)
 
+var door_exit : Vector2
+
 func enter_door():
-    queue_free()
+    #self.visible = false
+    set_physics_process(false)
+    door_exit = global_position
+    global_position = Vector2.ZERO
+    #queue_free()
+
+func exit_door():
+    #self.visible = true
+    global_position = door_exit
+    set_physics_process(true)
 
 var key : Key
 
@@ -71,6 +82,14 @@ func constrain_velocity(delta, just_jumped):
     # not working as intended
     #if just_jumped and not is_on_floor():
         #velocity.y = JUMP_VELOCITY*0.5
+
+var is_on_door : bool = false
+
+func _input(event):
+    if event.is_action_pressed(self.jump) and is_on_door:
+        enter_door()
+    elif event.is_action_pressed(self.down) and is_on_door:
+        exit_door()
 
 func _physics_process(delta):
 
