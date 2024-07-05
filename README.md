@@ -14,7 +14,7 @@ A silly Game for Funk together
 - [ ] first milestone 5 nivells
 - [ ] second milestone 10 nivells
 - [ ] 4 players
-- [ ] copy easy making levels from game
+- [ ] copy easy levels from game
 
 ## columnes
 
