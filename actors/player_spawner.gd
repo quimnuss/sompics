@@ -1,6 +1,7 @@
 extends Marker2D
 
 @export var attached : bool = false
+@onready var wscontroller : WsController = $WebsocketMinimalController
 
 var pic_scene = preload('res://actors/pic.tscn')
 
@@ -20,8 +21,8 @@ func spawn(pic_name : String):
     var pic : Pic = pic_scene.instantiate()
     pic.person = pic_name
     self.add_child(pic)
-    var controller : WsController = $"../WebsocketMinimalController" as WsController
-    controller.jump.connect(pic.external_input)
+    var controller : WsController = wscontroller
+    controller.action_received.connect(pic.external_input)
 
 func spawn_attached(pic_name):
     var pic : Pic = pic_scene.instantiate()

@@ -1,17 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://7c3tu4o8qqlf"]
+[gd_scene load_steps=2 format=3 uid="uid://7c3tu4o8qqlf"]
 
 [ext_resource type="Script" path="res://networking/websocket_minimal_controller.gd" id="1_231af"]
-[ext_resource type="Script" path="res://networking/debug_client.gd" id="2_36vuk"]
 
-[node name="WebsocketMinimalController" type="Node2D"]
+[node name="WebsocketMinimalController" type="Node"]
 script = ExtResource("1_231af")
-
-[node name="DebugClient" type="Node" parent="."]
-script = ExtResource("2_36vuk")
-
-[node name="Button" type="Button" parent="DebugClient"]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Send pong"
-
-[connection signal="pressed" from="DebugClient/Button" to="DebugClient" method="_on_button_ping_pressed"]

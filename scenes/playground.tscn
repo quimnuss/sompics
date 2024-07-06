@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bifg0om83dt7j"]
+[gd_scene load_steps=16 format=3 uid="uid://bifg0om83dt7j"]
 
 [ext_resource type="Script" path="res://scenes/playground.gd" id="1_77m0m"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_c81co"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="2_518a5"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_sdlse"]
+[ext_resource type="PackedScene" uid="uid://dftg54mjw1fp8" path="res://networking/debug_client.tscn" id="3_uvqt1"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="3_vaqfn"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_o5gmv"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="5_cj3ad"]
@@ -22,6 +23,12 @@ script = ExtResource("1_77m0m")
 
 [node name="UI" parent="." instance=ExtResource("2_sdlse")]
 
+[node name="ClientMockup" parent="UI" instance=ExtResource("3_uvqt1")]
+offset_left = 110.0
+offset_top = 499.0
+offset_right = 110.0
+offset_bottom = 499.0
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_c81co")
 format = 2
@@ -39,9 +46,14 @@ next_level = "welcome_level.tscn"
 [node name="Key" parent="." instance=ExtResource("3_vaqfn")]
 position = Vector2(776, 448)
 
+[node name="DropBox" parent="Key" instance=ExtResource("9_5ywgi")]
+position = Vector2(-336, 16)
+
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(168, 152)
 script = ExtResource("4_o5gmv")
+
+[node name="WebsocketMinimalController" parent="PlayerSpawner" instance=ExtResource("13_qgk6o")]
 
 [node name="Button" parent="." instance=ExtResource("5_cj3ad")]
 position = Vector2(584, 528)
@@ -64,8 +76,8 @@ texture = ExtResource("8_5c4go")
 [node name="KeySpawn" type="Marker2D" parent="."]
 position = Vector2(776, 448)
 
-[node name="DropBox" parent="." instance=ExtResource("9_5ywgi")]
-position = Vector2(440, 464)
+[node name="Platform" parent="." instance=ExtResource("11_sskg7")]
+position = Vector2(352, 432)
 
 [node name="DropBox2" parent="." instance=ExtResource("9_5ywgi")]
 position = Vector2(472, 464)
@@ -78,11 +90,6 @@ position = Vector2(536, 464)
 
 [node name="WeightPlatform" parent="." instance=ExtResource("10_qsupa")]
 position = Vector2(592, 456)
-
-[node name="Platform" parent="." instance=ExtResource("11_sskg7")]
-position = Vector2(352, 432)
-
-[node name="WebsocketMinimalController" parent="." instance=ExtResource("13_qgk6o")]
 
 [connection signal="button_pressed" from="Button" to="." method="_on_button_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
