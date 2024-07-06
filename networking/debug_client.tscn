@@ -40,6 +40,9 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 text = ">"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_button_ping_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Jump" to="." method="_on_button_ping_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_button_ping_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_button_up"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Jump" to="." method="_on_jump_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/Jump" to="." method="_on_jump_button_up"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_button_up"]

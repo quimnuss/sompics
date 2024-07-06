@@ -2,8 +2,8 @@ extends Node
 
 ## The URL we will connect to.
 var websocket_url := "ws://localhost:9080"
-
-var socket := WebSocketPeer.new()
+var player : String = 'marta'
+var socket : WebSocketPeer = WebSocketPeer.new()
 
 func log_message(message: String) -> void:
     var time := "[color=#aaaaaa] %s |[/color] " % Time.get_time_string_from_system()
@@ -30,3 +30,27 @@ func _exit_tree() -> void:
 
 func _on_button_ping_pressed() -> void:
     socket.send_text("Ping")
+    
+
+func _on_jump_button_down():
+    socket.send_text(player + '-jump-1')
+
+
+func _on_jump_button_up():
+    socket.send_text(player + '-jump-0')
+
+
+func _on_left_button_down():
+    socket.send_text(player + '-move_left-1')
+
+
+func _on_left_button_up():
+    socket.send_text(player + '-move_left-0')
+
+
+func _on_right_button_down():
+    socket.send_text(player + '-move_right-1')
+
+
+func _on_right_button_up():
+    socket.send_text(player + '-move_right-0')

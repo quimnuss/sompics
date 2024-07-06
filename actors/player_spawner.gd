@@ -21,8 +21,10 @@ func spawn(pic_name : String):
     var pic : Pic = pic_scene.instantiate()
     pic.person = pic_name
     self.add_child(pic)
-    var controller : WsController = wscontroller
-    controller.action_received.connect(pic.external_input)
+    if not wscontroller:
+        wscontroller = WsController.new()
+        add_child(wscontroller)        
+    wscontroller.action_received.connect(pic.external_input)
 
 func spawn_attached(pic_name):
     var pic : Pic = pic_scene.instantiate()
@@ -32,7 +34,3 @@ func spawn_attached(pic_name):
     if last_pic:
         pic.attach(last_pic)
     last_pic = pic
-
-
-
-

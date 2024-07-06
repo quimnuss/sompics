@@ -71,13 +71,17 @@ func constrain_velocity(delta, just_jumped):
     #if just_jumped and not is_on_floor():
         #velocity.y = JUMP_VELOCITY*0.5
 
-func external_input(action : String, is_pressed : bool = true):
+func external_input(player : String, action : String, is_pressed : bool = true):
 
+    if player != self.person:
+        return
     print("external " + action)
-    Input.action_press(action)
-    # TODO also needs the release
-    await get_tree().create_timer(1).timeout
-    Input.action_release(action)
+    if is_pressed:
+        Input.action_press(action)
+    else:
+        # TODO also needs the release
+        #await get_tree().create_timer(1).timeout
+        Input.action_release(action)
 
 func _physics_process(delta):
 

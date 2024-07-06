@@ -16,13 +16,13 @@ func process_packet(message):
     if len(message) > 100:
         prints('messasge too long')
         return
-    var parsed = message.split('_')
+    var parsed = message.split('-')
     if len(parsed) != 3:
         prints('malformed message', parsed)
         return
     var player : String = parsed[0]
     var action : String = parsed[1]
-    var is_pressed : bool = bool(parsed[2])
+    var is_pressed : bool = parsed[2] == '1'
     action_received.emit(player, action, is_pressed)
 
 func _ready():
