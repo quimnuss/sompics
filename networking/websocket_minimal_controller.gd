@@ -1,15 +1,17 @@
 extends Node
+class_name WsController
 
 # The port we will listen to.
 const PORT = 9080
 var tcp_server := TCPServer.new()
 var socket := WebSocketPeer.new()
 
+signal jump
 
 func log_message(message):
     var time = "[color=#aaaaaa] %s [/color]" % Time.get_time_string_from_system()
     prints('[server]' + time + message + "\n")
-
+    on_jump_received()
 
 func _ready():
     if tcp_server.listen(PORT) != OK:
@@ -34,10 +36,13 @@ func _exit_tree():
     socket.close()
     tcp_server.stop()
 
-
-func _on_button_pong_pressed():
-    socket.send_text("Pong")
+func on_jump_received():
+    jump.emit()
     var jump_event = InputEventAction.new()
     jump_event.action = "jump"
     jump_event.pressed = true
     Input.parse_input_event(jump_event)
+
+func _on_button_pong_pressed():
+    socket.send_text("Pong")
+

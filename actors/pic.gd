@@ -71,6 +71,21 @@ func constrain_velocity(delta, just_jumped):
     #if just_jumped and not is_on_floor():
         #velocity.y = JUMP_VELOCITY*0.5
 
+func external_input():
+    # does not work
+    #var jump_event = InputEventAction.new()
+    #jump_event.action = "jump"
+    #jump_event.pressed = true
+    #Input.parse_input_event(jump_event)
+    print("external jump")
+    # works
+    Input.action_press("jump")
+    await get_tree().create_timer(1).timeout
+    Input.action_release("jump")
+    # TODO figure out how to input actions programatically...
+    # this works tho...
+    #velocity.y = JUMP_VELOCITY
+
 func _physics_process(delta):
 
     var attached_velocity = Vector2(0,0)

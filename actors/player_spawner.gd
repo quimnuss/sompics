@@ -20,7 +20,8 @@ func spawn(pic_name : String):
     var pic : Pic = pic_scene.instantiate()
     pic.person = pic_name
     self.add_child(pic)
-
+    var controller : WsController = $"../WebsocketMinimalController" as WsController
+    controller.jump.connect(pic.external_input)
 
 func spawn_attached(pic_name):
     var pic : Pic = pic_scene.instantiate()
