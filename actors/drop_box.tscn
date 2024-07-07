@@ -7,7 +7,7 @@
 size = Vector2(13, 13)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4beb5"]
-radius = 5.0
+radius = 6.0
 height = 18.0
 
 [node name="DropBox" type="RigidBody2D"]
@@ -16,7 +16,7 @@ freeze = true
 script = ExtResource("1_uer1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_yk53l")
 
