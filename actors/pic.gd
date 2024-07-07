@@ -94,6 +94,10 @@ func rope_attach():
     rope.add_point(self.attached_pic.global_position)
     add_child(rope)
 
+func kill():
+    head.set_modulate(Color(0.3,0.3,0.3,1))
+    self.set_physics_process(false)
+    self.set_process(false)
 
 func constrain_velocity(delta, just_jumped):
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
@@ -123,9 +127,12 @@ func _physics_process(delta):
 
     var attached_velocity = Vector2(0,0)
 
-    # Add the gravity.
+    # TODO asymetrical jump (better jump)
+    var grav_factor = 1
+    #if velocity.y > 0:
+        #grav_factor = 3
     if not is_on_floor():
-        velocity.y += gravity * delta
+        velocity.y += grav_factor*gravity * delta
 
     var just_jumped : bool = Input.is_action_just_pressed(self.jump)
     if just_jumped and (is_on_floor() or coyote):
