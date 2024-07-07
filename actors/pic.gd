@@ -156,11 +156,6 @@ func _physics_process(delta):
         coyote = true
         coyote_timer.start()
 
-    if name == 'marta':
-        prints(is_on_floor(), was_on_floor, is_jumping)
-    if coyote:
-        print(coyote_timer.time_left)
-
     if is_on_floor() and is_jumping:
         is_jumping = false
 
