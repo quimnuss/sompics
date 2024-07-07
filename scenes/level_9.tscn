@@ -42,43 +42,56 @@ gravity_scale = 0.0
 [node name="Node" type="Node" parent="."]
 
 [node name="DropBox" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(376, 424)
+position = Vector2(376, 423)
+rotation = -0.0174533
 
 [node name="DropBox2" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(408, 424)
+position = Vector2(408, 423)
+rotation = -0.0174533
 
 [node name="DropBox3" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(440, 424)
+position = Vector2(440, 423)
+rotation = -0.0174533
 
 [node name="DropBox4" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(472, 424)
+position = Vector2(472, 423)
+rotation = -0.0174533
 
 [node name="DropBox5" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(504, 424)
+position = Vector2(504, 423)
+rotation = -0.0174533
 
 [node name="DropBox6" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(536, 424)
+position = Vector2(536, 423)
+rotation = -0.0174533
 
 [node name="DropBox7" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(568, 424)
+position = Vector2(568, 423)
+rotation = -0.0174533
 
 [node name="DropBox8" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(600, 424)
+position = Vector2(600, 423)
+rotation = -0.0174533
 
 [node name="DropBox9" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(632, 424)
+position = Vector2(632, 423)
+rotation = -0.0174533
 
 [node name="DropBox10" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(664, 424)
+position = Vector2(664, 423)
+rotation = -0.0174533
 
 [node name="DropBox11" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(696, 424)
+position = Vector2(696, 423)
+rotation = -0.0174533
 
 [node name="DropBox12" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(728, 424)
+position = Vector2(728, 423)
+rotation = -0.0174533
 
 [node name="DropBox13" parent="Node" instance=ExtResource("6_336a4")]
-position = Vector2(760, 424)
+position = Vector2(758, 423)
+rotation = -0.0174533
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(560, 472)

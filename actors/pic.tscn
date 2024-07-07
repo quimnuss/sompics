@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://actors/head.gd" id="3_h8ejj"]
 [ext_resource type="Texture2D" uid="uid://bqjx1amkj537a" path="res://assets/dungeon_characters.png" id="4_6lgy5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7x3hx"]
-size = Vector2(23, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dq60i"]
+size = Vector2(20, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox17r"]
 atlas = ExtResource("4_6lgy5")
@@ -205,11 +205,14 @@ _data = {
 [node name="Pic" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 1.0472
 script = ExtResource("1_5ledp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_7x3hx")
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_dq60i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false

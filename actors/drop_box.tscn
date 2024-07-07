@@ -7,7 +7,7 @@
 size = Vector2(13, 13)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4beb5"]
-radius = 4.75
+radius = 5.0
 height = 18.0
 
 [node name="DropBox" type="RigidBody2D"]
