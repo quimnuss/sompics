@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://gs5x3ib5i4hr"]
+[gd_scene load_steps=9 format=3 uid="uid://gs5x3ib5i4hr"]
 
+[ext_resource type="Script" path="res://scenes/welcome_level.gd" id="1_k40ux"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_w0rah"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_ccq3l"]
 [ext_resource type="PackedScene" uid="uid://dftg54mjw1fp8" path="res://networking/debug_client.tscn" id="4_fn100"]
+[ext_resource type="Script" path="res://ui/menu_ingame.gd" id="5_1wjmb"]
+[ext_resource type="Texture2D" uid="uid://d1xsqfe1mr1fu" path="res://assets/fonts/keys_arrows.png" id="6_2k3d3"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_5y6cc"]
+[ext_resource type="Texture2D" uid="uid://j6dfpi30y06o" path="res://assets/fonts/keys_asdw.png" id="7_dkfvp"]
 
 [node name="WelcomeLevel" type="Node2D"]
+script = ExtResource("1_k40ux")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_w0rah")
@@ -33,3 +38,45 @@ offset_left = 110.0
 offset_top = 499.0
 offset_right = 110.0
 offset_bottom = 499.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -525.0
+offset_top = 61.0
+offset_right = -225.0
+offset_bottom = 489.0
+grow_horizontal = 0
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Select"
+script = ExtResource("5_1wjmb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+bbcode_enabled = true
+text = "[wave][rainbow]Som Pics[/rainbow][/wave]"
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_2k3d3")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="UI/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_dkfvp")
+stretch_mode = 3
+
+[connection signal="all_in" from="Door" to="." method="_on_door_all_in"]
+[connection signal="pressed" from="UI/VBoxContainer/Button" to="UI/VBoxContainer/Button" method="_on_pressed"]

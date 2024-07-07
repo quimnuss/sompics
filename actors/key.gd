@@ -28,7 +28,7 @@ func _on_area_2d_body_entered(body):
         #self.call_deferred("reparent",body)
 
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(_body):
     pass
     #if body == self.get_parent():
         #self.call_deferred("reparent",original_owner)

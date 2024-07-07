@@ -7,7 +7,7 @@ func _on_body_entered(body):
         body.attached_pic = null
         await get_tree().create_timer(1).timeout
         body.drop()
-        body.global_position = owner.get_node('PlayerSpawner').global_position
+        body.global_position = owner.get_node('PlayerSpawner').global_position + Vector2(randi_range(50,100),randi_range(50,100))
         await get_tree().create_timer(0.25).timeout
         body.attached_pic = attached_pic
 

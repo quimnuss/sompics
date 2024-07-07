@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3jwf2o15yoax"]
+[gd_scene load_steps=11 format=3 uid="uid://3jwf2o15yoax"]
 
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="1_21bbt"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_ag8tm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="5_wk735"]
 [ext_resource type="PackedScene" uid="uid://c5erylmd5leup" path="res://actors/drop_box.tscn" id="7_gcu88"]
 [ext_resource type="Script" path="res://actors/killzone.gd" id="8_ht5yy"]
+[ext_resource type="AudioStream" uid="uid://dokloux848mqa" path="res://assets/game_over.ogg" id="9_uadv8"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="9_ylm0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ce0ht"]
@@ -36,7 +37,7 @@ position = Vector2(168, 152)
 script = ExtResource("5_wk735")
 
 [node name="Key" parent="." instance=ExtResource("9_ylm0q")]
-position = Vector2(584, 336)
+position = Vector2(584, 328)
 gravity_scale = 0.0
 
 [node name="Node" type="Node2D" parent="."]
@@ -124,5 +125,8 @@ script = ExtResource("8_ht5yy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_ce0ht")
+
+[node name="GameOver" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("9_uadv8")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Pic
 @onready var head : Sprite2D = $Head
+@onready var jump_sound = $jump_sound
 
 @export var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
@@ -66,7 +67,7 @@ func exit_door():
     self.is_out = false
     pic_back.emit()
 
-func _process(delta):
+func _process(_delta):
     if is_on_door and not self.is_out and Input.is_action_just_pressed(jump):
             enter_door()
     elif is_out and Input.is_action_just_pressed(jump):
@@ -99,7 +100,7 @@ func kill():
     self.set_physics_process(false)
     self.set_process(false)
 
-func constrain_velocity(delta, just_jumped):
+func constrain_velocity():
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
     var lambda = self.velocity.dot(attached_direction.normalized())
     if lambda < 10: # moving away + 10 px margin
@@ -125,8 +126,6 @@ func external_input(player : String, action : String, is_pressed : bool = true):
 
 func _physics_process(delta):
 
-    var attached_velocity = Vector2(0,0)
-
     # TODO asymetrical jump (better jump)
     var grav_factor = 1
     #if velocity.y > 0:
@@ -138,6 +137,7 @@ func _physics_process(delta):
     if just_jumped and (is_on_floor() or coyote):
         velocity.y = JUMP_VELOCITY
         is_jumping = true
+        jump_sound.play()
 
     var direction = Input.get_axis(self.move_left, self.move_right)
     if direction:
@@ -147,7 +147,7 @@ func _physics_process(delta):
 
     # TODO handle attached to two players
     if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
-        constrain_velocity(delta, just_jumped)
+        constrain_velocity()
 
     if rope:
         if attached_pic and is_instance_valid(attached_pic):

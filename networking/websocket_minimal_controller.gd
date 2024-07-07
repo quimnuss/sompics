@@ -1,8 +1,6 @@
 extends Node
 class_name WsController
 
-# The port we will listen to.
-const PORT = 9080
 var tcp_server := TCPServer.new()
 var socket := WebSocketPeer.new()
 
@@ -26,7 +24,7 @@ func process_packet(message):
     action_received.emit(player, action, is_pressed)
 
 func _ready():
-    if tcp_server.listen(PORT) != OK:
+    if tcp_server.listen(Persistence.LISTEN_PORT) != OK:
         log_message("Unable to start server.")
         set_process(false)
 

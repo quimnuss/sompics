@@ -1,7 +1,7 @@
 extends Node
 
 ## The URL we will connect to.
-var websocket_url := "ws://localhost:9080"
+var websocket_url := "ws://localhost:" + str(Persistence.LISTEN_PORT)
 var player : String = 'marta'
 var socket : WebSocketPeer = WebSocketPeer.new()
 

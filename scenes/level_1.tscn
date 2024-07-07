@@ -41,7 +41,7 @@ position = Vector2(368, 744)
 shape = SubResource("RectangleShape2D_yue0q")
 
 [node name="Key" parent="." instance=ExtResource("6_mj6gc")]
-position = Vector2(352, 280)
+position = Vector2(352, 272)
 gravity_scale = 0.0
 lock_rotation = true
 

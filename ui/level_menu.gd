@@ -14,7 +14,7 @@ func _ready():
         for box : LevelBox in grid.get_children():
             var num = box.get_index() + 1 + 18 * grid.get_index()
             box.level_num = num
-            box.locked = not Persistence.levels[num-1] if num-1 < len(Persistence.levels) else true
+            box.locked = not Persistence.levels[num] if num < len(Persistence.levels) else true
             box.level_selected.connect(travel)
 
 func travel(level_num : int):

@@ -28,11 +28,11 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(1024, 296)
 
 [node name="Key" parent="." instance=ExtResource("4_jikpx")]
-position = Vector2(592, 384)
+position = Vector2(594, 394)
 gravity_scale = 0.0
 
 [node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(592, 360)
+position = Vector2(592, 392)
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(592, 640)

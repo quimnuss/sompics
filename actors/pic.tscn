@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfa1h1cv5i3ab"]
+[gd_scene load_steps=30 format=3 uid="uid://cfa1h1cv5i3ab"]
 
 [ext_resource type="Script" path="res://actors/pic.gd" id="1_5ledp"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_srj8h"]
 [ext_resource type="Script" path="res://actors/head.gd" id="3_h8ejj"]
 [ext_resource type="Texture2D" uid="uid://bqjx1amkj537a" path="res://assets/dungeon_characters.png" id="4_6lgy5"]
+[ext_resource type="AudioStream" uid="uid://dj2q23b8ll78y" path="res://assets/jump.ogg" id="5_h2mhi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dq60i"]
 size = Vector2(20, 31)
@@ -242,5 +243,10 @@ autoplay = "idle"
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="jump_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_h2mhi")
+volume_db = 3.0
+bus = &"Effects"
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

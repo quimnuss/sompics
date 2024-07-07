@@ -5,6 +5,7 @@ A silly Game for Funk together
 # Credits
 
 [Tileset and more](https://pixelfrog-assets.itch.io/kings-and-pigs) by PixelFrog
+[2 Impact Wet](https://freesound.org/s/376818/) by original_sound License: Attribution 3.0
 
 # TODO
 

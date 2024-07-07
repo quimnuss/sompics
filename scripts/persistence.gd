@@ -4,7 +4,9 @@ var pics : Array = ['marta', 'pol']
 
 var active_pic : int = 0
 
-var levels : Array = [true, true, true, true, true, true, true, false]
+var levels : Array = [true, true, true, true, true, true, true, true, true, false]
+
+const LISTEN_PORT : int = 9080
 
 func _input(event):
     if event.is_action_pressed("switch_pic"):

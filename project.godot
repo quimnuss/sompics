@@ -18,6 +18,7 @@ config/icon="res://assets/Items/icon.png"
 [autoload]
 
 Persistence="*res://scripts/persistence.gd"
+AudioPlayer="*res://actors/audio_player.tscn"
 
 [display]
 
