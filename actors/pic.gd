@@ -24,11 +24,19 @@ var key : Key
 
 var is_on_door : bool = false
 
+var coyote_frames = 6
+var coyote = false
+var was_on_floor = false
+@onready var coyote_timer = $CoyoteTimer
+var is_jumping : bool = false
+
 signal pic_exit
 signal pic_back
 
 func _ready():
     head.set_person(person)
+    self.name = person
+    coyote_timer.wait_time = coyote_frames / 60.0
     add_to_group('pics')
     if person == 'pol':
         self.SPEED = 200
@@ -120,8 +128,9 @@ func _physics_process(delta):
         velocity.y += gravity * delta
 
     var just_jumped : bool = Input.is_action_just_pressed(self.jump)
-    if just_jumped and is_on_floor():
+    if just_jumped and (is_on_floor() or coyote):
         velocity.y = JUMP_VELOCITY
+        is_jumping = true
 
     var direction = Input.get_axis(self.move_left, self.move_right)
     if direction:
@@ -142,3 +151,28 @@ func _physics_process(delta):
             rope.visible = false
 
     move_and_slide()
+
+    if not is_on_floor() and was_on_floor and not is_jumping:
+        coyote = true
+        coyote_timer.start()
+
+    if name == 'marta':
+        prints(is_on_floor(), was_on_floor, is_jumping)
+    if coyote:
+        print(coyote_timer.time_left)
+
+    if is_on_floor() and is_jumping:
+        is_jumping = false
+
+    if velocity.x > 0:
+        #$AnimatedSprite2d.flip_h = false
+        head.flip_h = false
+    if velocity.x < 0:
+        #$AnimatedSprite2d.flip_h = true
+        head.flip_h = true
+
+    was_on_floor = is_on_floor()
+
+
+func _on_coyote_timer_timeout():
+    coyote = false
