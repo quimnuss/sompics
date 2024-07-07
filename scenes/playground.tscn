@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://c5erylmd5leup" path="res://actors/drop_box.tscn" id="9_5ywgi"]
 [ext_resource type="PackedScene" uid="uid://4x0l8tl5cstu" path="res://actors/weight_platform.tscn" id="10_qsupa"]
 [ext_resource type="PackedScene" uid="uid://bh44brmlp1s8k" path="res://actors/platform.tscn" id="11_sskg7"]
-[ext_resource type="PackedScene" uid="uid://7c3tu4o8qqlf" path="res://networking/websocket_minimal_controller.tscn" id="13_qgk6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp76t"]
 size = Vector2(60, 42)
@@ -52,8 +51,6 @@ position = Vector2(-336, 16)
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(168, 152)
 script = ExtResource("4_o5gmv")
-
-[node name="WebsocketMinimalController" parent="PlayerSpawner" instance=ExtResource("13_qgk6o")]
 
 [node name="Button" parent="." instance=ExtResource("5_cj3ad")]
 position = Vector2(584, 528)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://gs5x3ib5i4hr"]
+[gd_scene load_steps=5 format=3 uid="uid://gs5x3ib5i4hr"]
 
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_w0rah"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_ccq3l"]
+[ext_resource type="PackedScene" uid="uid://dftg54mjw1fp8" path="res://networking/debug_client.tscn" id="4_fn100"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_5y6cc"]
 
 [node name="WelcomeLevel" type="Node2D"]
@@ -24,3 +25,11 @@ is_open = true
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(185, 206)
 script = ExtResource("6_5y6cc")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ClientMockup" parent="UI" instance=ExtResource("4_fn100")]
+offset_left = 110.0
+offset_top = 499.0
+offset_right = 110.0
+offset_bottom = 499.0

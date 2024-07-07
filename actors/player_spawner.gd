@@ -1,13 +1,16 @@
 extends Marker2D
 
 @export var attached : bool = false
-@onready var wscontroller : WsController = $WebsocketMinimalController
+#@onready var wscontroller : WsController = $WebsocketMinimalController
+var wscontroller : WsController
 
 var pic_scene = preload('res://actors/pic.tscn')
 
 var last_pic : Pic
 
 func _ready():
+    wscontroller = WsController.new()
+    self.add_child(wscontroller)
     var pics_array = Persistence.pics
     for pic_name in pics_array:
         await get_tree().create_timer(0.5).timeout
@@ -27,7 +30,7 @@ func spawn(pic_name : String):
     self.add_child(pic)
     if not wscontroller:
         wscontroller = WsController.new()
-        add_child(wscontroller)        
+        add_child(wscontroller)
     wscontroller.action_received.connect(pic.external_input)
 
 func spawn_attached(pic_name):
