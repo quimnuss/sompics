@@ -22,6 +22,8 @@ var rope : Line2D
 const ROPELENGTH = 120
 var key : Key
 
+var is_on_door : bool = false
+
 signal pic_exit
 signal pic_back
 
@@ -37,25 +39,12 @@ func _ready():
         self.down = self.down  + '_' + str(player_num)
 
     if attached_pic:
-        rope = Line2D.new()
-        rope.width = 2
-        rope.default_color = Color.BROWN
-        #rope.show_behind_parent = true
-        rope.z_as_relative = true
-        rope.z_index = -1
-        rope.add_point(self.global_position)
-        rope.add_point(self.attached_pic.global_position)
-        add_child(rope)
+        rope_attach()
 
-var is_on_door : bool = false
-var last_door_position : Vector2
 
 func enter_door():
-    #last_door_position = self.global_position
     self.set_physics_process(false)
     get_node("CollisionShape2D").disabled = true
-    #self.visible = false
-    #self.global_position = Vector2.ZERO
     self.is_out = true
     head.set_modulate(Color(1,1,1,0.25))
     pic_exit.emit()
@@ -63,10 +52,8 @@ func enter_door():
 var is_out : bool = false
 
 func exit_door():
-    #self.global_position = last_door_position
     self.set_physics_process(true)
     get_node("CollisionShape2D").disabled = false
-    #self.visible = true
     head.set_modulate(Color(1,1,1,1))
     self.is_out = false
     pic_back.emit()
@@ -81,12 +68,24 @@ func hold(key_ : Key):
     key = key_
 
 func drop():
-    if key:
+    if key and is_instance_valid(key):
         key.drop()
 
 func attach(pic : Pic):
-    var friend_path = pic.get_path()
-    #rope.node_b = friend_path
+    attached_pic = pic
+    rope_attach()
+
+func rope_attach():
+    rope = Line2D.new()
+    rope.width = 2
+    rope.default_color = Color.BROWN
+    #rope.show_behind_parent = true
+    rope.z_as_relative = true
+    rope.z_index = -1
+    rope.add_point(self.global_position)
+    rope.add_point(self.attached_pic.global_position)
+    add_child(rope)
+
 
 func constrain_velocity(delta, just_jumped):
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
@@ -130,6 +129,7 @@ func _physics_process(delta):
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
 
+    # TODO handle attached to two players
     if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
         constrain_velocity(delta, just_jumped)
 

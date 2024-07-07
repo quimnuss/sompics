@@ -40,4 +40,5 @@ func spawn_attached(pic_name):
     await get_tree().create_timer(1.0).timeout
     if last_pic:
         pic.attach(last_pic)
+        last_pic.attach(pic)
     last_pic = pic
