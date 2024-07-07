@@ -30,7 +30,7 @@ func _exit_tree() -> void:
 
 func _on_button_ping_pressed() -> void:
     socket.send_text("Ping")
-    
+
 
 func _on_jump_button_down():
     socket.send_text(player + '-jump-1')

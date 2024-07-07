@@ -20,6 +20,10 @@ var down : String = 'down'
 var rope : Line2D
 
 const ROPELENGTH = 120
+var key : Key
+
+signal pic_exit
+signal pic_back
 
 func _ready():
     head.set_person(person)
@@ -43,10 +47,35 @@ func _ready():
         rope.add_point(self.attached_pic.global_position)
         add_child(rope)
 
-func enter_door():
-    queue_free()
+var is_on_door : bool = false
+var last_door_position : Vector2
 
-var key : Key
+func enter_door():
+    #last_door_position = self.global_position
+    self.set_physics_process(false)
+    get_node("CollisionShape2D").disabled = true
+    #self.visible = false
+    #self.global_position = Vector2.ZERO
+    self.is_out = true
+    head.set_modulate(Color(1,1,1,0.25))
+    pic_exit.emit()
+
+var is_out : bool = false
+
+func exit_door():
+    #self.global_position = last_door_position
+    self.set_physics_process(true)
+    get_node("CollisionShape2D").disabled = false
+    #self.visible = true
+    head.set_modulate(Color(1,1,1,1))
+    self.is_out = false
+    pic_back.emit()
+
+func _process(delta):
+    if is_on_door and not self.is_out and Input.is_action_just_pressed(jump):
+            enter_door()
+    elif is_out and Input.is_action_just_pressed(jump):
+            exit_door()
 
 func hold(key_ : Key):
     key = key_

@@ -10,11 +10,15 @@ var last_pic : Pic
 func _ready():
     var pics_array = Persistence.pics
     for pic_name in pics_array:
-        await get_tree().create_timer(1.0).timeout
+        await get_tree().create_timer(0.5).timeout
         if attached:
             spawn_attached(pic_name)
         else:
             spawn(pic_name)
+
+    for pic : Pic in get_tree().get_nodes_in_group('pics'):
+        pic.pic_back.connect($"../Door".pic_back)
+        pic.pic_exit.connect($"../Door".pic_exit)
 
 func spawn(pic_name : String):
     #TODO prevent spawning inside the collider OR posess characters manually placed on level OR activate collisions with other players when not colliding
