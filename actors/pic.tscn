@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bqjx1amkj537a" path="res://assets/dungeon_characters.png" id="4_6lgy5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x3hx"]
-size = Vector2(23, 32)
+size = Vector2(23, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox17r"]
 atlas = ExtResource("4_6lgy5")
