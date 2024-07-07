@@ -5,8 +5,6 @@ class_name Door
 
 const level_dir : String = 'res://scenes/'
 
-@export var next_level : String = 'main_level.tscn'
-
 @export var is_open : bool = false
 
 signal level_exit
@@ -15,10 +13,20 @@ signal all_in
 var pics_in : int = 0
 var num_pics : int = 2
 
+var level_num : int = 0
+
+@export var next_level : String
+
 func _ready():
     num_pics = len(Persistence.pics)
     if is_open:
         door_sprite.play('open')
+    var fullpath : String = get_tree().current_scene.scene_file_path
+    var level : String = fullpath.right(7).left(2)
+    level_num = int(level)
+    if not next_level:
+        var next_level_num = level_num+1
+        next_level = 'level_' + str(next_level_num) + '.tscn'
 
 func open():
     door_sprite.play('open')
