@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bub5s3prpnqqi"]
+[gd_scene load_steps=10 format=3 uid="uid://bub5s3prpnqqi"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_45ic1"]
-[ext_resource type="Script" path="res://scenes/level_4.gd" id="1_bpbm1"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_c7ss2"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="2_vk1h4"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_j3w2q"]
@@ -21,7 +20,6 @@ point_count = 2
 size = Vector2(192, 8)
 
 [node name="MainLevel" type="Node2D"]
-script = ExtResource("1_bpbm1")
 
 [node name="UI" parent="." instance=ExtResource("1_45ic1")]
 

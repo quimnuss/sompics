@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwf4yqf0soyw2"]
+
+[ext_resource type="Script" path="res://ui/fueguito.gd" id="1_q5khm"]
+[ext_resource type="Texture2D" uid="uid://ds3woj2pgstv7" path="res://assets/Items/fire_effect_0.png" id="2_tcqkq"]
+[ext_resource type="Texture2D" uid="uid://c783nu2i7lymb" path="res://assets/Items/fire_effect_1.png" id="3_t51ld"]
+[ext_resource type="Texture2D" uid="uid://kj0oc2kqoxn3" path="res://assets/Items/fire_effect_2.png" id="4_uprow"]
+[ext_resource type="Texture2D" uid="uid://nma373kbmcl2" path="res://assets/Items/fire_effect_3.png" id="5_fp1ue"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_t0ery"]
+frames = 6
+speed_scale = 5.0
+frame_0/texture = ExtResource("2_tcqkq")
+frame_1/texture = ExtResource("3_t51ld")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_uprow")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_fp1ue")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("4_uprow")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("3_t51ld")
+frame_5/duration = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_left = 840.0
+offset_top = 8.0
+offset_right = 970.0
+offset_bottom = 48.0
+alignment = 1
+script = ExtResource("1_q5khm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_t0ery")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0 fueguitos"
+horizontal_alignment = 1
+vertical_alignment = 1
