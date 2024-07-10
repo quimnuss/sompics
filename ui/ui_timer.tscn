@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3htqdtri5tvh"]
+
+[ext_resource type="Script" path="res://ui/ui_timer.gd" id="1_q761h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nq8on"]
+bg_color = Color(0.592157, 0.843137, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.878431, 0.905882, 0.133333, 1)
+border_blend = true
+
+[node name="UITimer" type="PanelContainer"]
+offset_left = 840.0
+offset_top = 8.0
+offset_right = 970.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nq8on")
+script = ExtResource("1_q761h")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1

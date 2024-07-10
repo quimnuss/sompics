@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var fueguito_count = $UI/FueguitoCount
 @onready var door = $Door
+@onready var ui_timer = $UI/UITimer
 
 var num_coins: int
 
@@ -12,6 +13,13 @@ func _ready():
         coin.coin_picked.connect(self._on_coin_coin_picked)
 
     num_coins = len(coins)
+
+    ui_timer.timeout.connect(_on_timer_timeout)
+
+func _on_timer_timeout():
+    get_tree().call_group('pics', 'kill')
+    await get_tree().create_timer(2).timeout
+    get_tree().reload_current_scene()
 
 func _on_coin_coin_picked():
     num_coins -= 1
