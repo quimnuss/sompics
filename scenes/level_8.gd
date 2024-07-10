@@ -3,6 +3,8 @@ extends Node2D
 @onready var fueguito_count = $UI/FueguitoCount
 @onready var door = $Door
 @onready var ui_timer = $UI/UITimer
+@onready var game_over = $GameOver
+@onready var key_spawner = $KeySpawner
 
 var num_coins: int
 
@@ -17,14 +19,18 @@ func _ready():
     ui_timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout():
+    game_over.play()
     get_tree().call_group('pics', 'kill')
     await get_tree().create_timer(2).timeout
     get_tree().reload_current_scene()
 
 func _on_coin_coin_picked():
     num_coins -= 1
-    open_door_if_all_coins_picked()
+    spawn_key_if_all_coins_picked()
 
-func open_door_if_all_coins_picked():
+func spawn_key_if_all_coins_picked():
     if num_coins <= 0:
-        door.open()
+        var key : Key = load('res://actors/key.tscn').instantiate()
+        key.global_position = key_spawner.global_position
+        add_child(key)
+        #door.open()

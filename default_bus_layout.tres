@@ -1,6 +1,7 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://bxwkq3s4lv73e"]
 
 [resource]
+bus/0/volume_db = -3.32444
 bus/1/name = &"Effects"
 bus/1/solo = false
 bus/1/mute = false
