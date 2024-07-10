@@ -5,6 +5,7 @@ class_name Pic
 
 @export var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
+var push_force = 80.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -158,6 +159,12 @@ func _physics_process(delta):
             rope.visible = false
 
     move_and_slide()
+
+    # box interaction
+    for i in get_slide_collision_count():
+        var c = get_slide_collision(i)
+        if c.get_collider() is RigidBody2D:
+            c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
     if not is_on_floor() and was_on_floor and not is_jumping:
         coyote = true

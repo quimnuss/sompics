@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cim0xouheyhfx"]
+
+[ext_resource type="Script" path="res://actors/box.gd" id="1_02heq"]
+[ext_resource type="Texture2D" uid="uid://bsage84pqoh1q" path="res://assets/08-Box/Idle.png" id="2_8kkji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpwsq"]
+size = Vector2(61, 48)
+
+[node name="Box" type="RigidBody2D"]
+script = ExtResource("1_02heq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xpwsq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_8kkji")
