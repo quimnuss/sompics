@@ -31,6 +31,8 @@ var coyote = false
 var was_on_floor = false
 @onready var coyote_timer = $CoyoteTimer
 var is_jumping : bool = false
+var is_pushing_left : bool = false
+var is_pushing_right : bool = false
 
 signal pic_exit
 signal pic_back
@@ -159,6 +161,14 @@ func _physics_process(delta):
             rope.visible = false
 
     move_and_slide()
+
+    is_pushing_left = false
+    is_pushing_right = false
+    if is_on_wall():
+        if direction < 0 and get_wall_normal() == Vector2(1,0):
+            is_pushing_left = true
+        elif direction > 0 and get_wall_normal() == Vector2(-1,0):
+            is_pushing_right = true
 
     # box interaction
     for i in get_slide_collision_count():

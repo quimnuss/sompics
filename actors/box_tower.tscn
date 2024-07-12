@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bsage84pqoh1q" path="res://assets/08-Box/Idle.png" id="2_1lde1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpwsq"]
-size = Vector2(61, 286)
+size = Vector2(55, 286)
 
 [node name="Box" type="RigidBody2D"]
 collision_layer = 8
