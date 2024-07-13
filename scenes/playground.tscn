@@ -30,7 +30,7 @@ offset_top = 499.0
 offset_right = 110.0
 offset_bottom = 499.0
 
-[node name="HBoxContainer" parent="UI" instance=ExtResource("4_0v4kh")]
+[node name="HBoxContainer2" parent="UI" instance=ExtResource("4_0v4kh")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_c81co")

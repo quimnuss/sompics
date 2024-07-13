@@ -43,7 +43,6 @@ func _ready():
     coyote_timer.wait_time = coyote_frames / 60.0
     add_to_group('pics')
     if person == 'pol':
-        self.SPEED = 200
         var player_num = 2
         self.move_left = self.move_left + '_' + str(player_num)
         self.move_right = self.move_right  + '_' + str(player_num)

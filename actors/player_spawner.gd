@@ -8,6 +8,8 @@ var pic_scene = preload('res://actors/pic.tscn')
 
 var last_pic : Pic
 
+signal player_average_position(avg_position)
+
 func _ready():
     wscontroller = WsController.new()
     self.add_child(wscontroller)
@@ -42,3 +44,14 @@ func spawn_attached(pic_name):
         pic.attach(last_pic)
         last_pic.attach(pic)
     last_pic = pic
+
+func _process(delta):
+    var pics : Array = get_tree().get_nodes_in_group('pics')
+    if len(pics) == 0:
+        return
+    var avg_pic_position : Vector2 = Vector2(0,0)
+    for pic : Pic in pics:
+        avg_pic_position += pic.global_position
+    avg_pic_position = avg_pic_position/len(pics)
+    player_average_position.emit(avg_pic_position)
+        
