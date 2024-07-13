@@ -1,17 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://chllrn85h5fv3"]
+[gd_scene load_steps=7 format=3 uid="uid://chllrn85h5fv3"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1fom5"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_nk2l8"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_ygnou"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_jngat"]
-[ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="5_lq2wr"]
-[ext_resource type="Script" path="res://world/pics_camera.gd" id="6_o1u1q"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ycxnu"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eji17"]
-normal = Vector2(0, 1)
+[ext_resource type="PackedScene" uid="uid://by8qmrfqhlfnr" path="res://world/pics_camera.tscn" id="6_685cx"]
+[ext_resource type="PackedScene" uid="uid://xaaky5nuxjpn" path="res://actors/timed_button.tscn" id="6_lw1io"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -40,29 +34,9 @@ position = Vector2(152, 256)
 
 [node name="Buttons" type="Node2D" parent="."]
 
-[node name="Button" parent="Buttons" instance=ExtResource("5_lq2wr")]
-position = Vector2(376, 400)
+[node name="TimedButton" parent="Buttons" instance=ExtResource("6_lw1io")]
+position = Vector2(384, 400)
 
-[node name="Button2" parent="Buttons" instance=ExtResource("5_lq2wr")]
-position = Vector2(552, 400)
-
-[node name="PicsCamera" type="Camera2D" parent="."]
-position = Vector2(576, 328)
-limit_left = 0
-limit_top = 0
-script = ExtResource("6_o1u1q")
-
-[node name="WallLeft" type="StaticBody2D" parent="PicsCamera"]
-position = Vector2(-576, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PicsCamera/WallLeft"]
-shape = SubResource("WorldBoundaryShape2D_ycxnu")
-
-[node name="WallRight" type="StaticBody2D" parent="PicsCamera"]
-position = Vector2(576, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PicsCamera/WallRight"]
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_eji17")
+[node name="PicsCamera" parent="." instance=ExtResource("6_685cx")]
 
 [connection signal="player_average_position" from="PlayerSpawner" to="PicsCamera" method="_on_player_spawner_player_average_position"]
