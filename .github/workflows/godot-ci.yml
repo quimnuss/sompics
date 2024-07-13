@@ -8,6 +8,7 @@ env:
 
 jobs:
   export-windows:
+    if: false
     name: Windows Export
     runs-on: ubuntu-20.04
     permissions:
@@ -97,6 +98,7 @@ jobs:
           folder: build/web # The folder the action should deploy.
 
   export-mac:
+    if: false
     name: Mac Export
     runs-on: ubuntu-20.04
     permissions:
