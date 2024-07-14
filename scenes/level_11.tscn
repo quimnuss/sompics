@@ -1,15 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://chllrn85h5fv3"]
+[gd_scene load_steps=8 format=3 uid="uid://chllrn85h5fv3"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1fom5"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_nk2l8"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_ygnou"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_jngat"]
+[ext_resource type="Script" path="res://actors/timed_button_collector.gd" id="5_mpg76"]
 [ext_resource type="PackedScene" uid="uid://by8qmrfqhlfnr" path="res://world/pics_camera.tscn" id="6_685cx"]
 [ext_resource type="PackedScene" uid="uid://xaaky5nuxjpn" path="res://actors/timed_button.tscn" id="6_lw1io"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("1_1fom5")]
+
+[node name="TotalTime" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.0
+offset_top = 162.0
+offset_right = 23.0
+offset_bottom = 182.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 50
+text = "00:00"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_nk2l8")
@@ -32,9 +47,10 @@ script = ExtResource("4_jngat")
 [node name="KeySpawn" type="Marker2D" parent="."]
 position = Vector2(152, 256)
 
-[node name="Buttons" type="Node2D" parent="."]
+[node name="TimedButtonCollector" type="Node2D" parent="."]
+script = ExtResource("5_mpg76")
 
-[node name="TimedButton" parent="Buttons" instance=ExtResource("6_lw1io")]
+[node name="TimedButton" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
 position = Vector2(384, 400)
 
 [node name="PicsCamera" parent="." instance=ExtResource("6_685cx")]

@@ -7,6 +7,8 @@ const time_warp : float = 10
 
 var remaining_time : float = start_time
 
+func _ready():
+    add_to_group('timed_buttons')
 
 func _process(delta):
     remaining_time -= time_warp*delta
