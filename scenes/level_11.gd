@@ -11,13 +11,16 @@ func _on_timed_button_collector_time_up():
 func game_lost_restart():
     ui.show_game_lost()
     await get_tree().create_timer(2).timeout
-    get_tree().reload_current_scene()
+    if is_instance_valid(get_tree()):
+        get_tree().reload_current_scene()
+    else:
+        Persistence.get_tree().change_scene_to_file('res://scenes/level_11.tscn')
 
 
 func _on_timed_button_collector_all_stopped(total_time : int):
-    if ui_total_time.lower_bound <= total_time and total_time <= ui_total_time.upper_bound:
+    if ui_total_time.lower_bound < total_time and total_time < ui_total_time.upper_bound:
         var key = load("res://actors/key.tscn").instantiate()
         key.global_position = key_spawn.global_position
-        add_child(key)
+        self.call_deferred('add_child', key)
     else:
         game_lost_restart()

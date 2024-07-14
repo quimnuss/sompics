@@ -3,9 +3,9 @@ class_name TimedButton
 
 @onready var label = $Label
 
-@export var start_time : int = 2*60
+@export var start_time : int = 1000
 
-const time_warp : float = 15
+const time_warp : float = 100
 
 var remaining_time : float = start_time
 
@@ -21,14 +21,12 @@ func _ready():
 func _process(delta):
     if not is_timeout and is_running:
         remaining_time -= time_warp*delta
-        if remaining_time <= 0:
+        if remaining_time < 1:
             remaining_time = 0
             is_timeout = true
             label.set("theme_override_colors/font_color", Color.FIREBRICK)
 
-        var mins : int = remaining_time/60
-        var secs : int = fmod(remaining_time,60)
-        label.set_text("%02d:%02d" % [mins, secs])
+        label.set_text("%.2f" % [remaining_time/100.0])
 
         if is_timeout:
             timeout.emit()
