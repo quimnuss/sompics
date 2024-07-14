@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4gxeqkrs47vl"]
+[gd_scene load_steps=12 format=3 uid="uid://b4gxeqkrs47vl"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_dlwhy"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_88gh7"]
@@ -6,11 +6,15 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_f24um"]
 [ext_resource type="Script" path="res://actors/respawn.gd" id="5_p4v2p"]
 [ext_resource type="PackedScene" uid="uid://cpu4mft7xtgdq" path="res://actors/box_tower.tscn" id="7_abbv7"]
+[ext_resource type="Script" path="res://actors/pushing_detector.gd" id="7_k4lcq"]
 [ext_resource type="Script" path="res://actors/box.gd" id="8_cevjn"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="9_m0jlx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2dor"]
 size = Vector2(360, 206.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22yit"]
+size = Vector2(210, 290)
 
 [node name="MainLevel" type="Node2D"]
 
@@ -48,6 +52,19 @@ shape = SubResource("RectangleShape2D_l2dor")
 position = Vector2(232, 272)
 mass = 8.0
 lock_rotation = true
+
+[node name="Node2D" type="Node2D" parent="BoxTowerLeft"]
+position = Vector2(-232, -272)
+script = ExtResource("7_k4lcq")
+
+[node name="Area2D" type="Area2D" parent="BoxTowerLeft/Node2D"]
+position = Vector2(232, 272)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxTowerLeft/Node2D/Area2D"]
+position = Vector2(135, -1)
+shape = SubResource("RectangleShape2D_22yit")
 
 [node name="BoxTowerRight" parent="." instance=ExtResource("7_abbv7")]
 position = Vector2(616, 272)

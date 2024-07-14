@@ -1,10 +1,14 @@
-[gd_scene load_steps=30 format=3 uid="uid://cfa1h1cv5i3ab"]
+[gd_scene load_steps=32 format=3 uid="uid://cfa1h1cv5i3ab"]
 
 [ext_resource type="Script" path="res://actors/pic.gd" id="1_5ledp"]
+[ext_resource type="Texture2D" uid="uid://bqfcakkq4u0tm" path="res://assets/13-Dialogue Boxes/!!! In (24x8).png" id="2_b3t8c"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_srj8h"]
 [ext_resource type="Script" path="res://actors/head.gd" id="3_h8ejj"]
 [ext_resource type="Texture2D" uid="uid://bqjx1amkj537a" path="res://assets/dungeon_characters.png" id="4_6lgy5"]
 [ext_resource type="AudioStream" uid="uid://dj2q23b8ll78y" path="res://assets/jump.ogg" id="5_h2mhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnlmo"]
+size = Vector2(20, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dq60i"]
 size = Vector2(20, 31)
@@ -204,12 +208,28 @@ _data = {
 }
 
 [node name="Pic" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 11
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.0472
 script = ExtResource("1_5ledp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(11, -23)
+texture = ExtResource("2_b3t8c")
+region_enabled = true
+region_rect = Rect2(78, 2, 14, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_qnlmo")
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -3.5)

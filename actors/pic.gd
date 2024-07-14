@@ -126,6 +126,21 @@ func external_input(player : String, action : String, is_pressed : bool = true):
         #await get_tree().create_timer(1).timeout
         Input.action_release(action)
 
+func resolve_pushing(direction : float):
+    is_pushing_left = false
+    is_pushing_right = false
+    var left_push = $Area2D/CollisionShape2D as CollisionShape2D
+    var push_sprite : Sprite2D = $Area2D/Sprite2D as Sprite2D
+    push_sprite.visible = false
+    left_push.disabled = true
+    if is_on_wall():
+        if direction < 0 and get_wall_normal() == Vector2(1,0):
+            left_push.disabled = false
+            is_pushing_left = true
+            push_sprite.visible = true
+        elif direction > 0 and get_wall_normal() == Vector2(-1,0):
+            is_pushing_right = true
+
 func _physics_process(delta):
 
     # TODO asymetrical jump (better jump)
@@ -141,7 +156,7 @@ func _physics_process(delta):
         is_jumping = true
         jump_sound.play()
 
-    var direction = Input.get_axis(self.move_left, self.move_right)
+    var direction : float = Input.get_axis(self.move_left, self.move_right)
     if direction:
         velocity.x = direction * SPEED
     else:
@@ -161,13 +176,7 @@ func _physics_process(delta):
 
     move_and_slide()
 
-    is_pushing_left = false
-    is_pushing_right = false
-    if is_on_wall():
-        if direction < 0 and get_wall_normal() == Vector2(1,0):
-            is_pushing_left = true
-        elif direction > 0 and get_wall_normal() == Vector2(-1,0):
-            is_pushing_right = true
+    resolve_pushing(direction)
 
     # box interaction
     for i in get_slide_collision_count():
