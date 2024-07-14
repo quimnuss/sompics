@@ -86,6 +86,7 @@ jobs:
           cd $PROJECT_PATH
           ls
           godot --headless --editor --quit-after 5
+          echo 'finished first start'
           godot --headless --verbose --export-release "HTML5" ../build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
