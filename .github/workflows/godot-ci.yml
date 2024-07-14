@@ -37,6 +37,7 @@ jobs:
           path: build/windows
 
   export-linux:
+    if: false
     name: Linux Export
     runs-on: ubuntu-20.04
     permissions:
@@ -65,6 +66,7 @@ jobs:
           path: build/linux
 
   export-web:
+    if: false
     name: Web Export
     runs-on: ubuntu-20.04
     permissions:
