@@ -60,3 +60,6 @@ position = Vector2(384, 400)
 
 [node name="TimedButton2" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
 position = Vector2(496, 400)
+
+[connection signal="time_up" from="TimedButtonCollector" to="." method="_on_timed_button_collector_time_up"]
+[connection signal="time_update" from="TimedButtonCollector" to="UI/TotalTime" method="_on_timed_button_collector_time_update"]
