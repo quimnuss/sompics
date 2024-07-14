@@ -5,6 +5,13 @@ var total_time : int = 0
 signal time_update(total_time)
 signal time_up
 
+func _ready():
+    for timed_button : TimedButton in get_tree().get_nodes_in_group('timed_buttons'):
+        timed_button.timeout.connect(somebody_timeout)
+
+func somebody_timeout():
+    time_up.emit()
+
 func _process(delta):
     var previous_total_time : int = total_time
     total_time = 0

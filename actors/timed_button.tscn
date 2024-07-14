@@ -5,6 +5,7 @@
 
 [node name="TimedButton" type="Node2D"]
 script = ExtResource("1_0bcdo")
+start_time = 100
 
 [node name="Button" parent="." instance=ExtResource("1_jp3dd")]
 
