@@ -46,11 +46,11 @@ position = Vector2(1064, 392)
 next_level = "welcome_level.tscn"
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(200, 232)
+position = Vector2(576, 304)
 script = ExtResource("4_jngat")
 
 [node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(152, 256)
+position = Vector2(240, 192)
 
 [node name="TimedButtonCollector" type="Node2D" parent="."]
 script = ExtResource("5_mpg76")
@@ -61,5 +61,6 @@ position = Vector2(384, 400)
 [node name="TimedButton2" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
 position = Vector2(496, 400)
 
+[connection signal="all_stopped" from="TimedButtonCollector" to="." method="_on_timed_button_collector_all_stopped"]
 [connection signal="time_up" from="TimedButtonCollector" to="." method="_on_timed_button_collector_time_up"]
 [connection signal="time_update" from="TimedButtonCollector" to="UI/TotalTime" method="_on_timed_button_collector_time_update"]

@@ -13,6 +13,7 @@ var is_timeout : bool = false
 var is_running : bool = true
 
 signal timeout
+signal stopped
 
 func _ready():
     add_to_group('timed_buttons')
@@ -35,3 +36,4 @@ func _process(delta):
 
 func _on_button_button_pressed():
     is_running = false
+    stopped.emit()
