@@ -84,6 +84,7 @@ jobs:
         run: |
           mkdir -v -p build/web
           cd $PROJECT_PATH
+          ls
           godot --headless --editor --quit-after 5
           godot --headless --verbose --export-release "HTML5" ../build/web/index.html
       - name: Upload Artifact
