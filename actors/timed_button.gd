@@ -10,6 +10,7 @@ const time_warp : float = 15
 var remaining_time : float = start_time
 
 var is_timeout : bool = false
+var is_running : bool = true
 
 signal timeout
 
@@ -17,7 +18,7 @@ func _ready():
     add_to_group('timed_buttons')
 
 func _process(delta):
-    if not is_timeout:
+    if not is_timeout and is_running:
         remaining_time -= time_warp*delta
         if remaining_time <= 0:
             remaining_time = 0
@@ -30,3 +31,7 @@ func _process(delta):
 
         if is_timeout:
             timeout.emit()
+
+
+func _on_button_button_pressed():
+    is_running = false
