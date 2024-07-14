@@ -34,6 +34,8 @@ var is_jumping : bool = false
 var is_pushing_left : bool = false
 var is_pushing_right : bool = false
 
+var previous_position : float
+
 signal pic_exit
 signal pic_back
 
@@ -127,19 +129,32 @@ func external_input(player : String, action : String, is_pressed : bool = true):
         Input.action_release(action)
 
 func resolve_pushing(direction : float):
-    is_pushing_left = false
-    is_pushing_right = false
+
+    # evaluate -- not reliable
+    #is_pushing_left = false
+    #is_pushing_right = false
+    #if is_on_wall():
+        #if direction < 0 and get_wall_normal() == Vector2(1,0):
+            #is_pushing_left = true
+        #elif direction > 0 and get_wall_normal() == Vector2(-1,0):
+            #is_pushing_right = true
+
+    var dx = global_position.x - previous_position
+    previous_position = global_position.x
+
+    is_pushing_left = direction < 0 and dx == 0
+    is_pushing_right = direction > 0 and dx == 0
+
+    # consequences
     var left_push = $Area2D/CollisionShape2D as CollisionShape2D
+    left_push.disabled = true
     var push_sprite : Sprite2D = $Area2D/Sprite2D as Sprite2D
     push_sprite.visible = false
-    left_push.disabled = true
-    if is_on_wall():
-        if direction < 0 and get_wall_normal() == Vector2(1,0):
+    if is_pushing_left:
             left_push.disabled = false
-            is_pushing_left = true
             push_sprite.visible = true
-        elif direction > 0 and get_wall_normal() == Vector2(-1,0):
-            is_pushing_right = true
+
+
 
 func _physics_process(delta):
 
