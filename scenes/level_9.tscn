@@ -28,7 +28,6 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Door" parent="." instance=ExtResource("4_sptjl")]
 position = Vector2(1088, 392)
-next_level = "welcome_level.tscn"
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(168, 152)

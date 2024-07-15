@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://3jwf2o15yoax"]
 
-[ext_resource type="Script" path="res://scenes/level_8.gd" id="1_tyucy"]
+[ext_resource type="Script" path="res://scenes/level_coin_picker.gd" id="1_tyucy"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_ag8tm"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_m7uvp"]
 [ext_resource type="PackedScene" uid="uid://cwf4yqf0soyw2" path="res://ui/fueguito_count.tscn" id="3_uxfmn"]

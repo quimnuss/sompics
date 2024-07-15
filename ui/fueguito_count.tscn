@@ -21,7 +21,7 @@ frame_4/duration = 1.0
 frame_5/texture = ExtResource("3_t51ld")
 frame_5/duration = 1.0
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="FueguitoCount" type="HBoxContainer"]
 offset_left = 840.0
 offset_top = 8.0
 offset_right = 970.0
