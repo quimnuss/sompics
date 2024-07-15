@@ -14,7 +14,7 @@ func game_lost_restart():
     if is_instance_valid(get_tree()):
         get_tree().reload_current_scene()
     else:
-        Persistence.get_tree().change_scene_to_file('res://scenes/level_11.tscn')
+        Persistence.get_tree().change_scene_to_file('res://scenes/level_10.tscn')
 
 
 func _on_timed_button_collector_all_stopped(total_time : int):

@@ -12,24 +12,26 @@ A silly Game for Funk together
 ## base de la casa
 
 - [ ] dev team
-- [ ] first milestone 5 nivells
-- [ ] second milestone 10 nivells
-- [ ] 4 players
-- [ ] copy easy levels from game
+- [ ] parametrize levels to number of players
 
 ## columnes
 
 - [ ] fancy jump
-- [ ] fancy levels
 - [ ] per 29 jugadors
 
 ## nata del pastís
 
+- [ ] death animation
 - [ ] noves cares
-- [ ] fix cares distorsió
+- [ ] level transition
+- [ ] better game over transition
 
 # Done
 
+- [x] fancy levels
+- [x] copy easy levels from game
+- [x] first milestone 5 nivells
+- [x] second milestone 10 nivells
 - [x] weight platform
 - [x] buttons
 - [x] rope

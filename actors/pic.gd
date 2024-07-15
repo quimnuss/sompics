@@ -1,11 +1,12 @@
 extends CharacterBody2D
 class_name Pic
 @onready var head : Sprite2D = $Head
-@onready var jump_sound = $jump_sound
+@onready var jump_sound : AudioStreamPlayer = $jump_sound
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 
-@export var SPEED = 200.0
-const JUMP_VELOCITY = -400.0
-var push_force = 100.0
+@export var SPEED :float = 200.0
+const JUMP_VELOCITY : float = -400.0
+var push_force : float = 100.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,7 +27,7 @@ var key : Key
 
 var is_on_door : bool = false
 
-var coyote_frames = 6
+var coyote_frames = 7
 var coyote = false
 var was_on_floor = false
 @onready var coyote_timer = $CoyoteTimer
@@ -103,6 +104,7 @@ func kill():
     head.set_modulate(Color(0.3,0.3,0.3,1))
     self.set_physics_process(false)
     self.set_process(false)
+    animation_player.play('death')
 
 func constrain_velocity():
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)

@@ -9,7 +9,8 @@ func _ready():
     call_deferred('count_coins')
 
 func count_coins():
-    total_coins = len(get_tree().get_nodes_in_group('coins'))
+    if is_instance_valid(get_tree()):
+        total_coins = len(get_tree().get_nodes_in_group('coins'))
 
 func _on_coin_coin_picked():
     coin_count += 1

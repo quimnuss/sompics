@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfa1h1cv5i3ab"]
+[gd_scene load_steps=33 format=3 uid="uid://cfa1h1cv5i3ab"]
 
 [ext_resource type="Script" path="res://actors/pic.gd" id="1_5ledp"]
 [ext_resource type="Texture2D" uid="uid://bqfcakkq4u0tm" path="res://assets/13-Dialogue Boxes/!!! In (24x8).png" id="2_b3t8c"]
@@ -183,6 +183,58 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_r27js"]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2),
+"transitions": PackedFloat32Array(1, 2.73208, 0.450625),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1, 2),
+"transitions": PackedFloat32Array(1, 1.62451, 0.378929),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 600)]
+}
 
 [sub_resource type="Animation" id="Animation_q8xk1"]
 resource_name = "idle"
@@ -204,6 +256,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx35m"]
 _data = {
 "RESET": SubResource("Animation_fb4sd"),
+"death": SubResource("Animation_r27js"),
 "idle": SubResource("Animation_q8xk1")
 }
 
