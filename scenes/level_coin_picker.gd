@@ -15,6 +15,7 @@ func _ready():
         coin.coin_picked.connect(self._on_coin_coin_picked)
 
     num_coins = len(coins)
+    fueguito_count.total_coins = num_coins
 
     ui_timer.timeout.connect(_on_timer_timeout)
 
@@ -32,5 +33,5 @@ func spawn_key_if_all_coins_picked():
     if num_coins <= 0:
         var key : Key = load('res://actors/key.tscn').instantiate()
         key.global_position = key_spawner.global_position
-        add_child(key)
+        call_deferred('add_child', key)
         #door.open()
