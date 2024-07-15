@@ -6,7 +6,7 @@ var active_pic : int = 0
 
 var levels : Array = [
     true, true, true, true, true, true, true, true, true, true,
-    true, true, false
+    true, true, true, false
 ]
 
 const LISTEN_PORT : int = 9080
