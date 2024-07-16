@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://de3j22tq8nijs"]
+[gd_scene load_steps=10 format=3 uid="uid://de3j22tq8nijs"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_av4w6"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_bs0p2"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="2_2duou"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="3_jhclc"]
+[ext_resource type="Script" path="res://actors/key_shifter.gd" id="4_xbufh"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_01aib"]
 [ext_resource type="Script" path="res://actors/respawn.gd" id="6_1xrsj"]
 
@@ -30,12 +31,21 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Door" parent="." instance=ExtResource("2_2duou")]
 position = Vector2(832, 424)
 
-[node name="Key" parent="." instance=ExtResource("3_jhclc")]
-position = Vector2(155, 375)
-gravity_scale = 0.0
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+position = Vector2(536, 160)
+script = ExtResource("6_01aib")
+attached = true
 
-[node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(155, 375)
+[node name="KeySpawnerShifter" type="Node2D" parent="."]
+position = Vector2(156, 375)
+script = ExtResource("4_xbufh")
+
+[node name="KeySpawn" type="Marker2D" parent="KeySpawnerShifter"]
+position = Vector2(-1, 0)
+
+[node name="Key" parent="KeySpawnerShifter" instance=ExtResource("3_jhclc")]
+position = Vector2(-1, 0)
+gravity_scale = 0.0
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(152, 664)
@@ -56,11 +66,6 @@ script = ExtResource("6_1xrsj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(440, 136)
 shape = SubResource("RectangleShape2D_sxyq1")
-
-[node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(536, 160)
-script = ExtResource("6_01aib")
-attached = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

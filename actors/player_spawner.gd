@@ -39,10 +39,11 @@ func spawn_attached(pic_name):
     var pic : Pic = pic_scene.instantiate()
     pic.person = pic_name
     self.add_child(pic)
-    await get_tree().create_timer(1.0).timeout
+    await get_tree().create_timer(1.5).timeout
     if last_pic:
         pic.attach(last_pic)
         last_pic.attach(pic)
+        prints(pic.person,'--',last_pic.person)
     last_pic = pic
 
 func _process(delta):

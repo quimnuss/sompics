@@ -16,7 +16,7 @@ func _on_body_entered(body):
         body.drop()
         # TODO maybe it's better to just reinstantiate
         await get_tree().create_timer(1).timeout
-        body.global_position = owner.get_node('KeySpawn').global_position
+        body.global_position = owner.get_node('KeySpawnerShifter/KeySpawn').global_position
         body.linear_velocity = Vector2.ZERO
         await get_tree().create_timer(0.5).timeout
         body.call_deferred("set_freeze_enabled", false)

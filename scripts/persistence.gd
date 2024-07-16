@@ -1,6 +1,7 @@
 extends Node
 
-var pics : Array = ['marta', 'pol']
+#var pics : Array = ['marta', 'pol']
+var pics : Array = ['marta', 'pol', 'david', 'juanpe']
 
 var active_pic : int = 0
 

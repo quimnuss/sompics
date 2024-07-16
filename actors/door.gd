@@ -27,6 +27,8 @@ func _ready():
     if not next_level:
         var next_level_num = level_num+1
         next_level = 'level_' + str(next_level_num) + '.tscn'
+        if not ResourceLoader.exists(level_dir + next_level):
+            next_level = 'welcome_level.tscn'
 
 func open():
     door_sprite.play('open')
