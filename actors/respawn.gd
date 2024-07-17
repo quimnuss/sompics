@@ -3,13 +3,14 @@ extends Area2D
 
 func _on_body_entered(body):
     if body is Pic:
-        var attached_pic : Pic = body.attached_pic
-        body.attached_pic = null
+        # TODO handle attached pics better, just respawn them all or something.
+        var attached_pics : Array[Pic] = body.attached_pics.duplicate()
+        body.attached_pics.clear()
         await get_tree().create_timer(1).timeout
         body.drop()
         body.global_position = owner.get_node('PlayerSpawner').global_position + Vector2(randi_range(-50,50),randi_range(-50,50))
         await get_tree().create_timer(0.25).timeout
-        body.attached_pic = attached_pic
+        body.attached_pics = attached_pics
 
     if body is Key and not body.freeze:
         body.call_deferred("set_freeze_enabled", true)

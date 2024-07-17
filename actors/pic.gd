@@ -13,14 +13,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var person : String = 'marta'
 
-@export var attached_pic : Pic
+@export var attached_pics : Array[Pic]
 
 var move_left : String = 'move_left'
 var move_right : String = 'move_right'
 var jump : String = 'jump'
 var down : String = 'down'
 
-var rope : Line2D
+var ropes : Array[Line2D]
 
 const ROPELENGTH = 120
 var key : Key
@@ -52,8 +52,8 @@ func _ready():
         self.jump = self.jump  + '_' + str(player_num)
         self.down = self.down  + '_' + str(player_num)
 
-    if attached_pic:
-        rope_attach()
+    if not attached_pics.is_empty():
+        ropes_attach()
 
 
 func enter_door():
@@ -86,19 +86,24 @@ func drop():
         key.drop()
 
 func attach(pic : Pic):
-    attached_pic = pic
-    rope_attach()
+    attached_pics.append(pic)
+    rope_attach(pic)
 
-func rope_attach():
-    rope = Line2D.new()
+func rope_attach(attached_pic : Pic):
+    var rope : Line2D = Line2D.new()
     rope.width = 2
     rope.default_color = Color.BROWN
     #rope.show_behind_parent = true
     rope.z_as_relative = true
     rope.z_index = -1
     rope.add_point(self.global_position)
-    rope.add_point(self.attached_pic.global_position)
+    rope.add_point(attached_pic.global_position)
     add_child(rope)
+    ropes.append(rope)
+
+func ropes_attach():
+    for attached_pic : Pic in attached_pics:
+        rope_attach(attached_pic)
 
 func kill():
     head.set_modulate(Color(0.3,0.3,0.3,1))
@@ -106,13 +111,16 @@ func kill():
     self.set_process(false)
     animation_player.play('death')
 
-func constrain_velocity():
+func constrain_velocity(attached_pic : Pic):
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
     var lambda = self.velocity.dot(attached_direction.normalized())
+    var constrained_velocity = Vector2(0,0)
     if lambda < 10: # moving away + 10 px margin
-        self.velocity = self.velocity - self.velocity.project(attached_direction.normalized()) + 3*attached_direction.length()*attached_direction.normalized()*Vector2(3,1)
+        constrained_velocity = self.velocity - self.velocity.project(attached_direction.normalized()) + 3*attached_direction.length()*attached_direction.normalized()*Vector2(3,1)
     else:
-        self.velocity = 5*attached_direction.length()*attached_direction.normalized()
+        constrained_velocity = 5*attached_direction.length()*attached_direction.normalized()
+
+    return constrained_velocity
 
     # not working as intended
     #if just_jumped and not is_on_floor():
@@ -179,17 +187,21 @@ func _physics_process(delta):
     else:
         velocity.x = move_toward(velocity.x, 0, SPEED)
 
-    # TODO handle attached to two players
-    if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
-        constrain_velocity()
+    # TODO handle attached to two players (currently doesnt sum contraints)
+    for attached_pic : Pic in attached_pics:
+        if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
+            velocity = constrain_velocity(attached_pic)
 
-    if rope:
-        if attached_pic and is_instance_valid(attached_pic):
-            rope.set_point_position(0, Vector2(0,0))
-            rope.set_point_position(1, attached_pic.global_position - self.global_position)
-            rope.visible = true
-        else:
-            rope.visible = false
+    if len(ropes):
+        for i in range(len(attached_pics)):
+            var attached_pic : Pic = attached_pics[i] if i < len(attached_pics) else null
+            var rope : Line2D = ropes[i] if i < len(ropes) else null
+            if attached_pic and is_instance_valid(attached_pic):
+                rope.set_point_position(0, Vector2(0,0))
+                rope.set_point_position(1, attached_pic.global_position - self.global_position)
+                rope.visible = true
+            else:
+                rope.visible = false
 
     move_and_slide()
 
