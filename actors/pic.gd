@@ -167,7 +167,6 @@ func resolve_pushing(direction : float):
             push_sprite.visible = true
 
 
-
 func _physics_process(delta):
 
     if is_flying:
