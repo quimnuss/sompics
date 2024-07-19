@@ -45,7 +45,7 @@ position = Vector2(522, 298)
 gravity_scale = 0.0
 lock_rotation = true
 
-[node name="KeySpawn" type="Marker2D" parent="."]
+[node name="KeySpawner" type="Marker2D" parent="."]
 position = Vector2(522, 306)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
