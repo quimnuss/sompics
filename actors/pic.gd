@@ -35,6 +35,8 @@ var is_jumping : bool = false
 var is_pushing_left : bool = false
 var is_pushing_right : bool = false
 
+@export var is_flying : bool = false
+
 var previous_position : float
 
 signal pic_exit
@@ -167,6 +169,12 @@ func resolve_pushing(direction : float):
 
 
 func _physics_process(delta):
+
+    if is_flying:
+        var direction : Vector2 = Input.get_vector(move_left, move_right, jump, down)
+        velocity = direction * SPEED
+        move_and_slide()
+        return
 
     # TODO asymetrical jump (better jump)
     var grav_factor = 1

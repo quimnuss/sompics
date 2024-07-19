@@ -5,6 +5,7 @@ extends Marker2D
 var wscontroller : WsController
 
 @export var rigipics_spawn : bool = false
+@export var is_gravity_on : bool = true
 
 var pic_scene = preload('res://actors/pic.tscn')
 var ripic_scene = preload('res://actors/rigipic.tscn')
@@ -18,7 +19,7 @@ func _ready():
     self.add_child(wscontroller)
     var pics_array = Persistence.pics
     for pic_name in pics_array:
-        await get_tree().create_timer(0.5).timeout
+        await get_tree().create_timer(0.25).timeout
         if attached:
             spawn_attached(pic_name)
         else:
@@ -28,10 +29,16 @@ func _ready():
         pic.pic_back.connect($"../Door".pic_back)
         pic.pic_exit.connect($"../Door".pic_exit)
 
+var shift_spawn : Vector2 = Vector2.ZERO
+
 func spawn(pic_name : String):
     #TODO prevent spawning inside the collider OR posess characters manually placed on level OR activate collisions with other players when not colliding
-    var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
+    var pic : Pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
     pic.person = pic_name
+    if not is_gravity_on:
+        pic.is_flying = true
+        pic.position += shift_spawn
+        shift_spawn += Vector2(50,0)
     self.add_child(pic)
     if not wscontroller:
         wscontroller = WsController.new()
