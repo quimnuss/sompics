@@ -1,24 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu2vvs65nt8c0"]
+[gd_scene load_steps=7 format=3 uid="uid://cu2vvs65nt8c0"]
 
 [ext_resource type="Script" path="res://actors/rigipic.gd" id="1_l0lg7"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_6l2uj"]
+[ext_resource type="FontFile" uid="uid://ba83hhpxi8hh2" path="res://assets/fonts/Monaspace/MonaspaceNeon-Medium.otf" id="3_6kyno"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp4il"]
-size = Vector2(34, 34)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w3aqi"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4puh"]
+radius = 9.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spibk"]
+size = Vector2(16, 5.5)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2(256, 160)
 collision_layer = 2
+collision_mask = 11
+physics_material_override = SubResource("PhysicsMaterial_w3aqi")
 lock_rotation = true
 script = ExtResource("1_l0lg7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_gp4il")
+shape = SubResource("CapsuleShape2D_n4puh")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13.25)
+shape = SubResource("RectangleShape2D_spibk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8, 7.4963)
 scale = Vector2(0.237037, 0.217154)
 texture = ExtResource("2_6l2uj")
 region_enabled = true
 region_rect = Rect2(248, 228, 135, 152)
+
+[node name="FloorDetector" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(0, 12)
+collision_mask = 11
+hit_from_inside = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -69.0
+offset_top = -40.0
+offset_right = 69.0
+offset_bottom = -20.0
+theme_override_fonts/font = ExtResource("3_6kyno")
+horizontal_alignment = 1
+vertical_alignment = 1
