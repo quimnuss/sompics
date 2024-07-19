@@ -32,8 +32,8 @@ func _ready():
 
 func open():
     door_sprite.play('open')
-    await door_sprite.animation_finished
     is_open = true
+    await door_sprite.animation_finished
 
 func close():
     is_open = false
