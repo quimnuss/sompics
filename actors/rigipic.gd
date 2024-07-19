@@ -14,6 +14,7 @@ var jump : String = 'jump'
 var down : String = 'down'
 
 func _ready():
+    add_to_group('pics')
     if person == 'pol':
         var player_num = 2
         self.move_left = self.move_left + '_' + str(player_num)
@@ -21,6 +22,12 @@ func _ready():
         self.jump = self.jump  + '_' + str(player_num)
         self.down = self.down  + '_' + str(player_num)
 
+func external_input():
+    pass
+
+signal pic_back
+
+signal pic_exit
 
 func _integrate_forces(state):
     

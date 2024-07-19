@@ -4,7 +4,10 @@ extends Marker2D
 #@onready var wscontroller : WsController = $WebsocketMinimalController
 var wscontroller : WsController
 
+@export var rigipics_spawn : bool = false
+
 var pic_scene = preload('res://actors/pic.tscn')
+var ripic_scene = preload('res://actors/rigipic.tscn')
 
 var last_pic : Pic
 
@@ -21,13 +24,13 @@ func _ready():
         else:
             spawn(pic_name)
 
-    for pic : Pic in get_tree().get_nodes_in_group('pics'):
+    for pic in get_tree().get_nodes_in_group('pics'):
         pic.pic_back.connect($"../Door".pic_back)
         pic.pic_exit.connect($"../Door".pic_exit)
 
 func spawn(pic_name : String):
     #TODO prevent spawning inside the collider OR posess characters manually placed on level OR activate collisions with other players when not colliding
-    var pic : Pic = pic_scene.instantiate()
+    var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
     pic.person = pic_name
     self.add_child(pic)
     if not wscontroller:
@@ -51,7 +54,7 @@ func _process(delta):
     if len(pics) == 0:
         return
     var avg_pic_position : Vector2 = Vector2(0,0)
-    for pic : Pic in pics:
+    for pic in pics:
         avg_pic_position += pic.global_position
     avg_pic_position = avg_pic_position/len(pics)
     player_average_position.emit(avg_pic_position)
