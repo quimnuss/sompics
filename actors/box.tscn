@@ -7,7 +7,7 @@
 size = Vector2(61, 48)
 
 [node name="Box" type="RigidBody2D"]
-max_contacts_reported = 5
+max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_02heq")
 
@@ -18,3 +18,10 @@ shape = SubResource("RectangleShape2D_xpwsq")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("2_8kkji")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 40.0
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = -20.0
+text = "(0,0)"

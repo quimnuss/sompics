@@ -4,4 +4,4 @@ extends Node2D
 
 func _ready():
     weight_platform.required_pics = len(Persistence.pics)  
-
+    weight_platform.update_label()

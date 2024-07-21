@@ -303,7 +303,7 @@ position = Vector2(0, -3)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_srj8h")
 region_enabled = true
-region_rect = Rect2(418, 10, 144, 161)
+region_rect = Rect2(59, 229, 123, 137)
 script = ExtResource("3_h8ejj")
 
 [node name="Line2D" type="Line2D" parent="."]

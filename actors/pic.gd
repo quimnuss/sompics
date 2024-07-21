@@ -75,10 +75,11 @@ func exit_door():
     pic_back.emit()
 
 func _process(_delta):
-    if is_on_door and not self.is_out and Input.is_action_just_pressed(jump):
-            enter_door()
-    elif is_out and Input.is_action_just_pressed(jump):
-            exit_door()
+    if Persistence.pics[Persistence.active_pic] == self.person or self.person == 'pol':
+        if is_on_door and not self.is_out and Input.is_action_just_pressed(jump):
+                enter_door()
+        elif is_out and Input.is_action_just_pressed(jump):
+                exit_door()
 
 func hold(key_ : Key):
     key = key_
@@ -182,16 +183,19 @@ func _physics_process(delta):
     if not is_on_floor():
         velocity.y += grav_factor*gravity * delta
 
-    var just_jumped : bool = Input.is_action_just_pressed(self.jump)
-    if just_jumped and (is_on_floor() or coyote):
-        velocity.y = JUMP_VELOCITY
-        is_jumping = true
-        jump_sound.play()
+    var direction : float = 0
+    if Persistence.pics[Persistence.active_pic] == self.person or self.person == 'pol':
+        var just_jumped : bool = Input.is_action_just_pressed(self.jump)
+        if just_jumped and (is_on_floor() or coyote):
+            velocity.y = JUMP_VELOCITY
+            is_jumping = true
+            jump_sound.play()
 
-    var direction : float = Input.get_axis(self.move_left, self.move_right)
-    if direction:
-        velocity.x = direction * SPEED
-    else:
+        direction = Input.get_axis(self.move_left, self.move_right)
+        if direction:
+            velocity.x = direction * SPEED
+
+    if not direction:
         velocity.x = move_toward(velocity.x, 0, SPEED)
 
     # TODO handle attached to two players (currently doesnt sum contraints)

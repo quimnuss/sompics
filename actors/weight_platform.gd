@@ -1,4 +1,5 @@
 extends Path2D
+class_name WeightPlatform
 
 @onready var label = $FollowPath2D/AnimatableBody2D/Label
 @onready var follow_path = $FollowPath2D

@@ -33,7 +33,7 @@ var shift_spawn : Vector2 = Vector2.ZERO
 
 func spawn(pic_name : String):
     #TODO prevent spawning inside the collider OR posess characters manually placed on level OR activate collisions with other players when not colliding
-    var pic : Pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
+    var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
     pic.person = pic_name
     if not is_gravity_on:
         pic.is_flying = true

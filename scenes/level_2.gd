@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var weight_platform_rigid = $Node2D/WeightPlatformRigid
+@onready var weight_platform = $Node2D/WeightPlatform
 
 
 func _ready():
-    weight_platform_rigid.required_pics = len(Persistence.pics)
+    weight_platform.required_pics = len(Persistence.pics)
+    weight_platform.update_label()

@@ -35,6 +35,7 @@ position = Vector2(848, 240)
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(168, 152)
 script = ExtResource("6_osvf2")
+rigipics_spawn = true
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(720, 528)
