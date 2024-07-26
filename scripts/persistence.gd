@@ -1,7 +1,7 @@
 extends Node
 
-#var pics : Array = ['marta', 'pol']
-var pics : Array = ['marta',
+var pics : Array = ['marta', 'pol']
+var pics_tots : Array = ['marta',
 'pol',
 'david',
 'juanpe',
