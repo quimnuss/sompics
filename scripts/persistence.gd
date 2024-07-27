@@ -1,28 +1,34 @@
 extends Node
 
 var pics : Array = ['marta', 'pol']
-var pics_tots : Array = ['marta',
-'pol',
-'david',
-'juanpe',
-'joana',
-'marite',
-'isra',
-'daniestanyol',
-'xavidolz',
-'benjami',
-'nuse',
-'fran',
-'jordi',
-'joan',
-'raul',
-'lucia',
-'pere',
-'bea',
-'angel',
-'oriol',
-'xavierbonet',
-'daniquilez']
+#var pics : Array = ['marta',
+#'pol',
+#'david',
+#'juanpe',
+#'joana']
+
+#var pics : Array = ['marta',
+#'pol',
+#'david',
+#'juanpe',
+#'joana',
+#'marite',
+#'isra',
+#'daniestanyol',
+#'xavidolz',
+#'benjami',
+#'nuse',
+#'fran',
+#'jordi',
+#'joan',
+#'raul',
+#'lucia',
+#'pere',
+#'bea',
+#'angel',
+#'oriol',
+#'xavierbonet',
+#'daniquilez']
 
 var active_pic : int = 0
 

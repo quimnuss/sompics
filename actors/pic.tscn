@@ -296,7 +296,6 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_6xg8w")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.00474142
 
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
