@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dobxhogwkrtsa"]
+[gd_scene load_steps=8 format=3 uid="uid://dobxhogwkrtsa"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_fcghl"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_5fi13"]
@@ -9,15 +9,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxyq1"]
 size = Vector2(1216, 229)
-
-[sub_resource type="Gradient" id="Gradient_v60tq"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_284qs"]
-gradient = SubResource("Gradient_v60tq")
-fill = 1
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
 
 [node name="MainLevel" type="Node2D"]
 
@@ -57,10 +48,5 @@ script = ExtResource("7_f3dc6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(0, 120)
 shape = SubResource("RectangleShape2D_sxyq1")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(596, 338.125)
-scale = Vector2(4.125, 2.81641)
-texture = SubResource("GradientTexture2D_284qs")
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

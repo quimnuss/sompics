@@ -116,18 +116,22 @@ func kill():
 
 func constrain_velocity(attached_pic : Pic):
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
-    var lambda = self.velocity.dot(attached_direction.normalized())
-    var constrained_velocity = Vector2(0,0)
-    if lambda < 10: # moving away + 10 px margin
-        constrained_velocity = self.velocity - self.velocity.project(attached_direction.normalized()) + 3*attached_direction.length()*attached_direction.normalized()*Vector2(3,1)
-    else:
-        constrained_velocity = 5*attached_direction.length()*attached_direction.normalized()
-
+    
+    var gravity_pull : Vector2 = Vector2(0,0)
+    var mass : float = 10
+    # TODO gravity force should push the pic towards the wall
+    if not is_on_floor():
+        # the force
+        gravity_pull = mass*gravity*Vector2(0,1)
+        #gravity_pull = (gravity*Vector2(0,1)).dot(-attached_direction.normalized())
+    var lambda = -self.velocity.cross(attached_direction.normalized())
+    var lambda_dot = self.velocity.dot(attached_direction.normalized())
+    $Label.set_text("%.2f %.2f" % [lambda, lambda_dot])
+    var dx = attached_direction.length() - ROPELENGTH
+    var K = 5
+    var constrained_velocity = K*dx*attached_direction.normalized()
+    
     return constrained_velocity
-
-    # not working as intended
-    #if just_jumped and not is_on_floor():
-        #velocity.y = JUMP_VELOCITY*0.5
 
 func external_input(player : String, action : String, is_pressed : bool = true):
 
@@ -198,10 +202,9 @@ func _physics_process(delta):
     if not direction:
         velocity.x = move_toward(velocity.x, 0, SPEED)
 
-    # TODO handle attached to two players (currently doesnt sum contraints)
     for attached_pic : Pic in attached_pics:
-        if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH:
-            velocity = constrain_velocity(attached_pic)
+        if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
+            velocity += constrain_velocity(attached_pic)
 
     if len(ropes):
         for i in range(len(attached_pics)):

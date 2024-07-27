@@ -1,11 +1,7 @@
 extends Node
 
-var pics : Array = ['marta', 'pol']
-#var pics : Array = ['marta',
-#'pol',
-#'david',
-#'juanpe',
-#'joana']
+#var pics : Array = ['marta', 'pol']
+var pics : Array = ['marta', 'pol', 'joana']
 
 #var pics : Array = ['marta',
 #'pol',

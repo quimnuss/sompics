@@ -323,4 +323,11 @@ volume_db = 3.0
 pitch_scale = 3.37
 bus = &"Effects"
 
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 36.0
+text = "-1"
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
