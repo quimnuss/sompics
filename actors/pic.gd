@@ -137,7 +137,7 @@ func external_input(player : String, action : String, is_pressed : bool = true):
 
     if player != self.person:
         return
-    print("external " + action)
+    prints("external",action,self.person)
     if is_pressed:
         Input.action_press(action)
     else:

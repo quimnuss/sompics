@@ -55,6 +55,11 @@ func spawn_attached(pic_name):
         last_pic.attach(pic)
         prints(pic.person,'--',last_pic.person)
     last_pic = pic
+    
+    if not wscontroller:
+        wscontroller = WsController.new()
+        add_child(wscontroller)
+    wscontroller.action_received.connect(pic.external_input)
 
 func _process(delta):
     var pics : Array = get_tree().get_nodes_in_group('pics')
