@@ -15,6 +15,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var attached_pics : Array[Pic]
 
+var actions : Array[String] = ['jump', 'move_left', 'move_right', 'down']
+
 var move_left : String = 'move_left'
 var move_right : String = 'move_right'
 var jump : String = 'jump'
@@ -47,17 +49,17 @@ func _ready():
     self.name = person
     coyote_timer.wait_time = coyote_frames / 60.0
     add_to_group('pics')
-    if person == 'pol':
-        var player_num = 2
-        self.move_left = self.move_left + '_' + str(player_num)
-        self.move_right = self.move_right  + '_' + str(player_num)
-        self.jump = self.jump  + '_' + str(player_num)
-        self.down = self.down  + '_' + str(player_num)
 
-    InputMap.add_action('jump-' + person)
-    InputMap.add_action('move_left-' + person)
-    InputMap.add_action('move_right-' + person)
-    InputMap.add_action('move_down-' + person)
+    self.move_left = self.move_left + '-' + person
+    self.move_right = self.move_right  + '-' + person
+    self.jump = self.jump  + '-' + person
+    self.down = self.down  + '-' + person
+
+    for action : String in actions:
+        if person == 'pol' or person == 'marta':
+            continue
+        InputMap.add_action(action + '-' + person)
+        prints('Added',action + '-' + person)
 
     if not attached_pics.is_empty():
         ropes_attach()
@@ -80,11 +82,10 @@ func exit_door():
     pic_back.emit()
 
 func _process(_delta):
-    if Persistence.pics[Persistence.active_pic] == self.person or self.person == 'pol':
-        if is_on_door and not self.is_out and Input.is_action_just_pressed(jump):
-                enter_door()
-        elif is_out and Input.is_action_just_pressed(jump):
-                exit_door()
+    if is_on_door and not self.is_out and Input.is_action_just_pressed(jump):
+        enter_door()
+    elif is_out and Input.is_action_just_pressed(jump):
+        exit_door()
 
 func hold(key_ : Key):
     key = key_
@@ -143,7 +144,7 @@ func external_input(player : String, action : String, is_pressed : bool = true):
     if player != self.person:
         return
     var input_action : String = action + '-' + player
-    prints("external", input_action)
+    prints("external input ", input_action)
     if is_pressed:
         Input.action_press(input_action)
     else:
@@ -172,20 +173,21 @@ func resolve_pushing(direction : float):
     var push_sprite : Sprite2D = $Area2D/Sprite2D as Sprite2D
     push_sprite.visible = false
     if is_pushing_left:
-            left_push.disabled = false
-            push_sprite.visible = true
+        left_push.disabled = false
+        push_sprite.visible = true
 
 
 func _physics_process(delta):
 
+    var just_jumped : bool = Input.is_action_just_pressed(jump)
+    var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down)
+    var horizontal_direction : float = Input.get_axis(move_left, move_right)
+
     if is_flying:
-        var direction : Vector2 = Input.get_vector(move_left, move_right, jump, down)
+        var direction : Vector2 = flying_direction
         velocity = direction * SPEED
         move_and_slide()
         return
-
-    if Input.is_action_just_pressed('jump-' + self.person):
-        prints('[!] jumped via','jump-' + self.person)
 
     # TODO asymetrical jump (better jump)
     var grav_factor = 1
@@ -195,16 +197,14 @@ func _physics_process(delta):
         velocity.y += grav_factor*gravity * delta
 
     var direction : float = 0
-    if Persistence.pics[Persistence.active_pic] == self.person or self.person == 'pol':
-        var just_jumped : bool = Input.is_action_just_pressed(self.jump)
-        if just_jumped and (is_on_floor() or coyote):
-            velocity.y = JUMP_VELOCITY
-            is_jumping = true
-            jump_sound.play()
+    if just_jumped and (is_on_floor() or coyote):
+        velocity.y = JUMP_VELOCITY
+        is_jumping = true
+        jump_sound.play()
 
-        direction = Input.get_axis(self.move_left, self.move_right)
-        if direction:
-            velocity.x = direction * SPEED
+    direction = horizontal_direction
+    if direction:
+        velocity.x = direction * SPEED
 
     if not direction:
         velocity.x = move_toward(velocity.x, 0, SPEED)

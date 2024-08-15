@@ -22,6 +22,19 @@ text = "marta"
 alignment = 1
 max_length = 10
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Jump" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+focus_mode = 0
+text = "^"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -31,11 +44,11 @@ layout_mode = 2
 focus_mode = 0
 text = "<"
 
-[node name="Jump" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Down" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 focus_mode = 0
-text = "^"
+text = "v"
 
 [node name="Right" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -52,9 +65,11 @@ fit_content = true
 scroll_active = false
 
 [connection signal="text_submitted" from="MarginContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_submitted"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer2/Jump" to="." method="_on_jump_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer2/Jump" to="." method="_on_jump_button_up"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_button_down"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_button_up"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Jump" to="." method="_on_jump_button_down"]
-[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/Jump" to="." method="_on_jump_button_up"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Down" to="." method="_on_down_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/Down" to="." method="_on_down_button_up"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_button_down"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_button_up"]

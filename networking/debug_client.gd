@@ -8,6 +8,7 @@ var socket : WebSocketPeer = WebSocketPeer.new()
 func log_message(message: String) -> void:
     var time := "[color=#aaaaaa] %s |[/color] " % Time.get_time_string_from_system()
     $MarginContainer/VBoxContainer/ServerText.text = time + message + "\n"
+    print('[client]' + message)
 
 
 func _ready() -> void:
@@ -56,6 +57,14 @@ func _on_right_button_up():
     socket.send_text(player + '-move_right-0')
 
 
+func _on_down_button_down():
+    socket.send_text(player + '-down-1')
+
+
+func _on_down_button_up():
+    socket.send_text(player + '-down-0')
+
+
 func _on_text_edit_text_submitted(new_text):
     var text_node : LineEdit = $MarginContainer/VBoxContainer/TextEdit
     text_node.release_focus()
@@ -63,3 +72,5 @@ func _on_text_edit_text_submitted(new_text):
     var text : String = text_node.get_text()
     var player_name := text.strip_edges()
     player = player_name
+
+
