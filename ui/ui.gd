@@ -7,3 +7,4 @@ func _on_restart_pressed():
 
 func show_game_lost():
     game_lost.visible = true
+

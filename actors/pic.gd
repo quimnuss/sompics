@@ -120,24 +120,6 @@ func kill():
     self.set_process(false)
     animation_player.play('death')
 
-func constrain_velocity(attached_pic : Pic):
-    var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
-
-    var gravity_pull : Vector2 = Vector2(0,0)
-    var mass : float = 10
-    # TODO gravity force should push the pic towards the wall
-    if not is_on_floor():
-        # the force
-        gravity_pull = mass*gravity*Vector2(0,1)
-        #gravity_pull = (gravity*Vector2(0,1)).dot(-attached_direction.normalized())
-    var lambda = -self.velocity.cross(attached_direction.normalized())
-    var lambda_dot = self.velocity.dot(attached_direction.normalized())
-    $Label.set_text("%.2f %.2f" % [lambda, lambda_dot])
-    var dx = attached_direction.length() - ROPELENGTH
-    var K = 5
-    var constrained_velocity = K*dx*attached_direction.normalized()
-
-    return constrained_velocity
 
 func external_input(player : String, action : String, is_pressed : bool = true):
 
@@ -176,6 +158,24 @@ func resolve_pushing(direction : float):
         left_push.disabled = false
         push_sprite.visible = true
 
+func constrain_velocity(attached_pic : Pic, delta : float):
+    var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
+
+    #var gravity_pull : Vector2 = Vector2(0,0)
+    #var mass : float = 10
+    ## TODO gravity force should push the pic towards the wall
+    #if not is_on_floor():
+        ## the force
+        #gravity_pull = mass*gravity*Vector2(0,1)
+        ##gravity_pull = (gravity*Vector2(0,1)).dot(-attached_direction.normalized())
+    #var lambda = -self.velocity.cross(attached_direction.normalized())
+    #var lambda_dot = self.velocity.dot(attached_direction.normalized())
+
+    var dx = attached_direction.length() - ROPELENGTH
+    var K = 5
+    var constrained_velocity = 10*K*dx*attached_direction.normalized()*delta
+
+    return constrained_velocity
 
 func _physics_process(delta):
 
@@ -206,25 +206,37 @@ func _physics_process(delta):
     if direction:
         velocity.x = direction * SPEED
 
-    if not direction:
-        velocity.x = move_toward(velocity.x, 0, SPEED)
+    if attached_pics.is_empty():
+        if not direction:
+            velocity.x = 0 # move_toward(velocity.x, 0, SPEED)
+    else:
+        var rope_velocity : Vector2 = Vector2(0,0)
 
-    for attached_pic : Pic in attached_pics:
-        if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
-            velocity += constrain_velocity(attached_pic)
+        for attached_pic : Pic in attached_pics:
+            if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
+                rope_velocity += constrain_velocity(attached_pic,delta)
 
-    if len(ropes):
-        for i in range(len(attached_pics)):
-            var attached_pic : Pic = attached_pics[i] if i < len(attached_pics) else null
-            var rope : Line2D = ropes[i] if i < len(ropes) else null
-            if attached_pic and is_instance_valid(attached_pic):
-                rope.set_point_position(0, Vector2(0,0))
-                rope.set_point_position(1, attached_pic.global_position - self.global_position)
-                rope.visible = true
-            else:
-                rope.visible = false
+        velocity += rope_velocity
+
+        if not direction and abs(rope_velocity.x) < 0.01:
+            velocity.x = 0
+        elif not direction and is_on_floor(): # friction
+            velocity.x = move_toward(velocity.x, 0, 5*SPEED*delta)
+
+        if len(ropes):
+            for i in range(len(attached_pics)):
+                var attached_pic : Pic = attached_pics[i] if i < len(attached_pics) else null
+                var rope : Line2D = ropes[i] if i < len(ropes) else null
+                if attached_pic and is_instance_valid(attached_pic):
+                    rope.set_point_position(0, Vector2(0,0))
+                    rope.set_point_position(1, attached_pic.global_position - self.global_position)
+                    rope.visible = true
+                else:
+                    rope.visible = false
 
     move_and_slide()
+
+    $Label.set_text("%.2f %.2f" % [velocity.x, velocity.y])
 
     resolve_pushing(direction)
 
