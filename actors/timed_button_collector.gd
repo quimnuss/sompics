@@ -7,9 +7,14 @@ signal time_up
 signal all_stopped(total_time)
 
 func _ready():
-    for timed_button : TimedButton in get_tree().get_nodes_in_group('timed_buttons'):
+    var timed_buttons : Array = get_tree().get_nodes_in_group('timed_buttons')
+    for i in range(len(timed_buttons)-len(Persistence.pics)):
+        timed_buttons[-i].queue_free()
+
+    for timed_button : TimedButton in timed_buttons:
         timed_button.timeout.connect(somebody_timeout)
         timed_button.stopped.connect(somebody_stopped)
+        timed_button.is_running = false
 
 func somebody_timeout():
     time_up.emit()
@@ -38,3 +43,7 @@ func _process(delta):
         time_update.emit(total_time)
     if total_time == 0:
         time_up.emit()
+
+
+func _on_player_spawner_players_spawned():
+    get_tree().call_group('timed_buttons','start')

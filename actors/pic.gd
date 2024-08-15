@@ -56,10 +56,8 @@ func _ready():
     self.down = self.down  + '-' + person
 
     for action : String in actions:
-        if person == 'pol' or person == 'marta':
-            continue
-        InputMap.add_action(action + '-' + person)
-        prints('Added',action + '-' + person)
+        if not InputMap.has_action(action + '-' + person):
+            InputMap.add_action(action + '-' + person)
 
     if not attached_pics.is_empty():
         ropes_attach()
@@ -191,10 +189,11 @@ func _physics_process(delta):
 
     # TODO asymetrical jump (better jump)
     var grav_factor = 1
-    #if velocity.y > 0:
-        #grav_factor = 3
+    if velocity.y > 0:
+        grav_factor = 3
+
     if not is_on_floor():
-        velocity.y += grav_factor*gravity * delta
+        velocity.y += grav_factor * gravity * delta
 
     var direction : float = 0
     if just_jumped and (is_on_floor() or coyote):

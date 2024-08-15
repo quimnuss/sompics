@@ -1,19 +1,23 @@
 extends Node2D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var player_spawner = $PlayerSpawner
 
 var restarting : bool = false
 
 func _ready():
-    animation_player.play("level_pursuit")
     for pic : Pic in get_tree().get_nodes_in_group('pics'):
         pic.gravity = 0
+    player_spawner.players_spawned.connect(start_level)
+
+func start_level():
+    animation_player.play("level_pursuit")
 
 func _on_collided():
     if not restarting:
         animation_player.pause()
         restarting = true
         get_tree().call_group('pics', 'kill')
-        
+
         await get_tree().create_timer(2).timeout
         var foo = get_tree()
         foo.reload_current_scene()

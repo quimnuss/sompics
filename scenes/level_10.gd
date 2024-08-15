@@ -3,6 +3,7 @@ extends Node2D
 @onready var ui = $UI
 @onready var ui_total_time = $UI/TotalTime
 @onready var key_spawn = $KeySpawn
+@onready var timed_button_collector = $TimedButtonCollector
 
 var is_restarting : bool = false
 
@@ -15,6 +16,7 @@ func game_lost_restart():
         ui.show_game_lost()
         await get_tree().create_timer(2).timeout
         get_tree().reload_current_scene()
+
 
 
 func _on_timed_button_collector_all_stopped(total_time : int):

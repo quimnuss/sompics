@@ -31,6 +31,8 @@ func _process(delta):
         if is_timeout:
             timeout.emit()
 
+func start():
+    self.is_running = true
 
 func _on_button_button_pressed():
     is_running = false
