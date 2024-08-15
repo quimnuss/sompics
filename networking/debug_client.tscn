@@ -28,16 +28,19 @@ layout_mode = 2
 [node name="Left" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+focus_mode = 0
 text = "<"
 
 [node name="Jump" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+focus_mode = 0
 text = "^"
 
 [node name="Right" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+focus_mode = 0
 text = ">"
 
 [node name="ServerText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]

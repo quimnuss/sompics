@@ -54,6 +54,11 @@ func _ready():
         self.jump = self.jump  + '_' + str(player_num)
         self.down = self.down  + '_' + str(player_num)
 
+    InputMap.add_action('jump-' + person)
+    InputMap.add_action('move_left-' + person)
+    InputMap.add_action('move_right-' + person)
+    InputMap.add_action('move_down-' + person)
+
     if not attached_pics.is_empty():
         ropes_attach()
 
@@ -137,13 +142,12 @@ func external_input(player : String, action : String, is_pressed : bool = true):
 
     if player != self.person:
         return
-    prints("external",action,self.person)
+    var input_action : String = action + '-' + player
+    prints("external", input_action)
     if is_pressed:
-        Input.action_press(action)
+        Input.action_press(input_action)
     else:
-        # TODO also needs the release
-        #await get_tree().create_timer(1).timeout
-        Input.action_release(action)
+        Input.action_release(input_action)
 
 func resolve_pushing(direction : float):
 
@@ -179,6 +183,9 @@ func _physics_process(delta):
         velocity = direction * SPEED
         move_and_slide()
         return
+
+    if Input.is_action_just_pressed('jump-' + self.person):
+        prints('[!] jumped via','jump-' + self.person)
 
     # TODO asymetrical jump (better jump)
     var grav_factor = 1
