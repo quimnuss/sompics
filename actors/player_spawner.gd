@@ -2,7 +2,7 @@ extends Marker2D
 
 @export var attached : bool = false
 #@onready var wscontroller : WsController = $WebsocketMinimalController
-var wscontroller : WsController
+#var wscontroller : WsController
 
 @export var rigipics_spawn : bool = false
 @export var is_gravity_on : bool = true
@@ -15,8 +15,8 @@ var last_pic : Pic
 signal player_average_position(avg_position)
 
 func _ready():
-    wscontroller = WsController.new()
-    self.add_child(wscontroller)
+    #wscontroller = WsController.new()
+    #self.add_child(wscontroller)
     var pics_array = Persistence.pics
     for pic_name in pics_array:
         await get_tree().create_timer(0.25).timeout
@@ -40,10 +40,6 @@ func spawn(pic_name : String):
         pic.position += shift_spawn
         shift_spawn += Vector2(50,0)
     self.add_child(pic)
-    if not wscontroller:
-        wscontroller = WsController.new()
-        add_child(wscontroller)
-    wscontroller.action_received.connect(pic.external_input)
 
 func spawn_attached(pic_name):
     var pic : Pic = pic_scene.instantiate()
@@ -55,11 +51,6 @@ func spawn_attached(pic_name):
         last_pic.attach(pic)
         prints(pic.person,'--',last_pic.person)
     last_pic = pic
-    
-    if not wscontroller:
-        wscontroller = WsController.new()
-        add_child(wscontroller)
-    wscontroller.action_received.connect(pic.external_input)
 
 func _process(delta):
     var pics : Array = get_tree().get_nodes_in_group('pics')
@@ -70,4 +61,4 @@ func _process(delta):
         avg_pic_position += pic.global_position
     avg_pic_position = avg_pic_position/len(pics)
     player_average_position.emit(avg_pic_position)
-        
+

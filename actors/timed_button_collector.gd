@@ -10,7 +10,7 @@ func _ready():
     for timed_button : TimedButton in get_tree().get_nodes_in_group('timed_buttons'):
         timed_button.timeout.connect(somebody_timeout)
         timed_button.stopped.connect(somebody_stopped)
-        
+
 func somebody_timeout():
     time_up.emit()
 

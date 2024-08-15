@@ -31,7 +31,7 @@ func _ready():
     if result != OK:
         log_message("Unable to start server.")
         set_process(false)
-    else: 
+    else:
         log_message("Server started at %s" % Persistence.LISTEN_PORT)
 
 func _process(_delta):
@@ -43,7 +43,7 @@ func _process(_delta):
         if result == Error.ERR_ALREADY_IN_USE:
             result = socket2.accept_stream(conn)
             log_message("start socket2 %s" % error_string(result))
-        
+
 
     socket.poll()
     socket2.poll()

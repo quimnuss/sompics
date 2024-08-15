@@ -19,6 +19,7 @@ config/icon="res://assets/Items/icon.png"
 
 Persistence="*res://scripts/persistence.gd"
 AudioPlayer="*res://actors/audio_player.tscn"
+MultiplayerController="*res://networking/multiplayer_controller.gd"
 
 [display]
 

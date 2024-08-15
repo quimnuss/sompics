@@ -54,3 +54,12 @@ func _on_right_button_down():
 
 func _on_right_button_up():
     socket.send_text(player + '-move_right-0')
+
+func _on_text_edit_text_submitted(new_text):
+    var text_node : LineEdit = $MarginContainer/VBoxContainer/TextEdit
+    text_node.release_focus()
+
+    var text : String = text_node.get_text()
+    print(text)
+    var player_name := text.strip_edges()
+    player = player_name

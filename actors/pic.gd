@@ -116,7 +116,7 @@ func kill():
 
 func constrain_velocity(attached_pic : Pic):
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
-    
+
     var gravity_pull : Vector2 = Vector2(0,0)
     var mass : float = 10
     # TODO gravity force should push the pic towards the wall
@@ -130,7 +130,7 @@ func constrain_velocity(attached_pic : Pic):
     var dx = attached_direction.length() - ROPELENGTH
     var K = 5
     var constrained_velocity = K*dx*attached_direction.normalized()
-    
+
     return constrained_velocity
 
 func external_input(player : String, action : String, is_pressed : bool = true):
