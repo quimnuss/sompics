@@ -3,6 +3,7 @@ class_name Pic
 @onready var head : Sprite2D = $Head
 @onready var jump_sound : AudioStreamPlayer = $jump_sound
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var area_2d : Area2D = $Area2D
 
 @export var SPEED :float = 200.0
 const JUMP_VELOCITY : float = -400.0
@@ -194,6 +195,8 @@ func _physics_process(delta):
 
     if not is_on_floor():
         velocity.y += grav_factor * gravity * delta
+
+    self.set_collision_layer_value(6, is_on_floor() or coyote)
 
     var direction : float = 0
     if just_jumped and (is_on_floor() or coyote):

@@ -18,7 +18,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmo8k"]
-size = Vector2(192, 8)
+size = Vector2(223.999, 296)
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_ele8n")
@@ -68,10 +68,10 @@ rotation = -1.5708
 [node name="Area2D" type="Area2D" parent="Node2D/WeightPlatform/FollowPath2D"]
 position = Vector2(0, -16)
 rotation = 1.5708
-collision_mask = 2
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/WeightPlatform/FollowPath2D/Area2D"]
-position = Vector2(-32, -4)
+position = Vector2(-32.0001, -148)
 shape = SubResource("RectangleShape2D_cmo8k")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="Node2D/WeightPlatform/FollowPath2D"]
