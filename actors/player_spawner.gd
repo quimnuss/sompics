@@ -1,6 +1,6 @@
 extends Marker2D
 
-@onready var markers_node = $Markers
+@onready var markers_node = get_node_or_null('./Markers')
 
 @export var attached : bool = false
 #@onready var wscontroller : WsController = $WebsocketMinimalController

@@ -25,7 +25,7 @@ You can open several sockets to simulate several clients.
 ## base de la casa
 
 - [ ] parametrize levels to number of players
-     - [ ] 4,5,6,8,9,10,11,12,13,14
+     - [ ] 3,4,5,6,8,9,11,12,13,14
 - [ ] Dialogic Astroboy
 - [ ] fix rope
 - [ ] Make platform N pics
