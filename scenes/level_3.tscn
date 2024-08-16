@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjuwarjftnbbx"]
+[gd_scene load_steps=14 format=3 uid="uid://cjuwarjftnbbx"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_dlwhy"]
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="1_ele8n"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_f24um"]
 [ext_resource type="Script" path="res://actors/respawn.gd" id="5_p4v2p"]
 [ext_resource type="Script" path="res://actors/weight_platform.gd" id="6_2bah4"]
+[ext_resource type="Texture2D" uid="uid://iayhk4hbi1ou" path="res://world/assets/big_platform.png" id="8_1pm4x"]
+[ext_resource type="Script" path="res://actors/animatable_platform.gd" id="8_sgq8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2dor"]
 size = Vector2(360, 189)
@@ -19,6 +21,9 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmo8k"]
 size = Vector2(223.999, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obhyd"]
+size = Vector2(192, 7.99999)
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_ele8n")
@@ -40,7 +45,7 @@ position = Vector2(816, 232)
 is_open = true
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(168, 152)
+position = Vector2(192, 152)
 script = ExtResource("4_f24um")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -54,7 +59,7 @@ position = Vector2(-48, 128)
 shape = SubResource("RectangleShape2D_l2dor")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(616, 560)
+position = Vector2(224, 400)
 
 [node name="WeightPlatform" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_h6c8s")
@@ -65,30 +70,40 @@ required_pics = 2
 position = Vector2(16, 0)
 rotation = -1.5708
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/WeightPlatform/FollowPath2D"]
+remote_path = NodePath("../AnimatableBody2D")
+update_rotation = false
+
 [node name="Area2D" type="Area2D" parent="Node2D/WeightPlatform/FollowPath2D"]
-position = Vector2(0, -16)
+position = Vector2(-6.99383e-07, 0)
 rotation = 1.5708
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/WeightPlatform/FollowPath2D/Area2D"]
-position = Vector2(-32.0001, -148)
+position = Vector2(-0.000490189, -136)
 shape = SubResource("RectangleShape2D_cmo8k")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="Node2D/WeightPlatform/FollowPath2D"]
-position = Vector2(0, -16)
 rotation = 1.5708
+collision_mask = 2
+script = ExtResource("8_sgq8e")
 
-[node name="TileMap" type="TileMap" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D"]
-tile_set = ExtResource("2_88gh7")
-format = 2
-layer_0/tile_data = PackedInt32Array(65535, 196610, 2, 0, 196610, 2, 1, 262146, 2, 65534, 196610, 2, 65533, 196610, 2, 65532, 131074, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_obhyd")
+one_way_collision = true
+one_way_collision_margin = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D"]
+position = Vector2(0, 8)
+texture = ExtResource("8_1pm4x")
 
 [node name="Label" type="Label" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D"]
 z_index = -1
-offset_left = -48.0002
-offset_top = -47.9998
-offset_right = -8.0002
-offset_bottom = -8.99979
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -8.99997
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 32
