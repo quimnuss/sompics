@@ -8,6 +8,7 @@ extends Marker2D
 
 @export var rigipics_spawn : bool = false
 @export var is_gravity_on : bool = true
+@export var spawn_delay : float = 0.3
 
 var pic_scene := preload('res://actors/pic.tscn')
 var ripic_scene := preload('res://actors/rigipic.tscn')
@@ -29,7 +30,7 @@ func _ready():
     var pics_array = Persistence.pics
 
     for pic_name in pics_array:
-        await get_tree().create_timer(0.3).timeout
+        await get_tree().create_timer(spawn_delay).timeout
         if attached:
             spawn_attached(pic_name)
         elif not markers.is_empty():

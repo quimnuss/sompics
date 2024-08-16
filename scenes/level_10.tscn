@@ -47,65 +47,66 @@ position = Vector2(1072, 552)
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(576, 304)
 script = ExtResource("4_jngat")
+spawn_delay = 0.15
 
 [node name="Markers" type="Node2D" parent="PlayerSpawner"]
 
-[node name="Marker2D" type="Marker2D" parent="PlayerSpawner/Markers"]
+[node name="Marker2D1" type="Marker2D" parent="PlayerSpawner/Markers"]
 position = Vector2(-136, 232)
 
 [node name="Marker2D2" type="Marker2D" parent="PlayerSpawner/Markers"]
 position = Vector2(112, 232)
 
 [node name="Marker2D3" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(392, -32)
+position = Vector2(-432, 88)
 
 [node name="Marker2D4" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(-248, 88)
+position = Vector2(-232, 88)
 
 [node name="Marker2D5" type="Marker2D" parent="PlayerSpawner/Markers"]
 position = Vector2(-128, 88)
 
 [node name="Marker2D6" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(0, 88)
+position = Vector2(-16, 88)
 
 [node name="Marker2D7" type="Marker2D" parent="PlayerSpawner/Markers"]
 position = Vector2(88, 88)
 
 [node name="Marker2D8" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(168, 88)
+position = Vector2(184, 88)
 
 [node name="Marker2D9" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(-344, 96)
+position = Vector2(-336, 88)
 
 [node name="Marker2D10" type="Marker2D" parent="PlayerSpawner/Markers"]
 position = Vector2(288, 88)
 
 [node name="Marker2D11" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(330, -38)
+position = Vector2(290, -38)
 
 [node name="Marker2D12" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(250, -38)
+position = Vector2(202, -38)
 
 [node name="Marker2D13" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(170, -38)
+position = Vector2(98, -38)
 
 [node name="Marker2D14" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(90, -38)
+position = Vector2(-16, -40)
 
 [node name="Marker2D15" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(-126, -38)
+position = Vector2(-230, -38)
 
 [node name="Marker2D16" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(-246, -38)
+position = Vector2(-134, -38)
 
 [node name="Marker2D17" type="Marker2D" parent="PlayerSpawner/Markers"]
 position = Vector2(-326, -38)
 
 [node name="Marker2D18" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(384, 96)
+position = Vector2(-424, -40)
 
 [node name="Marker2D19" type="Marker2D" parent="PlayerSpawner/Markers"]
-position = Vector2(-408, 232)
+position = Vector2(-424, 232)
 
 [node name="Marker2D20" type="Marker2D" parent="PlayerSpawner/Markers"]
 position = Vector2(-328, 232)
@@ -128,74 +129,74 @@ position = Vector2(112, 272)
 [node name="TimedButtonCollector" type="Node2D" parent="."]
 script = ExtResource("5_mpg76")
 
-[node name="TimedButton" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(384, 560)
-
-[node name="TimedButton2" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+[node name="TimedButton1" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
 position = Vector2(496, 560)
 
+[node name="TimedButton2" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(736, 560)
+
 [node name="TimedButton3" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(288, 560)
+position = Vector2(192, 432)
 
 [node name="TimedButton4" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(792, 304)
+position = Vector2(392, 432)
 
 [node name="TimedButton5" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(712, 304)
+position = Vector2(496, 432)
 
 [node name="TimedButton6" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
 position = Vector2(616, 432)
 
 [node name="TimedButton7" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(624, 304)
-
-[node name="TimedButton8" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(496, 432)
-
-[node name="TimedButton9" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(496, 304)
-
-[node name="TimedButton10" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(384, 432)
-
-[node name="TimedButton11" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(384, 304)
-
-[node name="TimedButton12" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(280, 432)
-
-[node name="TimedButton13" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(288, 304)
-
-[node name="TimedButton14" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(192, 432)
-
-[node name="TimedButton15" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(192, 304)
-
-[node name="TimedButton16" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(936, 560)
-
-[node name="TimedButton17" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(912, 432)
-
-[node name="TimedButton18" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(840, 560)
-
-[node name="TimedButton19" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(816, 432)
-
-[node name="TimedButton20" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(744, 560)
-
-[node name="TimedButton21" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
 position = Vector2(712, 432)
 
+[node name="TimedButton8" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(808, 432)
+
+[node name="TimedButton9" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(296, 432)
+
+[node name="TimedButton10" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(912, 432)
+
+[node name="TimedButton11" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(912, 304)
+
+[node name="TimedButton12" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(816, 304)
+
+[node name="TimedButton13" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(712, 304)
+
+[node name="TimedButton14" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(616, 304)
+
+[node name="TimedButton15" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(392, 304)
+
+[node name="TimedButton16" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(496, 304)
+
+[node name="TimedButton17" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(296, 304)
+
+[node name="TimedButton18" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(200, 304)
+
+[node name="TimedButton19" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(192, 560)
+
+[node name="TimedButton20" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(288, 560)
+
+[node name="TimedButton21" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
+position = Vector2(384, 560)
+
 [node name="TimedButton22" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(872, 304)
+position = Vector2(928, 560)
 
 [node name="TimedButton23" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
-position = Vector2(200, 560)
+position = Vector2(840, 560)
 
 [node name="TimedButton24" parent="TimedButtonCollector" instance=ExtResource("6_lw1io")]
 position = Vector2(624, 560)
