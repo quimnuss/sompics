@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var weight_platform = $Node2D/WeightPlatform
+@onready var weight_platform = $Node2D
 
 func _ready():
     weight_platform.required_pics = max(2, len(Persistence.pics) - 5)
