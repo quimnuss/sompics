@@ -196,7 +196,7 @@ func _physics_process(delta):
     if not is_on_floor():
         velocity.y += grav_factor * gravity * delta
 
-    self.set_collision_layer_value(6, is_on_floor() or coyote)
+    self.set_collision_layer_value(6, is_on_floor() or coyote or was_on_floor)
 
     var direction : float = 0
     if just_jumped and (is_on_floor() or coyote):
