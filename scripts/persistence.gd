@@ -4,7 +4,7 @@ extends Node
 var pics : Array = [
     #'marta', 'pol'
 #]
-    'marta', 'pol', 'joana'
+    'marta', 'pol', 'joana', 'juanpe'
 ]
     #'marta',
     #'pol',

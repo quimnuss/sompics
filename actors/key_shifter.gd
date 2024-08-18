@@ -1,8 +1,11 @@
 extends Node2D
-
-const SHIFT_DISTANCE_PER_PIC : float = 60
+@onready var key = $Key
+@onready var key_spawn = $KeySpawn
 
 func _ready():
-    var shift_distance = SHIFT_DISTANCE_PER_PIC*floor(len(Persistence.pics)/2 - 1)
-    self.global_position.y += shift_distance
+    var num_pics : int = len(Persistence.pics)
+    if num_pics >= 4:
+        var shift : float = min(floor(num_pics/2) * Pic.ROPELENGTH, 200)
+        key.global_position.y += shift
+        key_spawn.global_position.y += shift
 

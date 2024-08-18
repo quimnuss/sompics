@@ -17,6 +17,9 @@ func _ready():
     num_coins = len(coins)
     fueguito_count.total_coins = num_coins
 
+    var num_pics : int = len(Persistence.pics)
+    if num_pics >= 4:
+        ui_timer.time_limit = ui_timer.time_limit / 2
     ui_timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout():
