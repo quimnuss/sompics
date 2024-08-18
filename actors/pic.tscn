@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bqjx1amkj537a" path="res://assets/dungeon_characters.png" id="4_6lgy5"]
 [ext_resource type="AudioStream" uid="uid://dj2q23b8ll78y" path="res://assets/jump.ogg" id="5_h2mhi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnlmo"]
-size = Vector2(20, 18)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dq60i"]
 size = Vector2(20, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnlmo"]
+size = Vector2(20, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox17r"]
 atlas = ExtResource("4_6lgy5")
@@ -267,27 +267,30 @@ collision_mask = 139
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.0472
+floor_snap_length = 5.0
+platform_on_leave = 2
 script = ExtResource("1_5ledp")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -3.5)
+shape = SubResource("RectangleShape2D_dq60i")
+one_way_collision = true
+
+[node name="PushingArea2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 16
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="PushingArea2D"]
 visible = false
 position = Vector2(11, -23)
 texture = ExtResource("2_b3t8c")
 region_enabled = true
 region_rect = Rect2(78, 2, 14, 13)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushingArea2D"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_qnlmo")
 disabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -3.5)
-shape = SubResource("RectangleShape2D_dq60i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false

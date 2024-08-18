@@ -24,7 +24,7 @@ signal players_spawned
 func _ready():
     #wscontroller = WsController.new()
     #self.add_child(wscontroller)
-    print(owner.name)
+
     var markers = markers_node.get_children() if markers_node else Array()
 
     var pics_array = Persistence.pics
@@ -50,12 +50,13 @@ func _ready():
         pic.pic_back.connect($"../Door".pic_back)
         pic.pic_exit.connect($"../Door".pic_exit)
 
+
 func spawn_at(pic_name : String, spawn_point : Vector2):
     var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
     pic.person = pic_name
     self.add_child(pic)
     pic.global_position = spawn_point
-    prints(pic.person,pic.global_position)
+
 
 func spawn(pic_name : String):
     #TODO prevent spawning inside the collider OR posess characters manually placed on level OR activate collisions with other players when not colliding
@@ -63,6 +64,7 @@ func spawn(pic_name : String):
     pic.person = pic_name
     pic.position += Vector2(randf_range(-70,70),randf_range(-50,50))
     self.add_child(pic)
+
 
 func spawn_flying(pic_name : String):
     var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
@@ -75,6 +77,7 @@ func spawn_flying(pic_name : String):
 
     self.add_child(pic)
 
+
 func spawn_attached(pic_name):
     var pic : Pic = pic_scene.instantiate()
     pic.person = pic_name
@@ -85,6 +88,7 @@ func spawn_attached(pic_name):
         last_pic.attach(pic)
         prints(pic.person,'--',last_pic.person)
     last_pic = pic
+
 
 func _process(delta):
     var pics : Array = get_tree().get_nodes_in_group('pics')

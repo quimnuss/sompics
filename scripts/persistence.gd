@@ -2,33 +2,33 @@ extends Node
 
 #var pics : Array = []
 var pics : Array = [
-    'marta', 'pol'
-]
+    #'marta', 'pol'
+#]
     #'marta', 'pol', 'joana', 'juanpe'
 #]
-    #'marta',
-    #'pol',
-    #'david',
-    #'juanpe',
-    #'joana',
-    #'marite',
-    #'isra',
-    #'daniestanyol',
-    #'xavidolz',
-    #'benjami',
-    #'nuse',
-    #'fran',
-    #'jordi',
-    #'joan',
-    #'raul',
-    #'lucia',
-    #'pere',
-    #'bea',
-    #'angel',
-    #'oriol',
-    #'xavierbonet',
-    #'daniquilez'
-#]
+    'marta',
+    'pol',
+    'david',
+    'juanpe',
+    'joana',
+    'marite',
+    'isra',
+    'daniestanyol',
+    'xavidolz',
+    'benjami',
+    'nuse',
+    'fran',
+    'jordi',
+    'joan',
+    'raul',
+    'lucia',
+    'pere',
+    'bea',
+    'angel',
+    'oriol',
+    'xavierbonet',
+    'daniquilez'
+]
 
 var active_pic : int = 0
 

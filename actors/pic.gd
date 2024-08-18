@@ -3,7 +3,6 @@ class_name Pic
 @onready var head : Sprite2D = $Head
 @onready var jump_sound : AudioStreamPlayer = $jump_sound
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var area_2d : Area2D = $Area2D
 
 @export var SPEED :float = 200.0
 const JUMP_VELOCITY : float = -400.0
@@ -152,11 +151,11 @@ func resolve_pushing(direction : float):
     is_pushing_right = direction > 0 and dx == 0
 
     # consequences
-    var left_push = $Area2D/CollisionShape2D as CollisionShape2D
+    var left_push : CollisionShape2D = $PushingArea2D/CollisionShape2D as CollisionShape2D
     left_push.disabled = true
-    var push_sprite : Sprite2D = $Area2D/Sprite2D as Sprite2D
+    var push_sprite : Sprite2D = $PushingArea2D/Sprite2D as Sprite2D
     push_sprite.visible = false
-    if is_pushing_left:
+    if is_pushing_left or is_pushing_right:
         left_push.disabled = false
         push_sprite.visible = true
 

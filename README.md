@@ -24,10 +24,9 @@ You can open several sockets to simulate several clients.
 
 ## base de la casa
 
-- [ ] parametrize levels to number of players
-     - [ ] 4,9,14
 - [ ] Dialogic Astroboy
 - [ ] fix rope
+- [ ] increase time in level 10 for N players
 
 ## columnes
 
@@ -44,6 +43,7 @@ You can open several sockets to simulate several clients.
 
 # Done
 
+- [x] parametrize levels to number of players
 - [x] Make platform N pics
 - [x] N websockets at the Persistence script
 - [x] dev team

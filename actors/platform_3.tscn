@@ -3,18 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://6085fqe7cqfa" path="res://world/assets/decorations.png" id="1_w5oid"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xn3qh"]
-size = Vector2(128, 12)
+size = Vector2(128, 15)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(816, 550)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_xn3qh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(816, 552)
 texture = ExtResource("1_w5oid")
 region_enabled = true
-region_rect = Rect2(64, 64, 128, 15)
+region_rect = Rect2(64, 64, 128, 16)
