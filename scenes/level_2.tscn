@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_howyk"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="3_jlmd0"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_auvvl"]
-[ext_resource type="PackedScene" uid="uid://4x0l8tl5cstu" path="res://actors/weight_platform.tscn" id="5_o0ewb"]
+[ext_resource type="PackedScene" uid="uid://brtq303uvm5ql" path="res://actors/animatable_weight_platform.tscn" id="8_dgy5t"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_72a0w")
@@ -33,9 +33,5 @@ position = Vector2(848, 240)
 position = Vector2(168, 152)
 script = ExtResource("4_auvvl")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(720, 528)
-
-[node name="WeightPlatform" parent="Node2D" instance=ExtResource("5_o0ewb")]
-position = Vector2(0, -24)
-required_pics = 2
+[node name="AnimatableWeightPlatform" parent="." instance=ExtResource("8_dgy5t")]
+position = Vector2(672, 520)

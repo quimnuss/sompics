@@ -2,7 +2,7 @@ extends RigidBody2D
 
 @onready var collision_shape_2d = $CollisionShape2D
 
-@export var drop_wait = 0.5
+@export var drop_wait = 0.7
 
 func _on_area_2d_body_entered(body):
     if body is Pic:

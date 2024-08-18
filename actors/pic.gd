@@ -81,9 +81,12 @@ func exit_door():
     pic_back.emit()
 
 func _process(_delta):
-    if is_on_door and not self.is_out and Input.is_action_just_pressed(jump):
+    var is_controlled : bool = Persistence.pics[Persistence.active_pic] == person
+    var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
+
+    if is_on_door and not self.is_out and just_jumped:
         enter_door()
-    elif is_out and Input.is_action_just_pressed(jump):
+    elif is_out and just_jumped:
         exit_door()
 
 func hold(key_ : Key):
@@ -178,9 +181,11 @@ func constrain_velocity(attached_pic : Pic, delta : float):
 
 func _physics_process(delta):
 
-    var just_jumped : bool = Input.is_action_just_pressed(jump)
-    var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down)
-    var horizontal_direction : float = Input.get_axis(move_left, move_right)
+    var is_controlled : bool = Persistence.pics[Persistence.active_pic] == person
+
+    var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
+    var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down) if not is_controlled else Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'down-q')
+    var horizontal_direction : float = Input.get_axis(move_left, move_right) if not is_controlled else Input.get_axis('move_left-q', 'move_right-q')
 
     if is_flying:
         var direction : Vector2 = flying_direction
@@ -196,13 +201,13 @@ func _physics_process(delta):
     if not is_on_floor():
         velocity.y += grav_factor * gravity * delta
 
-    self.set_collision_layer_value(6, is_on_floor() or coyote or was_on_floor)
-
     var direction : float = 0
     if just_jumped and (is_on_floor() or coyote):
         velocity.y = JUMP_VELOCITY
         is_jumping = true
         jump_sound.play()
+
+    self.set_collision_layer_value(6, is_on_floor() or not is_jumping)
 
     direction = horizontal_direction
     if direction:

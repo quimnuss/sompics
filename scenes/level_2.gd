@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var weight_platform = $Node2D/WeightPlatform
+@onready var weight_platform = $AnimatableWeightPlatform
 
 
 func _ready():
