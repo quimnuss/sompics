@@ -2,10 +2,10 @@ extends Node
 
 #var pics : Array = []
 var pics : Array = [
-    #'marta', 'pol'
-#]
-    'marta', 'pol', 'joana', 'juanpe'
+    'marta', 'pol'
 ]
+    #'marta', 'pol', 'joana', 'juanpe'
+#]
     #'marta',
     #'pol',
     #'david',
