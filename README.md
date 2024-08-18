@@ -24,9 +24,9 @@ You can open several sockets to simulate several clients.
 
 ## base de la casa
 
+- [ ] fix level 7 platforms (revert git might be enough or swap to animatable platforms)
 - [ ] Dialogic Astroboy
 - [ ] fix rope
-- [ ] increase time in level 10 for N players
 
 ## columnes
 
@@ -43,6 +43,7 @@ You can open several sockets to simulate several clients.
 
 # Done
 
+- [x] increase time in level 10 for N players
 - [x] parametrize levels to number of players
 - [x] Make platform N pics
 - [x] N websockets at the Persistence script
