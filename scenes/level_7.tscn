@@ -1,34 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxf38aj4k5ewl"]
+[gd_scene load_steps=11 format=3 uid="uid://cxf38aj4k5ewl"]
 
 [ext_resource type="Script" path="res://scenes/level_7.gd" id="1_0h5xl"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_frhip"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_iiy7s"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_2deta"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_71ryk"]
-[ext_resource type="Script" path="res://actors/weight_platform.gd" id="6_byoyd"]
-[ext_resource type="Script" path="res://actors/path_platform.gd" id="7_5ju1m"]
+[ext_resource type="PackedScene" uid="uid://dj3upl0awyhy8" path="res://actors/platform_horizontal.tscn" id="8_1ajno"]
+[ext_resource type="Script" path="res://actors/platform.gd" id="8_qw7pq"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="8_si0w2"]
+[ext_resource type="PackedScene" uid="uid://brtq303uvm5ql" path="res://actors/animatable_weight_platform.tscn" id="9_8iko6"]
 
-[sub_resource type="Curve2D" id="Curve2D_h6c8s"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 16, 96)
-}
-point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmo8k"]
-size = Vector2(192, 8)
-
-[sub_resource type="Curve2D" id="Curve2D_mdhi4"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -96)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_t6oah"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.52588e-05, -296)
-}
-point_count = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a502n"]
+size = Vector2(96, 10)
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_0h5xl")
@@ -56,83 +39,25 @@ script = ExtResource("4_71ryk")
 position = Vector2(1056, 320)
 gravity_scale = 0.0
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(712, 264)
-
-[node name="WeightPlatform" type="Path2D" parent="Node2D"]
-curve = SubResource("Curve2D_h6c8s")
-script = ExtResource("6_byoyd")
-required_pics = 2
-
-[node name="FollowPath2D" type="PathFollow2D" parent="Node2D/WeightPlatform"]
-position = Vector2(16, 0)
-rotation = 1.5708
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Node2D/WeightPlatform/FollowPath2D"]
-position = Vector2(0, -16)
-rotation = -1.5708
-collision_mask = 7
-sync_to_physics = false
-
-[node name="TileMap" type="TileMap" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D"]
-z_as_relative = false
-tile_set = ExtResource("2_iiy7s")
-format = 2
-layer_0/tile_data = PackedInt32Array(65535, 196610, 2, 0, 196610, 2, 1, 262146, 2, 65534, 196610, 2, 65533, 196610, 2, 65532, 131074, 2)
-
-[node name="Label" type="Label" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D"]
-z_index = -1
-offset_left = -48.0002
-offset_top = -47.9998
-offset_right = -8.0002
-offset_bottom = -8.99979
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 32
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Area2D" type="Area2D" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D/Area2D"]
-position = Vector2(-32, -4)
-shape = SubResource("RectangleShape2D_cmo8k")
-
 [node name="PlatformVertical" type="Node2D" parent="."]
 position = Vector2(336, 360)
+script = ExtResource("8_qw7pq")
+offset = Vector2(0, -110)
+duration = 6.0
 
-[node name="PathPlatform" type="Path2D" parent="PlatformVertical"]
-curve = SubResource("Curve2D_mdhi4")
-script = ExtResource("7_5ju1m")
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="PlatformVertical"]
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PlatformVertical/PathPlatform"]
-rotates = false
-loop = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformVertical/AnimatableBody2D"]
+position = Vector2(16, 5)
+shape = SubResource("RectangleShape2D_a502n")
 
-[node name="TileMap" type="TileMap" parent="PlatformVertical/PathPlatform/PathFollow2D"]
+[node name="TileMap" type="TileMap" parent="PlatformVertical/AnimatableBody2D"]
 tile_set = ExtResource("2_iiy7s")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 262146, 2)
 
-[node name="PlatformHorizontal" type="Node2D" parent="."]
-position = Vector2(856, 224)
-rotation = -1.5708
+[node name="PlatformHorizontal" parent="." instance=ExtResource("8_1ajno")]
 
-[node name="PathPlatform" type="Path2D" parent="PlatformHorizontal"]
-curve = SubResource("Curve2D_t6oah")
-script = ExtResource("7_5ju1m")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PlatformHorizontal/PathPlatform"]
-rotates = false
-loop = false
-
-[node name="TileMap" type="TileMap" parent="PlatformHorizontal/PathPlatform/PathFollow2D"]
-tile_set = ExtResource("2_iiy7s")
-format = 2
-layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 196610, 2, 2, 196610, 2, 3, 196610, 2)
-
-[connection signal="body_entered" from="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D/Area2D" to="Node2D/WeightPlatform" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Node2D/WeightPlatform/FollowPath2D/AnimatableBody2D/Area2D" to="Node2D/WeightPlatform" method="_on_area_2d_body_exited"]
+[node name="AnimatableWeightPlatform" parent="." instance=ExtResource("9_8iko6")]
+position = Vector2(704, 264)
+offset = Vector2(0, 105)

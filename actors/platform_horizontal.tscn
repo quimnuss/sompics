@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj3upl0awyhy8"]
+
+[ext_resource type="Script" path="res://actors/path_platform.gd" id="1_2j5kc"]
+[ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_6c3lu"]
+
+[sub_resource type="Curve2D" id="Curve2D_t6oah"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.52588e-05, -296)
+}
+point_count = 2
+
+[node name="PlatformHorizontal" type="Node2D"]
+position = Vector2(856, 224)
+rotation = -1.5708
+
+[node name="PathPlatform" type="Path2D" parent="."]
+curve = SubResource("Curve2D_t6oah")
+script = ExtResource("1_2j5kc")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathPlatform"]
+rotates = false
+loop = false
+
+[node name="TileMap" type="TileMap" parent="PathPlatform/PathFollow2D"]
+tile_set = ExtResource("2_6c3lu")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 196610, 2, 2, 196610, 2, 3, 196610, 2)
+
+[node name="_Timer_17553" type="Timer" parent="PathPlatform/PathFollow2D"]
+wait_time = 0.2
+one_shot = true

@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dthnm4wbvvsab"]
+
+[ext_resource type="Script" path="res://actors/weight_platform.gd" id="1_4qkkn"]
+[ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_mqbdm"]
+
+[sub_resource type="Curve2D" id="Curve2D_h6c8s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 16, 96)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmo8k"]
+size = Vector2(192, 8)
+
+[node name="WeightPlatform" type="Path2D"]
+curve = SubResource("Curve2D_h6c8s")
+script = ExtResource("1_4qkkn")
+required_pics = 2
+
+[node name="FollowPath2D" type="PathFollow2D" parent="."]
+position = Vector2(16, 0)
+rotation = 1.5708
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="FollowPath2D"]
+position = Vector2(0, -16)
+rotation = -1.5708
+collision_mask = 7
+sync_to_physics = false
+
+[node name="TileMap" type="TileMap" parent="FollowPath2D/AnimatableBody2D"]
+z_as_relative = false
+tile_set = ExtResource("2_mqbdm")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 196610, 2, 0, 196610, 2, 1, 262146, 2, 65534, 196610, 2, 65533, 196610, 2, 65532, 131074, 2)
+
+[node name="Label" type="Label" parent="FollowPath2D/AnimatableBody2D"]
+z_index = -1
+offset_left = -48.0002
+offset_top = -47.9998
+offset_right = -8.0002
+offset_bottom = -8.99979
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="FollowPath2D/AnimatableBody2D"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowPath2D/AnimatableBody2D/Area2D"]
+position = Vector2(-32, -4)
+shape = SubResource("RectangleShape2D_cmo8k")
+
+[node name="_Timer_17551" type="Timer" parent="FollowPath2D"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="FollowPath2D/AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FollowPath2D/AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_exited"]

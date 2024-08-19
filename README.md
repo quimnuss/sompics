@@ -32,7 +32,6 @@ and open the DevTools console in that webpage.
 
 ## base de la casa
 
-- [ ] fix level 7 platforms (revert git might be enough or swap to animatable platforms)
 - [ ] Dialogic Astroboy
 - [ ] fix rope
 
@@ -51,6 +50,7 @@ and open the DevTools console in that webpage.
 
 # Done
 
+- [x] fix level 7 platforms (revert git might be enough or swap to animatable platforms)
 - [x] increase time in level 10 for N players
 - [x] parametrize levels to number of players
 - [x] Make platform N pics
