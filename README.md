@@ -20,6 +20,14 @@ when done `ws.close()`.
 
 You can open several sockets to simulate several clients.
 
+If you get a CSP violation error, try creating a dummy html without the CSP restrictions
+
+```html
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: gap: ws: ssl.gstatic.com 'unsafe-inline';">
+```
+and open the DevTools console in that webpage.
+
 # TODO
 
 ## base de la casa
