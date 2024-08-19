@@ -13,7 +13,7 @@ func build_bridge():
 func _input(event):
     if Input.is_action_just_pressed('special'):
         get_tree().call_group('pics','kill')
-            
+
 
 func _on_button_button_pressed():
     build_bridge()

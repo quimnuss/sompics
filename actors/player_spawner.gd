@@ -47,8 +47,10 @@ func _ready():
     players_spawned.emit()
 
     for pic in get_tree().get_nodes_in_group('pics'):
-        pic.pic_back.connect($"../Door".pic_back)
-        pic.pic_exit.connect($"../Door".pic_exit)
+        var door : Door = get_node_or_null("../Door")
+        if door:
+            pic.pic_back.connect(door.pic_back)
+            pic.pic_exit.connect(door.pic_exit)
 
 
 func spawn_at(pic_name : String, spawn_point : Vector2):
