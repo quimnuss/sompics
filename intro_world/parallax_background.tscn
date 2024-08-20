@@ -17,6 +17,7 @@ offset_right = 1120.0
 offset_bottom = 304.0
 texture = ExtResource("1_8e7ct")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayerClouds" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.3, 0)
@@ -27,6 +28,7 @@ offset_right = 1088.0
 offset_bottom = 236.0
 texture = ExtResource("2_v0q38")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayerSea" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.4, 0.1)
@@ -39,6 +41,7 @@ offset_right = 1118.0
 offset_bottom = 649.0
 texture = ExtResource("3_vvp02")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayerFarGround" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.6, 0.1)
@@ -49,6 +52,7 @@ offset_top = 389.0
 offset_right = 616.0
 offset_bottom = 499.0
 texture = ExtResource("4_tt4y8")
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayerForeGround" type="ParallaxLayer" parent="."]
 visible = false
