@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqanpsoo6txmg"]
+[gd_scene load_steps=6 format=3 uid="uid://bqanpsoo6txmg"]
 
 [ext_resource type="Texture2D" uid="uid://ckq16f1wlb5xx" path="res://intro_world/sky.png" id="1_8e7ct"]
 [ext_resource type="Texture2D" uid="uid://bubiokecv02fh" path="res://intro_world/clouds.png" id="2_v0q38"]
 [ext_resource type="Texture2D" uid="uid://b56bqv84uu7ja" path="res://intro_world/sea.png" id="3_vvp02"]
 [ext_resource type="Texture2D" uid="uid://d0imarthe77sx" path="res://intro_world/far-grounds.png" id="4_tt4y8"]
+[ext_resource type="Texture2D" uid="uid://b4nedqlrl8ycr" path="res://intro_world/forest.png" id="5_yqatm"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -28,22 +29,36 @@ texture = ExtResource("2_v0q38")
 stretch_mode = 1
 
 [node name="ParallaxLayerSea" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.4, 1)
+motion_scale = Vector2(0.4, 0.1)
 motion_mirroring = Vector2(1120, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxLayerSea"]
-offset_top = 144.0
-offset_right = 1120.0
-offset_bottom = 305.0
+offset_left = -2.0
+offset_top = 234.0
+offset_right = 1118.0
+offset_bottom = 649.0
 texture = ExtResource("3_vvp02")
 stretch_mode = 1
 
 [node name="ParallaxLayerFarGround" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.6, 1)
+motion_scale = Vector2(0.6, 0.1)
 motion_mirroring = Vector2(1232, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxLayerFarGround"]
-offset_top = 131.0
+offset_top = 389.0
 offset_right = 616.0
-offset_bottom = 241.0
+offset_bottom = 499.0
 texture = ExtResource("4_tt4y8")
+
+[node name="ParallaxLayerForeGround" type="ParallaxLayer" parent="."]
+visible = false
+position = Vector2(0, 108)
+motion_scale = Vector2(0.7, 0.2)
+motion_mirroring = Vector2(615, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayerForeGround"]
+offset_left = 2.0
+offset_top = 93.0
+offset_right = 618.0
+offset_bottom = 417.0
+texture = ExtResource("5_yqatm")
