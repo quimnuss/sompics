@@ -38,34 +38,34 @@ var time_per_event: float = 0.1
 
 ## Setting up Auto-Skip.
 func _init() -> void:
-	enable_on_visited = ProjectSettings.get_setting('dialogic/text/autoskip_enabled', enable_on_visited)
-	time_per_event = ProjectSettings.get_setting('dialogic/text/autoskip_time_per_event', time_per_event)
+    enable_on_visited = ProjectSettings.get_setting('dialogic/text/autoskip_enabled', enable_on_visited)
+    time_per_event = ProjectSettings.get_setting('dialogic/text/autoskip_time_per_event', time_per_event)
 
-	if DialogicUtil.autoload().has_subsystem('History'):
-		DialogicUtil.autoload().History.visited_event.connect(_handle_seen_event)
-		DialogicUtil.autoload().History.unvisited_event.connect(_handle_unseen_event)
+    if DialogicUtil.autoload().has_subsystem('History'):
+        DialogicUtil.autoload().History.visited_event.connect(_handle_seen_event)
+        DialogicUtil.autoload().History.unvisited_event.connect(_handle_unseen_event)
 
 
 ## Called when Auto-Skip is enabled or disabled.
 ## Emits [signal autoskip_changed] if the state changed.
 func _set_enabled(is_enabled: bool) -> void:
-	var previous_enabled := enabled
-	enabled = is_enabled
+    var previous_enabled := enabled
+    enabled = is_enabled
 
-	if enabled != previous_enabled:
-		toggled.emit(enabled)
+    if enabled != previous_enabled:
+        toggled.emit(enabled)
 
 
 func _handle_seen_event() -> void:
-	# If Auto-Skip is disabled but reacts to seen events, we
-	# enable Auto-Skip.
-	if not enabled and enable_on_visited:
-		enabled = true
+    # If Auto-Skip is disabled but reacts to seen events, we
+    # enable Auto-Skip.
+    if not enabled and enable_on_visited:
+        enabled = true
 
 
 func _handle_unseen_event() -> void:
-	if not enabled:
-		return
+    if not enabled:
+        return
 
-	if disable_on_unread_text:
-		enabled = false
+    if disable_on_unread_text:
+        enabled = false
