@@ -2473,6 +2473,7 @@ texture = ExtResource("14_32ghq")
 modulate = Color(1, 1, 1, 0)
 position = Vector2(2216, 429)
 sprite_frames = SubResource("SpriteFrames_54fqc")
+autoplay = "default"
 frame_progress = 0.633687
 
 [node name="Area2D" type="Area2D" parent="Node"]
