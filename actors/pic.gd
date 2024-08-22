@@ -39,6 +39,8 @@ var is_pushing_right : bool = false
 
 @export var is_flying : bool = false
 
+var is_possessed : bool = true
+
 var previous_position : float
 
 signal pic_exit
@@ -79,8 +81,11 @@ func exit_door():
     self.is_out = false
     pic_back.emit()
 
+func get_is_controlled() -> bool:
+    return Persistence.pics[Persistence.active_pic] == person and is_possessed
+
 func _process(_delta):
-    var is_controlled : bool = Persistence.pics[Persistence.active_pic] == person
+    var is_controlled : bool = get_is_controlled()
     var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
 
     if is_on_door and not self.is_out and just_jumped:
@@ -180,7 +185,14 @@ func constrain_velocity(attached_pic : Pic, delta : float):
 
 func _physics_process(delta):
 
-    var is_controlled : bool = Persistence.pics[Persistence.active_pic] == person
+    var is_controlled : bool = get_is_controlled()
+
+    # doesn't work dunno why. Anyway get_is_controlled is enough for external controllers so... whatever
+    #if not is_possessed:
+        #if not is_on_floor():
+            #velocity.y += gravity * delta
+            #move_and_slide()
+        #return
 
     var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
     var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down) if not is_controlled else Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'down-q')
@@ -267,6 +279,10 @@ func _physics_process(delta):
         head.flip_h = true
 
     was_on_floor = is_on_floor()
+
+
+func possess_toggle(new_is_possessed : bool):
+    is_possessed = new_is_possessed
 
 
 func _on_coyote_timer_timeout():

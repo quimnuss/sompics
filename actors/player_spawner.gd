@@ -1,4 +1,5 @@
 extends Marker2D
+class_name PlayerSpawner
 
 @onready var markers_node = get_node_or_null('./Markers')
 
