@@ -14,28 +14,6 @@
 [ext_resource type="Script" path="res://intro_world/fire.gd" id="12_5ocd5"]
 [ext_resource type="Texture2D" uid="uid://cjfpp7o1r8a27" path="res://intro_world/assets/foliage/sprite_0086.png" id="13_vcvao"]
 
-[sub_resource type="Curve" id="Curve_ajk12"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_mk1di"]
-curve = SubResource("Curve_ajk12")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5x0c"]
-lifetime_randomness = 0.2
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(100, 50, 1)
-angle_max = 180.0
-direction = Vector3(0, 1, 0)
-angular_velocity_max = 100.0
-radial_velocity_max = 30.0
-gravity = Vector3(100, 98, 0)
-linear_accel_max = 50.0
-scale_min = 0.4
-scale_curve = SubResource("CurveTexture_mk1di")
-turbulence_enabled = true
-
 [sub_resource type="TileMapPattern" id="TileMapPattern_04tin"]
 tile_data = PackedInt32Array(131072, 1245184, 21, 196608, 1245184, 22, 262144, 1245184, 23, 65537, 1310720, 20, 131073, 1310720, 21, 196609, 1310720, 22, 262145, 1310720, 23, 65538, 1376256, 20, 131074, 1376256, 21, 196610, 1376256, 22, 262146, 1376256, 23, 3, 1441792, 19, 65539, 1441792, 20, 131075, 1441792, 21, 196611, 1441792, 22, 262147, 1441792, 23, 327683, 1441792, 24, 393219, 1441792, 25, 4, 1507328, 19, 65540, 1507328, 20, 131076, 1507328, 21, 196612, 1507328, 22, 262148, 1507328, 23, 327684, 1507328, 24, 393220, 1507328, 25, 5, 1572864, 19, 65541, 1572864, 20, 131077, 1572864, 21, 196613, 1572864, 22, 262149, 1572864, 23, 327685, 1572864, 24, 65542, 1638400, 20, 131078, 1638400, 21, 196614, 1638400, 22, 262150, 1638400, 23, 327686, 1638400, 24, 196615, 1703936, 22, 262151, 1703936, 23)
 
@@ -2051,6 +2029,28 @@ pattern_1 = SubResource("TileMapPattern_hqs2u")
 pattern_2 = SubResource("TileMapPattern_d8ipj")
 pattern_3 = SubResource("TileMapPattern_jaw4u")
 
+[sub_resource type="Curve" id="Curve_ajk12"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mk1di"]
+curve = SubResource("Curve_ajk12")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5x0c"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 50, 1)
+angle_max = 180.0
+direction = Vector3(0, 1, 0)
+angular_velocity_max = 100.0
+radial_velocity_max = 30.0
+gravity = Vector3(100, 98, 0)
+linear_accel_max = 50.0
+scale_min = 0.4
+scale_curve = SubResource("CurveTexture_mk1di")
+turbulence_enabled = true
+
 [node name="IntroWorldMedieval" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -2126,15 +2126,6 @@ offset_right = 1152.0
 offset_bottom = 352.0
 texture = ExtResource("4_al6lh")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-modulate = Color(0.972549, 0.54902, 0.388235, 1)
-position = Vector2(680, 352)
-amount = 10
-process_material = SubResource("ParticleProcessMaterial_m5x0c")
-texture = ExtResource("13_vcvao")
-lifetime = 5.0
-randomness = 0.2
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -56)
 tile_set = SubResource("TileSet_tagya")
@@ -2149,6 +2140,15 @@ layer_3/name = "Decor"
 layer_3/tile_data = PackedInt32Array(917528, 196608, 13, 983064, 196608, 14, 917529, 262144, 13, 983065, 262144, 14, 917530, 327680, 13, 983066, 327680, 14, 983063, 458752, 12, 983055, 393216, 12, 983058, 65536, 12, 983062, 65536, 15, 983061, 262144, 12, 983059, 131072, 12, 983075, 589824, 11, 917540, 655360, 10, 983076, 655360, 11, 917541, 720896, 10, 983077, 720896, 11, 983070, 589824, 6, 917544, 1114112, 1, 852009, 1179648, 0, 917545, 1179648, 1, 917546, 1114112, 1, 917531, 196608, 8, 983067, 196608, 9, 786460, 262144, 6, 851996, 262144, 7, 917532, 262144, 8, 983068, 262144, 9, 917533, 327680, 8, 983069, 327680, 9, 983073, 196608, 7, 852001, 65536, 6, 917537, 65536, 7, 983060, 262144, 15, 917547, 196608, 15, 983084, 327680, 15, 983091, 786432, 17, 917556, 851968, 16, 983092, 851968, 17, 917557, 917504, 16, 983093, 917504, 17, 983085, 196609, 0, 983086, 262145, 0, 983087, 458753, 0, 983088, 262145, 0, 983089, 131073, 0)
 layer_4/name = "bushes"
 layer_4/tile_data = PackedInt32Array(983085, 589824, 21, 983086, 589824, 19, 983084, 589824, 19, 983088, 720896, 19, 983089, 589824, 21, 983087, 655360, 19, 983090, 655360, 19)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.972549, 0.54902, 0.388235, 1)
+position = Vector2(680, 352)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_m5x0c")
+texture = ExtResource("13_vcvao")
+lifetime = 5.0
+randomness = 0.2
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(680, 112)

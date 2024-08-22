@@ -30,17 +30,17 @@ and open the DevTools console in that webpage.
 
 # TODO
 
-## base de la casa
+## now
 
+- [ ] Intro world
 - [ ] Dialogic Astroboy
 - [ ] fix rope
 
-## columnes
+## next
 
 - [ ] fancy jump
-- [ ] per 29 jugadors
 
-## nata del pastís
+## later
 
 - [ ] death animation
 - [ ] noves cares
@@ -50,6 +50,7 @@ and open the DevTools console in that webpage.
 
 # Done
 
+- [x] per 24 jugadors
 - [x] fix level 7 platforms (revert git might be enough or swap to animatable platforms)
 - [x] increase time in level 10 for N players
 - [x] parametrize levels to number of players
