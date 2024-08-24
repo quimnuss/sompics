@@ -19,3 +19,6 @@ func _on_animation_player_animation_finished(anim_name):
 func possess_camera():
     ($"../PlayerSpawner" as PlayerSpawner).player_average_position.disconnect($"../PicsCamera"._on_player_spawner_player_average_position)
     get_tree().call_group('pics', 'possess_toggle', false)
+
+func to_welcome_level():
+    get_tree().change_scene_to_file('res://scenes/welcome_level.tscn')
