@@ -2,15 +2,9 @@ extends Node
 
 #var pics : Array = []
 var pics : Array = [
-    'marta', 'pol'
-]
-    #'marta', 'pol', 'joana', 'juanpe'
-#]
-    #'marta',
-    #'pol',
+    'marta', 'pol',
+    'joana', 'juanpe',
     #'david',
-    #'juanpe',
-    #'joana',
     #'marite',
     #'isra',
     #'daniestanyol',
@@ -29,7 +23,7 @@ var pics : Array = [
     #'xavierbonet',
     #'daniquilez'
 #]
-
+]
 var active_pic : int = 0
 
 var levels : Array = [

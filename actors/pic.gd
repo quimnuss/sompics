@@ -43,6 +43,8 @@ var is_possessed : bool = true
 
 var previous_position : float
 
+var debug_velocity : Vector2
+
 signal pic_exit
 signal pic_back
 
@@ -210,14 +212,14 @@ func _physics_process(delta):
     var horizontal_direction : float = Input.get_axis(move_left, move_right) if not is_controlled else Input.get_axis('move_left-q', 'move_right-q')
 
     if is_flying:
-        var direction : Vector2 = flying_direction
-        velocity = direction * SPEED
+        velocity = flying_direction * SPEED
         move_and_slide()
         return
 
     # TODO asymetrical jump (better jump)
     var grav_factor = 1
-    if velocity.y > 0:
+    # disable when attached because it messes with spring equations
+    if velocity.y > 0 and attached_pics.is_empty():
         grav_factor = 3
 
     if not is_on_floor():
@@ -240,28 +242,48 @@ func _physics_process(delta):
             velocity.x = 0 # move_toward(velocity.x, 0, SPEED)
     else:
         var rope_velocity : Vector2 = Vector2(0,0)
-        var K = 50
+        var K : float = 50
+        var cum_dl : Vector2 = Vector2.ZERO
         for attached_pic : Pic in attached_pics:
             if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
-                var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
-                var dx = attached_direction.length() - ROPELENGTH
-                if attached_pic.is_on_floor() and not is_on_floor() or not attached_pic.is_on_floor() and is_on_floor():
-                    if is_on_floor():
-                        attached_direction = Vector2.LEFT if attached_direction.x < 0 else Vector2.RIGHT
-                    else:
-                        attached_direction = Vector2.UP if attached_direction.y < 0 else Vector2.DOWN
-                var constrained_velocity = K*dx*attached_direction.normalized()*delta
-                rope_velocity += constrained_velocity
+                var attached_vector : Vector2 = (attached_pic.global_position - self.global_position)
+                var attached_direction : Vector2 = attached_vector.normalized()
+                cum_dl = attached_direction - ROPELENGTH*attached_direction
+                var dl = attached_vector.length() - ROPELENGTH
+                if dl > 0:
+                    var constrained_velocity = K*dl*attached_direction*delta
+                    rope_velocity += constrained_velocity
 
+                #if attached_pic.is_on_floor() and not is_on_floor() or true:
+                    #const C : float = 0.2
+                    #velocity.y += -C*velocity.y
+
+                # todo maybe we have to keep track id the velocity comes from the rope
+                # instead of dl > 0
+
+        #rope_velocity = rope_velocity.clamp(Vector2.ONE*-50, Vector2.ONE*50)
         velocity += rope_velocity
-        if rope_velocity.y < -20: # disable gravity if rope is strong enough (meaning cumulative dxs are high
-            velocity.y = rope_velocity.y
+        if not is_on_floor() and not is_jumping and cum_dl.length() > 0:
+            const C : float = 1
+            velocity += -C*velocity*delta
+            #if dl > 0:
+                #velocity.y += -C*velocity.y
+        #if not is_on_floor():
+            #velocity.y -= grav_factor * gravity * delta/2
+        # disable gravity if rope is strong enough (meaning cumulative dxs are high)
+        #if rope_velocity.y < -30:
+            #velocity.y += rope_velocity.y
+        #if abs(rope_velocity.x) > 30:
+            #velocity.x += rope_velocity.x
+        #velocity = velocity.clamp(Vector2.ONE*-1000, Vector2.ONE*1000)
+
 
         if not direction and abs(rope_velocity.x) < 0.01:
             velocity.x = 0
         elif not direction and is_on_floor(): # friction
             velocity.x = move_toward(velocity.x, 0, 5*SPEED*delta)
-
+        #if person == 'marta':
+            #prints(person,'speed',velocity.x, rope_velocity.x)
         if len(ropes):
             draw_ropes()
 
@@ -269,6 +291,8 @@ func _physics_process(delta):
     #velocity = velocity.clamp(Vector2(-CLAMP_VELOCITY,-CLAMP_VELOCITY),Vector2(CLAMP_VELOCITY,CLAMP_VELOCITY))
 
     move_and_slide()
+
+    debug_velocity = self.velocity
 
     $Label.set_text("%.2f %.2f" % [velocity.x, velocity.y])
 
