@@ -240,12 +240,22 @@ func _physics_process(delta):
             velocity.x = 0 # move_toward(velocity.x, 0, SPEED)
     else:
         var rope_velocity : Vector2 = Vector2(0,0)
-
+        var K = 50
         for attached_pic : Pic in attached_pics:
             if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
-                rope_velocity += constrain_velocity(attached_pic,delta)
+                var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
+                var dx = attached_direction.length() - ROPELENGTH
+                if attached_pic.is_on_floor() and not is_on_floor() or not attached_pic.is_on_floor() and is_on_floor():
+                    if is_on_floor():
+                        attached_direction = Vector2.LEFT if attached_direction.x < 0 else Vector2.RIGHT
+                    else:
+                        attached_direction = Vector2.UP if attached_direction.y < 0 else Vector2.DOWN
+                var constrained_velocity = K*dx*attached_direction.normalized()*delta
+                rope_velocity += constrained_velocity
 
         velocity += rope_velocity
+        if rope_velocity.y < -20: # disable gravity if rope is strong enough (meaning cumulative dxs are high
+            velocity.y = rope_velocity.y
 
         if not direction and abs(rope_velocity.x) < 0.01:
             velocity.x = 0
