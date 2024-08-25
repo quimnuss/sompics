@@ -293,19 +293,19 @@ func _physics_process_attached(delta : float, just_jumped : bool, direction : fl
         if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
             var attached_vector : Vector2 = (attached_pic.global_position - self.global_position)
             var attached_direction : Vector2 = attached_vector.normalized()
-            cum_dl += attached_vector - ROPELENGTH*attached_direction
             var dl = attached_vector.length() - ROPELENGTH
             if dl > 0:
+                cum_dl += attached_vector - ROPELENGTH*attached_direction
                 var constrained_velocity = K*dl*attached_direction*delta
                 rope_velocity += constrained_velocity
 
     #rope_velocity = rope_velocity.clamp(Vector2.ONE*-50, Vector2.ONE*50)
     velocity += rope_velocity
-    if cum_dl.length() > 0: # and not is_jumping -- removed because is_jumping is on until floor hits
+    if cum_dl.length() > 0: # -- removed because is_jumping is on until floor hits
         const C : float = 1
         var damp : Vector2 = -C*velocity*delta
         velocity += damp
-    elif not is_on_floor() and velocity.y > 0:
+    elif not is_on_floor() and velocity.y > 0 and is_jumping:
         velocity.y += 2 * gravity * delta
 
     #velocity = velocity.clamp(Vector2.ONE*-600, Vector2.ONE*600)

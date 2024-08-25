@@ -36,6 +36,7 @@ func process_packet(message):
     get_tree().call_group('pics', 'external_input', player, action, is_pressed)
 
 func _process(_delta):
+
     while tcp_server.is_connection_available():
         var conn: StreamPeerTCP = tcp_server.take_connection()
         assert(conn != null)
