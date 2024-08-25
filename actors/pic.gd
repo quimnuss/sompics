@@ -36,6 +36,7 @@ var was_on_floor = false
 var is_jumping : bool = false
 var is_pushing_left : bool = false
 var is_pushing_right : bool = false
+var is_out : bool = false
 
 @export var is_flying : bool = false
 
@@ -74,7 +75,6 @@ func enter_door():
     head.set_modulate(Color(1,1,1,0.25))
     pic_exit.emit()
 
-var is_out : bool = false
 
 func exit_door():
     self.set_physics_process(true)
@@ -83,8 +83,10 @@ func exit_door():
     self.is_out = false
     pic_back.emit()
 
+
 func get_is_controlled() -> bool:
     return Persistence.pics[Persistence.active_pic] == person and is_possessed
+
 
 func _process(_delta):
     var is_controlled : bool = get_is_controlled()
@@ -95,16 +97,20 @@ func _process(_delta):
     elif is_out and just_jumped:
         exit_door()
 
+
 func hold(key_ : Key):
     key = key_
+
 
 func drop():
     if key and is_instance_valid(key):
         key.drop()
 
+
 func attach(pic : Pic):
     attached_pics.append(pic)
     rope_attach(pic)
+
 
 func rope_attach(attached_pic : Pic):
     var rope : Line2D = Line2D.new()
@@ -118,9 +124,11 @@ func rope_attach(attached_pic : Pic):
     add_child(rope)
     ropes.append(rope)
 
+
 func ropes_attach():
     for attached_pic : Pic in attached_pics:
         rope_attach(attached_pic)
+
 
 func kill():
     head.set_modulate(Color(0.3,0.3,0.3,1))
@@ -139,6 +147,7 @@ func external_input(player : String, action : String, is_pressed : bool = true):
         Input.action_press(input_action)
     else:
         Input.action_release(input_action)
+
 
 func resolve_pushing(direction : float):
 
@@ -166,6 +175,7 @@ func resolve_pushing(direction : float):
         left_push.disabled = false
         push_sprite.visible = true
 
+
 func draw_ropes():
     for i in range(len(attached_pics)):
         var attached_pic : Pic = attached_pics[i] if i < len(attached_pics) else null
@@ -176,25 +186,6 @@ func draw_ropes():
             rope.visible = true
         else:
             rope.visible = false
-
-func constrain_velocity(attached_pic : Pic, delta : float):
-    var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
-
-    #var gravity_pull : Vector2 = Vector2(0,0)
-    #var mass : float = 10
-    ## TODO gravity force should push the pic towards the wall
-    #if not is_on_floor():
-        ## the force
-        #gravity_pull = mass*gravity*Vector2(0,1)
-        ##gravity_pull = (gravity*Vector2(0,1)).dot(-attached_direction.normalized())
-    #var lambda = -self.velocity.cross(attached_direction.normalized())
-    #var lambda_dot = self.velocity.dot(attached_direction.normalized())
-
-    var dx = attached_direction.length() - ROPELENGTH
-    var K = 5
-    var constrained_velocity = 10*K*dx*attached_direction.normalized()*delta
-
-    return constrained_velocity
 
 func _physics_process(delta):
 
@@ -209,23 +200,25 @@ func _physics_process(delta):
 
     var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
     var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down) if not is_controlled else Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'down-q')
-    var horizontal_direction : float = Input.get_axis(move_left, move_right) if not is_controlled else Input.get_axis('move_left-q', 'move_right-q')
+    var direction : float = Input.get_axis(move_left, move_right) if not is_controlled else Input.get_axis('move_left-q', 'move_right-q')
 
     if is_flying:
         velocity = flying_direction * SPEED
         move_and_slide()
         return
 
-    # TODO asymetrical jump (better jump)
+    # attached
+    if not attached_pics.is_empty():
+        _physics_process_attached(delta, just_jumped, direction)
+        return
+
     var grav_factor = 1
-    # disable when attached because it messes with spring equations
-    if velocity.y > 0 and attached_pics.is_empty():
+    if velocity.y > 0:
         grav_factor = 3
 
     if not is_on_floor():
         velocity.y += grav_factor * gravity * delta
 
-    var direction : float = 0
     if just_jumped and (is_on_floor() or coyote):
         velocity.y = JUMP_VELOCITY
         is_jumping = true
@@ -233,62 +226,12 @@ func _physics_process(delta):
 
     self.set_collision_layer_value(6, is_on_floor() or not is_jumping)
 
-    direction = horizontal_direction
     if direction:
         velocity.x = direction * SPEED
 
     if attached_pics.is_empty():
         if not direction:
             velocity.x = 0 # move_toward(velocity.x, 0, SPEED)
-    else:
-        var rope_velocity : Vector2 = Vector2(0,0)
-        var K : float = 50
-        var cum_dl : Vector2 = Vector2.ZERO
-        for attached_pic : Pic in attached_pics:
-            if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
-                var attached_vector : Vector2 = (attached_pic.global_position - self.global_position)
-                var attached_direction : Vector2 = attached_vector.normalized()
-                cum_dl = attached_direction - ROPELENGTH*attached_direction
-                var dl = attached_vector.length() - ROPELENGTH
-                if dl > 0:
-                    var constrained_velocity = K*dl*attached_direction*delta
-                    rope_velocity += constrained_velocity
-
-                #if attached_pic.is_on_floor() and not is_on_floor() or true:
-                    #const C : float = 0.2
-                    #velocity.y += -C*velocity.y
-
-                # todo maybe we have to keep track id the velocity comes from the rope
-                # instead of dl > 0
-
-        #rope_velocity = rope_velocity.clamp(Vector2.ONE*-50, Vector2.ONE*50)
-        velocity += rope_velocity
-        if not is_on_floor() and not is_jumping and cum_dl.length() > 0:
-            const C : float = 1
-            velocity += -C*velocity*delta
-            #if dl > 0:
-                #velocity.y += -C*velocity.y
-        #if not is_on_floor():
-            #velocity.y -= grav_factor * gravity * delta/2
-        # disable gravity if rope is strong enough (meaning cumulative dxs are high)
-        #if rope_velocity.y < -30:
-            #velocity.y += rope_velocity.y
-        #if abs(rope_velocity.x) > 30:
-            #velocity.x += rope_velocity.x
-        #velocity = velocity.clamp(Vector2.ONE*-1000, Vector2.ONE*1000)
-
-
-        if not direction and abs(rope_velocity.x) < 0.01:
-            velocity.x = 0
-        elif not direction and is_on_floor(): # friction
-            velocity.x = move_toward(velocity.x, 0, 5*SPEED*delta)
-        #if person == 'marta':
-            #prints(person,'speed',velocity.x, rope_velocity.x)
-        if len(ropes):
-            draw_ropes()
-
-    #const CLAMP_VELOCITY : float = 300
-    #velocity = velocity.clamp(Vector2(-CLAMP_VELOCITY,-CLAMP_VELOCITY),Vector2(CLAMP_VELOCITY,CLAMP_VELOCITY))
 
     move_and_slide()
 
@@ -309,6 +252,85 @@ func _physics_process(delta):
         coyote_timer.start()
 
     if is_on_floor() and is_jumping:
+        is_jumping = false
+
+    if velocity.x > 0:
+        #$AnimatedSprite2d.flip_h = false
+        head.flip_h = false
+    elif velocity.x < 0:
+        #$AnimatedSprite2d.flip_h = true
+        head.flip_h = true
+
+    was_on_floor = is_on_floor()
+
+
+func _physics_process_attached(delta : float, just_jumped : bool, direction : float):
+
+    var grav_factor = 1
+    # disable when attached because it messes with spring equations
+    if velocity.y > 0 and attached_pics.is_empty():
+        grav_factor = 3
+
+    if not is_on_floor():
+        velocity.y += grav_factor * gravity * delta
+
+    if just_jumped and (is_on_floor() or coyote):
+        velocity.y = JUMP_VELOCITY
+        is_jumping = true
+        jump_sound.play()
+    elif just_jumped and is_on_wall():
+        velocity.y = JUMP_VELOCITY
+        is_jumping = true
+        jump_sound.play()
+
+    if direction and (is_on_floor() or is_on_wall() or is_jumping):
+        velocity.x = direction * SPEED
+
+    var rope_velocity : Vector2 = Vector2(0,0)
+    var K : float = 50
+    var cum_dl : Vector2 = Vector2.ZERO
+    for attached_pic : Pic in attached_pics:
+        if attached_pic and is_instance_valid(attached_pic) and self.global_position.distance_to(attached_pic.global_position) > ROPELENGTH-10:
+            var attached_vector : Vector2 = (attached_pic.global_position - self.global_position)
+            var attached_direction : Vector2 = attached_vector.normalized()
+            cum_dl += attached_vector - ROPELENGTH*attached_direction
+            var dl = attached_vector.length() - ROPELENGTH
+            if dl > 0:
+                var constrained_velocity = K*dl*attached_direction*delta
+                rope_velocity += constrained_velocity
+
+    #rope_velocity = rope_velocity.clamp(Vector2.ONE*-50, Vector2.ONE*50)
+    velocity += rope_velocity
+    if cum_dl.length() > 0: # and not is_jumping -- removed because is_jumping is on until floor hits
+        const C : float = 1
+        var damp : Vector2 = -C*velocity*delta
+        velocity += damp
+    elif not is_on_floor() and velocity.y > 0:
+        velocity.y += 2 * gravity * delta
+
+    #velocity = velocity.clamp(Vector2.ONE*-600, Vector2.ONE*600)
+
+    if not direction and abs(rope_velocity.x) < 0.01:
+        velocity.x = 0
+    elif not direction and is_on_floor(): # friction
+        velocity.x = move_toward(velocity.x, 0, 5*SPEED*delta)
+
+    if len(ropes):
+        draw_ropes()
+
+    move_and_slide()
+
+    debug_velocity = self.velocity
+
+    $Label.set_text("%.2f %.2f" % [velocity.x, velocity.y])
+
+    resolve_pushing(direction)
+
+    if not is_on_floor() and was_on_floor and not is_jumping:
+        coyote = true
+        coyote_timer.start()
+
+    if (is_on_floor() or is_on_wall()) and is_jumping:
         is_jumping = false
 
     if velocity.x > 0:
