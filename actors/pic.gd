@@ -164,6 +164,17 @@ func resolve_pushing(direction : float):
         left_push.disabled = false
         push_sprite.visible = true
 
+func draw_ropes():
+    for i in range(len(attached_pics)):
+        var attached_pic : Pic = attached_pics[i] if i < len(attached_pics) else null
+        var rope : Line2D = ropes[i] if i < len(ropes) else null
+        if attached_pic and is_instance_valid(attached_pic):
+            rope.set_point_position(0, Vector2(0,0))
+            rope.set_point_position(1, attached_pic.global_position - self.global_position)
+            rope.visible = true
+        else:
+            rope.visible = false
+
 func constrain_velocity(attached_pic : Pic, delta : float):
     var attached_direction : Vector2 = (attached_pic.global_position - self.global_position)
 
@@ -242,15 +253,10 @@ func _physics_process(delta):
             velocity.x = move_toward(velocity.x, 0, 5*SPEED*delta)
 
         if len(ropes):
-            for i in range(len(attached_pics)):
-                var attached_pic : Pic = attached_pics[i] if i < len(attached_pics) else null
-                var rope : Line2D = ropes[i] if i < len(ropes) else null
-                if attached_pic and is_instance_valid(attached_pic):
-                    rope.set_point_position(0, Vector2(0,0))
-                    rope.set_point_position(1, attached_pic.global_position - self.global_position)
-                    rope.visible = true
-                else:
-                    rope.visible = false
+            draw_ropes()
+
+    #const CLAMP_VELOCITY : float = 300
+    #velocity = velocity.clamp(Vector2(-CLAMP_VELOCITY,-CLAMP_VELOCITY),Vector2(CLAMP_VELOCITY,CLAMP_VELOCITY))
 
     move_and_slide()
 
