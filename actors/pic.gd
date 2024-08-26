@@ -199,8 +199,14 @@ func _physics_process(delta):
         #return
 
     var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
-    var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down) if not is_controlled else Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'down-q')
-    var direction : float = Input.get_axis(move_left, move_right) if not is_controlled else Input.get_axis('move_left-q', 'move_right-q')
+    var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down)
+    var direction : float = Input.get_axis(move_left, move_right)
+
+    if is_controlled:
+        if direction == 0:
+            direction = Input.get_axis('move_left-q', 'move_right-q')
+        if flying_direction == Vector2.ZERO:
+            flying_direction = Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'down-q')
 
     if is_flying:
         velocity = flying_direction * SPEED
