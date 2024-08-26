@@ -143,6 +143,8 @@ func external_input(player : String, action : String, is_pressed : bool = true):
         return
     var input_action : String = action + '-' + player
     prints("external input ", input_action)
+    if action == 'move_up':
+        input_action = 'jump-' + player
     if is_pressed:
         Input.action_press(input_action)
     else:
