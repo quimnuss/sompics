@@ -33,13 +33,11 @@ and open the DevTools console in that webpage.
 
 ## now
 
-- [ ] Intro world
-- [ ] Dialogic Astroboy
-- [ ] fix rope
+- [ ] configurable number of players
 
 ## next
 
-- [ ] fancy jump
+- [ ] Dialogic Astroboy
 
 ## later
 
@@ -51,6 +49,9 @@ and open the DevTools console in that webpage.
 
 # Done
 
+- [~] fancy jump
+- [x] fix rope
+- [x] Intro world
 - [x] per 24 jugadors
 - [x] fix level 7 platforms (revert git might be enough or swap to animatable platforms)
 - [x] increase time in level 10 for N players
