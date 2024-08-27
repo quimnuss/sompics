@@ -34,6 +34,7 @@ and open the DevTools console in that webpage.
 ## now
 
 - [ ] configurable number of players
+- [ ] adapt client to phone
 
 ## next
 
