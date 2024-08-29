@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qrjnfilelw8m"]
+
+[ext_resource type="Texture2D" uid="uid://c1eqs50o5k2dx" path="res://assets/white_circle.png" id="1_3bogh"]
+[ext_resource type="Script" path="res://actors/call_dot.gd" id="1_oyjyi"]
+
+[node name="CallDot" type="Node2D"]
+script = ExtResource("1_oyjyi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3bogh")

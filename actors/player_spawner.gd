@@ -10,6 +10,7 @@ class_name PlayerSpawner
 @export var rigipics_spawn : bool = false
 @export var is_gravity_on : bool = true
 @export var spawn_delay : float = 0.3
+@export var spawn_half_range : Vector2 = Vector2(70, 50)
 
 var pic_scene := preload('res://actors/pic.tscn')
 var ripic_scene := preload('res://actors/rigipic.tscn')
@@ -65,7 +66,7 @@ func spawn(pic_name : String):
     #TODO prevent spawning inside the collider OR posess characters manually placed on level OR activate collisions with other players when not colliding
     var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
     pic.person = pic_name
-    pic.position += Vector2(randf_range(-70,70),randf_range(-50,50))
+    pic.position += Vector2(randf_range(-spawn_half_range.x,spawn_half_range.x),randf_range(-spawn_half_range.y,spawn_half_range.y))
     self.add_child(pic)
 
 
