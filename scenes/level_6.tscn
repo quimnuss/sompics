@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="4_jikpx"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="5_83kbf"]
 [ext_resource type="Script" path="res://actors/key_shifter.gd" id="5_pao44"]
-[ext_resource type="Script" path="res://actors/respawn.gd" id="6_fbhy1"]
+[ext_resource type="Script" path="res://actors/respawn_all.gd" id="6_fbhy1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxyq1"]
 size = Vector2(1216, 229)

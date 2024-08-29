@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cwf4yqf0soyw2" path="res://ui/fueguito_count.tscn" id="4_0v4kh"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_o5gmv"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="5_cj3ad"]
-[ext_resource type="Script" path="res://actors/respawn.gd" id="7_djybp"]
+[ext_resource type="Script" path="res://actors/respawn_all.gd" id="7_djybp"]
 [ext_resource type="Texture2D" uid="uid://cnr7jd458p5nk" path="res://assets/Items/door_openMid.png" id="8_5c4go"]
 [ext_resource type="PackedScene" uid="uid://c5erylmd5leup" path="res://actors/drop_box.tscn" id="9_5ywgi"]
 [ext_resource type="PackedScene" uid="uid://4x0l8tl5cstu" path="res://actors/weight_platform.tscn" id="10_qsupa"]

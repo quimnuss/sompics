@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="6_pavfa"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="7_nxdgj"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="9_i1sfu"]
-[ext_resource type="Script" path="res://actors/respawn.gd" id="10_5bm0w"]
+[ext_resource type="Script" path="res://actors/respawn_all.gd" id="10_5bm0w"]
 [ext_resource type="Texture2D" uid="uid://cnr7jd458p5nk" path="res://assets/Items/door_openMid.png" id="11_wsllh"]
 [ext_resource type="PackedScene" uid="uid://bh44brmlp1s8k" path="res://actors/platform.tscn" id="12_r568a"]
 [ext_resource type="PackedScene" uid="uid://c5erylmd5leup" path="res://actors/drop_box.tscn" id="13_6klsw"]

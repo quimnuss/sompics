@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_x7fib"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="2_cgdok"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_3al1s"]
-[ext_resource type="Script" path="res://actors/respawn.gd" id="4_s8qrv"]
+[ext_resource type="Script" path="res://actors/respawn_one.gd" id="5_m0ni4"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="6_mj6gc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yue0q"]
@@ -34,7 +34,7 @@ script = ExtResource("4_3al1s")
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 6
-script = ExtResource("4_s8qrv")
+script = ExtResource("5_m0ni4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(552, 744)
