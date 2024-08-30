@@ -2,7 +2,7 @@ extends Node2D
 
 @export var spawnable : PackedScene = preload("res://actors/call_dot_falling.tscn")
 @onready var spawn_rect := $ReferenceRect
-@onready var phone_queue = $"../Tomatic/PhoneQueue"
+@export var pickup_receiver : Node2D
 
 # returns a local position offset within referencerect
 func random_point() -> Vector2:
@@ -11,6 +11,6 @@ func random_point() -> Vector2:
 
 func _on_spawn_timer_timeout():
     var spawn : CallDotFalling = spawnable.instantiate()
-    spawn.picked_up.connect(phone_queue._on_call_picked)
+    spawn.picked_up.connect(pickup_receiver._on_picked)
     add_child(spawn)
     spawn.global_position = random_point()

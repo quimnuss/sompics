@@ -68,9 +68,10 @@ script = ExtResource("8_c4ide")
 [node name="Timer" type="Timer" parent="Tomatic/PhoneQueue"]
 autostart = true
 
-[node name="AreaSpawner" type="Node2D" parent="."]
+[node name="AreaSpawner" type="Node2D" parent="." node_paths=PackedStringArray("pickup_receiver")]
 position = Vector2(525, 96)
 script = ExtResource("9_4jofa")
+pickup_receiver = NodePath("../Tomatic/PhoneQueue")
 
 [node name="SpawnTimer" type="Timer" parent="AreaSpawner"]
 wait_time = 0.5

@@ -30,7 +30,7 @@ func _on_timer_timeout():
         call_queue_dots.clear()
     add_random_call()
 
-func _on_call_picked(color : Color):
+func _on_picked(color : Color):
     if not call_queue_dots.is_empty():
         if call_queue_dots[0].modulate == color:
             picked_correct_call()
