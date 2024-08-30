@@ -73,7 +73,7 @@ position = Vector2(525, 96)
 script = ExtResource("9_4jofa")
 
 [node name="SpawnTimer" type="Timer" parent="AreaSpawner"]
-wait_time = 0.1
+wait_time = 0.5
 autostart = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="AreaSpawner"]
