@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dobxhogwkrtsa"]
+[gd_scene load_steps=13 format=3 uid="uid://dobxhogwkrtsa"]
 
 [ext_resource type="Script" path="res://scenes/level_phones.gd" id="1_wua34"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_fcghl"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_t861d"]
 [ext_resource type="Texture2D" uid="uid://cmd7ywvdh4356" path="res://assets/tomatic.png" id="7_6td6m"]
 [ext_resource type="Script" path="res://actors/phone_queue.gd" id="8_c4ide"]
+[ext_resource type="Script" path="res://scenes/area_spawner.gd" id="9_4jofa"]
+[ext_resource type="Script" path="res://actors/killzone_generic.gd" id="10_ql1es"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s8hno"]
 animations = [{
@@ -19,6 +21,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1eyb5"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_wua34")
@@ -64,4 +68,29 @@ script = ExtResource("8_c4ide")
 [node name="Timer" type="Timer" parent="Tomatic/PhoneQueue"]
 autostart = true
 
+[node name="AreaSpawner" type="Node2D" parent="."]
+position = Vector2(525, 96)
+script = ExtResource("9_4jofa")
+
+[node name="SpawnTimer" type="Timer" parent="AreaSpawner"]
+wait_time = 0.1
+autostart = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="AreaSpawner"]
+offset_left = -451.0
+offset_right = 473.0
+offset_bottom = 40.0
+border_width = 3.0
+editor_only = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(541, 678)
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("10_ql1es")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_1eyb5")
+
 [connection signal="timeout" from="Tomatic/PhoneQueue/Timer" to="Tomatic/PhoneQueue" method="_on_timer_timeout"]
+[connection signal="timeout" from="AreaSpawner/SpawnTimer" to="AreaSpawner" method="_on_spawn_timer_timeout"]
