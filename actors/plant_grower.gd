@@ -27,6 +27,6 @@ func add_level():
     plant_level += 1
 
 func _on_picked(color : Color):
-    prints('plant watered with', color)
+
     if color == CallDot.WATER_COLOR:
         call_deferred('add_level')
