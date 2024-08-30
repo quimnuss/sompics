@@ -1,43 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://y4yp10org20d"]
+[gd_scene load_steps=11 format=3 uid="uid://y4yp10org20d"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_attqb"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_42f7e"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="4_foocj"]
 [ext_resource type="Script" path="res://actors/plant_grower.gd" id="6_528px"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_ov6c8"]
+[ext_resource type="PackedScene" uid="uid://b6toeukp5owbb" path="res://actors/plant_level.tscn" id="7_wkih4"]
 [ext_resource type="Texture2D" uid="uid://bnj6qpvps607d" path="res://assets/pot.png" id="8_4h0yv"]
 [ext_resource type="Script" path="res://scenes/area_spawner.gd" id="9_epyn8"]
-[ext_resource type="Texture2D" uid="uid://c0kua7sd4fvim" path="res://assets/plant.png" id="9_ilbfe"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="10_ohkxn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tv4l"]
-atlas = ExtResource("9_ilbfe")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4dfd"]
-atlas = ExtResource("9_ilbfe")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0fpe"]
-atlas = ExtResource("9_ilbfe")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fcrlj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0tv4l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b4dfd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d0fpe")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1eyb5"]
 
@@ -57,11 +28,8 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Door" parent="." instance=ExtResource("4_foocj")]
 position = Vector2(1008, 232)
+is_open = true
 next_level = "welcome_level.tscn"
-
-[node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(128, 392)
-script = ExtResource("6_ov6c8")
 
 [node name="PlantGrower" type="Node2D" parent="."]
 position = Vector2(928, 512)
@@ -71,14 +39,11 @@ script = ExtResource("6_528px")
 texture = ExtResource("8_4h0yv")
 offset = Vector2(2, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlantGrower/Pot"]
-sprite_frames = SubResource("SpriteFrames_fcrlj")
-autoplay = "default"
+[node name="PlantLevel" parent="PlantGrower/Pot" instance=ExtResource("7_wkih4")]
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="PlantGrower/Pot"]
-position = Vector2(0, -16)
-sprite_frames = SubResource("SpriteFrames_fcrlj")
-autoplay = "default"
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+position = Vector2(128, 392)
+script = ExtResource("6_ov6c8")
 
 [node name="AreaSpawner" type="Node2D" parent="." node_paths=PackedStringArray("pickup_receiver")]
 position = Vector2(525, 96)
@@ -94,7 +59,6 @@ offset_left = -451.0
 offset_right = 473.0
 offset_bottom = 40.0
 border_width = 3.0
-editor_only = false
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(541, 678)

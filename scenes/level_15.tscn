@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dobxhogwkrtsa"]
+[gd_scene load_steps=12 format=3 uid="uid://dobxhogwkrtsa"]
 
 [ext_resource type="Script" path="res://scenes/level_phones.gd" id="1_wua34"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_fcghl"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_5fi13"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="4_ww4od"]
-[ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="5_58rgl"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_t861d"]
 [ext_resource type="Texture2D" uid="uid://cmd7ywvdh4356" path="res://assets/tomatic.png" id="7_6td6m"]
 [ext_resource type="Script" path="res://actors/phone_queue.gd" id="8_c4ide"]
@@ -43,13 +42,6 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(1040, 520)
 next_level = "welcome_level.tscn"
 
-[node name="Key" parent="." instance=ExtResource("5_58rgl")]
-position = Vector2(872, 464)
-gravity_scale = 0.0
-
-[node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(872, 464)
-
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(128, 392)
 script = ExtResource("6_t861d")
@@ -82,7 +74,6 @@ offset_left = -451.0
 offset_right = 473.0
 offset_bottom = 40.0
 border_width = 3.0
-editor_only = false
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(541, 678)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6toeukp5owbb"]
+
+[ext_resource type="Texture2D" uid="uid://c0kua7sd4fvim" path="res://assets/plant.png" id="1_2y830"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tv4l"]
+atlas = ExtResource("1_2y830")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4dfd"]
+atlas = ExtResource("1_2y830")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0fpe"]
+atlas = ExtResource("1_2y830")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcrlj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tv4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4dfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0fpe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3j1b"]
+size = Vector2(32, 18)
+
+[node name="PlantLevel" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_fcrlj")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_j3j1b")
+one_way_collision = true
