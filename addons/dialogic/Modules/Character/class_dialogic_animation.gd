@@ -20,28 +20,28 @@ var repeats : int
 
 
 func _ready():
-	connect('finished_once', finished_one_loop)
+    connect('finished_once', finished_one_loop)
 
 
 ## To be overridden. Do the actual animating/tweening in here.
 ## Use the properties [node], [time], [end_position], [orig_pos].
 func animate():
-	pass
+    pass
 
 
 func finished_one_loop():
-	repeats -= 1
-	if repeats > 0:
-		animate()
-	elif repeats == 0:
-		emit_signal("finished")
+    repeats -= 1
+    if repeats > 0:
+        animate()
+    elif repeats == 0:
+        emit_signal("finished")
 
 
 func pause():
-	if node:
-		node.process_mode = Node.PROCESS_MODE_DISABLED
+    if node:
+        node.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func resume():
-	if node:
-		node.process_mode = Node.PROCESS_MODE_INHERIT
+    if node:
+        node.process_mode = Node.PROCESS_MODE_INHERIT

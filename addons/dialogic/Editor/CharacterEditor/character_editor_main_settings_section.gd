@@ -16,26 +16,26 @@ var hint_text := ""
 
 ## Overwrite to set the title of this section
 func _get_title() -> String:
-	return "MainSection"
+    return "MainSection"
 
 
 ## Overwrite to set the visibility of the section title
 func _show_title() -> bool:
-	return true
+    return true
 
 
 ## Overwrite to set whether this should initially be opened.
 func _start_opened() -> bool:
-	return false
+    return false
 
 
 ## Overwrite to load all the information from the character into this section.
 func _load_character(resource:DialogicCharacter) -> void:
-	pass
+    pass
 
 
 ## Overwrite to save all changes made in this section to the resource.
 ## In custom sections you will mostly likely save to the [resource.custom_info]
 ##  dictionary.
 func _save_changes(resource:DialogicCharacter) -> DialogicCharacter:
-	return resource
+    return resource

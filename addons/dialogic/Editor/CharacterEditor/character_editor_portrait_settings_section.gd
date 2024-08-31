@@ -23,26 +23,26 @@ var hint_text := ""
 
 ## Overwrite to set the title of this section
 func _get_title() -> String:
-	return "CustomSection"
+    return "CustomSection"
 
 
 ## Overwrite to set the visibility of the section title
 func _show_title() -> bool:
-	return true
+    return true
 
 
 ## Overwrite to set whether this should initially be opened.
 func _start_opened() -> bool:
-	return false
+    return false
 
 
 ## Overwrite to load all the information from the character into this section.
 func _load_portrait_data(data:Dictionary) -> void:
-	pass
+    pass
 
 
 ## Overwrite to recheck visibility of your section and the content of your fields.
 ## This is called whenever the preview is updated so it allows reacting to major
 ##  changes in other portrait sections.
 func _recheck(data:Dictionary) -> void:
-	pass
+    pass

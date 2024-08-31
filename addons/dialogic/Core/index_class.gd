@@ -13,9 +13,9 @@ var this_folder : String = get_script().resource_path.get_base_dir()
 ## Return an array with all the paths to the event scripts.[br]
 ## You can use the [property this_folder].path_join('my_event.gd')
 func _get_events() -> Array:
-	if ResourceLoader.exists(this_folder.path_join('event.gd')):
-		return [this_folder.path_join('event.gd')]
-	return []
+    if ResourceLoader.exists(this_folder.path_join('event.gd')):
+        return [this_folder.path_join('event.gd')]
+    return []
 
 
 ## Overwrite if this module contains any subsystems.
@@ -23,19 +23,19 @@ func _get_events() -> Array:
 ## "name" 		-> name for this subsystem[br]
 ## "script" 	-> array of preview images[br]
 func _get_subsystems() -> Array[Dictionary]:
-	return []
+    return []
 
 
 func _get_editors() -> Array[String]:
-	return []
+    return []
 
 
 func _get_settings_pages() -> Array:
-	return []
+    return []
 
 
 func _get_character_editor_sections() -> Array:
-	return []
+    return []
 
 
 #region TEXT EFFECTS & MODIFIERS
@@ -45,12 +45,12 @@ func _get_character_editor_sections() -> Array:
 ## "node_path" or "subsystem" -> whichever contains your effect method[br]
 ## "method" 	-> name of the effect method[br]
 func _get_text_effects() -> Array[Dictionary]:
-	return []
+    return []
 
 
 ## Should return array of dictionaries with the same arguments as _get_text_effects()
 func _get_text_modifiers() -> Array[Dictionary]:
-	return []
+    return []
 
 #endregion
 
@@ -60,22 +60,22 @@ func _get_text_modifiers() -> Array[Dictionary]:
 ## Each dictionary should contain (at least "type" and "path").
 ## 		E.g. {"type":"Animation", "path": "res://..."}
 func _get_special_resources() -> Array[Dictionary]:
-	return []
+    return []
 
 
 #region HELPERS
 ################################################################################
 
 func list_dir(subdir:='') -> Array:
-	return Array(DirAccess.get_files_at(this_folder.path_join(subdir))).map(func(file):return this_folder.path_join(subdir).path_join(file))
+    return Array(DirAccess.get_files_at(this_folder.path_join(subdir))).map(func(file):return this_folder.path_join(subdir).path_join(file))
 
 
 func list_special_resources(subdir:='', type:='', extension:="") -> Array[Dictionary]:
-	var array := []
-	for i in list_dir(subdir):
-		if extension.is_empty() or i.ends_with(extension):
-			array.append({'type':type, 'path':i})
-	return Array(array, TYPE_DICTIONARY, "", null)
+    var array := []
+    for i in list_dir(subdir):
+        if extension.is_empty() or i.ends_with(extension):
+            array.append({'type':type, 'path':i})
+    return Array(array, TYPE_DICTIONARY, "", null)
 
 #endregion
 
@@ -84,7 +84,7 @@ func list_special_resources(subdir:='', type:='', extension:="") -> Array[Dictio
 ################################################################################
 
 func _get_style_presets() -> Array[Dictionary]:
-	return []
+    return []
 
 
 ## Should return an array of dictionaries with the following keys:[br]
@@ -93,41 +93,41 @@ func _get_style_presets() -> Array[Dictionary]:
 ## "description"-> description of this layout. list what features/events are supported[br]
 ## "preview_image"-> array of preview images[br]
 func _get_layout_parts() -> Array[Dictionary]:
-	return []
+    return []
 
 
 ## Helper that allows scanning sub directories that might be layout parts or styles
 func scan_for_layout_parts() -> Array[Dictionary]:
-	var dir := DirAccess.open(this_folder)
-	var style_list :Array[Dictionary] = []
-	if !dir:
-		return style_list
-	dir.list_dir_begin()
-	var dir_name := dir.get_next()
-	while dir_name != "":
-		if !dir.current_is_dir() or !dir.file_exists(dir_name.path_join('part_config.cfg')):
-			dir_name = dir.get_next()
-			continue
-		var config := ConfigFile.new()
-		config.load(this_folder.path_join(dir_name).path_join('part_config.cfg'))
-		var default_image_path: String = this_folder.path_join(dir_name).path_join('preview.png')
-		style_list.append(
-			{
-				'type': config.get_value('style', 'type', 'Unknown type'),
-				'name': config.get_value('style', 'name', 'Unnamed Layout'),
-				'path': this_folder.path_join(dir_name).path_join(config.get_value('style', 'scene', '')),
-				'author': config.get_value('style', 'author', 'Anonymous'),
-				'description': config.get_value('style', 'description', 'No description'),
-				'preview_image': [config.get_value('style', 'image', default_image_path)],
-				'style_path':config.get_value('style', 'style_path', ''),
-				'icon':this_folder.path_join(dir_name).path_join(config.get_value('style', 'icon', '')),
-			})
+    var dir := DirAccess.open(this_folder)
+    var style_list :Array[Dictionary] = []
+    if !dir:
+        return style_list
+    dir.list_dir_begin()
+    var dir_name := dir.get_next()
+    while dir_name != "":
+        if !dir.current_is_dir() or !dir.file_exists(dir_name.path_join('part_config.cfg')):
+            dir_name = dir.get_next()
+            continue
+        var config := ConfigFile.new()
+        config.load(this_folder.path_join(dir_name).path_join('part_config.cfg'))
+        var default_image_path: String = this_folder.path_join(dir_name).path_join('preview.png')
+        style_list.append(
+            {
+                'type': config.get_value('style', 'type', 'Unknown type'),
+                'name': config.get_value('style', 'name', 'Unnamed Layout'),
+                'path': this_folder.path_join(dir_name).path_join(config.get_value('style', 'scene', '')),
+                'author': config.get_value('style', 'author', 'Anonymous'),
+                'description': config.get_value('style', 'description', 'No description'),
+                'preview_image': [config.get_value('style', 'image', default_image_path)],
+                'style_path':config.get_value('style', 'style_path', ''),
+                'icon':this_folder.path_join(dir_name).path_join(config.get_value('style', 'icon', '')),
+            })
 
-		if not style_list[-1].style_path.begins_with('res://'):
-			style_list[-1].style_path = this_folder.path_join(dir_name).path_join(style_list[-1].style_path)
+        if not style_list[-1].style_path.begins_with('res://'):
+            style_list[-1].style_path = this_folder.path_join(dir_name).path_join(style_list[-1].style_path)
 
-		dir_name = dir.get_next()
+        dir_name = dir.get_next()
 
-	return style_list
+    return style_list
 
 #endregion

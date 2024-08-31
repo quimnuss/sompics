@@ -5,8 +5,8 @@ extends DialogicEvent
 # var MySetting :String = ""
 
 func _execute() -> void:
-	# I have no idea how this event works ;)
-	finish()
+    # I have no idea how this event works ;)
+    finish()
 
 
 #region INITIALIZE
@@ -14,10 +14,10 @@ func _execute() -> void:
 
 # SET ALL VALUES THAT SHOULD NEVER CHANGE HERE
 func _init() -> void:
-	event_name = "Default"
-	event_color = Color("#ffffff")
-	event_category = "Main"
-	event_sorting_index = 0
+    event_name = "Default"
+    event_color = Color("#ffffff")
+    event_category = "Main"
+    event_sorting_index = 0
 
 #endregion
 
@@ -25,14 +25,14 @@ func _init() -> void:
 #region SAVING/LOADING
 ################################################################################
 func get_shortcode() -> String:
-	return "default_shortcode"
+    return "default_shortcode"
 
 
 func get_shortcode_parameters() -> Dictionary:
-	return {
-		#param_name 	: property_name
-		#"arg_name"		: "NameOfProperty",
-	}
+    return {
+        #param_name 	: property_name
+        #"arg_name"		: "NameOfProperty",
+    }
 
 # You can alternatively overwrite these 3 functions:
 # - to_text(),
@@ -46,6 +46,6 @@ func get_shortcode_parameters() -> Dictionary:
 ################################################################################
 
 func build_event_editor() -> void:
-	pass
+    pass
 
 #endregion

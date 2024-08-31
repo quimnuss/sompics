@@ -23,63 +23,63 @@ class_name DialogicCharacter
 
 ## All valid properties that can be accessed by their translation.
 enum TranslatedProperties {
-	NAME,
-	NICKNAMES,
+    NAME,
+    NICKNAMES,
 }
 
 var _translation_id := ""
 
 
 func _to_string() -> String:
-	return "[{name}:{id}]".format({"name":get_character_name(), "id":get_instance_id()})
+    return "[{name}:{id}]".format({"name":get_character_name(), "id":get_instance_id()})
 
 
 ## Adds a translation ID to the character.
 func add_translation_id() -> String:
-	_translation_id = DialogicUtil.get_next_translation_id()
-	return _translation_id
+    _translation_id = DialogicUtil.get_next_translation_id()
+    return _translation_id
 
 
 ## Returns the character's translation ID.
 ## Adds a translation ID to the character if it doesn't have one.
 func get_set_translation_id() -> String:
-	if _translation_id == null or _translation_id.is_empty():
-		return add_translation_id()
-	else:
-		return _translation_id
+    if _translation_id == null or _translation_id.is_empty():
+        return add_translation_id()
+    else:
+        return _translation_id
 
 
 ## Removes the translation ID from the character.
 func remove_translation_id() -> void:
-	_translation_id = ""
+    _translation_id = ""
 
 
 ## Checks [param property] and matches it to a translation key.
 ##
 ## Undefined behaviour if an invalid integer is passed.
 func get_property_translation_key(property: TranslatedProperties) -> String:
-	var property_key := ""
+    var property_key := ""
 
-	match property:
-		TranslatedProperties.NAME:
-			property_key = "name"
-		TranslatedProperties.NICKNAMES:
-			property_key = "nicknames"
+    match property:
+        TranslatedProperties.NAME:
+            property_key = "name"
+        TranslatedProperties.NICKNAMES:
+            property_key = "nicknames"
 
-	return "Character".path_join(_translation_id).path_join(property_key)
+    return "Character".path_join(_translation_id).path_join(property_key)
 
 
 ## Accesses the original text of the character.
 ##
 ## Undefined behaviour if an invalid integer is passed.
 func _get_property_original_text(property: TranslatedProperties) -> String:
-	match property:
-		TranslatedProperties.NAME:
-			return display_name
-		TranslatedProperties.NICKNAMES:
-			return ", ".join(nicknames)
+    match property:
+        TranslatedProperties.NAME:
+            return display_name
+        TranslatedProperties.NICKNAMES:
+            return ", ".join(nicknames)
 
-	return ""
+    return ""
 
 
 ## Access a property of the character and if conditions are met, attempts to
@@ -91,49 +91,49 @@ func _get_property_original_text(property: TranslatedProperties) -> String:
 ##
 ## Undefined behaviour if an invalid integer is passed.
 func _get_property_translated(property: TranslatedProperties) -> String:
-	var try_translation: bool = (_translation_id != null
-		and not _translation_id.is_empty()
-		and ProjectSettings.get_setting('dialogic/translation/enabled', false)
-	)
+    var try_translation: bool = (_translation_id != null
+        and not _translation_id.is_empty()
+        and ProjectSettings.get_setting('dialogic/translation/enabled', false)
+    )
 
-	if try_translation:
-		var translation_key := get_property_translation_key(property)
-		var translated_property := tr(translation_key)
+    if try_translation:
+        var translation_key := get_property_translation_key(property)
+        var translated_property := tr(translation_key)
 
-		# If no translation is found, tr() returns the ID.
-		# However, we want to fallback to the original text.
-		if translated_property == translation_key:
-			return _get_property_original_text(property)
+        # If no translation is found, tr() returns the ID.
+        # However, we want to fallback to the original text.
+        if translated_property == translation_key:
+            return _get_property_original_text(property)
 
-		return translated_property
+        return translated_property
 
-	else:
-		return _get_property_original_text(property)
+    else:
+        return _get_property_original_text(property)
 
 
 ## Translates the nicknames of the characters and then returns them as an array
 ## of strings.
 func get_nicknames_translated() -> Array:
-	var translated_nicknames := _get_property_translated(TranslatedProperties.NICKNAMES)
-	return (translated_nicknames.split(", ") as Array)
+    var translated_nicknames := _get_property_translated(TranslatedProperties.NICKNAMES)
+    return (translated_nicknames.split(", ") as Array)
 
 
 ## Translates and returns the display name of the character.
 func get_display_name_translated() -> String:
-	return _get_property_translated(TranslatedProperties.NAME)
+    return _get_property_translated(TranslatedProperties.NAME)
 
 
 ## Returns the name of the file (without the extension).
 func get_character_name() -> String:
-	if !resource_path.is_empty():
-		return resource_path.get_file().trim_suffix('.dch')
-	elif !display_name.is_empty():
-		return display_name.validate_node_name()
-	else:
-		return "UnnamedCharacter"
+    if !resource_path.is_empty():
+        return resource_path.get_file().trim_suffix('.dch')
+    elif !display_name.is_empty():
+        return display_name.validate_node_name()
+    else:
+        return "UnnamedCharacter"
 
 
 ## Returns the info of the given portrait.
 ## Uses the default portrait if the given portrait doesn't exist.
 func get_portrait_info(portrait_name:String) -> Dictionary:
-	return portraits.get(portrait_name, portraits.get(default_portrait, {}))
+    return portraits.get(portrait_name, portraits.get(default_portrait, {}))

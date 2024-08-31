@@ -16,29 +16,29 @@ extends Node
 var this_folder: String = get_script().resource_path.get_base_dir()
 
 func _ready() -> void:
-	if apply_overrides_on_ready and not Engine.is_editor_hint():
-		_apply_export_overrides()
+    if apply_overrides_on_ready and not Engine.is_editor_hint():
+        _apply_export_overrides()
 
 
 
 ## Override this and load all your exported settings (apply them to the scene)
 func _apply_export_overrides() -> void:
-	pass
+    pass
 
 
 func apply_export_overrides() -> void:
-	if disabled:
-		if "visible" in self:
-			set('visible', false)
-		process_mode = Node.PROCESS_MODE_DISABLED
-	else:
-		if "visible" in self:
-			set('visible', true)
-		process_mode = Node.PROCESS_MODE_INHERIT
+    if disabled:
+        if "visible" in self:
+            set('visible', false)
+        process_mode = Node.PROCESS_MODE_DISABLED
+    else:
+        if "visible" in self:
+            set('visible', true)
+        process_mode = Node.PROCESS_MODE_INHERIT
 
-	_apply_export_overrides()
+    _apply_export_overrides()
 
 
 ## Use this to get potential global settings.
 func get_global_setting(setting_name:StringName, default:Variant) -> Variant:
-	return get_parent().get_global_setting(setting_name, default)
+    return get_parent().get_global_setting(setting_name, default)

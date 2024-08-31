@@ -12,24 +12,24 @@ var event_resource: DialogicEvent = null
 
 ## To be overwritten
 func _load_display_info(info:Dictionary) -> void:
-	pass
+    pass
 
 
 ## To be overwritten
 func _set_value(value:Variant) -> void:
-	pass
+    pass
 
 
 ## To be overwritten
 func _autofocus() -> void:
-	pass
+    pass
 
 #endregion
 
 
 func set_value(value:Variant) -> void:
-	_set_value(value)
+    _set_value(value)
 
 
 func take_autofocus() -> void:
-	_autofocus()
+    _autofocus()
