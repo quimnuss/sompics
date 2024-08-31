@@ -41,7 +41,7 @@ position = Vector2(1064, 392)
 position = Vector2(576, 304)
 script = ExtResource("4_jngat")
 
-[node name="KeySpawner" type="Marker2D" parent="."]
+[node name="KeySpawn" type="Marker2D" parent="."]
 position = Vector2(240, 192)
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]

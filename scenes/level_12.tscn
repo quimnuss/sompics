@@ -42,11 +42,12 @@ position = Vector2(592, 163)
 position = Vector2(96, 152)
 script = ExtResource("6_ea4e5")
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="Area2D2" type="Area2D" parent="." node_paths=PackedStringArray("keyspawn")]
 position = Vector2(592, 640)
 collision_layer = 0
 collision_mask = 6
 script = ExtResource("7_t5pwd")
+keyspawn = NodePath("../KeySpawn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(0, 120)
