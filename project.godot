@@ -24,8 +24,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"doctor_back": "res://actors/doctor_back.dch"
+}
+directories/dtl_directory={
+"dr_back_timeline_ending": "res://dialogs/dr_back_timeline_ending.dtl"
+}
 
 [display]
 
