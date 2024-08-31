@@ -21,10 +21,10 @@ script = ExtResource("1_tyucy")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -72.0
-offset_top = 72.0
-offset_right = 58.0
-offset_bottom = 132.0
+offset_left = -64.0
+offset_top = 120.0
+offset_right = 66.0
+offset_bottom = 180.0
 grow_horizontal = 2
 time_limit = 65.0
 
@@ -41,7 +41,7 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Door" parent="." instance=ExtResource("4_bhaun")]
 position = Vector2(1080, 552)
 
-[node name="KeySpawner" type="Marker2D" parent="."]
+[node name="KeySpawn" type="Marker2D" parent="."]
 position = Vector2(576, 408)
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]

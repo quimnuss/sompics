@@ -19,10 +19,14 @@ script = ExtResource("1_vg1lw")
 [node name="FueguitoCount" parent="UI" instance=ExtResource("3_etfho")]
 
 [node name="UITimer" parent="UI" instance=ExtResource("4_j2byo")]
-offset_left = 512.0
-offset_top = 160.0
-offset_right = 642.0
-offset_bottom = 220.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 152.0
+offset_right = 66.0
+offset_bottom = 212.0
+grow_horizontal = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_nk2l8")

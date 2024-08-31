@@ -4,7 +4,7 @@ extends Node2D
 @onready var door = $Door
 @onready var ui_timer = $UI/UITimer
 @onready var game_over = $GameOver
-@onready var key_spawner = $KeySpawner
+@onready var key_spawner = $KeySpawn
 
 var num_coins: int
 

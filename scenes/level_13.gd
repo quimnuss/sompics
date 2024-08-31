@@ -1,6 +1,7 @@
 extends Node2D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var player_spawner = $PlayerSpawner
+@onready var ui = $UI
 
 var restarting : bool = false
 
@@ -8,6 +9,7 @@ func _ready():
     for pic : Pic in get_tree().get_nodes_in_group('pics'):
         pic.gravity = 0
     player_spawner.players_spawned.connect(start_level)
+    ui.toggle_drback(false)
 
 func start_level():
     animation_player.play("level_pursuit")

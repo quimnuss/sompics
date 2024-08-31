@@ -24,7 +24,7 @@ loop = false
 [node name="TileMap" type="TileMap" parent="PathPlatform/PathFollow2D"]
 tile_set = ExtResource("2_6c3lu")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 196610, 2, 2, 196610, 2, 3, 196610, 2)
+layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 196610, 2, 2, 262146, 2)
 
 [node name="_Timer_17553" type="Timer" parent="PathPlatform/PathFollow2D"]
 wait_time = 0.2
