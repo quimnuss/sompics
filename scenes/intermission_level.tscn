@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvow33fo5kkyf"]
+
+[ext_resource type="Script" path="res://scenes/intermission_level.gd" id="1_b1hha"]
+
+[node name="IntermissionLevel" type="Node2D"]
+script = ExtResource("1_b1hha")
