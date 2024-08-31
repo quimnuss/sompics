@@ -159,7 +159,7 @@ func _on_DownloadRequest_completed(result:int, response_code:int, headers:Packed
     downdload_completed.emit(DownloadResult.SUCCESS)
 
 
-######################	SOME UI MANAGEMENT #####################################
+######################  SOME UI MANAGEMENT #####################################
 ################################################################################
 
 func setup_version_indicator():

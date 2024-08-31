@@ -93,9 +93,9 @@ func get_character_suggestions(search_text:String) -> Dictionary:
 
     for resource in _character_directory.keys():
         suggestions[resource] = {
-                'value' 	: resource,
-                'tooltip' 	: _character_directory[resource],
-                'icon' 		: icon.duplicate()}
+                'value'     : resource,
+                'tooltip'   : _character_directory[resource],
+                'icon'      : icon.duplicate()}
     return suggestions
 
 

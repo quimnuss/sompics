@@ -8,6 +8,6 @@ extends Control
 
 
 func _ready():
-	if layer_name.is_empty():
-		layer_name = name
-	add_to_group('dialogic_style_layer')
+    if layer_name.is_empty():
+        layer_name = name
+    add_to_group('dialogic_style_layer')

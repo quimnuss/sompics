@@ -64,126 +64,126 @@ const textbubble_scene: PackedScene = preload("res://addons/dialogic/Modules/Def
 
 
 func add_bubble() -> TextBubble:
-	var new_bubble: TextBubble = textbubble_scene.instantiate()
-	add_child(new_bubble)
-	bubbles.append(new_bubble)
-	return new_bubble
+    var new_bubble: TextBubble = textbubble_scene.instantiate()
+    add_child(new_bubble)
+    bubbles.append(new_bubble)
+    return new_bubble
 
 
 ## Called by dialogic whenever export overrides might change
 func _apply_export_overrides() -> void:
-	pass
+    pass
 
 
 
 ## Called by the base layer before opening the bubble
 func bubble_apply_overrides(bubble:TextBubble) -> void:
-	## TEXT FONT AND COLOR
-	var rtl: RichTextLabel = bubble.text
-	rtl.add_theme_font_size_override(&'normal_font', text_size)
-	rtl.add_theme_font_size_override(&"normal_font_size", text_size)
-	rtl.add_theme_font_size_override(&"bold_font_size", text_size)
-	rtl.add_theme_font_size_override(&"italics_font_size", text_size)
-	rtl.add_theme_font_size_override(&"bold_italics_font_size", text_size)
+    ## TEXT FONT AND COLOR
+    var rtl: RichTextLabel = bubble.text
+    rtl.add_theme_font_size_override(&'normal_font', text_size)
+    rtl.add_theme_font_size_override(&"normal_font_size", text_size)
+    rtl.add_theme_font_size_override(&"bold_font_size", text_size)
+    rtl.add_theme_font_size_override(&"italics_font_size", text_size)
+    rtl.add_theme_font_size_override(&"bold_italics_font_size", text_size)
 
-	rtl.add_theme_color_override(&"default_color", text_color)
+    rtl.add_theme_color_override(&"default_color", text_color)
 
-	if !normal_font.is_empty():
-		rtl.add_theme_font_override(&"normal_font", load(normal_font) as Font)
-	if !bold_font.is_empty():
-		rtl.add_theme_font_override(&"bold_font", load(bold_font) as Font)
-	if !italic_font.is_empty():
-		rtl.add_theme_font_override(&"italitc_font", load(italic_font) as Font)
-	if !bold_italic_font.is_empty():
-		rtl.add_theme_font_override(&"bold_italics_font", load(bold_italic_font) as Font)
-	bubble.set(&'max_width', text_max_width)
-
-
-	## BOX & TAIL COLOR
-	var tail_and_bg_group := (bubble.get_node("Group") as CanvasGroup)
-	tail_and_bg_group.self_modulate = box_modulate
-	if box_modulate_by_character_color and bubble.current_character != null:
-		tail_and_bg_group.self_modulate = bubble.current_character.color
-
-	var background := (bubble.get_node('%Background') as ColorRect)
-	var bg_material: ShaderMaterial = (background.material as ShaderMaterial)
-	bg_material.set_shader_parameter(&'radius', box_corner_radius)
-	bg_material.set_shader_parameter(&'wobble_amount', box_wobble_amount)
-	bg_material.set_shader_parameter(&'wobble_speed', box_wobble_speed)
-	bg_material.set_shader_parameter(&'wobble_detail', box_wobble_detail)
-
-	bubble.padding = box_padding
+    if !normal_font.is_empty():
+        rtl.add_theme_font_override(&"normal_font", load(normal_font) as Font)
+    if !bold_font.is_empty():
+        rtl.add_theme_font_override(&"bold_font", load(bold_font) as Font)
+    if !italic_font.is_empty():
+        rtl.add_theme_font_override(&"italitc_font", load(italic_font) as Font)
+    if !bold_italic_font.is_empty():
+        rtl.add_theme_font_override(&"bold_italics_font", load(bold_italic_font) as Font)
+    bubble.set(&'max_width', text_max_width)
 
 
-	## BEHAVIOUR
-	bubble.safe_zone = behaviour_distance
-	bubble.base_direction = behaviour_direction
+    ## BOX & TAIL COLOR
+    var tail_and_bg_group := (bubble.get_node("Group") as CanvasGroup)
+    tail_and_bg_group.self_modulate = box_modulate
+    if box_modulate_by_character_color and bubble.current_character != null:
+        tail_and_bg_group.self_modulate = bubble.current_character.color
+
+    var background := (bubble.get_node('%Background') as ColorRect)
+    var bg_material: ShaderMaterial = (background.material as ShaderMaterial)
+    bg_material.set_shader_parameter(&'radius', box_corner_radius)
+    bg_material.set_shader_parameter(&'wobble_amount', box_wobble_amount)
+    bg_material.set_shader_parameter(&'wobble_speed', box_wobble_speed)
+    bg_material.set_shader_parameter(&'wobble_detail', box_wobble_detail)
+
+    bubble.padding = box_padding
 
 
-	## NAME LABEL SETTINGS
-	var nl: DialogicNode_NameLabel = bubble.name_label
-	nl.add_theme_font_size_override(&"font_size", name_label_font_size)
-
-	if !name_label_font.is_empty():
-		nl.add_theme_font_override(&'font', load(name_label_font) as Font)
+    ## BEHAVIOUR
+    bubble.safe_zone = behaviour_distance
+    bubble.base_direction = behaviour_direction
 
 
-	if name_label_use_character_color and bubble.current_character:
-		nl.add_theme_color_override(&"font_color", bubble.current_character.color)
-	else:
-		nl.add_theme_color_override(&"font_color", name_label_color)
+    ## NAME LABEL SETTINGS
+    var nl: DialogicNode_NameLabel = bubble.name_label
+    nl.add_theme_font_size_override(&"font_size", name_label_font_size)
 
-	var nlp: PanelContainer = bubble.name_label_box
-	nlp.self_modulate = name_label_box_modulate
-	if name_label_box_modulate_use_character_color and bubble.current_character:
-		nlp.self_modulate = bubble.current_character.color
-	nlp.get_theme_stylebox(&'panel').content_margin_left = name_label_padding.x
-	nlp.get_theme_stylebox(&'panel').content_margin_right = name_label_padding.x
-	nlp.get_theme_stylebox(&'panel').content_margin_top = name_label_padding.y
-	nlp.get_theme_stylebox(&'panel').content_margin_bottom = name_label_padding.y
-	bubble.name_label_offset = name_label_offset
-	bubble.name_label_alignment = name_label_alignment
-
-	if !name_label_enabled:
-		nlp.queue_free()
+    if !name_label_font.is_empty():
+        nl.add_theme_font_override(&'font', load(name_label_font) as Font)
 
 
-	## CHOICE SETTINGS
-	if choices_layout_force_lines:
-		bubble.add_choice_container(VBoxContainer.new(), choices_layout_alignment)
-	else:
-		bubble.add_choice_container(HFlowContainer.new(), choices_layout_alignment)
+    if name_label_use_character_color and bubble.current_character:
+        nl.add_theme_color_override(&"font_color", bubble.current_character.color)
+    else:
+        nl.add_theme_color_override(&"font_color", name_label_color)
 
-	var choice_theme: Theme = null
-	if choices_base_theme.is_empty() or not ResourceLoader.exists(choices_base_theme):
-		choice_theme = Theme.new()
-		var base_style := StyleBoxFlat.new()
-		base_style.draw_center = false
-		base_style.border_width_bottom = 2
-		base_style.border_color = choices_text_color
-		choice_theme.set_stylebox(&'normal', &'Button', base_style)
-		var focus_style := (base_style.duplicate() as StyleBoxFlat)
-		focus_style.border_color = choices_text_color_focus
-		choice_theme.set_stylebox(&'focus', &'Button', focus_style)
-		var hover_style := (base_style.duplicate() as StyleBoxFlat)
-		hover_style.border_color = choices_text_color_hover
-		choice_theme.set_stylebox(&'hover', &'Button', hover_style)
-		var disabled_style := (base_style.duplicate() as StyleBoxFlat)
-		disabled_style.border_color = choices_text_color_disabled
-		choice_theme.set_stylebox(&'disabled', &'Button', disabled_style)
-		choice_theme.set_stylebox(&'pressed', &'Button', base_style)
-	else:
-		choice_theme = (load(choices_base_theme) as Theme)
+    var nlp: PanelContainer = bubble.name_label_box
+    nlp.self_modulate = name_label_box_modulate
+    if name_label_box_modulate_use_character_color and bubble.current_character:
+        nlp.self_modulate = bubble.current_character.color
+    nlp.get_theme_stylebox(&'panel').content_margin_left = name_label_padding.x
+    nlp.get_theme_stylebox(&'panel').content_margin_right = name_label_padding.x
+    nlp.get_theme_stylebox(&'panel').content_margin_top = name_label_padding.y
+    nlp.get_theme_stylebox(&'panel').content_margin_bottom = name_label_padding.y
+    bubble.name_label_offset = name_label_offset
+    bubble.name_label_alignment = name_label_alignment
 
-	if !choices_text_font.is_empty():
-		choice_theme.default_font = (load(choices_text_font) as Font)
+    if !name_label_enabled:
+        nlp.queue_free()
 
-	choice_theme.set_font_size(&'font_size', &'Button', choices_text_size)
-	choice_theme.set_color(&'font_color', &'Button', choices_text_color)
-	choice_theme.set_color(&'font_pressed_color', &'Button', choices_text_color)
-	choice_theme.set_color(&'font_hover_color', &'Button', choices_text_color_hover)
-	choice_theme.set_color(&'font_focus_color', &'Button', choices_text_color_focus)
-	choice_theme.set_color(&'font_disabled_color', &'Button', choices_text_color_disabled)
-	bubble.choice_container.theme = choice_theme
+
+    ## CHOICE SETTINGS
+    if choices_layout_force_lines:
+        bubble.add_choice_container(VBoxContainer.new(), choices_layout_alignment)
+    else:
+        bubble.add_choice_container(HFlowContainer.new(), choices_layout_alignment)
+
+    var choice_theme: Theme = null
+    if choices_base_theme.is_empty() or not ResourceLoader.exists(choices_base_theme):
+        choice_theme = Theme.new()
+        var base_style := StyleBoxFlat.new()
+        base_style.draw_center = false
+        base_style.border_width_bottom = 2
+        base_style.border_color = choices_text_color
+        choice_theme.set_stylebox(&'normal', &'Button', base_style)
+        var focus_style := (base_style.duplicate() as StyleBoxFlat)
+        focus_style.border_color = choices_text_color_focus
+        choice_theme.set_stylebox(&'focus', &'Button', focus_style)
+        var hover_style := (base_style.duplicate() as StyleBoxFlat)
+        hover_style.border_color = choices_text_color_hover
+        choice_theme.set_stylebox(&'hover', &'Button', hover_style)
+        var disabled_style := (base_style.duplicate() as StyleBoxFlat)
+        disabled_style.border_color = choices_text_color_disabled
+        choice_theme.set_stylebox(&'disabled', &'Button', disabled_style)
+        choice_theme.set_stylebox(&'pressed', &'Button', base_style)
+    else:
+        choice_theme = (load(choices_base_theme) as Theme)
+
+    if !choices_text_font.is_empty():
+        choice_theme.default_font = (load(choices_text_font) as Font)
+
+    choice_theme.set_font_size(&'font_size', &'Button', choices_text_size)
+    choice_theme.set_color(&'font_color', &'Button', choices_text_color)
+    choice_theme.set_color(&'font_pressed_color', &'Button', choices_text_color)
+    choice_theme.set_color(&'font_hover_color', &'Button', choices_text_color_hover)
+    choice_theme.set_color(&'font_focus_color', &'Button', choices_text_color_focus)
+    choice_theme.set_color(&'font_disabled_color', &'Button', choices_text_color_disabled)
+    bubble.choice_container.theme = choice_theme
 
 

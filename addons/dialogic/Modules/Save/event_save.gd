@@ -13,53 +13,53 @@ var slot_name: String = ""
 
 
 ################################################################################
-## 						INITIALIZE
+##                      INITIALIZE
 ################################################################################
 
 func _execute() -> void:
-	if slot_name.is_empty():
-		if dialogic.Save.get_latest_slot():
-			dialogic.Save.save(dialogic.Save.get_latest_slot())
-		else:
-			dialogic.Save.save()
-	else:
-		dialogic.Save.save(slot_name)
-	finish()
+    if slot_name.is_empty():
+        if dialogic.Save.get_latest_slot():
+            dialogic.Save.save(dialogic.Save.get_latest_slot())
+        else:
+            dialogic.Save.save()
+    else:
+        dialogic.Save.save(slot_name)
+    finish()
 
 
 ################################################################################
-## 						INITIALIZE
+##                      INITIALIZE
 ################################################################################
 
 func _init() -> void:
-	event_name = "Save"
-	set_default_color('Color6')
-	event_category = "Other"
-	event_sorting_index = 0
+    event_name = "Save"
+    set_default_color('Color6')
+    event_category = "Other"
+    event_sorting_index = 0
 
 
 func _get_icon() -> Resource:
-	return load(self.get_script().get_path().get_base_dir().path_join('icon.svg'))
+    return load(self.get_script().get_path().get_base_dir().path_join('icon.svg'))
 
 
 ################################################################################
-## 						SAVING/LOADING
+##                      SAVING/LOADING
 ################################################################################
 
 func get_shortcode() -> String:
-	return "save"
+    return "save"
 
 
 func get_shortcode_parameters() -> Dictionary:
-	return {
-		#param_name : property_info
-		"slot"		: {"property": "slot_name", "default": "Default"},
-	}
+    return {
+        #param_name : property_info
+        "slot"      : {"property": "slot_name", "default": "Default"},
+    }
 
 
 ################################################################################
-## 						EDITOR REPRESENTATION
+##                      EDITOR REPRESENTATION
 ################################################################################
 
 func build_event_editor():
-	add_header_edit('slot_name', ValueType.SINGLELINE_TEXT, {'left_text':'Save to slot'})
+    add_header_edit('slot_name', ValueType.SINGLELINE_TEXT, {'left_text':'Save to slot'})

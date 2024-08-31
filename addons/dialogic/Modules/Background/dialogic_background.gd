@@ -16,23 +16,23 @@ var viewport: SubViewport
 ## The time argument is given for when [_should_do_background_update] returns true
 ## (then you have to do a transition in here)
 func _update_background(argument:String, time:float) -> void:
-	pass
+    pass
 
 
 ## If a background event with this scene is encountered while this background is used,
 ##   this decides whether to create a new instance and call fade_out or just call [_update_background] # on this scene. Default is false
 func _should_do_background_update(argument:String) -> bool:
-	return false
+    return false
 
 
 ## Called by dialogic when first created.
 ## If you return false (by default) it will attempt to animate the "modulate" property.
 func _custom_fade_in(time:float) -> bool:
-	return false
+    return false
 
 
 ## Called by dialogic before removing (done by dialogic).
 ## If you return false (by default) it will attempt to animate the "modulate" property.
 func _custom_fade_out(time:float) -> bool:
-	return false
+    return false
 

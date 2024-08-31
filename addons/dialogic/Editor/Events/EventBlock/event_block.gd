@@ -150,21 +150,21 @@ func set_indent(indent: int) -> void:
 ################################################################################
 
 var FIELD_SCENES := {
-    DialogicEvent.ValueType.MULTILINE_TEXT: 	"res://addons/dialogic/Editor/Events/Fields/field_text_multiline.tscn",
-    DialogicEvent.ValueType.SINGLELINE_TEXT: 	"res://addons/dialogic/Editor/Events/Fields/field_text_singleline.tscn",
-    DialogicEvent.ValueType.FILE: 				"res://addons/dialogic/Editor/Events/Fields/field_file.tscn",
-    DialogicEvent.ValueType.BOOL: 				"res://addons/dialogic/Editor/Events/Fields/field_bool_check.tscn",
-    DialogicEvent.ValueType.BOOL_BUTTON: 		"res://addons/dialogic/Editor/Events/Fields/field_bool_button.tscn",
-    DialogicEvent.ValueType.CONDITION: 			"res://addons/dialogic/Editor/Events/Fields/field_condition.tscn",
-    DialogicEvent.ValueType.ARRAY: 				"res://addons/dialogic/Editor/Events/Fields/field_array.tscn",
-    DialogicEvent.ValueType.DICTIONARY: 		"res://addons/dialogic/Editor/Events/Fields/field_dictionary.tscn",
-    DialogicEvent.ValueType.DYNAMIC_OPTIONS: 	"res://addons/dialogic/Editor/Events/Fields/field_options_dynamic.tscn",
-    DialogicEvent.ValueType.FIXED_OPTIONS	: 	"res://addons/dialogic/Editor/Events/Fields/field_options_fixed.tscn",
-    DialogicEvent.ValueType.NUMBER: 			"res://addons/dialogic/Editor/Events/Fields/field_number.tscn",
-    DialogicEvent.ValueType.VECTOR2: 			"res://addons/dialogic/Editor/Events/Fields/field_vector2.tscn",
-    DialogicEvent.ValueType.VECTOR3: 			"res://addons/dialogic/Editor/Events/Fields/field_vector3.tscn",
-    DialogicEvent.ValueType.VECTOR4: 			"res://addons/dialogic/Editor/Events/Fields/field_vector4.tscn",
-    DialogicEvent.ValueType.COLOR: 				"res://addons/dialogic/Editor/Events/Fields/field_color.tscn"
+    DialogicEvent.ValueType.MULTILINE_TEXT:     "res://addons/dialogic/Editor/Events/Fields/field_text_multiline.tscn",
+    DialogicEvent.ValueType.SINGLELINE_TEXT:    "res://addons/dialogic/Editor/Events/Fields/field_text_singleline.tscn",
+    DialogicEvent.ValueType.FILE:               "res://addons/dialogic/Editor/Events/Fields/field_file.tscn",
+    DialogicEvent.ValueType.BOOL:               "res://addons/dialogic/Editor/Events/Fields/field_bool_check.tscn",
+    DialogicEvent.ValueType.BOOL_BUTTON:        "res://addons/dialogic/Editor/Events/Fields/field_bool_button.tscn",
+    DialogicEvent.ValueType.CONDITION:          "res://addons/dialogic/Editor/Events/Fields/field_condition.tscn",
+    DialogicEvent.ValueType.ARRAY:              "res://addons/dialogic/Editor/Events/Fields/field_array.tscn",
+    DialogicEvent.ValueType.DICTIONARY:         "res://addons/dialogic/Editor/Events/Fields/field_dictionary.tscn",
+    DialogicEvent.ValueType.DYNAMIC_OPTIONS:    "res://addons/dialogic/Editor/Events/Fields/field_options_dynamic.tscn",
+    DialogicEvent.ValueType.FIXED_OPTIONS   :   "res://addons/dialogic/Editor/Events/Fields/field_options_fixed.tscn",
+    DialogicEvent.ValueType.NUMBER:             "res://addons/dialogic/Editor/Events/Fields/field_number.tscn",
+    DialogicEvent.ValueType.VECTOR2:            "res://addons/dialogic/Editor/Events/Fields/field_vector2.tscn",
+    DialogicEvent.ValueType.VECTOR3:            "res://addons/dialogic/Editor/Events/Fields/field_vector3.tscn",
+    DialogicEvent.ValueType.VECTOR4:            "res://addons/dialogic/Editor/Events/Fields/field_vector4.tscn",
+    DialogicEvent.ValueType.COLOR:              "res://addons/dialogic/Editor/Events/Fields/field_color.tscn"
     }
 
 func build_editor(build_header:bool = true, build_body:bool = false) ->  void:

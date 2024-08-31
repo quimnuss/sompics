@@ -408,72 +408,72 @@ func build_event_editor() -> void:
     pass
 
 ## For the methods below the arguments are mostly similar:
-## @variable: 		String name of the property this field is for
-## @condition: 		String that will be executed as an expression. If it false
-## @editor_type: 	One of the ValueTypes (see ValueType enum). Defines type of field.
-## @left_text: 		Text that will be shown to the left of the field
-## @right_text: 	Text that will be shown to the right of the field
-## @extra_info: 	Allows passing a lot more info to the field.
-## 					What info can be passed is differnet for every field
+## @variable:       String name of the property this field is for
+## @condition:      String that will be executed as an expression. If it false
+## @editor_type:    One of the ValueTypes (see ValueType enum). Defines type of field.
+## @left_text:      Text that will be shown to the left of the field
+## @right_text:     Text that will be shown to the right of the field
+## @extra_info:     Allows passing a lot more info to the field.
+##                  What info can be passed is differnet for every field
 
 func add_header_label(text:String, condition:= "") -> void:
     editor_list.append({
-        "name" 			: "something",
-        "type" 			:+ TYPE_STRING,
-        "location" 		: Location.HEADER,
-        "usage" 		: PROPERTY_USAGE_EDITOR,
+        "name"          : "something",
+        "type"          :+ TYPE_STRING,
+        "location"      : Location.HEADER,
+        "usage"         : PROPERTY_USAGE_EDITOR,
         "field_type" : ValueType.LABEL,
         "display_info"  : {"text":text},
-        "condition" 	: condition
+        "condition"     : condition
         })
 
 
 func add_header_edit(variable:String, editor_type := ValueType.LABEL, extra_info:= {}, condition:= "") -> void:
     editor_list.append({
-        "name" 			: variable,
-        "type" 			: typeof(get(variable)),
-        "location" 		: Location.HEADER,
-        "usage" 		: PROPERTY_USAGE_DEFAULT,
+        "name"          : variable,
+        "type"          : typeof(get(variable)),
+        "location"      : Location.HEADER,
+        "usage"         : PROPERTY_USAGE_DEFAULT,
         "field_type" : editor_type,
-        "display_info" 	: extra_info,
-        "left_text" 	: extra_info.get('left_text', ''),
-        "right_text" 	: extra_info.get('right_text', ''),
-        "condition" 	: condition,
+        "display_info"  : extra_info,
+        "left_text"     : extra_info.get('left_text', ''),
+        "right_text"    : extra_info.get('right_text', ''),
+        "condition"     : condition,
         })
 
 
 func add_header_button(text:String, callable:Callable, tooltip:String, icon: Variant = null, condition:= "") -> void:
     editor_list.append({
-        "name"			: "Button",
-        "type" 			: TYPE_STRING,
-        "location" 		: Location.HEADER,
-        "usage" 		: PROPERTY_USAGE_DEFAULT,
+        "name"          : "Button",
+        "type"          : TYPE_STRING,
+        "location"      : Location.HEADER,
+        "usage"         : PROPERTY_USAGE_DEFAULT,
         "field_type" : ValueType.BUTTON,
-        "display_info" 	: {'text':text, 'tooltip':tooltip, 'callable':callable, 'icon':icon},
-        "condition" 	: condition,
+        "display_info"  : {'text':text, 'tooltip':tooltip, 'callable':callable, 'icon':icon},
+        "condition"     : condition,
     })
 
 
 func add_body_edit(variable:String, editor_type := ValueType.LABEL, extra_info:= {}, condition:= "") -> void:
     editor_list.append({
-        "name" 			: variable,
-        "type" 			: typeof(get(variable)),
-        "location" 		: Location.BODY,
-        "usage" 		: PROPERTY_USAGE_DEFAULT,
+        "name"          : variable,
+        "type"          : typeof(get(variable)),
+        "location"      : Location.BODY,
+        "usage"         : PROPERTY_USAGE_DEFAULT,
         "field_type" : editor_type,
-        "display_info" 	: extra_info,
-        "left_text" 	: extra_info.get('left_text', ''),
-        "right_text" 	: extra_info.get('right_text', ''),
-        "condition" 	: condition,
+        "display_info"  : extra_info,
+        "left_text"     : extra_info.get('left_text', ''),
+        "right_text"    : extra_info.get('right_text', ''),
+        "condition"     : condition,
         })
 
 
 func add_body_line_break(condition:= "") -> void:
     editor_list.append({
-        "name" 		: "linebreak",
-        "type" 		: TYPE_BOOL,
-        "location" 	: Location.BODY,
-        "usage" 	: PROPERTY_USAGE_DEFAULT,
+        "name"      : "linebreak",
+        "type"      : TYPE_BOOL,
+        "location"  : Location.BODY,
+        "usage"     : PROPERTY_USAGE_DEFAULT,
         "condition" : condition,
         })
 

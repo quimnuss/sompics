@@ -308,7 +308,7 @@ func force_event_button_list_update() -> void:
     find_parent('EditorsManager').editors['Timeline'].node.get_node('%VisualEditor').load_event_buttons()
 
 ################################################################################
-##						EVENT DEFAULT SETTINGS
+##                      EVENT DEFAULT SETTINGS
 ################################################################################
 func load_event_settings(event:DialogicEvent) -> void:
     for child in %EventDefaults.get_children():

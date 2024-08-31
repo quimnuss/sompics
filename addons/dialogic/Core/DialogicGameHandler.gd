@@ -11,18 +11,18 @@ extends Node
 
 ## States indicating different phases of dialog.
 enum States {
-    IDLE, 				## Dialogic is awaiting input to advance.
-    REVEALING_TEXT, 	## Dialogic is currently revealing text.
-    ANIMATING, 			## Some animation is happening.
-    AWAITING_CHOICE, 	## Dialogic awaits the selection of a choice
-    WAITING 			## Dialogic is currently awaiting something.
+    IDLE,               ## Dialogic is awaiting input to advance.
+    REVEALING_TEXT,     ## Dialogic is currently revealing text.
+    ANIMATING,          ## Some animation is happening.
+    AWAITING_CHOICE,    ## Dialogic awaits the selection of a choice
+    WAITING             ## Dialogic is currently awaiting something.
     }
 
 ## Flags indicating what to clear when calling [method clear].
 enum ClearFlags {
-    FULL_CLEAR = 0, 		## Clears all subsystems
-    KEEP_VARIABLES = 1, 	## Clears all subsystems and info except for variables
-    TIMELINE_INFO_ONLY = 2	## Doesn't clear subsystems but current timeline and index
+    FULL_CLEAR = 0,         ## Clears all subsystems
+    KEEP_VARIABLES = 1,     ## Clears all subsystems and info except for variables
+    TIMELINE_INFO_ONLY = 2  ## Doesn't clear subsystems but current timeline and index
     }
 
 ## Reference to the currently executed timeline.

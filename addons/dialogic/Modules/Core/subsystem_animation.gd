@@ -11,16 +11,16 @@ var prev_state: int = 0
 ####################################################################################################
 
 func is_animating() -> bool:
-	return dialogic.current_state == dialogic.States.ANIMATING
+    return dialogic.current_state == dialogic.States.ANIMATING
 
 
 func start_animating() -> void:
-	prev_state = dialogic.current_state
-	dialogic.current_state = dialogic.States.ANIMATING
+    prev_state = dialogic.current_state
+    dialogic.current_state = dialogic.States.ANIMATING
 
 
 func animation_finished(arg := "") -> void:
-	dialogic.current_state = prev_state
-	finished.emit()
+    dialogic.current_state = prev_state
+    finished.emit()
 
 #endregion

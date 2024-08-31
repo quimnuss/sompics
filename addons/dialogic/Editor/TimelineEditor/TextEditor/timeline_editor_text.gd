@@ -69,7 +69,7 @@ func text_timeline_to_array(text:String) -> Array:
 
 
 ################################################################################
-## 					HELPFUL EDITOR FUNCTIONALITY
+##                  HELPFUL EDITOR FUNCTIONALITY
 ################################################################################
 
 func _gui_input(event):
@@ -210,7 +210,7 @@ func _on_content_item_clicked(label:String) -> void:
 
 
 ################################################################################
-## 					AUTO COMPLETION
+##                  AUTO COMPLETION
 ################################################################################
 
 # Called if something was typed
@@ -231,7 +231,7 @@ func _confirm_code_completion(replace:bool) -> void:
 
 
 ################################################################################
-##					SYMBOL CLICKING
+##                  SYMBOL CLICKING
 ################################################################################
 
 # Performs an action (like opening a link) when a valid symbol was clicked

@@ -64,15 +64,15 @@ func add_ref_change(old_name:String, new_name:String, type:Types, where:=Where.T
 
         Types.VARIABLE:
             regexes = [
-                r'{(?<replace>\s*%s\s*)}' 			% old_name.replace("/", "\\/"),
+                r'{(?<replace>\s*%s\s*)}'           % old_name.replace("/", "\\/"),
                 r'var\s*=\s*"(?<replace>\s*%s\s*)"' % old_name.replace("/", "\\/")
                 ]
             category_name = "Variables"
 
         Types.PORTRAIT:
             regexes = [
-                r'(?m)^[^:(\n]*\((?<replace>%s)\)' 			% old_name.replace('/', '\\/'),
-                r'\[\s*portrait\s*=(?<replace>\s*%s\s*)\]' 	% old_name.replace('/', '\\/')
+                r'(?m)^[^:(\n]*\((?<replace>%s)\)'          % old_name.replace('/', '\\/'),
+                r'\[\s*portrait\s*=(?<replace>\s*%s\s*)\]'  % old_name.replace('/', '\\/')
                 ]
             category_name = "Portraits by "+character_names[0]
 

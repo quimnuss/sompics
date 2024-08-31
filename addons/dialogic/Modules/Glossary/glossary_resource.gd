@@ -55,19 +55,19 @@ const PRIVATE_PROPERTY_PREFIX := "_"
 ##
 ## Returns true if the entry matching the given [param entry_key] was found.
 func remove_entry(entry_key: String) -> bool:
-	var entry: Dictionary = get_entry(entry_key)
+    var entry: Dictionary = get_entry(entry_key)
 
-	if entry.is_empty():
-		return false
+    if entry.is_empty():
+        return false
 
-	var aliases: Array = entry.get(ALTERNATIVE_PROPERTY, [])
+    var aliases: Array = entry.get(ALTERNATIVE_PROPERTY, [])
 
-	for alias: String in aliases:
-		_remove_entry_alias(alias)
+    for alias: String in aliases:
+        _remove_entry_alias(alias)
 
-	entries.erase(entry_key)
+    entries.erase(entry_key)
 
-	return true
+    return true
 
 
 ## This is an internal method.
@@ -78,14 +78,14 @@ func remove_entry(entry_key: String) -> bool:
 ##
 ## This method does not update the entry's alternative property.
 func _remove_entry_alias(entry_key: String) -> bool:
-	var value: Variant = entries.get(entry_key, null)
+    var value: Variant = entries.get(entry_key, null)
 
-	if value == null or value is Dictionary:
-		return false
+    if value == null or value is Dictionary:
+        return false
 
-	entries.erase(entry_key)
+    entries.erase(entry_key)
 
-	return true
+    return true
 
 
 ## Updates the glossary entry's name and related alias keys.
@@ -99,28 +99,28 @@ func _remove_entry_alias(entry_key: String) -> bool:
 ## [method _remove_entry_alias] and then add them again with
 ## [method _add_entry_key_alias].
 func replace_entry_key(old_entry_key: String, new_entry_key: String) -> void:
-	var entry := get_entry(old_entry_key)
+    var entry := get_entry(old_entry_key)
 
-	if entry == null:
-		return
+    if entry == null:
+        return
 
-	entry.name = new_entry_key
+    entry.name = new_entry_key
 
-	entries.erase(old_entry_key)
-	entries[new_entry_key] = entry
+    entries.erase(old_entry_key)
+    entries[new_entry_key] = entry
 
 
 ## Gets the glossary entry for the given [param entry_key].
 ## If there is no matching entry, an empty Dictionary will be returned.
 ## Valid glossary entry dictionaries will never be empty.
 func get_entry(entry_key: String) -> Dictionary:
-	var entry: Variant = entries.get(entry_key, {})
+    var entry: Variant = entries.get(entry_key, {})
 
-	# Handle alias value.
-	if entry is String:
-		entry = entries.get(entry, {})
+    # Handle alias value.
+    if entry is String:
+        entry = entries.get(entry, {})
 
-	return entry
+    return entry
 
 
 ## This is an internal method.
@@ -129,68 +129,68 @@ func get_entry(entry_key: String) -> Dictionary:
 ##
 ## Returns the index of the entry, -1 if the entry does not exist.
 func _add_entry_key_alias(entry_key: String, alias: String) -> bool:
-	var entry := get_entry(entry_key)
-	var alias_entry := get_entry(alias)
+    var entry := get_entry(entry_key)
+    var alias_entry := get_entry(alias)
 
-	if not entry.is_empty() and alias_entry.is_empty():
-		entries[alias] = entry_key
-		return true
+    if not entry.is_empty() and alias_entry.is_empty():
+        entries[alias] = entry_key
+        return true
 
-	return false
+    return false
 
 
 ## Adds [param entry] to the glossary if it does not exist.
 ## If it does exist, returns false.
 func try_add_entry(entry: Dictionary) -> bool:
-	var entry_key: String = entry[NAME_PROPERTY]
+    var entry_key: String = entry[NAME_PROPERTY]
 
-	if entries.has(entry_key):
-		return false
+    if entries.has(entry_key):
+        return false
 
-	entries[entry_key] = entry
+    entries[entry_key] = entry
 
-	for alternative: String in entry.get(ALTERNATIVE_PROPERTY, []):
-		entries[alternative.strip_edges()] = entry_key
+    for alternative: String in entry.get(ALTERNATIVE_PROPERTY, []):
+        entries[alternative.strip_edges()] = entry_key
 
-	return true
+    return true
 
 
 ## Returns an array of words that can trigger the glossary popup.
 ## This method respects whether translation is enabled or not.
 ## The words may be: The entry key and the alternative words.
 func _get_word_options(entry_key: String) -> Array:
-	var word_options: Array = []
+    var word_options: Array = []
 
-	var translation_enabled: bool = ProjectSettings.get_setting("dialogic/translation/enabled", false)
+    var translation_enabled: bool = ProjectSettings.get_setting("dialogic/translation/enabled", false)
 
-	if not translation_enabled:
-		word_options.append(entry_key)
+    if not translation_enabled:
+        word_options.append(entry_key)
 
-		for alternative: String in get_entry(entry_key).get(ALTERNATIVE_PROPERTY, []):
-			word_options.append(alternative.strip_edges())
+        for alternative: String in get_entry(entry_key).get(ALTERNATIVE_PROPERTY, []):
+            word_options.append(alternative.strip_edges())
 
-		return word_options
+        return word_options
 
-	var translation_entry_key_id: String = get_property_translation_key(entry_key, NAME_PROPERTY)
+    var translation_entry_key_id: String = get_property_translation_key(entry_key, NAME_PROPERTY)
 
-	if translation_entry_key_id.is_empty():
-		return []
+    if translation_entry_key_id.is_empty():
+        return []
 
-	var translated_entry_key := tr(translation_entry_key_id)
+    var translated_entry_key := tr(translation_entry_key_id)
 
-	if not translated_entry_key == translation_entry_key_id:
-		word_options.append(translated_entry_key)
+    if not translated_entry_key == translation_entry_key_id:
+        word_options.append(translated_entry_key)
 
-	var translation_alternatives_id: String = get_property_translation_key(entry_key, ALTERNATIVE_PROPERTY)
-	var translated_alternatives_str := tr(translation_alternatives_id)
+    var translation_alternatives_id: String = get_property_translation_key(entry_key, ALTERNATIVE_PROPERTY)
+    var translated_alternatives_str := tr(translation_alternatives_id)
 
-	if not translated_alternatives_str == translation_alternatives_id:
-		var translated_alternatives := translated_alternatives_str.split(",")
+    if not translated_alternatives_str == translation_alternatives_id:
+        var translated_alternatives := translated_alternatives_str.split(",")
 
-		for alternative: String in translated_alternatives:
-			word_options.append(alternative.strip_edges())
+        for alternative: String in translated_alternatives:
+            word_options.append(alternative.strip_edges())
 
-	return word_options
+    return word_options
 
 
 ## Gets the regex option for the given [param entry_key].
@@ -201,62 +201,62 @@ func _get_word_options(entry_key: String) -> Array:
 ##
 ## The [param entry_key] must be valid or an error will occur.
 func get_set_regex_option(entry_key: String) -> String:
-	var entry: Dictionary = get_entry(entry_key)
+    var entry: Dictionary = get_entry(entry_key)
 
-	var regex_options: Dictionary = entry.get(REGEX_OPTION_PROPERTY, {})
+    var regex_options: Dictionary = entry.get(REGEX_OPTION_PROPERTY, {})
 
-	if regex_options.is_empty():
-		entry[REGEX_OPTION_PROPERTY] = regex_options
+    if regex_options.is_empty():
+        entry[REGEX_OPTION_PROPERTY] = regex_options
 
-	var locale_key: String = TranslationServer.get_locale()
-	var regex_option: String = regex_options.get(locale_key, "")
+    var locale_key: String = TranslationServer.get_locale()
+    var regex_option: String = regex_options.get(locale_key, "")
 
-	if not regex_option.is_empty():
-		return regex_option
+    if not regex_option.is_empty():
+        return regex_option
 
-	var word_options: Array = _get_word_options(entry_key)
-	regex_option = "|".join(word_options)
+    var word_options: Array = _get_word_options(entry_key)
+    regex_option = "|".join(word_options)
 
-	regex_options[locale_key] = regex_option
+    regex_options[locale_key] = regex_option
 
-	return regex_option
+    return regex_option
 
 
 #region ADD AND CLEAR TRANSLATION KEYS
 
 ## This is automatically called, no need to use this.
 func add_translation_id() -> String:
-	_translation_id = DialogicUtil.get_next_translation_id()
-	return _translation_id
+    _translation_id = DialogicUtil.get_next_translation_id()
+    return _translation_id
 
 
 ## Removes the translation ID of this glossary.
 func remove_translation_id() -> void:
-	_translation_id = ""
+    _translation_id = ""
 
 
 ## Removes the translation ID of all glossary entries.
 func remove_entry_translation_ids() -> void:
-	for entry: Variant in entries.values():
+    for entry: Variant in entries.values():
 
-		# Ignore aliases.
-		if entry is String:
-			continue
+        # Ignore aliases.
+        if entry is String:
+            continue
 
-		if entry.has(TRANSLATION_PROPERTY):
-			entry[TRANSLATION_PROPERTY] = ""
+        if entry.has(TRANSLATION_PROPERTY):
+            entry[TRANSLATION_PROPERTY] = ""
 
 
 ## Clears the lookup tables using translation keys.
 func clear_translation_keys() -> void:
-	const RESOURCE_NAME_KEY := RESOURCE_NAME + "/"
+    const RESOURCE_NAME_KEY := RESOURCE_NAME + "/"
 
-	for translation_key: String in entries.keys():
+    for translation_key: String in entries.keys():
 
-		if translation_key.begins_with(RESOURCE_NAME_KEY):
-			entries.erase(translation_key)
+        if translation_key.begins_with(RESOURCE_NAME_KEY):
+            entries.erase(translation_key)
 
-	_translation_keys.clear()
+    _translation_keys.clear()
 
 #endregion
 
@@ -267,22 +267,22 @@ func clear_translation_keys() -> void:
 ##
 ## Time complexity: O(1)
 func get_property_translation_key(entry_key: String, property: String) -> String:
-	var entry := get_entry(entry_key)
+    var entry := get_entry(entry_key)
 
-	if entry == null:
-		return ""
+    if entry == null:
+        return ""
 
-	var entry_translation_key: String = entry.get(TRANSLATION_PROPERTY, "")
+    var entry_translation_key: String = entry.get(TRANSLATION_PROPERTY, "")
 
-	if entry_translation_key.is_empty() or _translation_id.is_empty():
-		return ""
+    if entry_translation_key.is_empty() or _translation_id.is_empty():
+        return ""
 
-	var glossary_csv_key := (RESOURCE_NAME
-		.path_join(_translation_id)
-		.path_join(entry_translation_key)
-		.path_join(property))
+    var glossary_csv_key := (RESOURCE_NAME
+        .path_join(_translation_id)
+        .path_join(entry_translation_key)
+        .path_join(property))
 
-	return glossary_csv_key
+    return glossary_csv_key
 
 
 
@@ -290,10 +290,10 @@ func get_property_translation_key(entry_key: String, property: String) -> String
 ## The resulting format will look like this: Glossary/a2/
 ## This prefix can be used to find translations for this glossary.
 func _get_glossary_translation_id_prefix() -> String:
-	return (
-		DialogicGlossary.RESOURCE_NAME
-			.path_join(_translation_id)
-	)
+    return (
+        DialogicGlossary.RESOURCE_NAME
+            .path_join(_translation_id)
+    )
 
 
 ## Returns the translation key for the given [param glossary_translation_id] and
@@ -303,38 +303,38 @@ func _get_glossary_translation_id_prefix() -> String:
 ##
 ## The resulting format will look like this: Glossary/a2/b4/name
 func _get_glossary_translation_key(entry_translation_id: String, property: String) -> String:
-	return (
-		DialogicGlossary.RESOURCE_NAME
-			.path_join(_translation_id)
-			.path_join(entry_translation_id)
-			.path_join(property)
-	)
+    return (
+        DialogicGlossary.RESOURCE_NAME
+            .path_join(_translation_id)
+            .path_join(entry_translation_id)
+            .path_join(property)
+    )
 
 
 ## Tries to get the glossary entry's translation ID.
 ## If it does not exist, a new one will be generated.
 func get_set_glossary_entry_translation_id(entry_key: String) -> String:
-	var glossary_entry: Dictionary = get_entry(entry_key)
-	var entry_translation_id := ""
+    var glossary_entry: Dictionary = get_entry(entry_key)
+    var entry_translation_id := ""
 
-	var glossary_translation_id: String = glossary_entry.get(TRANSLATION_PROPERTY, "")
+    var glossary_translation_id: String = glossary_entry.get(TRANSLATION_PROPERTY, "")
 
-	if glossary_translation_id.is_empty():
-		entry_translation_id = DialogicUtil.get_next_translation_id()
-		glossary_entry[TRANSLATION_PROPERTY] = entry_translation_id
+    if glossary_translation_id.is_empty():
+        entry_translation_id = DialogicUtil.get_next_translation_id()
+        glossary_entry[TRANSLATION_PROPERTY] = entry_translation_id
 
-	else:
-		entry_translation_id = glossary_entry[TRANSLATION_PROPERTY]
+    else:
+        entry_translation_id = glossary_entry[TRANSLATION_PROPERTY]
 
-	return entry_translation_id
+    return entry_translation_id
 
 
 ## Tries to get the glossary's translation ID.
 ## If it does not exist, a new one will be generated.
 func get_set_glossary_translation_id() -> String:
-	if _translation_id == null or _translation_id.is_empty():
-		add_translation_id()
+    if _translation_id == null or _translation_id.is_empty():
+        add_translation_id()
 
-	return _translation_id
+    return _translation_id
 
 #endregion

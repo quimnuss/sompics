@@ -128,8 +128,8 @@ func add_registered_sections() -> void:
             %SettingsTabs.add_child(button)
 
         vbox.hide()
-#		if section.has_method('_get_icon'):
-#			icon.texture = section._get_icon()
+#       if section.has_method('_get_icon'):
+#           icon.texture = section._get_icon()
         %SettingsContent.add_child(vbox)
 
 

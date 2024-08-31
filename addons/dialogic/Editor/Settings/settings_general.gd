@@ -125,7 +125,7 @@ func _on_layout_node_end_behaviour_item_selected(index:int) -> void:
 
 
 ################################################################################
-## 					EXTENSION CREATOR
+##                  EXTENSION CREATOR
 ################################################################################
 
 func _on_create_extension_button_pressed() -> void:
@@ -183,8 +183,8 @@ func get_shortcode() -> String:
 
 func get_shortcode_parameters() -> Dictionary:
     return {
-        #param_name 		: property_info
-        #"my_parameter"		: {"property": "property", "default": "Default"},
+        #param_name         : property_info
+        #"my_parameter"     : {"property": "property", "default": "Default"},
     }
 
 # You can alternatively overwrite these 3 functions: to_text(), from_text(), is_valid_event()

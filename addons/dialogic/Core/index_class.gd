@@ -20,8 +20,8 @@ func _get_events() -> Array:
 
 ## Overwrite if this module contains any subsystems.
 ## Should return an array of dictionaries each with the following keys: [br]
-## "name" 		-> name for this subsystem[br]
-## "script" 	-> array of preview images[br]
+## "name"       -> name for this subsystem[br]
+## "script"     -> array of preview images[br]
 func _get_subsystems() -> Array[Dictionary]:
     return []
 
@@ -41,9 +41,9 @@ func _get_character_editor_sections() -> Array:
 #region TEXT EFFECTS & MODIFIERS
 
 ## Should return array of dictionaries with the following keys:[br]
-## "command" 	-> the text e.g. "speed"[br]
+## "command"    -> the text e.g. "speed"[br]
 ## "node_path" or "subsystem" -> whichever contains your effect method[br]
-## "method" 	-> name of the effect method[br]
+## "method"     -> name of the effect method[br]
 func _get_text_effects() -> Array[Dictionary]:
     return []
 
@@ -58,7 +58,7 @@ func _get_text_modifiers() -> Array[Dictionary]:
 ## Return a list of resources, scripts, etc.
 ## These can later be retrieved with DialogicResourceUtil.
 ## Each dictionary should contain (at least "type" and "path").
-## 		E.g. {"type":"Animation", "path": "res://..."}
+##      E.g. {"type":"Animation", "path": "res://..."}
 func _get_special_resources() -> Array[Dictionary]:
     return []
 
@@ -88,8 +88,8 @@ func _get_style_presets() -> Array[Dictionary]:
 
 
 ## Should return an array of dictionaries with the following keys:[br]
-## "path" 		-> the path to the scene[br]
-## "name"		-> name for this layout[br]
+## "path"       -> the path to the scene[br]
+## "name"       -> name for this layout[br]
 ## "description"-> description of this layout. list what features/events are supported[br]
 ## "preview_image"-> array of preview images[br]
 func _get_layout_parts() -> Array[Dictionary]:

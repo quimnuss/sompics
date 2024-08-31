@@ -28,14 +28,14 @@ extends Button
 
 ## Called when the text changes.
 func _set_text_changed(new_text: String) -> void:
-	if text_node == null:
-		text = new_text
+    if text_node == null:
+        text = new_text
 
-	else:
-		text_node.text = new_text
+    else:
+        text_node.text = new_text
 
 
 func _ready() -> void:
-	add_to_group('dialogic_choice_button')
-	shortcut_in_tooltip = false
-	hide()
+    add_to_group('dialogic_choice_button')
+    shortcut_in_tooltip = false
+    hide()

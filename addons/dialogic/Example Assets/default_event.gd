@@ -30,8 +30,8 @@ func get_shortcode() -> String:
 
 func get_shortcode_parameters() -> Dictionary:
     return {
-        #param_name 	: property_name
-        #"arg_name"		: "NameOfProperty",
+        #param_name     : property_name
+        #"arg_name"     : "NameOfProperty",
     }
 
 # You can alternatively overwrite these 3 functions:

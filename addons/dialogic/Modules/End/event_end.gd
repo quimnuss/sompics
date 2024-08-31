@@ -9,7 +9,7 @@ extends DialogicEvent
 ################################################################################
 
 func _execute() -> void:
-	dialogic.end_timeline()
+    dialogic.end_timeline()
 
 #endregion
 
@@ -18,10 +18,10 @@ func _execute() -> void:
 ################################################################################
 
 func _init() -> void:
-	event_name = "End"
-	set_default_color('Color4')
-	event_category = "Flow"
-	event_sorting_index = 10
+    event_name = "End"
+    set_default_color('Color4')
+    event_category = "Flow"
+    event_sorting_index = 10
 
 #endregion
 
@@ -30,7 +30,7 @@ func _init() -> void:
 ################################################################################
 
 func get_shortcode() -> String:
-	return "end_timeline"
+    return "end_timeline"
 
 #endregion
 
@@ -39,6 +39,6 @@ func get_shortcode() -> String:
 ################################################################################
 
 func build_event_editor():
-	add_header_label('End Timeline')
+    add_header_label('End Timeline')
 
 #endregion

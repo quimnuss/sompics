@@ -20,67 +20,67 @@ var texture_rect : TextureRect
 
 ## Set the image to use as the indicator.
 @export var texture : Texture2D = preload("res://addons/dialogic/Example Assets/next-indicator/next-indicator.png") as Texture2D:
-	set(_texture):
-		texture = _texture
-		if texture_rect:
-			texture_rect.texture = texture
+    set(_texture):
+        texture = _texture
+        if texture_rect:
+            texture_rect.texture = texture
 
 @export var texture_size := Vector2(32,32):
-	set(_texture_size):
-		texture_size = _texture_size
-		if has_node('Texture'):
-			get_node('Texture').size = _texture_size
-			get_node('Texture').position = -_texture_size
+    set(_texture_size):
+        texture_size = _texture_size
+        if has_node('Texture'):
+            get_node('Texture').size = _texture_size
+            get_node('Texture').position = -_texture_size
 
 
 var tween: Tween
 
 func _ready():
-	add_to_group('dialogic_next_indicator')
+    add_to_group('dialogic_next_indicator')
 
-	# Creating TextureRect if missing
-	if not texture_rect:
-		var icon := TextureRect.new()
-		icon.name = 'Texture'
-		icon.ignore_texture_size = true
-		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		icon.size = texture_size
-		icon.position = -icon.size
-		add_child(icon)
-		texture_rect = icon
+    # Creating TextureRect if missing
+    if not texture_rect:
+        var icon := TextureRect.new()
+        icon.name = 'Texture'
+        icon.ignore_texture_size = true
+        icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        icon.size = texture_size
+        icon.position = -icon.size
+        add_child(icon)
+        texture_rect = icon
 
-	texture_rect.texture = texture
+    texture_rect.texture = texture
 
-	hide()
-	visibility_changed.connect(_on_visibility_changed)
+    hide()
+    visibility_changed.connect(_on_visibility_changed)
 
 
 func _on_visibility_changed():
-	if visible:
-		play_animation(animation, 1.0)
+    if visible:
+        play_animation(animation, 1.0)
 
 
 func play_animation(animation: int, time:float) -> void:
-	# clean up previous tween to prevent slipping
-	if tween:
-		tween.stop()
+    # clean up previous tween to prevent slipping
+    if tween:
+        tween.stop()
 
-	if animation == 0:
-		tween = (create_tween() as Tween)
-		var distance := 4
-		tween.set_parallel(false)
-		tween.set_trans(Tween.TRANS_SINE)
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_loops()
+    if animation == 0:
+        tween = (create_tween() as Tween)
+        var distance := 4
+        tween.set_parallel(false)
+        tween.set_trans(Tween.TRANS_SINE)
+        tween.set_ease(Tween.EASE_IN_OUT)
+        tween.set_loops()
 
-		tween.tween_property(self, 'position', Vector2(0,distance), time*0.3).as_relative()
-		tween.tween_property(self, 'position', - Vector2(0,distance), time*0.3).as_relative()
-	if animation == 1:
-		tween = (create_tween() as Tween)
-		tween.set_parallel(false)
-		tween.set_trans(Tween.TRANS_SINE)
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_loops()
+        tween.tween_property(self, 'position', Vector2(0,distance), time*0.3).as_relative()
+        tween.tween_property(self, 'position', - Vector2(0,distance), time*0.3).as_relative()
+    if animation == 1:
+        tween = (create_tween() as Tween)
+        tween.set_parallel(false)
+        tween.set_trans(Tween.TRANS_SINE)
+        tween.set_ease(Tween.EASE_IN_OUT)
+        tween.set_loops()
 
-		tween.tween_property(self, 'modulate:a', 0, time*0.3)
-		tween.tween_property(self, 'modulate:a', 1, time*0.3)
+        tween.tween_property(self, 'modulate:a', 0, time*0.3)
+        tween.tween_property(self, 'modulate:a', 1, time*0.3)

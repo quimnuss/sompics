@@ -30,5 +30,5 @@ func _save(resource: Resource, path: String = '', flags: int = 0):
 
     var result := var_to_str(inst_to_dict(resource))
     file.store_string(result)
-#	print('[Dialogic] Saved character "' , path, '"')
+#   print('[Dialogic] Saved character "' , path, '"')
     return OK

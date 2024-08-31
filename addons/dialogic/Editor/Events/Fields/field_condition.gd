@@ -71,9 +71,9 @@ func _ready() -> void:
     %Operator.value_changed.connect(something_changed)
     %Operator.options = [
         {'label': '==', 'value': '=='},
-        {'label': '>', 	'value': '>'},
-        {'label': '<',	'value': '<'},
-        {'label': '<=',	'value': '<='},
+        {'label': '>',  'value': '>'},
+        {'label': '<',  'value': '<'},
+        {'label': '<=', 'value': '<='},
         {'label': '>=', 'value': '>='},
         {'label': '!=', 'value': '!='}
     ]

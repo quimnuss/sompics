@@ -26,7 +26,7 @@ func _handles_type(typename: StringName) -> bool:
 
 # parse the file and return a resource
 func _load(path: String, original_path: String, use_sub_threads: bool, cache_mode: int):
-#	print('[Dialogic] Reimporting character "' , path, '"')
+#   print('[Dialogic] Reimporting character "' , path, '"')
     var file := FileAccess.open(path, FileAccess.READ)
 
     if not file:
