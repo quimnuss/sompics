@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://62snjh4tb7e"]
+[gd_scene load_steps=6 format=3 uid="uid://ux6scbkuqpem"]
 
 [ext_resource type="Script" path="res://actors/evil_bee.gd" id="1_dm2ye"]
 [ext_resource type="Texture2D" uid="uid://dh0b728qf4d2f" path="res://assets/14-bee/Bee_Idle.png" id="2_baoab"]
@@ -46,7 +46,7 @@ script = ExtResource("1_dm2ye")
 texture = ExtResource("2_baoab")
 hframes = 4
 vframes = 4
-frame = 11
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
 libraries = {
