@@ -1,11 +1,13 @@
 extends Node2D
 
+@export var timeline : DialogicTimeline = preload("res://dialogs/dr_back_timeline_ending.dtl")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-    Dialogic.start("res://dialogs/dr_back_timeline_ending.dtl")
+    Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
 
+func _on_area_2d_body_entered(body):
+    get_tree().call_group('pics', 'freeze')
+    Dialogic.start(timeline)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
+func _on_dialogic_timeline_ended():
+    get_tree().call_group('pics', 'unfreeze')
