@@ -18,7 +18,6 @@ func _ready():
 
 func _on_trigger_shake():
     current_shake = shake_amount
-    pass
 
 func _physics_process(delta: float) -> void:
     if OS.is_debug_build() and Input.is_action_just_pressed("ui_text_submit"):

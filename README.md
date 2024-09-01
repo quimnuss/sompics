@@ -33,10 +33,14 @@ and open the DevTools console in that webpage.
 
 ## now
 
-- [ ] configurable number of players
-- [ ] adapt client to phone
+- [ ] configurable number of players in-game
+
+We can just add the name in the persistence array if it matches possible names
+and either restart level or spawn_one in PlayerSpawner reacting to a new_player signal
+Available on the first 2 levels only for simplicity (no attached, no flying)
+
 - [ ] level: Posicionament de plaques per carregar energia
-- [ ] level: 3 erp doors - nova versió erp 24.5 és a serp
+- [ ] Acció POs
 
 ## next
 
@@ -52,6 +56,9 @@ and open the DevTools console in that webpage.
 
 # Done
 
+- [x] adapt client to phone
+- [x] level: 3 erp doors
+- [x] level: telèfons, jardiner, contractes
 - [~] fancy jump
 - [x] fix rope
 - [x] Intro world

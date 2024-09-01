@@ -6,6 +6,7 @@ extends Node2D
 @export var wrong2_text : String = "Ha ha ha!\nNi a la segona!\nAra segur que no arribareu\na productiu abans de divendres!"
 @export var right_text : String = "Grrr!\nNo m'esperava que\nsapiguéssiu on deployeu..."
 @export var wrong_penalty : int = 2000
+var shock_material = preload("res://effects/shock_material.tres")
 
 var tries_count : int = 0
 var is_open : bool = false
@@ -30,8 +31,11 @@ func wrong_door():
 
 func right_door():
     is_open = true
+    sprite_2d.set_material(shock_material)
     label.text = right_text
     sprite_2d.tween.stop()
+    await get_tree().create_timer(1).timeout
+    sprite_2d.material = null
 
 func _on_fake_door_fake_open():
     if tried_doors.find(1) == -1:
