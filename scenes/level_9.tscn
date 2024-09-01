@@ -30,7 +30,7 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(1088, 392)
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(168, 152)
+position = Vector2(168, 184)
 script = ExtResource("5_1yjvy")
 
 [node name="Key" parent="." instance=ExtResource("6_ndm2m")]

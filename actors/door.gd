@@ -17,6 +17,8 @@ var level_num : int = 0
 
 @export var next_level : String
 
+@export var level_estalvi : int = 10000
+
 func _ready():
     num_pics = len(Persistence.pics)
     if is_open:
@@ -33,6 +35,7 @@ func _ready():
 func open():
     door_sprite.play('open')
     is_open = true
+    Persistence.estalvi(level_estalvi)
     await door_sprite.animation_finished
 
 func close():

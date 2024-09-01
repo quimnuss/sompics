@@ -50,7 +50,7 @@ position = Vector2(0, 189)
 shape = SubResource("RectangleShape2D_sxyq1")
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(72, 224)
+position = Vector2(94, 225)
 script = ExtResource("5_83kbf")
 attached = true
 

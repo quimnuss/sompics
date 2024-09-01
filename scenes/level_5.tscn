@@ -32,7 +32,7 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(832, 424)
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(536, 160)
+position = Vector2(536, 184)
 script = ExtResource("6_01aib")
 attached = true
 

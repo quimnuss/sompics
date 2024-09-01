@@ -39,7 +39,7 @@ gravity_scale = 0.0
 position = Vector2(888, 464)
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(168, 152)
+position = Vector2(168, 184)
 script = ExtResource("4_qhwex")
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("keyspawn")]

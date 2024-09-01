@@ -31,7 +31,19 @@ var levels : Array = [
     true, true, true, true, false
 ]
 
+var money : int = 1000000 :
+    set(value):
+        money = value
+        money_changed.emit()
+    get:
+        return money
+
 const LISTEN_PORT : int = 9080
+
+signal money_changed
+
+func estalvi(value : int):
+    money -= value
 
 func _input(event):
     if event.is_action_pressed("switch_pic"):

@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://82aeqqi2rddp"]
+[gd_scene load_steps=12 format=3 uid="uid://82aeqqi2rddp"]
 
 [ext_resource type="Script" path="res://ui/title.gd" id="1_cscm0"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_mu34e"]
 [ext_resource type="Script" path="res://ui/menu_ingame.gd" id="2_8ukki"]
 [ext_resource type="Script" path="res://ui/fps.gd" id="4_kyt6h"]
+[ext_resource type="Script" path="res://ui/money_bar.gd" id="5_aav1y"]
+[ext_resource type="Script" path="res://ui/shake_component.gd" id="5_lwiw5"]
 [ext_resource type="Texture2D" uid="uid://l1bif7021k6f" path="res://intro_world/astroboy_sheet.png" id="5_nfftl"]
+[ext_resource type="Script" path="res://ui/labeled_progressbar.gd" id="6_4rxwp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cb6bn"]
 content_margin_left = 10.0
@@ -118,6 +121,11 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 0
+script = ExtResource("5_aav1y")
+
+[node name="ShakeComponent" type="Control" parent="LowerContainer"]
+layout_mode = 2
+script = ExtResource("5_lwiw5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LowerContainer"]
 layout_mode = 2
@@ -140,13 +148,16 @@ texture = SubResource("AtlasTexture_7rld3")
 stretch_mode = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="LowerContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_w10k3")
+max_value = 1e+06
 value = 50.0
 show_percentage = false
+script = ExtResource("6_4rxwp")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LowerContainer/HBoxContainer/ProgressBar"]
 layout_mode = 1
