@@ -7,6 +7,7 @@ const level_dir : String = 'res://scenes/'
 
 @export var is_open : bool = false
 
+signal door_open
 signal level_exit
 signal all_in
 
@@ -36,6 +37,7 @@ func open():
     door_sprite.play('open')
     is_open = true
     Persistence.estalvi(level_estalvi)
+    door_open.emit()
     await door_sprite.animation_finished
 
 func close():

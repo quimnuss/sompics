@@ -35,6 +35,8 @@ and open the DevTools console in that webpage.
 
 - [ ] configurable number of players
 - [ ] adapt client to phone
+- [ ] level: Posicionament de plaques per carregar energia
+- [ ] level: 3 erp doors - nova versió erp 24.5 és a serp
 
 ## next
 

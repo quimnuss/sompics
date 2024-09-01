@@ -31,7 +31,7 @@ var levels : Array = [
     true, true, true, true, false
 ]
 
-var money : int = 1000000 :
+var money : int = 900000 :
     set(value):
         money = value
         money_changed.emit()

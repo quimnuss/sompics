@@ -69,8 +69,8 @@ func _on_text_edit_text_submitted(new_text):
     var text_node : LineEdit = $MarginContainer/VBoxContainer/TextEdit
     text_node.release_focus()
 
-    var text : String = text_node.get_text()
-    var player_name := text.strip_edges()
+    #var text : String = text_node.get_text()
+    var player_name : String = new_text.strip_edges()
     player = player_name
 
 

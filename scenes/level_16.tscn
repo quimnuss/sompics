@@ -1,18 +1,53 @@
-[gd_scene load_steps=8 format=3 uid="uid://y4yp10org20d"]
+[gd_scene load_steps=14 format=3 uid="uid://y4yp10org20d"]
 
+[ext_resource type="Script" path="res://scenes/level_doors.gd" id="1_mwtpg"]
+[ext_resource type="Script" path="res://actors/pluto.gd" id="2_2fej6"]
+[ext_resource type="Texture2D" uid="uid://bcu5abh8x0doj" path="res://assets/characters/astro_boy_pluto.png" id="2_amclq"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_attqb"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_42f7e"]
+[ext_resource type="Script" path="res://scripts/bobing.gd" id="3_ihmwx"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="4_foocj"]
 [ext_resource type="Script" path="res://actors/fake_door.gd" id="4_vgtrd"]
 [ext_resource type="SpriteFrames" uid="uid://cu3btbkmvpgbv" path="res://actors/door_spriteframes.tres" id="5_wiu86"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_ov6c8"]
+[ext_resource type="AudioStream" uid="uid://ko1h6e2bpy25" path="res://assets/door-locked.ogg" id="8_wwl6f"]
+[ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="9_yco0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5icyh"]
 size = Vector2(30, 47)
 
 [node name="MainLevel" type="Node2D"]
+script = ExtResource("1_mwtpg")
 
 [node name="UI" parent="." instance=ExtResource("2_attqb")]
+
+[node name="Pluto" type="Node2D" parent="."]
+position = Vector2(528, 416)
+script = ExtResource("2_2fej6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pluto"]
+modulate = Color(1, 1, 1, 0.545098)
+z_index = -1
+texture = ExtResource("2_amclq")
+script = ExtResource("3_ihmwx")
+
+[node name="Label" type="Label" parent="Pluto"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -168.0
+offset_top = -280.0
+offset_right = 167.0
+offset_bottom = -163.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Benvinguts IT.
+A on està deployada
+la nova versió erp 24.5 ?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_42f7e")
@@ -67,6 +102,9 @@ collision_mask = 7
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_5icyh")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FakeDoor"]
+stream = ExtResource("8_wwl6f")
+
 [node name="FakeDoor2" type="Node2D" parent="."]
 z_index = -1
 position = Vector2(336, 392)
@@ -94,12 +132,22 @@ collision_mask = 7
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_5icyh")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FakeDoor2"]
+stream = ExtResource("8_wwl6f")
+
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(128, 392)
 script = ExtResource("6_ov6c8")
 
 [node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(960, 448)
+position = Vector2(528, 488)
 
+[node name="Key" parent="." instance=ExtResource("9_yco0t")]
+position = Vector2(528, 488)
+gravity_scale = 0.0
+
+[connection signal="door_open" from="Door" to="Pluto" method="_on_door_door_open"]
+[connection signal="fake_open" from="FakeDoor" to="Pluto" method="_on_fake_door_fake_open"]
 [connection signal="body_entered" from="FakeDoor/Area2D" to="FakeDoor" method="_on_area_2d_body_entered"]
+[connection signal="fake_open" from="FakeDoor2" to="Pluto" method="_on_fake_door_2_fake_open"]
 [connection signal="body_entered" from="FakeDoor2/Area2D" to="FakeDoor2" method="_on_area_2d_body_entered"]
