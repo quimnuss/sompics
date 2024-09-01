@@ -139,9 +139,6 @@ stream = ExtResource("8_wwl6f")
 position = Vector2(128, 392)
 script = ExtResource("6_ov6c8")
 
-[node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(528, 488)
-
 [node name="Key" parent="." instance=ExtResource("9_yco0t")]
 position = Vector2(528, 488)
 gravity_scale = 0.0
