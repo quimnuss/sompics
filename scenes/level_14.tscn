@@ -1,24 +1,60 @@
-[gd_scene load_steps=9 format=3 uid="uid://h2uesjucmdjf"]
+[gd_scene load_steps=19 format=3 uid="uid://h2uesjucmdjf"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1w1vt"]
 [ext_resource type="Script" path="res://scenes/level_energy.gd" id="1_nbj6n"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_q4mus"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="4_3aew8"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="5_mvno2"]
+[ext_resource type="Script" path="res://ui/energy_meter.gd" id="6_km3hj"]
+[ext_resource type="PackedScene" uid="uid://bccbc5duw7bn4" path="res://actors/meter_light.tscn" id="7_au4of"]
+[ext_resource type="Texture2D" uid="uid://bqxow0t554b5s" path="res://assets/cone_light.png" id="7_bkjfs"]
+[ext_resource type="Texture2D" uid="uid://pfebdr0vvevt" path="res://assets/dancing_plant_spike_spritesheet.png" id="8_vf1n4"]
+[ext_resource type="Script" path="res://scripts/mini_up_down.gd" id="9_gm2no"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uojpd"]
+polygon = PackedVector2Array(768, 544, 1088, 544, 1088, 384, 1152, 384, 1152, 616, 768, 616)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8n3cd"]
+polygon = PackedVector2Array(928, 384, 928, 416, 832, 416, 832, 384)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvcaq"]
 bg_color = Color(1, 1, 0.6, 1)
 
-[sub_resource type="Gradient" id="Gradient_48ci1"]
-offsets = PackedFloat32Array(0.5, 0.9)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj2gd"]
+atlas = ExtResource("8_vf1n4")
+region = Rect2(0, 0, 16, 27)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_io4o4"]
-gradient = SubResource("Gradient_48ci1")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.9, 0.9)
-metadata/_snap_enabled = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_evvbb"]
+atlas = ExtResource("8_vf1n4")
+region = Rect2(16, 0, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6i25"]
+atlas = ExtResource("8_vf1n4")
+region = Rect2(32, 0, 16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmi1m"]
+atlas = ExtResource("8_vf1n4")
+region = Rect2(48, 0, 16, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8do8d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj2gd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evvbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6i25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmi1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_nbj6n")
@@ -35,19 +71,11 @@ layer_1/tile_data = PackedInt32Array(458763, 196610, 3, 524299, 196610, 4, 45877
 layer_2/name = "Background"
 layer_2/tile_data = PackedInt32Array()
 
-[node name="Door" parent="." instance=ExtResource("4_3aew8")]
-position = Vector2(1040, 520)
-is_open = true
-next_level = "welcome_level.tscn"
+[node name="LightOccluder2D" type="LightOccluder2D" parent="TileMap"]
+occluder = SubResource("OccluderPolygon2D_uojpd")
 
-[node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(128, 392)
-script = ExtResource("5_mvno2")
-
-[node name="PickupReceiver" type="Node2D" parent="."]
-
-[node name="KeySpawn" type="Marker2D" parent="."]
-position = Vector2(960, 448)
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="TileMap"]
+occluder = SubResource("OccluderPolygon2D_8n3cd")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -57,56 +85,91 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 952.0
-offset_top = 208.0
-offset_right = 988.0
-offset_bottom = 544.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 261.0
+offset_right = 982.0
+offset_bottom = 542.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Potència
+[kW]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_styles/fill = SubResource("StyleBoxFlat_lvcaq")
 value = 10.0
 rounded = true
 fill_mode = 3
+script = ExtResource("6_km3hj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/VBoxContainer/ProgressBar"]
+position = Vector2(14, -142)
+rotation = -3.14159
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_8do8d")
+autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="Control/VBoxContainer/ProgressBar/AnimatedSprite2D"]
+position = Vector2(-1.31792e-06, -66.3949)
+rotation = 3.14159
+scale = Vector2(0.230469, 0.264563)
+shadow_enabled = true
+texture = ExtResource("7_bkjfs")
+script = ExtResource("9_gm2no")
+
+[node name="Door" parent="." instance=ExtResource("4_3aew8")]
+position = Vector2(1040, 520)
+is_open = true
+next_level = "welcome_level.tscn"
+
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+position = Vector2(124, 215)
+script = ExtResource("5_mvno2")
+
+[node name="PickupReceiver" type="Node2D" parent="."]
+
+[node name="KeySpawn" type="Marker2D" parent="."]
+position = Vector2(960, 448)
 
 [node name="Lights" type="Node2D" parent="."]
 
-[node name="PointLight2D" type="PointLight2D" parent="Lights"]
-position = Vector2(328, 296)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D" parent="Lights" instance=ExtResource("7_au4of")]
 
-[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
-position = Vector2(880, 344)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D2" parent="Lights" instance=ExtResource("7_au4of")]
+position = Vector2(560, 199)
 
-[node name="PointLight2D3" type="PointLight2D" parent="Lights"]
-position = Vector2(200, 504)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D3" parent="Lights" instance=ExtResource("7_au4of")]
+position = Vector2(769, 295)
 
-[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
-position = Vector2(760, 408)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D4" parent="Lights" instance=ExtResource("7_au4of")]
+position = Vector2(200, 514)
 
-[node name="PointLight2D5" type="PointLight2D" parent="Lights"]
-position = Vector2(304, 408)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D5" parent="Lights" instance=ExtResource("7_au4of")]
+position = Vector2(305, 420)
 
-[node name="PointLight2D6" type="PointLight2D" parent="Lights"]
-position = Vector2(768, 288)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D6" parent="Lights" instance=ExtResource("7_au4of")]
+position = Vector2(881, 358)
 
-[node name="PointLight2D7" type="PointLight2D" parent="Lights"]
-position = Vector2(560, 184)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D7" parent="Lights" instance=ExtResource("7_au4of")]
+position = Vector2(762, 421)
 
-[node name="PointLight2D8" type="PointLight2D" parent="Lights"]
-position = Vector2(560, 184)
-texture = SubResource("GradientTexture2D_io4o4")
+[node name="PointLight2D8" parent="Lights" instance=ExtResource("7_au4of")]
+position = Vector2(609, 456)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.380392, 0.380392, 0.380392, 1)
+
+[connection signal="power_up" from="Control/VBoxContainer/ProgressBar" to="." method="_on_progress_bar_power_up"]
 [connection signal="players_spawned" from="PlayerSpawner" to="." method="_on_player_spawner_players_spawned"]
