@@ -122,11 +122,13 @@ sprite_frames = SubResource("SpriteFrames_8do8d")
 autoplay = "default"
 
 [node name="PointLight2D" type="PointLight2D" parent="Control/VBoxContainer/ProgressBar/AnimatedSprite2D"]
-position = Vector2(-1.31792e-06, -66.3949)
+position = Vector2(0.333341, 1.33333)
 rotation = 3.14159
 scale = Vector2(0.230469, 0.264563)
 shadow_enabled = true
+shadow_filter = 2
 texture = ExtResource("7_bkjfs")
+offset = Vector2(0, 256)
 script = ExtResource("9_gm2no")
 
 [node name="Door" parent="." instance=ExtResource("4_3aew8")]
