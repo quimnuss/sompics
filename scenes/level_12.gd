@@ -1,24 +1,28 @@
 extends Node2D
 
-@onready var tile_map = $TileMap
+@onready var ui = $UI
+@onready var ui_total_time = $UI/TotalTime
+@onready var key_spawn = $KeySpawn
+@onready var timed_button_collector = $TimedButtonCollector
+
+var is_restarting : bool = false
+
+func _on_timed_button_collector_time_up():
+    game_lost_restart()
+
+func game_lost_restart():
+    if not is_restarting:
+        is_restarting = true
+        ui.show_game_lost()
+        await get_tree().create_timer(2).timeout
+        get_tree().reload_current_scene()
 
 
 
-func _on_button_button_pressed():
-    tile_map.set_cells_terrain_connect(0, [Vector2i(15,10)], 0, 2)
-    await get_tree().create_timer(0.5).timeout
-    tile_map.set_cells_terrain_connect(0, [Vector2i(16,10)], 0, 2)
-    await get_tree().create_timer(0.5).timeout
-    tile_map.set_cells_terrain_connect(0, [Vector2i(16,9)], 0, 2)
-    await get_tree().create_timer(0.5).timeout
-    tile_map.set_cells_terrain_connect(0, [Vector2i(16,8)], 0, 2)
-
-
-func _on_button_2_button_pressed():
-    tile_map.set_cells_terrain_connect(0, [Vector2i(21,10)], 0, 2)
-    await get_tree().create_timer(0.25).timeout
-    tile_map.set_cells_terrain_connect(0, [Vector2i(20,10)], 0, 2)
-    await get_tree().create_timer(0.25).timeout
-    tile_map.set_cells_terrain_connect(0, [Vector2i(20,9)], 0, 2)
-    await get_tree().create_timer(0.25).timeout
-    tile_map.set_cells_terrain_connect(0, [Vector2i(20,8)], 0, 2)
+func _on_timed_button_collector_all_stopped(total_time : int):
+    if ui_total_time.lower_bound < total_time and total_time < ui_total_time.upper_bound:
+        var key = load("res://actors/key.tscn").instantiate()
+        key.global_position = key_spawn.global_position
+        self.call_deferred('add_child', key)
+    else:
+        game_lost_restart()

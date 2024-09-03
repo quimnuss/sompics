@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bccbc5duw7bn4"]
+[gd_scene load_steps=6 format=3 uid="uid://bccbc5duw7bn4"]
 
 [ext_resource type="Script" path="res://actors/solar_light.gd" id="1_dyj4g"]
+[ext_resource type="Texture2D" uid="uid://easspnx0hcne" path="res://assets/wall_gem.png" id="2_p2kfh"]
 
 [sub_resource type="Gradient" id="Gradient_48ci1"]
 offsets = PackedFloat32Array(0.5, 0.9)
@@ -17,9 +18,12 @@ metadata/_snap_enabled = true
 radius = 27.6586
 
 [node name="PointLight2D" type="PointLight2D"]
-position = Vector2(328, 296)
 texture = SubResource("GradientTexture2D_io4o4")
 script = ExtResource("1_dyj4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_p2kfh")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
