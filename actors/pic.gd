@@ -15,12 +15,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var attached_pics : Array[Pic]
 
-var actions : Array[String] = ['jump', 'move_left', 'move_right', 'down']
+var actions : Array[String] = ['jump', 'move_left', 'move_right', 'move_down']
 
 var move_left : String = 'move_left'
 var move_right : String = 'move_right'
 var jump : String = 'jump'
-var down : String = 'down'
+var move_down : String = 'move_down'
 
 var ropes : Array[Line2D]
 
@@ -58,7 +58,7 @@ func _ready():
     self.move_left = self.move_left + '-' + person
     self.move_right = self.move_right  + '-' + person
     self.jump = self.jump  + '-' + person
-    self.down = self.down  + '-' + person
+    self.move_down = self.move_down  + '-' + person
 
     for action : String in actions:
         if not InputMap.has_action(action + '-' + person):
@@ -201,14 +201,14 @@ func _physics_process(delta):
         #return
 
     var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
-    var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, down)
+    var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, move_down)
     var direction : float = Input.get_axis(move_left, move_right)
 
     if is_controlled:
         if direction == 0:
             direction = Input.get_axis('move_left-q', 'move_right-q')
         if flying_direction == Vector2.ZERO:
-            flying_direction = Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'down-q')
+            flying_direction = Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'move_down-q')
 
     if is_flying:
         velocity = flying_direction * SPEED
