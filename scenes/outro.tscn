@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnaux0fpscwnl"]
+
+[ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_yv1e7"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="IntermissionLevel" parent="." instance=ExtResource("1_yv1e7")]

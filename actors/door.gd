@@ -25,13 +25,18 @@ func _ready():
     if is_open:
         door_sprite.play('open')
     var fullpath : String = get_tree().current_scene.scene_file_path
-    var level : String = fullpath.right(7).left(2)
-    level_num = int(level)
-    if not next_level:
-        var next_level_num = level_num+1
-        next_level = 'level_' + str(next_level_num) + '.tscn'
+    var level : String = fullpath.get_file()
+    var level_index : int = Persistence.level_order.find(level)
+    if level_index == -1 or level_index == len(Persistence.level_order)-1:
+        push_error(next_level,' not listed. Defaulting to welcome')
+        next_level = 'welcome_level.tscn'
+    else:
+        next_level = Persistence.level_order[level_index+1]
         if not ResourceLoader.exists(level_dir + next_level):
+            push_error(next_level,' does not exist. Defaulting to welcome')
             next_level = 'welcome_level.tscn'
+
+    prints(level, '->', next_level)
 
 func open():
     door_sprite.play('open')

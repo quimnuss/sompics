@@ -9,15 +9,23 @@ extends Node2D
 @export var villan_1_name : String = 'dset'
 @export var villan_2_name : String
 
+var entered : bool = false
+
 func _ready():
     Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
     villan_1.play(villan_1_name)
     villan_2.play(villan_2_name)
     villan_1.modulate.a = 0
 
+func _input(event):
+    if event.is_action_pressed("ui_end"):
+        _on_dialogic_timeline_ended()
+        Dialogic.clear()
+
 func _on_area_2d_body_entered(body):
-    if Dialogic.current_timeline != null:
+    if entered or Dialogic.current_timeline != null:
         return
+    entered = true
     get_tree().create_tween().tween_property(villan_1, "modulate:a", 1.0, 2.0)
     get_tree().call_group('pics', 'possess_toggle', false)
     await get_tree().create_timer(2).timeout

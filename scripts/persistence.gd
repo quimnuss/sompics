@@ -31,6 +31,40 @@ var levels : Array = [
     true, true, true, true, false
 ]
 
+var level_order : Array[String] = [
+    'welcome_level.tscn',
+    'intro_world_medieval.tscn',
+    'level_0.tscn',
+    'level_1.tscn',
+    'level_1_5.tscn',
+    'level_2.tscn',
+    'level_3.tscn',
+    'level_3_5.tscn',
+    'level_4.tscn',
+    'level_4_5.tscn',
+    'level_5.tscn',
+    'level_6.tscn',
+    'level_6_5.tscn',
+    'level_7.tscn',
+    'level_8.tscn',
+    'level_8_5.tscn',
+    'level_9.tscn',
+    'level_9_5.tscn',
+    'level_10.tscn',
+    'level_11.tscn',
+    'level_12.tscn',
+    'level_13.tscn',
+    'level_13_5.tscn',
+    'level_14.tscn',
+    'level_15.tscn',
+    'level_15_5.tscn',
+    'level_16.tscn',
+    'level_16_5.tscn',
+    'level_17.tscn',
+    'level_18.tscn',
+    'outro.tscn',
+]
+
 var money : int = 900000 :
     set(value):
         money = value
