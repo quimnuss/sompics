@@ -35,7 +35,6 @@ theme = ExtResource("1_turvf")
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -121,15 +120,3 @@ layout_mode = 2
 theme = ExtResource("1_turvf")
 text = "lorem ipsum one more time"
 fit_content = true
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(70, 40)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("1_turvf")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 25
-text = "Fet!"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="hide"]

@@ -4,7 +4,7 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var canvas_layer = $CanvasLayer
 
-@onready var collectible_cards = $CanvasLayer/CollectibleCards
+@onready var collectible_cards = %CollectibleCards
 
 var fita_consumed = false
 
@@ -24,6 +24,13 @@ func from_collectible_data():
         collectible_card.set_data(collectible_data)
         collectible_cards.add_child(collectible_card)
 
+func return_to_game():
+    get_tree().call_group('pics', 'possess_toggle', true)
+    canvas_layer.visible = false
+
+func _unhandled_input(event):
+    if event.is_action_pressed('ui_accept'):
+        return_to_game()
 
 func _on_area_2d_body_entered(body):
     if body is Pic and not fita_consumed:
@@ -34,5 +41,4 @@ func _on_area_2d_body_entered(body):
         get_tree().call_group('pics', 'possess_toggle', false)
 
 func _on_button_pressed():
-    get_tree().call_group('pics', 'possess_toggle', true)
-    canvas_layer.visible = false
+    return_to_game()
