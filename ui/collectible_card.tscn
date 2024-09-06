@@ -4,11 +4,23 @@
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="1_turvf"]
 
 [node name="CollectibleCard" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 script = ExtResource("1_5xgjg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 2
 
 [node name="TextureRect" type="ColorRect" parent="."]
 layout_mode = 2
@@ -45,7 +57,7 @@ theme_override_constants/separation = 10
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_turvf")
-text = "Fita: Balanç"
+text = "Fita:"
 
 [node name="TitleText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -64,19 +76,19 @@ theme_override_constants/separation = 10
 [node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("1_turvf")
-text = "Q3"
+text = "Quan?"
 
 [node name="TimeText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("1_turvf")
-text = "loremipsum one more"
+text = "2024"
 fit_content = true
 
 [node name="ImpacteTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_turvf")
-text = "Impacte qualitatiu en l’equip?:
+text = "Impacte qualitatiu en l’equip?
 "
 
 [node name="ImpacteText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
@@ -89,7 +101,7 @@ fit_content = true
 [node name="HowTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_turvf")
-text = "Què ha estat més útil per aconseguir-ho?:"
+text = "Què ha estat més útil per aconseguir-ho?"
 
 [node name="HowText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 50)
@@ -101,7 +113,7 @@ fit_content = true
 [node name="WhyTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_turvf")
-text = "Quin valor afegit ha aportat a la cooperativa?:"
+text = "Quin valor afegit ha aportat a la cooperativa?"
 
 [node name="WhyText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 50)
