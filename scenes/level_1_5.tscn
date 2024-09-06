@@ -9,4 +9,5 @@
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_0r1uq")]
 
 [node name="Collectible" parent="." instance=ExtResource("2_adik2")]
+position = Vector2(256, 392)
 collectible_data = ExtResource("3_fusrp")

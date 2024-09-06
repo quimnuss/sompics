@@ -7,60 +7,60 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4bgec"]
 radius = 16.0
 
-[sub_resource type="Animation" id="Animation_ibosl"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, 10)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.584314, 0.584314, 0.584314, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_p518p"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Anchor/Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/path = NodePath("Anchor:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ibosl"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor/Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.619608), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Anchor:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j26bj"]
@@ -70,14 +70,19 @@ _data = {
 }
 
 [node name="Collectible" type="Node2D"]
+position = Vector2(0, 10)
 script = ExtResource("1_injlv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Anchor" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Anchor"]
 texture = ExtResource("1_iftxx")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Anchor"]
+collision_layer = 4
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/Area2D"]
 shape = SubResource("CircleShape2D_4bgec")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -191,3 +196,16 @@ layout_mode = 2
 theme = ExtResource("3_oqd8r")
 text = "lorem ipsum one more time"
 fit_content = true
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_oqd8r")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 25
+text = "Fet!"
+
+[connection signal="body_entered" from="Anchor/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
