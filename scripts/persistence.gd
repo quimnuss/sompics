@@ -28,7 +28,7 @@ var active_pic : int = 0
 
 var levels : Array = [
     true, true, true, true, true, true, true, true, true, true,
-    true, true, true, true, false
+    true, true, true, true, true, true, true, true, false
 ]
 
 var level_order : Array[String] = [

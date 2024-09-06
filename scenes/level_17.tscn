@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://x2jloum5dt5r"]
+[gd_scene load_steps=10 format=3 uid="uid://x2jloum5dt5r"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1pcra"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_m38kj"]
 [ext_resource type="PackedScene" uid="uid://c3htqdtri5tvh" path="res://ui/ui_timer.tscn" id="2_y83gk"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_nmk4a"]
+[ext_resource type="Script" path="res://actors/contract_receiver.gd" id="6_10gvf"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="7_ipxdm"]
 [ext_resource type="Script" path="res://scenes/area_spawner.gd" id="8_gfw8s"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="9_shls2"]
@@ -44,6 +45,7 @@ position = Vector2(128, 392)
 script = ExtResource("7_ipxdm")
 
 [node name="PickupReceiver" type="Node2D" parent="."]
+script = ExtResource("6_10gvf")
 
 [node name="AreaSpawner" type="Node2D" parent="." node_paths=PackedStringArray("pickup_receiver")]
 position = Vector2(520, 144)
