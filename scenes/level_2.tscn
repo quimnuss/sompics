@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://jjtgymn8mon0"]
+[gd_scene load_steps=10 format=3 uid="uid://jjtgymn8mon0"]
 
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_4mt0h"]
 [ext_resource type="Script" path="res://scenes/level_2.gd" id="1_72a0w"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="3_jlmd0"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_auvvl"]
 [ext_resource type="PackedScene" uid="uid://brtq303uvm5ql" path="res://actors/animatable_weight_platform.tscn" id="8_dgy5t"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="8_oktpo"]
+[ext_resource type="Resource" uid="uid://c5lw0d0haw7ul" path="res://data/fita_dades_pmkanbanize.tres" id="9_m7l76"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_72a0w")
@@ -35,3 +37,7 @@ script = ExtResource("4_auvvl")
 
 [node name="AnimatableWeightPlatform" parent="." instance=ExtResource("8_dgy5t")]
 position = Vector2(672, 520)
+
+[node name="Collectible" parent="." instance=ExtResource("8_oktpo")]
+position = Vector2(528, 192)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("9_m7l76")])

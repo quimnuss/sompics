@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3ideujsqdlr7"]
+[gd_scene load_steps=4 format=3 uid="uid://c3ideujsqdlr7"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_weeqf"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_fsj8o"]
+[ext_resource type="Resource" uid="uid://d0kmoryfoho3q" path="res://data/fita_po_odoo.tres" id="3_wxq6w"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_weeqf")]
+
+[node name="Collectible" parent="." instance=ExtResource("2_fsj8o")]
+position = Vector2(272, 392)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("3_wxq6w")])

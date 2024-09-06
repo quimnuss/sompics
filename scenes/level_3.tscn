@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjuwarjftnbbx"]
+[gd_scene load_steps=11 format=3 uid="uid://cjuwarjftnbbx"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_dlwhy"]
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="1_ele8n"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_f24um"]
 [ext_resource type="Script" path="res://actors/respawn_one.gd" id="6_tg7mi"]
 [ext_resource type="PackedScene" uid="uid://brtq303uvm5ql" path="res://actors/animatable_weight_platform.tscn" id="7_yxwey"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="8_cypy0"]
+[ext_resource type="Resource" uid="uid://dibrk3kj62u7a" path="res://data/fita_webapps_representa.tres" id="9_7i333"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l2dor"]
 size = Vector2(360, 189)
@@ -45,5 +47,9 @@ position = Vector2(-48, 128)
 shape = SubResource("RectangleShape2D_l2dor")
 
 [node name="AnimatableWeightPlatform" parent="." instance=ExtResource("7_yxwey")]
+
+[node name="Collectible" parent="." instance=ExtResource("8_cypy0")]
+position = Vector2(504, 200)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("9_7i333")])
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
