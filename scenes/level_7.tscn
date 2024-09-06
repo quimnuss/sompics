@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxf38aj4k5ewl"]
+[gd_scene load_steps=14 format=3 uid="uid://cxf38aj4k5ewl"]
 
 [ext_resource type="Script" path="res://scenes/level_7.gd" id="1_0h5xl"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_frhip"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://actors/platform.gd" id="8_qw7pq"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="8_si0w2"]
 [ext_resource type="PackedScene" uid="uid://brtq303uvm5ql" path="res://actors/animatable_weight_platform.tscn" id="9_8iko6"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="10_3kt7o"]
+[ext_resource type="Resource" uid="uid://bklnv0w40tv51" path="res://data/fita_technocuca_authentik.tres" id="11_qhyp1"]
+[ext_resource type="Resource" uid="uid://dh3bsari7vpcq" path="res://data/fita_suport_authentik.tres" id="12_1hb3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a502n"]
 size = Vector2(96, 10)
@@ -61,3 +64,7 @@ layer_0/tile_data = PackedInt32Array(65535, 131074, 2, 0, 196610, 2, 1, 262146, 
 [node name="AnimatableWeightPlatform" parent="." instance=ExtResource("9_8iko6")]
 position = Vector2(704, 264)
 offset = Vector2(0, 105)
+
+[node name="Collectible" parent="." instance=ExtResource("10_3kt7o")]
+position = Vector2(288, 216)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_qhyp1"), ExtResource("12_1hb3q")])

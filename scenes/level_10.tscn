@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://y4yp10org20d"]
+[gd_scene load_steps=16 format=3 uid="uid://y4yp10org20d"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1fom5"]
 [ext_resource type="Script" path="res://scenes/level_doors.gd" id="1_8xwqg"]
@@ -12,6 +12,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cu3btbkmvpgbv" path="res://actors/door_spriteframes.tres" id="9_xb2i7"]
 [ext_resource type="AudioStream" uid="uid://ko1h6e2bpy25" path="res://assets/door-locked.ogg" id="10_qc5ac"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="12_mwqlm"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="13_s2ae2"]
+[ext_resource type="Resource" uid="uid://bxba1ewkf33g0" path="res://data/fita_erp_todo3.tres" id="14_fqi0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5icyh"]
 size = Vector2(30, 47)
@@ -142,6 +144,10 @@ script = ExtResource("4_jngat")
 [node name="Key" parent="." instance=ExtResource("12_mwqlm")]
 position = Vector2(528, 488)
 gravity_scale = 0.0
+
+[node name="Collectible" parent="." instance=ExtResource("13_s2ae2")]
+position = Vector2(625, 448)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("14_fqi0e")])
 
 [connection signal="door_open" from="Door" to="Pluto" method="_on_door_door_open"]
 [connection signal="fake_open" from="FakeDoor" to="Pluto" method="_on_fake_door_fake_open"]

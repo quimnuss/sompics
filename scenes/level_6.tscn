@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ondt8fcom64d"]
+[gd_scene load_steps=12 format=3 uid="uid://ondt8fcom64d"]
 
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_c7hrd"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_xgbjk"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="5_83kbf"]
 [ext_resource type="Script" path="res://actors/key_shifter.gd" id="5_pao44"]
 [ext_resource type="Script" path="res://actors/respawn_all.gd" id="6_fbhy1"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="8_h04f2"]
+[ext_resource type="Resource" uid="uid://c7fwdyiu6i7o3" path="res://data/fita_webapps_indexada.tres" id="9_83ny8"]
+[ext_resource type="Resource" uid="uid://dwxqxhv4h6sva" path="res://data/fita_webapps_components.tres" id="10_n4itj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxyq1"]
 size = Vector2(1216, 229)
@@ -53,5 +56,13 @@ shape = SubResource("RectangleShape2D_sxyq1")
 position = Vector2(94, 225)
 script = ExtResource("5_83kbf")
 attached = true
+
+[node name="Collectible" parent="." instance=ExtResource("8_h04f2")]
+position = Vector2(424, 400)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("9_83ny8")])
+
+[node name="Collectible2" parent="." instance=ExtResource("8_h04f2")]
+position = Vector2(776, 392)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("10_n4itj")])
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

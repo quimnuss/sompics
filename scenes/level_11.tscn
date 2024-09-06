@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3jwf2o15yoax"]
+[gd_scene load_steps=12 format=3 uid="uid://3jwf2o15yoax"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1fom5"]
 [ext_resource type="Script" path="res://scenes/level_coin_picker.gd" id="1_vg1lw"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_jngat"]
 [ext_resource type="AudioStream" uid="uid://dokloux848mqa" path="res://assets/game_over.ogg" id="8_13wsg"]
 [ext_resource type="PackedScene" uid="uid://bde6w2sxt4efv" path="res://actors/coin.tscn" id="9_62ej0"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="10_gpc44"]
+[ext_resource type="Resource" uid="uid://bhnkadlavrxa6" path="res://data/fita_erp_todo2.tres" id="11_pa32q"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_vg1lw")
@@ -239,3 +241,7 @@ position = Vector2(920, 544)
 
 [node name="Coin26" parent="Coins" instance=ExtResource("9_62ej0")]
 position = Vector2(104, 410)
+
+[node name="Collectible" parent="." instance=ExtResource("10_gpc44")]
+position = Vector2(88, 504)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_pa32q")])

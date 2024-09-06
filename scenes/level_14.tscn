@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6237hh138p8i"]
+[gd_scene load_steps=13 format=3 uid="uid://6237hh138p8i"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1w1vt"]
 [ext_resource type="Script" path="res://scenes/level_14.gd" id="1_lpgb5"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://actors/respawn_one.gd" id="7_oncr3"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="8_euwg1"]
 [ext_resource type="PackedScene" uid="uid://1x0pl6tlptup" path="res://actors/spring.tscn" id="9_a6jsd"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="10_ic4eb"]
+[ext_resource type="Resource" uid="uid://cukn3piwopcn0" path="res://data/fita_erp_todo5.tres" id="11_hpif1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxyq1"]
 size = Vector2(1216, 229)
@@ -70,6 +72,10 @@ position = Vector2(848, 624)
 
 [node name="Spring4" parent="." instance=ExtResource("9_a6jsd")]
 position = Vector2(880, 624)
+
+[node name="Collectible" parent="." instance=ExtResource("10_ic4eb")]
+position = Vector2(415, 198)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_hpif1")])
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="button_pressed" from="Button" to="." method="_on_button_button_pressed"]

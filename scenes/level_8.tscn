@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dobxhogwkrtsa"]
+[gd_scene load_steps=15 format=3 uid="uid://dobxhogwkrtsa"]
 
 [ext_resource type="Script" path="res://scenes/level_phones.gd" id="1_vs8bu"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_ag8tm"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://actors/phone_queue.gd" id="8_14i4i"]
 [ext_resource type="Script" path="res://scenes/area_spawner.gd" id="9_x5b7r"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="10_hrylp"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="11_tk8dp"]
+[ext_resource type="Resource" uid="uid://cn566rrv4mb0x" path="res://data/fita_webapps_trucades.tres" id="12_vh0u4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s8hno"]
 animations = [{
@@ -94,6 +96,10 @@ script = ExtResource("10_hrylp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("WorldBoundaryShape2D_1eyb5")
+
+[node name="Collectible" parent="." instance=ExtResource("11_tk8dp")]
+position = Vector2(1039, 408)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("12_vh0u4")])
 
 [connection signal="timeout" from="Tomatic/PhoneQueue/Timer" to="Tomatic/PhoneQueue" method="_on_timer_timeout"]
 [connection signal="timeout" from="AreaSpawner/SpawnTimer" to="AreaSpawner" method="_on_spawn_timer_timeout"]

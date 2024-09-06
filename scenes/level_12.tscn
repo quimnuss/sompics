@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chllrn85h5fv3"]
+[gd_scene load_steps=11 format=3 uid="uid://chllrn85h5fv3"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_hl31k"]
 [ext_resource type="Script" path="res://scenes/level_12.gd" id="1_xpcfo"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_ea4e5"]
 [ext_resource type="Script" path="res://actors/timed_button_collector.gd" id="7_e888t"]
 [ext_resource type="PackedScene" uid="uid://xaaky5nuxjpn" path="res://actors/timed_button.tscn" id="8_1lsmd"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="9_fr1ol"]
+[ext_resource type="Resource" uid="uid://b41c5wu1e8a2f" path="res://data/fita_erp_todo1.tres" id="10_yq5x3"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_xpcfo")
@@ -200,6 +202,10 @@ position = Vector2(840, 560)
 
 [node name="TimedButton24" parent="TimedButtonCollector" instance=ExtResource("8_1lsmd")]
 position = Vector2(624, 560)
+
+[node name="Collectible" parent="." instance=ExtResource("9_fr1ol")]
+position = Vector2(1096, 272)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("10_yq5x3")])
 
 [connection signal="players_spawned" from="PlayerSpawner" to="TimedButtonCollector" method="_on_player_spawner_players_spawned"]
 [connection signal="all_stopped" from="TimedButtonCollector" to="." method="_on_timed_button_collector_all_stopped"]

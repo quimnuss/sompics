@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://v2wls0f0r0np"]
+[gd_scene load_steps=6 format=3 uid="uid://v2wls0f0r0np"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_vwio4"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_l3ww0"]
+[ext_resource type="Resource" uid="uid://dlnhrqrtqi2q2" path="res://data/fita_webapps_solidar.tres" id="3_j4nrd"]
+[ext_resource type="Resource" uid="uid://c8ogbq278lh2i" path="res://data/fita_technocuca_solidar.tres" id="4_mji17"]
+[ext_resource type="Resource" uid="uid://cfvvrlv2jbb1v" path="res://data/fita_suport_solidar.tres" id="5_cghx3"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_vwio4")]
+
+[node name="Collectible" parent="." instance=ExtResource("2_l3ww0")]
+position = Vector2(280, 383)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("3_j4nrd"), ExtResource("4_mji17"), ExtResource("5_cghx3")])

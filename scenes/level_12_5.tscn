@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdq5ieemnv2sb"]
+
+[ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_f7qhl"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_tixjo"]
+[ext_resource type="Resource" uid="uid://b3trjlwv1upec" path="res://data/fita_po_openproject.tres" id="3_1bb6a"]
+[ext_resource type="Resource" uid="uid://tkdqumv3j4b1" path="res://data/fita_technocuca_openproject.tres" id="4_knxu1"]
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="IntermissionLevel" parent="." instance=ExtResource("1_f7qhl")]
+
+[node name="Collectible" parent="." instance=ExtResource("2_tixjo")]
+position = Vector2(280, 392)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("3_1bb6a"), ExtResource("4_knxu1")])

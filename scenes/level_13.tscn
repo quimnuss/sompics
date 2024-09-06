@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ci17gqoc5fxwm"]
+[gd_scene load_steps=13 format=3 uid="uid://ci17gqoc5fxwm"]
 
 [ext_resource type="Script" path="res://scenes/level_coin_picker.gd" id="1_4d8o0"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_v1pil"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://dokloux848mqa" path="res://assets/game_over.ogg" id="8_r04ny"]
 [ext_resource type="PackedScene" uid="uid://1x0pl6tlptup" path="res://actors/spring.tscn" id="9_1l4ud"]
 [ext_resource type="PackedScene" uid="uid://bde6w2sxt4efv" path="res://actors/coin.tscn" id="10_3rbud"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="11_tr3kn"]
+[ext_resource type="Resource" uid="uid://co46wgp3vapsx" path="res://data/fita_dades_ingesta_cicd.tres" id="12_as7vd"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_4d8o0")
@@ -243,3 +245,7 @@ position = Vector2(872, 248)
 
 [node name="Coin8" parent="Coins/Node2D2" instance=ExtResource("10_3rbud")]
 position = Vector2(840, 160)
+
+[node name="Collectible" parent="." instance=ExtResource("11_tr3kn")]
+position = Vector2(1085, 482)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("12_as7vd")])

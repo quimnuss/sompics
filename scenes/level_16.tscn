@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://h2uesjucmdjf"]
+[gd_scene load_steps=21 format=3 uid="uid://h2uesjucmdjf"]
 
 [ext_resource type="Script" path="res://scenes/level_energy.gd" id="1_0583p"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_attqb"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_ov6c8"]
 [ext_resource type="Script" path="res://scripts/mini_up_down.gd" id="7_7sw1y"]
 [ext_resource type="PackedScene" uid="uid://bccbc5duw7bn4" path="res://actors/meter_light.tscn" id="10_5qst2"]
+[ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="11_x3wcd"]
+[ext_resource type="Resource" uid="uid://o4eu5ibb0g4s" path="res://data/fita_webapps_generation.tres" id="12_1i7rj"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uojpd"]
 polygon = PackedVector2Array(768, 544, 1088, 544, 1088, 384, 1152, 384, 1152, 616, 768, 616)
@@ -185,6 +187,10 @@ position = Vector2(960, 448)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.380392, 0.380392, 0.380392, 1)
+
+[node name="Collectible" parent="." instance=ExtResource("11_x3wcd")]
+position = Vector2(560, 200)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("12_1i7rj")])
 
 [connection signal="power_up" from="Control/VBoxContainer/ProgressBar" to="." method="_on_progress_bar_power_up"]
 [connection signal="players_spawned" from="PlayerSpawner" to="." method="_on_player_spawner_players_spawned"]

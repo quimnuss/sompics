@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://ujej7sqbdrpn"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_fo20v"]
+
+[resource]
+script = ExtResource("1_fo20v")
+title = "TODO"
+team = "ERP"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = ""
+enabler = ""
+added_value = ""

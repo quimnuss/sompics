@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://cn566rrv4mb0x"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_ls3o4"]
+
+[resource]
+script = ExtResource("1_ls3o4")
+title = "Tipificacióde trucades"
+team = "Webapps"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Migrant a React el que quedava a mitrhil."
+enabler = "Tenir una capa fake per poder començar a programar abans de tenir el backend
+d’Odoo preparada.
+Acords arribats amb ERP respecte als models d’intercanvi per desenvolupar en
+paral·lel."
+added_value = "Les operadores poden tipificar les trucades entrants des del callinfo."
