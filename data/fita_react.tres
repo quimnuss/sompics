@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://cmaomu1bb5gjn"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_c7eup"]
+
+[resource]
+script = ExtResource("1_c7eup")
+title = "Balanç decostos ambresultats"
+team = "Dades"
+time = "Q3"
+impacte = "Mercat ara pot veure el cost i ingres de cada partida de la comercialització d’energia (energia, taxes, …). Hem augmentat els consensos en metodologia deprojectes de dbt i llur documentació."
+enabler = "Tenir una bona esponsorització del projecte (veure fita). Millorar la formalitat iconvencions de dbt: superdocumentar, naming, estructura i capes (raw/int/dm)"
+added_value = "Mercat ara pot veure el cost i ingres de cada partida de la comercialitzaciód’energia (energia, taxes, …) segregada per tarifa distri i sistema i poden establirles tarifes de manera més ràpida, àgil i segura. Abans es feia per excel un cop almes i tardaven dos-tres dies."
