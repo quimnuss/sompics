@@ -1,7 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnaux0fpscwnl"]
+[gd_scene load_steps=6 format=3 uid="uid://bsli3iqpvgd5n"]
 
-[ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_yv1e7"]
+[ext_resource type="Texture2D" uid="uid://clor2orgdclxr" path="res://assets/outro/clouds.png" id="1_12cw7"]
+[ext_resource type="Texture2D" uid="uid://ogbjf3er06qn" path="res://assets/outro/sunset.png" id="1_omvhw"]
+[ext_resource type="Script" path="res://scripts/sprite_autoslide.gd" id="2_hgmd7"]
+[ext_resource type="Texture2D" uid="uid://duql2qffw2x1b" path="res://assets/outro/cliff.png" id="4_dyfsi"]
+[ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="5_1agtv"]
 
 [node name="MainLevel" type="Node2D"]
 
-[node name="IntermissionLevel" parent="." instance=ExtResource("1_yv1e7")]
+[node name="Composition" type="Node2D" parent="."]
+position = Vector2(576, 320)
+
+[node name="Sunset" type="Sprite2D" parent="Composition"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_omvhw")
+
+[node name="Clouds" type="Sprite2D" parent="Composition"]
+texture_repeat = 3
+position = Vector2(5, -23)
+texture = ExtResource("1_12cw7")
+region_enabled = true
+region_rect = Rect2(0, 0, 1200, 800)
+script = ExtResource("2_hgmd7")
+
+[node name="Cliff" type="Sprite2D" parent="Composition"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("4_dyfsi")
+
+[node name="Pics" type="Sprite2D" parent="Composition"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-16, 80)
+scale = Vector2(0.184283, 0.184283)
+texture = ExtResource("5_1agtv")
+
+[node name="Title" type="RichTextLabel" parent="Composition"]
+custom_minimum_size = Vector2(300, 100)
+offset_left = -480.0
+offset_top = -96.0
+offset_right = -180.0
+offset_bottom = 4.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+bbcode_enabled = true
+text = "[wave][rainbow]Som Pics[/rainbow][/wave]"
