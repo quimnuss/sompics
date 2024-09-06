@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://mi2j2npq21o5"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_0vyqo"]
+
+[resource]
+script = ExtResource("1_0vyqo")
+title = "Focus enDeute Tècnic"
+team = "POs"
+time = "Q1"
+impacte = "En els equips amb qui treballem per rondes hem pogut habilitar espais sostinguts
+de Focus per poder abordar qüestions de deute tècnic.
+Exemples: migració webforms UI , Uiqmako, Timescale, projecte Algemesí de
+testos, millorar validacions formularis,..."
+enabler = "Haver frenat la demanda general dels equips de la Cooperativa.
+El marc de treball actual d’objectius i projectes fa més difícil que sorgeixin
+demandes constants desalineades i ajuda a planificar millor.
+Tenir consciència de la necessitat de posar focus en deute tècnic de formasostinguda"
+added_value = "Major fiabilitat i agilitat en futurs desenvolupaments
+Menys bugs i incidencias"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://c7fwdyiu6i7o3"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_sbdhf"]
+
+[resource]
+script = ExtResource("1_sbdhf")
+title = "Preus indexeda 24 hs"
+team = "Webapps"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Seguir els acords fets per l’equip i fent servir la librería de components ha facilitat
+el desenvolupament d’aquesta pàgina. Ens hagués agradat poder aplicar el MVP
+procés que havíem planificat."
+enabler = "Tenir una librería de components i uns acords a la hora de crear una nova
+aplicació."
+added_value = "Nova funcionalitat disponible a les usuàries amb tarifa indexada per facilitar la
+gestió del seu consum d’energia."

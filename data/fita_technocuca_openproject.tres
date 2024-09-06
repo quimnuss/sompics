@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://tkdqumv3j4b1"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_234l2"]
+
+[resource]
+script = ExtResource("1_234l2")
+title = "Mort altrello, benvingutOpenProject"
+team = "Technocuca"
+time = "Q1"
+related_fita = "fita_po_openproject.tres"
+impacte = "Tenim una eina de codi obert assequible per gestionar projectes transversalment a tot l’equip d’IT, després
+d'analitzar costs i preus amb una comparativa entre eines."
+enabler = "L'ajuda de POs. L'ajuda de Trello també que ens va començar a
+cobrar amb una data fi molt a sobre. El comitè per canviar el
+trello que es va posar les piles."
+added_value = "Traiem de sobre un deure que portava temps. Tenim més eines
+de planificació que un simple kanban. Tenim rols i permisos i
+altres funcionalitats que encara hem d'explorar i aprendre a
+explotar millor."

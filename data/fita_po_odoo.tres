@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://d0kmoryfoho3q"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_7tfrm"]
+
+[resource]
+script = ExtResource("1_7tfrm")
+title = "Cap ODOO"
+team = "POs"
+time = "Q1"
+impacte = "Els equips de ET cada vegada interactuen més i millor amb diverses aplicacions
+de la plataforma Odoo: Laboral, CECOS, comunicacions i traduccions,
+Tipificaciones de Kalinfo, Gestió despeses, CRM xerrades (futur), sorpasso a
+SAGE (?)"
+enabler = "L ’expertesa, la proactivitat i acompanyament que tenim actualment en aquest
+tema des del nostre equip IT.Haver trobat un partner confiable i eficient.
+Ser pacients, veure les oportunitats, entendre bé les necessitats i acompanyar els
+dubtes"
+added_value = "Poc a poc anem portant l’organització cap a un horitzó de major coherència
+tecnològica, fent possible habilitar interconnexions amb un menor cost i promovent
+l’Open Source"

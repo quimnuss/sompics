@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://r5q8lrng126w"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_k4dtj"]
+
+[resource]
+script = ExtResource("1_k4dtj")
+title = "Transoceànics"
+team = "Dades"
+time = "Q1"
+impacte = "Bona adaptació a la distància transoceànica"
+enabler = "Flexibilitat de l’equip per acomodar-se a canvis i la predisposició de tothom.
+Pastilles de retorn asíncrones."
+added_value = "Explorar la viabilitat de la modalitat de treball i concretar-la. Conservar talent."

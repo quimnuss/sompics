@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dibrk3kj62u7a"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_1b0bs"]
+
+[resource]
+script = ExtResource("1_1b0bs")
+title = "OficinaVirtual Representa"
+team = "Webapps"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Aquesta primera versió permet consultar les dades de representació. Es poden
+consultar les dades de les instal·lacions, les factures i les dades de producció.
+Hem incorporat noves tecnologies i acords de desenvolupament que hem estès a
+altres aplicacions (Vite, Makefile …).
+En aquest projecte hem començat a crear la llibreria de components que hem
+utilitzat en altres projectes.
+També és el primer projecte al qual hem incorporat l’Authentik com a sistema
+d’autenticació d’usuàries."
+enabler = "L’hem gestionat com a un projecte dins de l’equip amb una persona com a project
+manager."
+added_value = "Facilita la gestió del servei de Representació i l’accés als clients de les seves
+dades de valor."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dh3bsari7vpcq"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_beinc"]
+
+[resource]
+script = ExtResource("1_beinc")
+title = "Authentik"
+team = "Suport"
+time = "2024-Q3"
+related_fita = "fita_technocuca_authentik.tres"
+impacte = "Crear un entorn únic de gestió d’usuaris"
+enabler = "Fer tests amb la plafatorma, i jugar-hi, i veure-hi problemes, i solucionar-los"
+added_value = "Que les companyes no estiguin pensant en 40 contrasenyes
+diferents (això en un futur…)"

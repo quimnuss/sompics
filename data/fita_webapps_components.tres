@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dwxqxhv4h6sva"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_bcoxd"]
+
+[resource]
+script = ExtResource("1_bcoxd")
+title = "Llibreria de Components"
+team = "Webapps"
+time = "Q3"
+related_fites = Array[String]([])
+impacte = ""
+enabler = ""
+added_value = ""

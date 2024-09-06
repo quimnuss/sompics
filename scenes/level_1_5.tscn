@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_0r1uq"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_adik2"]
-[ext_resource type="Resource" uid="uid://dbhmc4l0cuxbi" path="res://data/fita_balanc_de_costos.tres" id="3_fusrp"]
+[ext_resource type="Resource" uid="uid://dbhmc4l0cuxbi" path="res://data/fita_dades_balanc_de_costos.tres" id="3_fusrp"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -10,4 +10,4 @@
 
 [node name="Collectible" parent="." instance=ExtResource("2_adik2")]
 position = Vector2(256, 392)
-collectible_data = ExtResource("3_fusrp")
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("3_fusrp")])

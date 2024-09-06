@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://co46wgp3vapsx"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_iawpi"]
+
+[resource]
+script = ExtResource("1_iawpi")
+title = "Estabilització de la ingesta i CI/CD"
+team = "Dades"
+time = "Q3"
+related_fites = Array[String]([])
+impacte = "Hem d’atendre menys incidències dels DAGs i deploy."
+enabler = "Aprofitar incidències per a dedicar temps a reduïr-les. Fer obligatori el deploy
+automàtic."
+added_value = "Invertim menys temps a atendre incidències i a deployar canvis, a banda que es fa
+de manera segura i automàtica."

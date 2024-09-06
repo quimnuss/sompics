@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://c5lw0d0haw7ul"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_nt2ta"]
+
+[resource]
+script = ExtResource("1_nt2ta")
+title = "Prova amb Kanbanize i Gestor de Projecte"
+team = "Dades"
+time = "Q3"
+related_fites = Array[String]([])
+impacte = "Les targetes ens arriben molt ben definides i coherents dins del projecte. Permet
+l’assignació de tasques de manera asíncrona i autònoma. Menys entregues
+brossa."
+enabler = "Tenir algú amb ganes de prendre’n cura. Tenir projectes delimitats en el temps,
+cosa que redueix el compromís de les proves."
+added_value = "Tenir idea de quines mètriques de ronda ens són útils. Menys canvis de rumb
+durant el desenvolupament. Millor coherència interna i visió a mitjà termini."

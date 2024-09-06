@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://c8ogbq278lh2i"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_0curc"]
+
+[resource]
+script = ExtResource("1_0curc")
+title = "Pilot NextCloud amb GL Madrid"
+team = "Technocuca"
+time = "Q3"
+related_fites = Array[String](["fita_webapps_solidar.tres", "fita_suport_solidar.tres"])
+impacte = "Com no tenim temps per trastejar amb calma aquest tipus d’eines, és molt positiu poder comptar amb els grups locals. Estem més en contacte amb la base societària i a més ens estalvia temps."
+enabler = "L’equip de suport ja ho tenia tot muntat!<3 Només vam crear usuàries i instal·lar alguns mòduls que calien."
+added_value = "Després de la prova pilot, i si tot va bé, la idea és que de manera progressiva els GLs facin el canvi cap a NextCloud. Més open source menys google (i si en algun moment hem de
+canviar el pla de google ens estalviaríem diners (11.50€ xnombre de persones dels GLs) fent el canvi de tot l’ET - però això no està a l’horitzó encara! hihihihi)."
