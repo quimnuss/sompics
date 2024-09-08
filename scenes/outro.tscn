@@ -27,12 +27,6 @@ script = ExtResource("2_hgmd7")
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("4_dyfsi")
 
-[node name="Pics" type="Sprite2D" parent="Composition"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-16, 80)
-scale = Vector2(0.184283, 0.184283)
-texture = ExtResource("5_1agtv")
-
 [node name="Title" type="RichTextLabel" parent="Composition"]
 custom_minimum_size = Vector2(300, 100)
 offset_left = -480.0
@@ -47,3 +41,45 @@ theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
 text = "[wave][rainbow]Som Pics[/rainbow][/wave]"
+
+[node name="Node2D" type="Node2D" parent="Composition"]
+
+[node name="Pics" type="Sprite2D" parent="Composition/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-8, 152)
+scale = Vector2(0.184283, 0.184283)
+texture = ExtResource("5_1agtv")
+region_enabled = true
+region_rect = Rect2(0, 0, 913, 184)
+
+[node name="Pics2" type="Sprite2D" parent="Composition/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(144, 144)
+scale = Vector2(0.184283, 0.184283)
+texture = ExtResource("5_1agtv")
+region_enabled = true
+region_rect = Rect2(0, 208, 913, 184)
+
+[node name="Pics3" type="Sprite2D" parent="Composition/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(8, 160)
+scale = Vector2(0.184283, 0.184283)
+texture = ExtResource("5_1agtv")
+region_enabled = true
+region_rect = Rect2(0, 424, 913, 184)
+
+[node name="Pics4" type="Sprite2D" parent="Composition/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(160, 160)
+scale = Vector2(0.184283, 0.184283)
+texture = ExtResource("5_1agtv")
+region_enabled = true
+region_rect = Rect2(0, 624, 913, 176)
+
+[node name="Pics5" type="Sprite2D" parent="Composition/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(152, 176)
+scale = Vector2(0.184283, 0.184283)
+texture = ExtResource("5_1agtv")
+region_enabled = true
+region_rect = Rect2(0, 808, 913, 168)

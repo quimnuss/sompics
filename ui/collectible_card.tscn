@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw585chtqxktl"]
+[gd_scene load_steps=4 format=3 uid="uid://bw585chtqxktl"]
 
 [ext_resource type="Script" path="res://ui/collectible_card.gd" id="1_5xgjg"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="1_turvf"]
+[ext_resource type="Texture2D" uid="uid://cnx8sd80vyyxn" path="res://assets/frame_varied.png" id="2_cyq3q"]
 
 [node name="CollectibleCard" type="MarginContainer"]
 anchors_preset = 15
@@ -19,10 +20,16 @@ theme_override_constants/margin_bottom = 50
 script = ExtResource("1_5xgjg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
 layout_mode = 2
+texture = ExtResource("2_cyq3q")
+region_rect = Rect2(400, 664, 128, 128)
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
 
 [node name="TextureRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_turvf")
 color = Color(0.454902, 0.662745, 0.666667, 1)
