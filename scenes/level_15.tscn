@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0lqniruvbrij"]
+[gd_scene load_steps=14 format=3 uid="uid://c0lqniruvbrij"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_fcghl"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_5fi13"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="10_lp47y"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="10_ql1es"]
 [ext_resource type="Resource" uid="uid://dkwmpdkswnx35" path="res://data/fita_technocuca_novetats.tres" id="11_xtp58"]
+[ext_resource type="PackedScene" uid="uid://ux6scbkuqpem" path="res://actors/evil_bee.tscn" id="12_ad34h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1eyb5"]
 
@@ -74,5 +75,8 @@ shape = SubResource("WorldBoundaryShape2D_1eyb5")
 [node name="Collectible" parent="." instance=ExtResource("10_lp47y")]
 position = Vector2(849, 222)
 collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_xtp58")])
+
+[node name="EvilBee" parent="." instance=ExtResource("12_ad34h")]
+position = Vector2(443, 98)
 
 [connection signal="timeout" from="AreaSpawner/SpawnTimer" to="AreaSpawner" method="_on_spawn_timer_timeout"]

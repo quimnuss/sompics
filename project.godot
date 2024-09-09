@@ -26,7 +26,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "beedata_character": "res://dialogs/beedata_character.dch",
-"doctor_back": "res://actors/doctor_back.dch",
+"collectible_character": "res://dialogs/collectible_character.dch",
+"doctor_back": "res://dialogs/doctor_back_character.dch",
 "lyon_character": "res://dialogs/lyon_character.dch",
 "sage_character": "res://dialogs/sage_character.dch",
 "som_character": "res://dialogs/som_character.dch",
