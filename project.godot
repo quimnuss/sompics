@@ -28,11 +28,15 @@ directories/dch_directory={
 "beedata_character": "res://dialogs/beedata_character.dch",
 "doctor_back": "res://actors/doctor_back.dch",
 "lyon_character": "res://dialogs/lyon_character.dch",
-"som_character": "res://dialogs/som_character.dch"
+"sage_character": "res://dialogs/sage_character.dch",
+"som_character": "res://dialogs/som_character.dch",
+"utopig_character": "res://dialogs/utopig_character.dch"
 }
 directories/dtl_directory={
 "dr_back_timeline_ending": "res://dialogs/dr_back_timeline_ending.dtl",
-"lyon_timeline_meet": "res://dialogs/lyon_timeline_meet.dtl"
+"lyon_timeline_meet": "res://dialogs/lyon_timeline_meet.dtl",
+"sage_defeat": "res://dialogs/sage_defeat.dtl",
+"utopig_timeline": "res://dialogs/utopig_timeline.dtl"
 }
 layout/style_list=["res://dialogs/visual_novel_dialog_style.tres"]
 layout/default_style="res://dialogs/visual_novel_dialog_style.tres"

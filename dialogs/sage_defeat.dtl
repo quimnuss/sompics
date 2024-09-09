@@ -1,0 +1,4 @@
+join som_character 0
+join sage_character 3 [animation="Bounce In" length="1" wait="true"]
+sage_character (idle): Ahh! m’heu fet mal! heu posat a prod una PR.
+sage_character (idle): Us penseu que podreu avançar sense mi?

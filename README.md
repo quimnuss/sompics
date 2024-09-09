@@ -28,3 +28,12 @@ If you get a CSP violation error, try creating a dummy html without the CSP rest
       content="default-src 'self' data: gap: ws: ssl.gstatic.com 'unsafe-inline';">
 ```
 and open the DevTools console in that webpage.
+
+# Tools
+
+Convert gif to spritesheet with
+
+```
+convert -coalesce input.gif frames/%02d.png
+montage -background transparent -tile 4x frames/*.png spritesheet.png
+```

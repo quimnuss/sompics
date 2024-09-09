@@ -11,15 +11,17 @@ Available on the first 2 levels only for simplicity (no attached, no flying)
 - [ ] Acció POs
 - [ ] Intermissions
 - [ ] DrBack defeat on level 17
-- [ ] Place Collectibles
+- [ ] Friday Timer
 
 ## next
 
+- [ ] Place latest collectibles
 - [ ] GooseLuis level 8.5 (spawn from crate, explain, and then fites)
 - [ ] GooseLuis Money
 - [ ] Dialogic Astroboy
 - [ ] Free CE
 - [ ] Fites Screen + Persistence (don't recatch fita during a playthru)
+- [ ] Collectibles cards forward backward arrows 
 
 ## later
 
@@ -32,6 +34,7 @@ Available on the first 2 levels only for simplicity (no attached, no flying)
 
 # Done
 
+- [x] Place Collectibles
 - [x] Collectibles actor
 - [x] reorder levels, customizable order
 - [x] level: Posicionament de plaques per carregar energia (generation)

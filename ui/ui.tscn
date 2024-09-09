@@ -1,35 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://82aeqqi2rddp"]
+[gd_scene load_steps=6 format=3 uid="uid://82aeqqi2rddp"]
 
 [ext_resource type="Script" path="res://ui/title.gd" id="1_cscm0"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_mu34e"]
 [ext_resource type="Script" path="res://ui/menu_ingame.gd" id="2_8ukki"]
 [ext_resource type="Script" path="res://ui/fps.gd" id="4_kyt6h"]
-[ext_resource type="Script" path="res://ui/money_bar.gd" id="5_aav1y"]
-[ext_resource type="Script" path="res://ui/shake_component.gd" id="5_lwiw5"]
-[ext_resource type="Texture2D" uid="uid://l1bif7021k6f" path="res://intro_world/astroboy_sheet.png" id="5_nfftl"]
-[ext_resource type="Script" path="res://ui/labeled_progressbar.gd" id="6_4rxwp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cb6bn"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7rld3"]
-atlas = ExtResource("5_nfftl")
-region = Rect2(456, 398, 32, 32)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w10k3"]
-bg_color = Color(0.6, 1, 0.6, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
+[ext_resource type="PackedScene" uid="uid://bpgt4i1nf2hxx" path="res://ui/drback_estalvi_container.tscn" id="5_onwvy"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_mu34e")
@@ -111,81 +86,7 @@ grow_horizontal = 0
 text = "nobody"
 horizontal_alignment = 2
 
-[node name="LowerContainer" type="MarginContainer" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 64.0
-offset_bottom = 104.0
-grow_horizontal = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 0
-script = ExtResource("5_aav1y")
-
-[node name="ShakeComponent" type="Control" parent="LowerContainer"]
-layout_mode = 2
-script = ExtResource("5_lwiw5")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LowerContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="LowerContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="Label" type="Label" parent="LowerContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_cb6bn")
-text = "Estalvi DrBack"
-
-[node name="TextureRect" type="TextureRect" parent="LowerContainer/HBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_vertical = 4
-texture = SubResource("AtlasTexture_7rld3")
-stretch_mode = 4
-
-[node name="ProgressBar" type="ProgressBar" parent="LowerContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_styles/fill = SubResource("StyleBoxFlat_w10k3")
-max_value = 1e+06
-value = 50.0
-show_percentage = false
-script = ExtResource("6_4rxwp")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LowerContainer/HBoxContainer/ProgressBar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="LowerContainer/HBoxContainer/ProgressBar/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-text = "10000 €"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Control2" type="Control" parent="LowerContainer/HBoxContainer/ProgressBar/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="Control2" type="Control" parent="LowerContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.1
+[node name="LowerContainer" parent="." instance=ExtResource("5_onwvy")]
 
 [connection signal="pressed" from="HBoxContainer/LevelSelect" to="HBoxContainer/LevelSelect" method="_on_pressed"]
 [connection signal="pressed" from="HBoxContainer/Restart" to="." method="_on_restart_pressed"]

@@ -14,7 +14,10 @@ var entered : bool = false
 func _ready():
     Dialogic.timeline_ended.connect(_on_dialogic_timeline_ended)
     villan_1.play(villan_1_name)
-    villan_2.play(villan_2_name)
+    if villan_2_name:
+        villan_2.play(villan_2_name)
+    else:
+        villan_2.hide()
     villan_1.modulate.a = 0
 
 func _input(event):

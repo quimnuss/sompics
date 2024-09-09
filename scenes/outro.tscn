@@ -46,7 +46,7 @@ text = "[wave][rainbow]Som Pics[/rainbow][/wave]"
 
 [node name="Pics" type="Sprite2D" parent="Composition/Node2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-8, 152)
+position = Vector2(-8, 144)
 scale = Vector2(0.184283, 0.184283)
 texture = ExtResource("5_1agtv")
 region_enabled = true
@@ -78,7 +78,7 @@ region_rect = Rect2(0, 624, 913, 176)
 
 [node name="Pics5" type="Sprite2D" parent="Composition/Node2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(152, 176)
+position = Vector2(-24, 168)
 scale = Vector2(0.184283, 0.184283)
 texture = ExtResource("5_1agtv")
 region_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvow33fo5kkyf"]
+[gd_scene load_steps=9 format=3 uid="uid://dvow33fo5kkyf"]
 
 [ext_resource type="Script" path="res://scenes/intermission_level.gd" id="1_b1hha"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_ilk73"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_vejis"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_p2yna"]
 [ext_resource type="SpriteFrames" uid="uid://dkqtboo71wasm" path="res://actors/villans_spriteframes.tres" id="6_rv6ha"]
+[ext_resource type="PackedScene" uid="uid://bpgt4i1nf2hxx" path="res://ui/drback_estalvi_container.tscn" id="7_xapkf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmd57"]
 size = Vector2(272, 144)
@@ -30,7 +31,7 @@ script = ExtResource("4_p2yna")
 [node name="Villan1" type="AnimatedSprite2D" parent="."]
 position = Vector2(568, 384)
 sprite_frames = ExtResource("6_rv6ha")
-animation = &"dset"
+animation = &"utopig"
 autoplay = "dset"
 
 [node name="Villan2" type="AnimatedSprite2D" parent="Villan1"]
@@ -45,5 +46,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Villan1/Area2D"]
 shape = SubResource("RectangleShape2D_vmd57")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LowerContainer" parent="CanvasLayer" instance=ExtResource("7_xapkf")]
+offset_left = -8.0
+offset_top = 24.0
+offset_right = -8.0
+offset_bottom = 64.0
 
 [connection signal="body_entered" from="Villan1/Area2D" to="." method="_on_area_2d_body_entered"]
