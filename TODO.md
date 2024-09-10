@@ -21,7 +21,7 @@ Available on the first 2 levels only for simplicity (no attached, no flying)
 - [ ] Dialogic Astroboy
 - [ ] Free CE
 - [ ] Fites Screen + Persistence (don't recatch fita during a playthru)
-- [ ] Collectibles cards forward backward arrows 
+- [ ] Collectibles cards forward backward arrows
 
 ## later
 

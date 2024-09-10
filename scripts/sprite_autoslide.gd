@@ -1,6 +1,7 @@
 extends Sprite2D
 
-const SPEED : float = -5
+@export var speed : Vector2 = Vector2(-5,0)
 
-func _process(delta):
-    region_rect.position.x -= SPEED * delta
+
+func _physics_process(delta):
+    region_rect.position -= speed * delta

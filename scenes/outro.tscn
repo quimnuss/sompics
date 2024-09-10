@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsli3iqpvgd5n"]
+[gd_scene load_steps=12 format=3 uid="uid://bsli3iqpvgd5n"]
 
 [ext_resource type="Texture2D" uid="uid://clor2orgdclxr" path="res://assets/outro/clouds.png" id="1_12cw7"]
 [ext_resource type="Texture2D" uid="uid://ogbjf3er06qn" path="res://assets/outro/sunset.png" id="1_omvhw"]
 [ext_resource type="Script" path="res://scripts/sprite_autoslide.gd" id="2_hgmd7"]
 [ext_resource type="Texture2D" uid="uid://duql2qffw2x1b" path="res://assets/outro/cliff.png" id="4_dyfsi"]
+[ext_resource type="Texture2D" uid="uid://cxn70uyv3alr2" path="res://assets/outro/clouds_2.png" id="4_natwv"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="5_1agtv"]
+[ext_resource type="Texture2D" uid="uid://7h5x1qj0qt01" path="res://assets/outro/clouds_3.png" id="5_2nvi1"]
+[ext_resource type="Texture2D" uid="uid://bmw6swkoq3cv2" path="res://assets/outro/clouds_4.png" id="6_8eloy"]
+[ext_resource type="Texture2D" uid="uid://w1rri1w0bp07" path="res://assets/outro/cliff_water.png" id="8_xv1xm"]
+[ext_resource type="Texture2D" uid="uid://cvgru8dk2jfed" path="res://assets/outro/cliff_water_2.png" id="9_f7vej"]
+[ext_resource type="Texture2D" uid="uid://ctpgwkypxbbs8" path="res://assets/outro/cliff_water_3.png" id="10_sk7bb"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -12,6 +18,7 @@
 position = Vector2(576, 320)
 
 [node name="Sunset" type="Sprite2D" parent="Composition"]
+position = Vector2(0, 4)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_omvhw")
 
@@ -22,10 +29,69 @@ texture = ExtResource("1_12cw7")
 region_enabled = true
 region_rect = Rect2(0, 0, 1200, 800)
 script = ExtResource("2_hgmd7")
+speed = Vector2(-1, 0)
+
+[node name="Clouds2" type="Sprite2D" parent="Composition"]
+texture_repeat = 3
+position = Vector2(8, 8)
+texture = ExtResource("4_natwv")
+region_enabled = true
+region_rect = Rect2(190.205, 103.05, 1200, 652.89)
+script = ExtResource("2_hgmd7")
+speed = Vector2(-2, 0)
+
+[node name="Clouds3" type="Sprite2D" parent="Composition"]
+texture_repeat = 3
+position = Vector2(5, -23)
+texture = ExtResource("5_2nvi1")
+region_enabled = true
+region_rect = Rect2(200, 0, 1200, 800)
+script = ExtResource("2_hgmd7")
+speed = Vector2(-3, 0)
+
+[node name="Clouds4" type="Sprite2D" parent="Composition"]
+texture_repeat = 3
+position = Vector2(5, -23)
+texture = ExtResource("6_8eloy")
+region_enabled = true
+region_rect = Rect2(-400, -310.26, 1200, 800)
+script = ExtResource("2_hgmd7")
+speed = Vector2(-3.5, 0)
 
 [node name="Cliff" type="Sprite2D" parent="Composition"]
+position = Vector2(0, 4)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("4_dyfsi")
+
+[node name="CliffWater" type="Sprite2D" parent="Composition"]
+texture_repeat = 2
+position = Vector2(418, -59)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("8_xv1xm")
+region_enabled = true
+region_rect = Rect2(0, 0, 22, 236)
+script = ExtResource("2_hgmd7")
+speed = Vector2(0, 6)
+
+[node name="CliffWater2" type="Sprite2D" parent="Composition"]
+texture_repeat = 2
+position = Vector2(267, 57)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("9_f7vej")
+region_enabled = true
+region_rect = Rect2(0, 0, 11, 93)
+script = ExtResource("2_hgmd7")
+speed = Vector2(0, 4)
+
+[node name="CliffWater3" type="Sprite2D" parent="Composition"]
+texture_repeat = 2
+position = Vector2(223, -9)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("10_sk7bb")
+region_enabled = true
+region_rect = Rect2(0, 0, 4, 180)
+script = ExtResource("2_hgmd7")
+speed = Vector2(0, 5)
 
 [node name="Title" type="RichTextLabel" parent="Composition"]
 custom_minimum_size = Vector2(300, 100)
