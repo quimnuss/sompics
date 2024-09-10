@@ -1,4 +1,6 @@
 join som_character 0
 join sage_character 3 [animation="Bounce In" length="1" wait="true"]
-sage_character (idle): Ahh! m’heu fet mal! heu posat a prod una PR.
-sage_character (idle): Us penseu que podreu avançar sense mi?
+sage_character (idle): NOoooooooooooooo. L'odoo pot fer el mateix que jo. Noooooooo
+sage_character (idle): M'heu vençut, però no sóc l'únic Xupòpter del DrBack. No us en sortireu!
+leave sage_character
+som_character: Vinga equip! Que ho tenim això.

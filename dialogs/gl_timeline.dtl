@@ -1,0 +1,11 @@
+join som_character 0
+join goose_luis_character 2
+goose_luis_character (idle): HONK!
+som_character (normal): Qui ets tu?
+goose_luis_character: Sóc el GooseLuis! Us he fet una calculadora fotovoltaica.
+- com?
+	goose_luis_character: He fet una calculadora haha.
+	som_character: Ok. Gràcies.
+- Ostres! Gràcies! Ens ajudarà molt!!
+	goose_luis_character: Hehe. Això ens hauria de fer estalviar un bon pessic. Els Grups Locals no som externalització. [i]Perquè som [wave]SomEnergia[/wave][/i].
+	som_character: Ja ho pots ben dir. Gràcies! Visca els Grups Locals!

@@ -49,7 +49,7 @@ func open():
     goose_luis.play()
     await goose_luis.animation_finished
     goose_luis.visible = false
-    
+
 func close():
     is_open = false
     door_sprite.play('close')

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_tancy"]
 [ext_resource type="Script" path="res://scenes/level_4_5.gd" id="1_uhi1b"]
-[ext_resource type="Resource" path="res://dialogs/ce_death_timeline.dtl" id="2_g6f20"]
 [ext_resource type="Texture2D" uid="uid://pix36e38qgxw" path="res://assets/characters/person_typing_2_spritesheet.png" id="2_pdjvu"]
+[ext_resource type="Resource" path="res://dialogs/ce_timeline.dtl" id="3_nvpmh"]
 [ext_resource type="Texture2D" uid="uid://d4apjea1valjd" path="res://assets/characters/person_typing_spritesheet.png" id="3_vm1rp"]
 [ext_resource type="Texture2D" uid="uid://dlayo2r2kb1d5" path="res://assets/cage.png" id="4_pd7xs"]
 
@@ -111,7 +111,7 @@ animations = [{
 script = ExtResource("1_uhi1b")
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_tancy")]
-timeline = ExtResource("2_g6f20")
+timeline = ExtResource("3_nvpmh")
 villan_1_name = "ce"
 villan_2_name = ""
 
