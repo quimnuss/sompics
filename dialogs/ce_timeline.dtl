@@ -1,0 +1,5 @@
+join som_character 0
+join ce_character 3
+ce_character (idle): Grrr! Com heu arribat fins aquí?? Els vostres companys treballen per mi. Per això són fantasmes hahaha!
+som_character (normal): Noooo, els alliberarem!
+ce_character: Ni parlar-ne! Hahhaha! Ja tinc un Singulars a punt hahaha!

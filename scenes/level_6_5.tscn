@@ -5,3 +5,5 @@
 [node name="MainLevel" type="Node2D"]
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_o10md")]
+villan_1_name = "ce"
+villan_2_name = ""

@@ -1,0 +1,7 @@
+join som_character 0
+join ce_character 3
+ce_character (idle): AAAh. No creia que ho aconseguiríeu... Heu recuperat un dels vostres companys i heu estalviat prou per vènce'm. He amagat els altres i no els trobareu hahaha! Continuaran treballant per mi encara que ja no hi sigui.
+som_character (normal): Noooo, els alliberarem!
+leave ce_character
+join juanpe_character 3
+juanpe_character (idle): Ah! Quin alleujament! Però encara falten tres companys! Compteu amb mi!

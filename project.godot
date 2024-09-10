@@ -26,14 +26,18 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "beedata_character": "res://dialogs/beedata_character.dch",
+"ce_character": "res://dialogs/ce_character.dch",
 "collectible_character": "res://dialogs/collectible_character.dch",
 "doctor_back": "res://dialogs/doctor_back_character.dch",
+"juanpe_character": "res://dialogs/juanpe_character.dch",
 "lyon_character": "res://dialogs/lyon_character.dch",
 "sage_character": "res://dialogs/sage_character.dch",
 "som_character": "res://dialogs/som_character.dch",
 "utopig_character": "res://dialogs/utopig_character.dch"
 }
 directories/dtl_directory={
+"ce_death_timeline": "res://dialogs/ce_death_timeline.dtl",
+"ce_timeline": "res://dialogs/ce_timeline.dtl",
 "dr_back_timeline_ending": "res://dialogs/dr_back_timeline_ending.dtl",
 "lyon_timeline_meet": "res://dialogs/lyon_timeline_meet.dtl",
 "sage_defeat": "res://dialogs/sage_defeat.dtl",
