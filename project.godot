@@ -65,6 +65,9 @@ choices/delay=0.2
 choices/reveal_delay=0
 choices/reveal_by_input=false
 text/autopauses={}
+variables={
+"goose_luis_help": false
+}
 
 [display]
 

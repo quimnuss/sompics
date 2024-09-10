@@ -26,7 +26,7 @@ func _on_area_2d_body_entered(body):
         return
     entered = true
     get_tree().call_group('pics', 'possess_toggle', false)
-    collision_shape_2d.disabled = true
+    collision_shape_2d.call_deferred('set_disabled', true)
     animation_player.play("gl_arrival")
 
 
@@ -42,5 +42,7 @@ func _on_goose_luis_landed():
 func _on_dialogic_timeline_ended():
     door.open()
     goose_luis.flip_h = true
-    animation_player.play_backwards("gl_arrival")
+    animation_player.play_backwards("gl_departure")
     get_tree().call_group('pics', 'possess_toggle', true)
+    var foo = Dialogic.VAR
+    prints('Accepted GL help?', Dialogic.VAR.goose_luis_help)

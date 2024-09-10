@@ -7,5 +7,11 @@ goose_luis_character: Sóc el GooseLuis! Us he fet una calculadora fotovoltaica.
 	goose_luis_character: He fet una calculadora haha.
 	som_character: Ok. Gràcies.
 - Ostres! Gràcies! Ens ajudarà molt!!
-	goose_luis_character: Hehe. Això ens hauria de fer estalviar un bon pessic. Els Grups Locals no som externalització. [i]Perquè som [wave]SomEnergia[/wave][/i].
+	goose_luis_character: Hehe. Això ens hauria de fer estalviar un bon pessic. Els Grups Locals no som externalització. [i]Perquè som [wave]SomEnergia[/wave][/i].\
+Voleu la nostra ajuda?
+	- Si!
+		goose_luis_character: Entesos! A partir d'ara vindré a calcular l'estalvi i segur que puc arrancar alguns euros i contractes més!
+		set {goose_luis_help} = true
+	- Ens en podem sortir sense. Gràcies!
+		goose_luis_character: Molt bé! Sou uns valents. Molta sort!
 	som_character: Ja ho pots ben dir. Gràcies! Visca els Grups Locals!
