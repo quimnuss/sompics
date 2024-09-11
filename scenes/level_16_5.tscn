@@ -10,6 +10,7 @@
 
 [node name="CagedCE" parent="." instance=ExtResource("2_i6y71")]
 position = Vector2(272, 216)
+ce_prisoner = "xavierbonet"
 
 [node name="Button" parent="." instance=ExtResource("3_p7j38")]
 position = Vector2(328, 400)
