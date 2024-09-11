@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb5pjupe5ye4f"]
+
+[ext_resource type="Script" path="res://ui/carrousel_container.gd" id="1_txr5e"]
+[ext_resource type="PackedScene" uid="uid://bw585chtqxktl" path="res://ui/collectible_card.tscn" id="2_ru3hq"]
+[ext_resource type="Resource" uid="uid://dbhmc4l0cuxbi" path="res://data/fita_dades_balanc_de_costos.tres" id="3_ee1ka"]
+[ext_resource type="Resource" uid="uid://d0kmoryfoho3q" path="res://data/fita_po_odoo.tres" id="4_d4h48"]
+[ext_resource type="Resource" uid="uid://b41c5wu1e8a2f" path="res://data/fita_erp_todo1.tres" id="5_delyd"]
+
+[node name="TestFitesCarrousel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(120, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_txr5e")
+
+[node name="Left" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "<"
+
+[node name="Control" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="CollectibleCard" parent="BoxContainer/Control" instance=ExtResource("2_ru3hq")]
+visible = false
+layout_mode = 2
+collectible_data = ExtResource("3_ee1ka")
+
+[node name="CollectibleCard2" parent="BoxContainer/Control" instance=ExtResource("2_ru3hq")]
+layout_mode = 2
+collectible_data = ExtResource("4_d4h48")
+
+[node name="CollectibleCard3" parent="BoxContainer/Control" instance=ExtResource("2_ru3hq")]
+visible = false
+layout_mode = 2
+collectible_data = ExtResource("5_delyd")
+
+[node name="Right" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = ">"
+
+[connection signal="pressed" from="BoxContainer/Left" to="BoxContainer" method="_on_left_pressed"]
+[connection signal="pressed" from="BoxContainer/Right" to="BoxContainer" method="_on_right_pressed"]
