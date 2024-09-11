@@ -3,7 +3,7 @@ extends Node
 #var pics : Array = []
 var pics : Array = [
     'marta', 'pol',
-    'joana', 'juanpe',
+    #'joana', 'juanpe',
     #'david',
     #'marite',
     #'isra',
@@ -26,7 +26,7 @@ var pics : Array = [
 ]
 var active_pic : int = 0
 
-const ce_members : Array[String] = ['juanpe', 'xavierbonet', 'benjami', 'daniquilez']
+var ce_members : Array[String] = ['juanpe', 'xavierbonet', 'benjami', 'daniquilez']
 
 var levels : Array = [
     true, true, true, true, true, true, true, true, true, true,
@@ -64,6 +64,7 @@ var level_order : Array[String] = [
     'level_16.tscn',
     'level_16_5.tscn',
     'level_17.tscn',
+    'level_17_5.tscn',
     'level_18.tscn',
     'outro.tscn',
 ]

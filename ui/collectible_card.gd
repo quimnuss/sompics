@@ -4,6 +4,7 @@ class_name CollectibleCard
 @export var collectible_data : CollectibleData
 
 @onready var title_text = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TitleText
+@onready var equip_text = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/EquipText
 @onready var time_text = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/TimeText
 @onready var impacte_text = $MarginContainer/VBoxContainer/ImpacteText
 @onready var how_text = $MarginContainer/VBoxContainer/HowText
@@ -19,6 +20,7 @@ func refresh_collectible():
         return
 
     title_text.text = collectible_data.title
+    equip_text.text = collectible_data.team
     time_text.text = collectible_data.time
     impacte_text.text = collectible_data.impacte
     how_text.text = collectible_data.enabler
@@ -26,4 +28,4 @@ func refresh_collectible():
 
 func set_data(new_collectible_data : CollectibleData):
     collectible_data = new_collectible_data
-    
+

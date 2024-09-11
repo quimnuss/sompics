@@ -52,5 +52,6 @@ position = Vector2(522, 306)
 
 [node name="Collectible" parent="." instance=ExtResource("7_aqsyc")]
 position = Vector2(368, 424)
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([null])
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -71,7 +71,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_w10k3")
 max_value = 1e+06
-value = 50.0
+value = 500000.0
 show_percentage = false
 script = ExtResource("4_7qgwn")
 

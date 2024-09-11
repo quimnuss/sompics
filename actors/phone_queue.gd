@@ -19,12 +19,23 @@ func picked_correct_call():
     call.queue_free()
     for call_dot : CallDot in call_queue_dots:
         call_dot.position.x -= DOT_SIZE + SPACING
+    if call_queue_dots.is_empty():
+        Persistence.estalvi(1000)
+    else:
+        Persistence.estalvi(100)
 
 func picked_wrong_call(color):
     prints('wrong! expected',call_queue_dots[0].modulate,'got',color)
+    Persistence.estalvi(-100)
+
+func clear():
+    for dot : CallDot in call_queue_dots:
+        dot.queue_free()
+    call_queue_dots.clear()
 
 func _on_timer_timeout():
     if len(call_queue_dots) >= MAX_DOTS:
+        Persistence.estalvi(-1000)
         for dot : CallDot in call_queue_dots:
             dot.queue_free()
         call_queue_dots.clear()
@@ -32,7 +43,10 @@ func _on_timer_timeout():
 
 func _on_picked(color : Color):
     if not call_queue_dots.is_empty():
-        if call_queue_dots[0].modulate == color:
+        var call_dot = call_queue_dots[0]
+        if not is_instance_valid(call_dot):
+            return
+        if call_dot.modulate == color:
             picked_correct_call()
         else:
             picked_wrong_call(color)

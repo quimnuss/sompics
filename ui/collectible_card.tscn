@@ -72,6 +72,25 @@ theme = ExtResource("1_turvf")
 text = "lololo"
 fit_content = true
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme = ExtResource("1_turvf")
+theme_override_constants/separation = 10
+
+[node name="EquipLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("1_turvf")
+text = "Equip?"
+
+[node name="EquipText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme = ExtResource("1_turvf")
+text = "IT"
+fit_content = true
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -116,7 +135,7 @@ text = "Què ha estat més útil per aconseguir-ho?"
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 theme = ExtResource("1_turvf")
-text = "lorem ipsum one more time"
+text = "One more time We're gonna celebrate Oh yeah, all right. Don't stop the dancing. One more time. We're gonna celebrate. Oh yeah, all right. Don't stop the dancing. One more time. We're gonna celebrate. Oh yeah, all right. Don't stop the dancing. One more time. We're gonna celebrate. Oh yeah. One more time"
 fit_content = true
 
 [node name="WhyTitle" type="Label" parent="MarginContainer/VBoxContainer"]

@@ -1,2 +1,7 @@
 join doctor_back 3
-\doctor_back (normal): Hola hola tarola
+join som_character 1
+if {drback_estalviat} == true:
+	\doctor_back (normal): M'heu guanyat... Sou bonissims... Fins mai més!
+else:
+	\doctor_back (normal): M'heu pres molts diners i heu vençut tots els Xupòpters. Però continuo viu. Tornaré!
+leave doctor_back

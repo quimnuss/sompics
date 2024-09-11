@@ -71,6 +71,7 @@ position = Vector2(56, 0)
 script = ExtResource("8_14i4i")
 
 [node name="Timer" type="Timer" parent="Tomatic/PhoneQueue"]
+wait_time = 2.0
 autostart = true
 
 [node name="AreaSpawner" type="Node2D" parent="." node_paths=PackedStringArray("pickup_receiver")]
@@ -101,5 +102,6 @@ shape = SubResource("WorldBoundaryShape2D_1eyb5")
 position = Vector2(1039, 408)
 collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("12_vh0u4")])
 
+[connection signal="timeout" from="UI/UITimer" to="." method="_on_ui_timer_timeout"]
 [connection signal="timeout" from="Tomatic/PhoneQueue/Timer" to="Tomatic/PhoneQueue" method="_on_timer_timeout"]
 [connection signal="timeout" from="AreaSpawner/SpawnTimer" to="AreaSpawner" method="_on_spawn_timer_timeout"]

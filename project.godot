@@ -73,6 +73,7 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 text/autopauses={}
 variables={
+"drback_estalviat": false,
 "goose_luis_help": false
 }
 

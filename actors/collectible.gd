@@ -8,14 +8,17 @@ extends Node2D
 
 var fita_consumed = false
 
+signal picked_up
+signal resume_game
+
 func _ready():
     if OS.is_debug_build() and get_tree().root == get_parent():
         var debug_camera : Camera2D = Camera2D.new()
         debug_camera.position -= Vector2(100,100)
         add_child(debug_camera)
-    
+
     canvas_layer.call_deferred('set_visible', false)
-    
+
     from_collectible_data()
 
 func from_collectible_data():
@@ -27,6 +30,7 @@ func from_collectible_data():
 func return_to_game():
     get_tree().call_group('pics', 'possess_toggle', true)
     canvas_layer.visible = false
+    resume_game.emit()
 
 func _unhandled_input(event):
     if event.is_action_pressed('ui_accept'):
@@ -39,6 +43,7 @@ func _on_area_2d_body_entered(body):
         self.modulate.a = 0.2
         canvas_layer.visible = true
         get_tree().call_group('pics', 'possess_toggle', false)
+        picked_up.emit()
 
 func _on_button_pressed():
     return_to_game()

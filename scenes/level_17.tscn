@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://x2jloum5dt5r"]
+[gd_scene load_steps=11 format=3 uid="uid://x2jloum5dt5r"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1pcra"]
+[ext_resource type="Script" path="res://scenes/level_contracts.gd" id="1_5p0fe"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_m38kj"]
 [ext_resource type="PackedScene" uid="uid://c3htqdtri5tvh" path="res://ui/ui_timer.tscn" id="2_y83gk"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_nmk4a"]
@@ -12,6 +13,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1eyb5"]
 
 [node name="MainLevel" type="Node2D"]
+script = ExtResource("1_5p0fe")
 
 [node name="UI" parent="." instance=ExtResource("1_1pcra")]
 
@@ -25,6 +27,24 @@ offset_right = 58.0
 offset_bottom = 164.0
 grow_horizontal = 2
 
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+modulate = Color(1, 1, 1, 0.690196)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -312.0
+offset_top = 216.0
+offset_right = 208.0
+offset_bottom = 276.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Agafeu els contractes [color=yellow]contractes[/color] [color=lightblue]bons[/color] i eviteu els [color=red]dolents[/color]!
+Deixeu el DrBack sense vida per a què no torni mai més![/center]"
+fit_content = true
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_m38kj")
 format = 2
@@ -37,8 +57,6 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Door" parent="." instance=ExtResource("3_nmk4a")]
 position = Vector2(1040, 520)
-is_open = true
-next_level = "welcome_level.tscn"
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(128, 392)
@@ -74,4 +92,5 @@ shape = SubResource("WorldBoundaryShape2D_1eyb5")
 [node name="KeySpawn" type="Marker2D" parent="."]
 position = Vector2(960, 448)
 
+[connection signal="timeout" from="UI/UITimer" to="." method="_on_ui_timer_timeout"]
 [connection signal="timeout" from="AreaSpawner/SpawnTimer" to="AreaSpawner" method="_on_spawn_timer_timeout"]

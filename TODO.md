@@ -9,22 +9,23 @@ and either restart level or spawn_one in PlayerSpawner reacting to a new_player 
 Available on the first 2 levels only for simplicity (no attached, no flying)
 
 - [ ] Acció POs
-- [ ] Intermissions
 - [ ] DrBack defeat on level 17
 - [ ] Friday Timer
+- [ ] Prevent double estalvi on level restart
 
 ## next
 
 - [ ] Place latest collectibles
-- [ ] GooseLuis level 8.5 (spawn from crate, explain, and then fites)
 - [ ] GooseLuis Money
 - [ ] Dialogic Astroboy
 - [ ] Free CE
 - [ ] Fites Screen + Persistence (don't recatch fita during a playthru)
 - [ ] Collectibles cards forward backward arrows
+- [ ] estalvi persistence (in case of restart)
 
 ## later
 
+- [ ] Intro level: after the bridge
 - [ ] Resum del torn de telèfon tipo tomàtic
 - [ ] death animation
 - [ ] noves cares
@@ -34,6 +35,8 @@ Available on the first 2 levels only for simplicity (no attached, no flying)
 
 # Done
 
+- [x] GooseLuis level 8.5 (spawn from crate, explain, and then fites)
+- [x] Intermissions
 - [x] Place Collectibles
 - [x] Collectibles actor
 - [x] reorder levels, customizable order

@@ -245,3 +245,6 @@ position = Vector2(104, 410)
 [node name="Collectible" parent="." instance=ExtResource("10_gpc44")]
 position = Vector2(88, 504)
 collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_pa32q")])
+
+[connection signal="picked_up" from="Collectible" to="UI/UITimer" method="halt"]
+[connection signal="resume_game" from="Collectible" to="UI/UITimer" method="resume"]

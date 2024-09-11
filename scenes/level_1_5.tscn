@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dylyr3nmevxl1"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_0r1uq"]
-[ext_resource type="Resource" path="res://dialogs/sage_defeat.dtl" id="2_61npp"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_adik2"]
+[ext_resource type="Resource" path="res://dialogs/sage_encounter.dtl" id="2_jbswf"]
 [ext_resource type="Resource" uid="uid://dbhmc4l0cuxbi" path="res://data/fita_dades_balanc_de_costos.tres" id="3_fusrp"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_0r1uq")]
-timeline = ExtResource("2_61npp")
+timeline = ExtResource("2_jbswf")
 villan_1_name = "sage"
 villan_2_name = ""
 

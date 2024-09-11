@@ -46,4 +46,4 @@ func _on_dialogic_timeline_ended():
     get_tree().call_group('pics', 'possess_toggle', true)
     var foo = Dialogic.VAR
     prints('Accepted GL help?', Dialogic.VAR.goose_luis_help)
-    Persistence.
+    Persistence.goose_luis_help = Dialogic.VAR.goose_luis_help

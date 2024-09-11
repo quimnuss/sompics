@@ -16,8 +16,11 @@ villan_2_name = "helpscout"
 position = Vector2(648, 384)
 
 [node name="CagedCE" parent="." instance=ExtResource("3_wlc46")]
+position = Vector2(272, 208)
 
 [node name="Button" parent="." instance=ExtResource("5_5gx8a")]
 position = Vector2(224, 400)
+
+[connection signal="button_pressed" from="Button" to="CagedCE" method="_on_button_button_pressed"]
 
 [editable path="IntermissionLevel"]

@@ -8,6 +8,12 @@
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_fx5ex")]
 
+[node name="Door" parent="IntermissionLevel" index="1"]
+is_open = true
+
+[node name="CollisionShape2D" parent="IntermissionLevel/Villan1/Area2D" index="0"]
+disabled = true
+
 [node name="CagedCE" parent="." instance=ExtResource("2_i6y71")]
 position = Vector2(272, 216)
 ce_prisoner = "xavierbonet"
@@ -16,3 +22,5 @@ ce_prisoner = "xavierbonet"
 position = Vector2(328, 400)
 
 [connection signal="button_pressed" from="Button" to="CagedCE" method="_on_button_button_pressed"]
+
+[editable path="IntermissionLevel"]

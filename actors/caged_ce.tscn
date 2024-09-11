@@ -257,7 +257,7 @@ script = ExtResource("6_7u7gp")
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Area2D"]
+[node name="HeadPickCollision" type="CollisionShape2D" parent="Head/Area2D"]
 shape = SubResource("CircleShape2D_08b7i")
 
 [node name="FreedomAnnouncement" type="RichTextLabel" parent="."]
