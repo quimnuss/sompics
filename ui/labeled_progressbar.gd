@@ -11,7 +11,7 @@ func _on_money_changed():
     var is_estalviing : bool = Persistence.money < self.value
     if is_estalviing:
         self.modulate = Color.RED
-        var tween = get_tree().create_tween()
+        var tween = create_tween()
         tween.tween_property(self, "modulate", original_color, 1)
 
     self.value = Persistence.money

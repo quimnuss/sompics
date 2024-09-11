@@ -29,7 +29,7 @@ func _on_area_2d_body_entered(body):
     if entered or Dialogic.current_timeline != null:
         return
     entered = true
-    get_tree().create_tween().tween_property(villan_1, "modulate:a", 1.0, 2.0)
+    create_tween().tween_property(villan_1, "modulate:a", 1.0, 2.0)
     get_tree().call_group('pics', 'possess_toggle', false)
     await get_tree().create_timer(2).timeout
     Dialogic.start(timeline)
@@ -37,7 +37,7 @@ func _on_area_2d_body_entered(body):
 func _on_dialogic_timeline_ended():
     collision_shape_2d.disabled = true
     door.open()
-    get_tree().create_tween().tween_property(villan_1, "modulate:a", 0.0, 2.0)
+    create_tween().tween_property(villan_1, "modulate:a", 0.0, 2.0)
     get_tree().call_group('pics', 'possess_toggle', true)
     await get_tree().create_timer(2).timeout
     villan_1.queue_free()
