@@ -1,0 +1,10 @@
+join som_character 0
+join trello_character 3 [animation="Bounce In" length="1" wait="true"]
+join helpscout_character 4
+trello_character (idle): Grrr Heu alliberat un altre CE i posat a productiu més de nou PRs...\
+Jo i el meu Germà no us permetrem estalviar prou!
+helpscout_character (idle): Ara us passaré a cobrar milers d'euros per fer-nos servir! No arribarem mai a estalviar prou per a vènçer el Dr Back.
+som_character (normal): Trobarem alternatives!
+trello_character: [wave]Ha ha ha[/wave]. Bona Sort! Som imprescindibles!
+leave helpscout_character
+leave trello_character

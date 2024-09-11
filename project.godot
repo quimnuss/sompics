@@ -30,20 +30,27 @@ directories/dch_directory={
 "collectible_character": "res://dialogs/collectible_character.dch",
 "doctor_back": "res://dialogs/doctor_back_character.dch",
 "goose_luis_character": "res://dialogs/goose_luis_character.dch",
+"helpscout_character": "res://dialogs/helpscout_character.dch",
 "juanpe_character": "res://dialogs/juanpe_character.dch",
 "lyon_character": "res://dialogs/lyon_character.dch",
+"openproject_character": "res://dialogs/openproject_character.dch",
 "sage_character": "res://dialogs/sage_character.dch",
 "som_character": "res://dialogs/som_character.dch",
+"trello_character": "res://dialogs/trello_character.dch",
 "utopig_character": "res://dialogs/utopig_character.dch"
 }
 directories/dtl_directory={
 "ce_death_timeline": "res://dialogs/ce_death_timeline.dtl",
 "ce_timeline": "res://dialogs/ce_timeline.dtl",
 "dr_back_timeline_ending": "res://dialogs/dr_back_timeline_ending.dtl",
+"dset_defeat": "res://dialogs/dset_defeat.dtl",
+"dset_encounter": "res://dialogs/dset_encounter.dtl",
 "gl_timeline": "res://dialogs/gl_timeline.dtl",
 "lyon_timeline_meet": "res://dialogs/lyon_timeline_meet.dtl",
 "sage_defeat": "res://dialogs/sage_defeat.dtl",
 "sage_encounter": "res://dialogs/sage_encounter.dtl",
+"trello_defeat": "res://dialogs/trello_defeat.dtl",
+"trello_encounter": "res://dialogs/trello_encounter.dtl",
 "utopig_timeline": "res://dialogs/utopig_timeline.dtl"
 }
 layout/style_list=["res://dialogs/visual_novel_dialog_style.tres"]

@@ -1,111 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://beiy4fdpg1nq7"]
+[gd_scene load_steps=6 format=3 uid="uid://beiy4fdpg1nq7"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_tancy"]
 [ext_resource type="Script" path="res://scenes/level_4_5.gd" id="1_uhi1b"]
-[ext_resource type="Texture2D" uid="uid://pix36e38qgxw" path="res://assets/characters/person_typing_2_spritesheet.png" id="2_pdjvu"]
 [ext_resource type="Resource" path="res://dialogs/ce_timeline.dtl" id="3_nvpmh"]
-[ext_resource type="Texture2D" uid="uid://d4apjea1valjd" path="res://assets/characters/person_typing_spritesheet.png" id="3_vm1rp"]
-[ext_resource type="Texture2D" uid="uid://dlayo2r2kb1d5" path="res://assets/cage.png" id="4_pd7xs"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_36h4v"]
-atlas = ExtResource("2_pdjvu")
-region = Rect2(0, 0, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_41smd"]
-atlas = ExtResource("2_pdjvu")
-region = Rect2(128, 0, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r8gby"]
-atlas = ExtResource("2_pdjvu")
-region = Rect2(256, 0, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_05ehn"]
-atlas = ExtResource("2_pdjvu")
-region = Rect2(384, 0, 128, 126)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v0awo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_36h4v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_41smd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r8gby")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_05ehn")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2wxas"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(0, 0, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_18bnp"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(128, 0, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1syh0"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(256, 0, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifqqr"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(384, 0, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdnh5"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(0, 126, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o81ep"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(128, 126, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aelx8"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(256, 126, 128, 126)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_06pkr"]
-atlas = ExtResource("3_vm1rp")
-region = Rect2(384, 126, 128, 126)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3bfh2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2wxas")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_18bnp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1syh0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ifqqr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jdnh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o81ep")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aelx8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_06pkr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://00v4a50ywped" path="res://actors/ce_workers_spriteframes.tres" id="4_202e5"]
+[ext_resource type="PackedScene" uid="uid://c8s25jps0hbv6" path="res://actors/cage.tscn" id="5_pkrty"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_uhi1b")
@@ -127,39 +26,17 @@ position = Vector2(-2, -9)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CE/Workers"]
 position = Vector2(-37, -29)
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_v0awo")
-autoplay = "default"
+sprite_frames = ExtResource("4_202e5")
+animation = &"man"
+autoplay = "man"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CE/Workers"]
 position = Vector2(34, -27)
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_3bfh2")
-autoplay = "default"
+sprite_frames = ExtResource("4_202e5")
+animation = &"woman"
+autoplay = "woman"
 
-[node name="Cage" type="Node2D" parent="CE"]
-position = Vector2(-912, -232)
-
-[node name="Line2D" type="Line2D" parent="CE/Cage"]
-position = Vector2(949, 172)
-points = PackedVector2Array(-6, 15, -29, -75)
-width = 2.0
-default_color = Color(0.388235, 0.388235, 0.388235, 1)
-
-[node name="Line2D2" type="Line2D" parent="CE/Cage"]
-position = Vector2(949, 172)
-points = PackedVector2Array(-61, 30, -29, -75)
-width = 2.0
-default_color = Color(0.407843, 0.407843, 0.407843, 1)
-
-[node name="Line2D3" type="Line2D" parent="CE/Cage"]
-position = Vector2(949, 172)
-points = PackedVector2Array(-29, -116, -29, -75)
-width = 5.0
-default_color = Color(0.466667, 0.466667, 0.466667, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="CE/Cage"]
-position = Vector2(914, 173)
-scale = Vector2(1.66667, 1.66667)
-texture = ExtResource("4_pd7xs")
+[node name="Cage" parent="CE" instance=ExtResource("5_pkrty")]
 
 [editable path="IntermissionLevel"]

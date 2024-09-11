@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv3k750mvuwy"]
+[gd_scene load_steps=4 format=3 uid="uid://bv3k750mvuwy"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_fx5ex"]
+[ext_resource type="PackedScene" uid="uid://btkb2wr52a3v5" path="res://actors/caged_ce.tscn" id="2_i6y71"]
+[ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="3_p7j38"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_fx5ex")]
+
+[node name="CagedCE" parent="." instance=ExtResource("2_i6y71")]
+position = Vector2(272, 216)
+
+[node name="Button" parent="." instance=ExtResource("3_p7j38")]
+position = Vector2(328, 400)
+
+[connection signal="button_pressed" from="Button" to="CagedCE" method="_on_button_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=120 format=3 uid="uid://dkqtboo71wasm"]
+[gd_resource type="SpriteFrames" load_steps=124 format=3 uid="uid://dkqtboo71wasm"]
 
 [ext_resource type="Texture2D" uid="uid://dh0b728qf4d2f" path="res://assets/14-bee/Bee_Idle.png" id="1_fxvou"]
 [ext_resource type="Texture2D" uid="uid://cgmb3c0omkhgp" path="res://intro_world/astroboy_sheet_equal.png" id="1_v6s7s"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cmd7ywvdh4356" path="res://assets/tomatic.png" id="2_y7j1r"]
 [ext_resource type="Texture2D" uid="uid://d0rj7tn0mfug7" path="res://assets/characters/sage_snake.png" id="4_wmmho"]
 [ext_resource type="Texture2D" uid="uid://bcwrc4qieig1q" path="res://assets/characters/flying_pig_spritesheet.png" id="5_0tm5b"]
+[ext_resource type="Texture2D" uid="uid://bhkgbvslw45fm" path="res://assets/characters/helpscout_logo.png" id="5_ff2td"]
+[ext_resource type="Texture2D" uid="uid://1kgxeta46qc4" path="res://assets/characters/trello_logo.png" id="7_vnmh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_18ce6"]
 atlas = ExtResource("1_fxvou")
@@ -38,6 +40,14 @@ region = Rect2(128, 448, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ni31"]
 atlas = ExtResource("1_v6s7s")
 region = Rect2(768, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfgrc"]
+atlas = ExtResource("5_ff2td")
+region = Rect2(0, 0, 60, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ij05"]
+atlas = ExtResource("7_vnmh3")
+region = Rect2(0, 0, 60, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8pdux"]
 atlas = ExtResource("5_0tm5b")
@@ -510,10 +520,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tfgrc")
+}],
+"loop": true,
+"name": &"helpscout",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_wmmho")
 }],
 "loop": true,
 "name": &"sage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ij05")
+}],
+"loop": true,
+"name": &"trello",
 "speed": 5.0
 }, {
 "frames": [{

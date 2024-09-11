@@ -1,0 +1,7 @@
+join som_character 0
+join beedata_character 4
+join lyon_character 3
+lyon_character: Grr No em crec que hagueu aconseguit posar a productiu tot i els nostres bugs!
+beedata_character: I m'heu substituït en qüestió de setmanes?? NO POT SER!
+leave beedata_character
+leave lyon_character

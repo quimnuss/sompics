@@ -1,5 +1,5 @@
 extends Sprite2D
-
+class_name Head
 
 const person_dict : Dictionary = {
     'marta': Rect2(431, 434, 121, 167),
@@ -30,4 +30,7 @@ const person_dict : Dictionary = {
 }
 
 func set_person(person_name : String):
-    self.region_rect = person_dict[person_name]
+    if person_dict.has(person_name):
+        self.region_rect = person_dict[person_name]
+    else:
+        push_error(person_name + ' does not have a head image')

@@ -67,6 +67,9 @@ func _ready():
     if not attached_pics.is_empty():
         ropes_attach()
 
+    if person in Persistence.ce_members:
+        ghost()
+
 
 func enter_door():
     self.set_physics_process(false)
@@ -128,6 +131,13 @@ func rope_attach(attached_pic : Pic):
 func ropes_attach():
     for attached_pic : Pic in attached_pics:
         rope_attach(attached_pic)
+
+func unghost():
+    $Head.modulate.a = 1
+
+
+func ghost():
+    $Head.modulate.a = 0.6
 
 
 func kill():

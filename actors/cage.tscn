@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8s25jps0hbv6"]
+
+[ext_resource type="Texture2D" uid="uid://dlayo2r2kb1d5" path="res://assets/cage.png" id="1_h603f"]
+
+[node name="Cage" type="Node2D"]
+position = Vector2(-912, -232)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(949, 172)
+points = PackedVector2Array(-6, 15, -29, -75)
+width = 2.0
+default_color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(949, 172)
+points = PackedVector2Array(-61, 30, -29, -75)
+width = 2.0
+default_color = Color(0.407843, 0.407843, 0.407843, 1)
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(949, 172)
+points = PackedVector2Array(-29, -116, -29, -75)
+width = 5.0
+default_color = Color(0.466667, 0.466667, 0.466667, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(914, 173)
+scale = Vector2(1.66667, 1.66667)
+texture = ExtResource("1_h603f")

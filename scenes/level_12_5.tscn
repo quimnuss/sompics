@@ -1,14 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdq5ieemnv2sb"]
+[gd_scene load_steps=8 format=3 uid="uid://cdq5ieemnv2sb"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_f7qhl"]
+[ext_resource type="Resource" path="res://dialogs/trello_defeat.dtl" id="2_dh6rw"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_tixjo"]
 [ext_resource type="Resource" uid="uid://b3trjlwv1upec" path="res://data/fita_po_openproject.tres" id="3_1bb6a"]
 [ext_resource type="Resource" uid="uid://tkdqumv3j4b1" path="res://data/fita_technocuca_openproject.tres" id="4_knxu1"]
+[ext_resource type="PackedScene" uid="uid://btkb2wr52a3v5" path="res://actors/caged_ce.tscn" id="6_pwu7r"]
+[ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="7_ulea6"]
 
 [node name="MainLevel" type="Node2D"]
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_f7qhl")]
+timeline = ExtResource("2_dh6rw")
+villan_1_name = "trello"
+villan_2_name = "helpscout"
+
+[node name="Villan1" parent="IntermissionLevel" index="3"]
+position = Vector2(656, 384)
 
 [node name="Collectible" parent="." instance=ExtResource("2_tixjo")]
 position = Vector2(280, 392)
 collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("3_1bb6a"), ExtResource("4_knxu1")])
+
+[node name="CagedCE" parent="." instance=ExtResource("6_pwu7r")]
+position = Vector2(280, 216)
+ce_prisoner = "daniquilez"
+
+[node name="Button" parent="." instance=ExtResource("7_ulea6")]
+position = Vector2(352, 400)
+
+[connection signal="button_pressed" from="Button" to="CagedCE" method="_on_button_button_pressed"]
+
+[editable path="IntermissionLevel"]

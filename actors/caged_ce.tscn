@@ -1,0 +1,277 @@
+[gd_scene load_steps=17 format=3 uid="uid://btkb2wr52a3v5"]
+
+[ext_resource type="Script" path="res://actors/cagedce.gd" id="1_ndrgt"]
+[ext_resource type="SpriteFrames" uid="uid://00v4a50ywped" path="res://actors/ce_workers_spriteframes.tres" id="2_r80vj"]
+[ext_resource type="PackedScene" uid="uid://c8s25jps0hbv6" path="res://actors/cage.tscn" id="3_ueb3r"]
+[ext_resource type="Texture2D" uid="uid://s1q7osic64rb" path="res://assets/cage-door-spritesheet.png" id="4_t5f38"]
+[ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="5_hcia7"]
+[ext_resource type="Script" path="res://actors/head.gd" id="6_7u7gp"]
+
+[sub_resource type="Animation" id="Animation_rb1mk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TypingAnimation:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, -36)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CageDoor:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FreedomAnnouncement:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FreedomAnnouncement:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y7gn8"]
+resource_name = "free_ce"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TypingAnimation:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.983, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18, -36), Vector2(18, 185)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CageDoor:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_3ourh"]
+resource_name = "reposess_ce"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FreedomAnnouncement:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3.2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FreedomAnnouncement:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eskns"]
+_data = {
+"RESET": SubResource("Animation_rb1mk"),
+"free_ce": SubResource("Animation_y7gn8"),
+"reposess_ce": SubResource("Animation_3ourh")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e30g2"]
+atlas = ExtResource("4_t5f38")
+region = Rect2(64, 320, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7w1t"]
+atlas = ExtResource("4_t5f38")
+region = Rect2(64, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhuj7"]
+atlas = ExtResource("4_t5f38")
+region = Rect2(64, 192, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v464l"]
+atlas = ExtResource("4_t5f38")
+region = Rect2(64, 128, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ttul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e30g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7w1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhuj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v464l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_08b7i"]
+radius = 71.6106
+
+[node name="CagedCE" type="Node2D"]
+script = ExtResource("1_ndrgt")
+
+[node name="TypingAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, -23)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2_r80vj")
+animation = &"woman"
+autoplay = "woman"
+
+[node name="Cage" parent="." instance=ExtResource("3_ueb3r")]
+position = Vector2(-678, -159)
+scale = Vector2(0.75, 0.75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eskns")
+}
+
+[node name="CageDoor" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 23)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_7ttul")
+
+[node name="Head" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(18, -36)
+scale = Vector2(0.196, 0.196)
+texture = ExtResource("5_hcia7")
+region_enabled = true
+region_rect = Rect2(255, 11, 125, 151)
+script = ExtResource("6_7u7gp")
+
+[node name="Area2D" type="Area2D" parent="Head"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Area2D"]
+shape = SubResource("CircleShape2D_08b7i")
+
+[node name="FreedomAnnouncement" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 176.0
+offset_top = -8.0
+offset_right = 336.0
+offset_bottom = 29.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = " %s is [wave]free[/wave]!"
+fit_content = true
+
+[connection signal="body_entered" from="Head/Area2D" to="." method="_on_area_2d_body_entered"]

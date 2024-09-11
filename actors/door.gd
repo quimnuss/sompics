@@ -44,11 +44,12 @@ func open():
     Persistence.estalvi(level_estalvi)
     door_open.emit()
     await door_sprite.animation_finished
-    var goose_luis = $CanvasLayer/AnimatedSprite2D
-    goose_luis.visible = true
-    goose_luis.play()
-    await goose_luis.animation_finished
-    goose_luis.visible = false
+    if Persistence.goose_luis_help:
+        var goose_luis = $CanvasLayer/AnimatedSprite2D
+        goose_luis.visible = true
+        goose_luis.play()
+        await goose_luis.animation_finished
+        goose_luis.visible = false
 
 func close():
     is_open = false
