@@ -26,6 +26,10 @@ func from_collectible_data():
         var collectible_card : CollectibleCard = preload('res://ui/collectible_card.tscn').instantiate()
         collectible_card.set_data(collectible_data)
         collectible_cards.add_child(collectible_card)
+    collectible_cards.update()
+    if len(collectible_datas) <= 1:
+        $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/LeftButton.queue_free()
+        $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/RightButton.queue_free()
 
 func return_to_game():
     get_tree().call_group('pics', 'possess_toggle', true)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://beieffefrp6x"]
+[gd_scene load_steps=10 format=3 uid="uid://beieffefrp6x"]
 
 [ext_resource type="Texture2D" uid="uid://bsage84pqoh1q" path="res://assets/08-Box/Idle.png" id="1_iftxx"]
 [ext_resource type="Script" path="res://actors/collectible.gd" id="1_injlv"]
+[ext_resource type="Script" path="res://ui/carrousel_container.gd" id="3_hakwb"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="3_hx4ch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4bgec"]
@@ -125,11 +126,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CollectibleCards" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="LeftButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "<"
+
+[node name="CollectibleCards" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
+script = ExtResource("3_hakwb")
+
+[node name="RightButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = ">"
 
 [node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(70, 40)
@@ -142,4 +159,6 @@ theme_override_font_sizes/font_size = 25
 text = "Fet!"
 
 [connection signal="body_entered" from="Anchor/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/LeftButton" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/CollectibleCards" method="_on_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/RightButton" to="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/CollectibleCards" method="_on_right_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
