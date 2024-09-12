@@ -9,8 +9,5 @@ team = "Webapps"
 time = "Q2"
 related_fites = Array[String]([])
 impacte = "Al tenir diferents versions de React en els projectes dificultava el manteniment."
-enabler = "La comprensió dels POs a l’hora d'afegir temps a targetes relacionades per poder
-fer migracions aka blindar el temps necessari per poder fer la feina requerida amb
-legitimitat."
-added_value = "Facilitar el manteniment i desenvolupament d’una tecnologia
-VS tecnologies o versions diferents."
+enabler = "La comprensió dels POs a l’hora d'afegir temps a targetes relacionades per poder fer migracions aka blindar el temps necessari per poder fer la feina requerida amb legitimitat."
+added_value = "Facilitar el manteniment i desenvolupament d’una tecnologia VS tecnologies o versions diferents."

@@ -9,7 +9,5 @@ team = "Dades"
 time = "Q2"
 related_fites = Array[String]([])
 impacte = "Modernitzar el projecte i basar-lo només en analitica."
-enabler = "Delimitar l’scope via milestones. Afegir dashboards d’observabilitat de les dades
-del proveïdor."
-added_value = "Incorporació del nou partner de dades de planta. Dashboards de totes les plantes i
-específics de planta polits i funcionant."
+enabler = "Delimitar l’scope via milestones. Afegir dashboards d’observabilitat de les dades del proveïdor."
+added_value = "Incorporació del nou partner de dades de planta. Dashboards de totes les plantes i específics de planta polits i funcionant."

@@ -8,10 +8,6 @@ title = "Prova amb Kanbanize i Gestor de Projecte"
 team = "Dades"
 time = "Q3"
 related_fites = Array[String]([])
-impacte = "Les targetes ens arriben molt ben definides i coherents dins del projecte. Permet
-l’assignació de tasques de manera asíncrona i autònoma. Menys entregues
-brossa."
-enabler = "Tenir algú amb ganes de prendre’n cura. Tenir projectes delimitats en el temps,
-cosa que redueix el compromís de les proves."
-added_value = "Tenir idea de quines mètriques de ronda ens són útils. Menys canvis de rumb
-durant el desenvolupament. Millor coherència interna i visió a mitjà termini."
+impacte = "Les targetes ens arriben molt ben definides i coherents dins del projecte. Permet l’assignació de tasques de manera asíncrona i autònoma. Menys entregues brossa."
+enabler = "Tenir algú amb ganes de prendre’n cura. Tenir projectes delimitats en el temps, cosa que redueix el compromís de les proves."
+added_value = "Tenir idea de quines mètriques de ronda ens són útils. Menys canvis de rumb durant el desenvolupament. Millor coherència interna i visió a mitjà termini."

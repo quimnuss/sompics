@@ -9,8 +9,6 @@ team = "Webapps"
 time = "Q2"
 related_fites = Array[String]([])
 impacte = "Migrant a React el que quedava a mitrhil."
-enabler = "Tenir una capa fake per poder començar a programar abans de tenir el backend
-d’Odoo preparada.
-Acords arribats amb ERP respecte als models d’intercanvi per desenvolupar en
-paral·lel."
+enabler = "Tenir una capa fake per poder començar a programar abans de tenir el backend d’Odoo preparada.
+Acords arribats amb ERP respecte als models d’intercanvi per desenvolupar en paral·lel."
 added_value = "Les operadores poden tipificar les trucades entrants des del callinfo."

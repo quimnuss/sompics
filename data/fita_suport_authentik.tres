@@ -10,5 +10,4 @@ time = "2024-Q3"
 related_fites = Array[String]([])
 impacte = "Crear un entorn únic de gestió d’usuaris"
 enabler = "Fer tests amb la plafatorma, i jugar-hi, i veure-hi problemes, i solucionar-los"
-added_value = "Que les companyes no estiguin pensant en 40 contrasenyes
-diferents (això en un futur…)"
+added_value = "Que les companyes no estiguin pensant en 40 contrasenyes diferents (això en un futur…)"

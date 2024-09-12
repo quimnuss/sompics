@@ -84,6 +84,7 @@ signal money_changed
 
 func estalvi(value : int):
     money -= value
+    money = clamp(money, 0, 1000000)
 
 func _input(event):
     if event.is_action_pressed("switch_pic"):

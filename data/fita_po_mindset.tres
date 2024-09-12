@@ -7,19 +7,6 @@ script = ExtResource("1_fdmc6")
 title = "Canviant elMindset"
 team = "POs"
 time = "2023"
-impacte = "A ET comença a ser habitual parlar de: Objectius de projecte,
-KR’s a seguir (in progress), MVP (encara que no s’apliqui correctament), Pas a
-fase manteniment, Necessitat de recollir Feedback…
-L'impacte de tot això és que s'agilita el desenvolupament de projectes, es rebutgen
-idees que no es veia clar que anessin a aportar valor, es comença a conèixer
-l'impacte dels projectes per valorar els passos següents. I es descarrega d'un
-backlog infinit a IT."
-enabler = "Participar en l’inici i en diversos moments de seguiment dels diferents EP.
-La predisposició de tots els equips en acollir noves idees i marcs sobre els que
-treballa
-Confiança d’IT en la visió de Producte"
-added_value = "Capacitat de fer projectes sabent el per què es fan i podent saber si s’està
-aconseguint, focalitzant-nos únicament en allò que més impacte tingui.
-Ajuda també a diferenciar el pas a fase de manteniment intentant no eternitzar la
-fase de focus en el projecte (això allibera recursos per avançar i permet donar
-espai a la reflexió i l’anàlisi del que està en funcionament)"
+impacte = "A ET comença a ser habitual parlar de: Objectius de projecte, KR’s a seguir (in progress), MVP (encara que no s’apliqui correctament), Pas a fase manteniment, Necessitat de recollir Feedback… L'impacte de tot això és que s'agilita el desenvolupament de projectes, es rebutgen idees que no es veia clar que anessin a aportar valor, es comença a conèixer l'impacte dels projectes per valorar els passos següents. I es descarrega d'un backlog infinit a IT."
+enabler = "Participar en l’inici i en diversos moments de seguiment dels diferents EP. La predisposició de tots els equips en acollir noves idees i marcs sobre els que treballa Confiança d’IT en la visió de Producte"
+added_value = "Capacitat de fer projectes sabent el per què es fan i podent saber si s’està aconseguint, focalitzant-nos únicament en allò que més impacte tingui. Ajuda també a diferenciar el pas a fase de manteniment intentant no eternitzar la fase de focus en el projecte (això allibera recursos per avançar i permet donar espai a la reflexió i l’anàlisi del que està en funcionament)"

@@ -8,10 +8,6 @@ title = "Radar"
 team = "Technocuca"
 time = "Q3"
 related_fita = "fita_suport_authentik.tres"
-impacte = "Aquesta eina permet saber quines eines tenim i quines vam
-descartar i la raó. D’aquesta manera, no provarem la mateixa
-eina 2 vegades i si canvia tota la technocuca (com ha passataquest darrer any) ho tenim tot en un sol lloc documentat."
-enabler = "Fer una petita comissió dins de la technocuca per agilitzar
-la implementació de l’eina."
-added_value = "Ara tenim en un únic espai (visual) accés als proveïdors i
-les eines que utilitzem o vam utilitzar a Som."
+impacte = "Aquesta eina permet saber quines eines tenim i quines vam descartar i la raó. D’aquesta manera, no provarem la mateixa eina 2 vegades i si canvia tota la technocuca (com ha passataquest darrer any) ho tenim tot en un sol lloc documentat."
+enabler = "Fer una petita comissió dins de la technocuca per agilitzar la implementació de l’eina."
+added_value = "Ara tenim en un únic espai (visual) accés als proveïdors i les eines que utilitzem o vam utilitzar a Som."

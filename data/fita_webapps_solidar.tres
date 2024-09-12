@@ -8,11 +8,6 @@ title = "Suport a Grup Local Madrid"
 team = "Webapps"
 time = "Q2"
 related_fites = Array[String](["fita_technocuca_solidar.tres", "fita_suport_solidar.tres"])
-impacte = "Ens ha ajudat a prendre decisions sobre com volem que sigui l’estructura dels
-projectes de front i poder-ho definir en consens amb tot l’equip."
-enabler = "Poder dedicar hores a cada ronda per poder fer un seguiment de com avançava el
-projecte. La predisposició d’en José Luis a adaptar-se a les nostres tecnologies i la
-capacitat que ha tingut per fer-ho."
-added_value = "Aporta una calculadora per posar plaques fotovoltàiques sense la necessitat de
-tenir cap relació (contracte/sòcia) amb la cooperativa. Obre el públic objectiu des
-de les sòcies a tothom."
+impacte = "Ens ha ajudat a prendre decisions sobre com volem que sigui l’estructura dels projectes de front i poder-ho definir en consens amb tot l’equip."
+enabler = "Poder dedicar hores a cada ronda per poder fer un seguiment de com avançava el projecte. La predisposició d’en José Luis a adaptar-se a les nostres tecnologies i la capacitat que ha tingut per fer-ho."
+added_value = "Aporta una calculadora per posar plaques fotovoltàiques sense la necessitat de tenir cap relació (contracte/sòcia) amb la cooperativa. Obre el públic objectiu des de les sòcies a tothom."

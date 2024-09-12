@@ -7,8 +7,6 @@ script = ExtResource("1_qp1c8")
 title = "Migració webforms a Vite"
 team = "Webapps"
 time = "Q2"
-impacte = "Homogeneïtzar tecnologia Frontend i poder utilitzar la llibreria de components a
-qualsevol projecte."
-enabler = "La comprensió dels POs a l’hora d'afegir temps a targetes de deute tècnic donant
-legitimitat a aquestes tasques tan importants com les targetes de negoci."
+impacte = "Homogeneïtzar tecnologia Frontend i poder utilitzar la llibreria de components a qualsevol projecte."
+enabler = "La comprensió dels POs a l’hora d'afegir temps a targetes de deute tècnic donant legitimitat a aquestes tasques tan importants com les targetes de negoci."
 added_value = "Celeritat a l’hora de desenvolupar nous projectes."

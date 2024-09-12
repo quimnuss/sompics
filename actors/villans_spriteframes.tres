@@ -1,9 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=124 format=3 uid="uid://dkqtboo71wasm"]
+[gd_resource type="SpriteFrames" load_steps=128 format=3 uid="uid://dkqtboo71wasm"]
 
 [ext_resource type="Texture2D" uid="uid://dh0b728qf4d2f" path="res://assets/14-bee/Bee_Idle.png" id="1_fxvou"]
 [ext_resource type="Texture2D" uid="uid://cgmb3c0omkhgp" path="res://intro_world/astroboy_sheet_equal.png" id="1_v6s7s"]
 [ext_resource type="Texture2D" uid="uid://bu50pct5a3gcp" path="res://assets/characters/somcomunitats_logo.png" id="2_bbsfb"]
 [ext_resource type="Texture2D" uid="uid://cmd7ywvdh4356" path="res://assets/tomatic.png" id="2_y7j1r"]
+[ext_resource type="Texture2D" uid="uid://da7okakqncchm" path="res://intro_world/dr_tenma_spritesheet.png" id="4_4otrg"]
 [ext_resource type="Texture2D" uid="uid://d0rj7tn0mfug7" path="res://assets/characters/sage_snake.png" id="4_wmmho"]
 [ext_resource type="Texture2D" uid="uid://bcwrc4qieig1q" path="res://assets/characters/flying_pig_spritesheet.png" id="5_0tm5b"]
 [ext_resource type="Texture2D" uid="uid://bhkgbvslw45fm" path="res://assets/characters/helpscout_logo.png" id="5_ff2td"]
@@ -28,6 +29,18 @@ region = Rect2(192, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7moot"]
 atlas = ExtResource("2_y7j1r")
 region = Rect2(0, 0, 474, 264)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa7e2"]
+atlas = ExtResource("4_4otrg")
+region = Rect2(0, 0, 28, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca4pi"]
+atlas = ExtResource("4_4otrg")
+region = Rect2(28, 0, 28, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8xp2"]
+atlas = ExtResource("4_4otrg")
+region = Rect2(56, 0, 28, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klcd7"]
 atlas = ExtResource("1_v6s7s")
@@ -502,6 +515,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa7e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca4pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8xp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca4pi")
+}],
+"loop": true,
+"name": &"drback",
 "speed": 5.0
 }, {
 "frames": [{

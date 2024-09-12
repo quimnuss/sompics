@@ -6,7 +6,7 @@ extends Node2D
 @export var ce_prisoner : String = 'juanpe'
 @onready var head : Head = $Head
 
-@export var CE_FREE_ESTALVI : int = 2000
+@export var CE_FREE_ESTALVI : int = 6000
 @onready var freedom_announcement = $FreedomAnnouncement
 @onready var head_pick_collision = $Head/Area2D/HeadPickCollision
 

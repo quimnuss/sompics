@@ -31,7 +31,7 @@ script = ExtResource("4_p2yna")
 [node name="Villan1" type="AnimatedSprite2D" parent="."]
 position = Vector2(568, 384)
 sprite_frames = ExtResource("6_rv6ha")
-animation = &"trello"
+animation = &"drback"
 autoplay = "dset"
 
 [node name="Villan2" type="AnimatedSprite2D" parent="Villan1"]

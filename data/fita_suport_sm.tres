@@ -7,8 +7,6 @@ script = ExtResource("1_cir0i")
 title = "Migració SM2 iSM3"
 team = "Suport"
 time = "2023-Q3 i 2024-Q1"
-impacte = "Estalvi de recursos a la plataforma d’OVH, per donar-los a altres productes amb
-més requeriments"
+impacte = "Estalvi de recursos a la plataforma d’OVH, per donar-los a altres productes amb més requeriments"
 enabler = ""
-added_value = "Disminuir la factura d’OVH, i augmentar els recursos
-disponibles a la plataforma del núvol."
+added_value = "Disminuir la factura d’OVH, i augmentar els recursos disponibles a la plataforma del núvol."

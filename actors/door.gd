@@ -18,7 +18,7 @@ var level_num : int = 0
 
 @export var next_level : String
 
-@export var level_estalvi : int = 10000
+@export var level_estalvi : int = 30000
 
 func _ready():
     num_pics = len(Persistence.pics)

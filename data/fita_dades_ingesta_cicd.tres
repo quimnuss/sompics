@@ -9,7 +9,5 @@ team = "Dades"
 time = "Q3"
 related_fites = Array[String]([])
 impacte = "Hem d’atendre menys incidències dels DAGs i deploy."
-enabler = "Aprofitar incidències per a dedicar temps a reduïr-les. Fer obligatori el deploy
-automàtic."
-added_value = "Invertim menys temps a atendre incidències i a deployar canvis, a banda que es fa
-de manera segura i automàtica."
+enabler = "Aprofitar incidències per a dedicar temps a reduïr-les. Fer obligatori el deploy automàtic."
+added_value = "Invertim menys temps a atendre incidències i a deployar canvis, a banda que es fa de manera segura i automàtica."

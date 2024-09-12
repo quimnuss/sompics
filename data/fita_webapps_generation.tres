@@ -8,10 +8,6 @@ title = "GenerationkWh"
 team = "Webapps"
 time = "Q1"
 related_fites = Array[String]([])
-impacte = "Hem pogut valorar els pros i contres dels equips dedicats i hem pres decisions
-importants al respecte, com per exemple gestionar de manera diferent
-l’acompanyament de les persones de l’equip implicades."
-enabler = "Poder tenir un equip transversal que cobria totes les capes del projecte. I les
-representants d’IT han pogut assistir des de l’inici a la presa de decisions."
-added_value = "Les usuàries poden obtenir accions de Generation kWh i posteriorment poden
-veure l’ús i la generació de drets d’aquestes accions."
+impacte = "Hem pogut valorar els pros i contres dels equips dedicats i hem pres decisions importants al respecte, com per exemple gestionar de manera diferent l’acompanyament de les persones de l’equip implicades."
+enabler = "Poder tenir un equip transversal que cobria totes les capes del projecte. I les representants d’IT han pogut assistir des de l’inici a la presa de decisions."
+added_value = "Les usuàries poden obtenir accions de Generation kWh i posteriorment poden veure l’ús i la generació de drets d’aquestes accions."
