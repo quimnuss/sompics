@@ -8,20 +8,19 @@ We can just add the name in the persistence array if it matches possible names
 and either restart level or spawn_one in PlayerSpawner reacting to a new_player signal
 Available on the first 2 levels only for simplicity (no attached, no flying)
 
-- [ ] Acció POs
-- [ ] DrBack defeat on level 17
+- [ ] DrBack defeat on level 17 (animation and fireworks on defeat)
 - [ ] Friday Timer
 - [ ] Prevent double estalvi on level restart
+- [ ] Fites Screen + Persistence (don't recatch fita during a playthru)
 
 ## next
 
+- [ ] Acció POs
 - [ ] Place latest collectibles
 - [ ] GooseLuis Money
-- [ ] Dialogic Astroboy
-- [ ] Free CE
-- [ ] Fites Screen + Persistence (don't recatch fita during a playthru)
 - [ ] Collectibles cards forward backward arrows
 - [ ] estalvi persistence (in case of restart)
+- [ ] Credits
 
 ## later
 
@@ -35,6 +34,8 @@ Available on the first 2 levels only for simplicity (no attached, no flying)
 
 # Done
 
+- [x] Free CE
+- [x] Dialogic Astroboy
 - [x] GooseLuis level 8.5 (spawn from crate, explain, and then fites)
 - [x] Intermissions
 - [x] Place Collectibles
