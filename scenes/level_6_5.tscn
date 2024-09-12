@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch5t64xy3dtly"]
+[gd_scene load_steps=5 format=3 uid="uid://ch5t64xy3dtly"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_o10md"]
 [ext_resource type="Resource" path="res://dialogs/ce_death_timeline.dtl" id="2_ccpav"]
+[ext_resource type="PackedScene" uid="uid://btkb2wr52a3v5" path="res://actors/caged_ce.tscn" id="3_uef8u"]
+[ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="4_pjr4y"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -9,3 +11,11 @@
 timeline = ExtResource("2_ccpav")
 villan_1_name = "ce"
 villan_2_name = ""
+
+[node name="CagedCE" parent="." instance=ExtResource("3_uef8u")]
+position = Vector2(304, 208)
+
+[node name="Button" parent="." instance=ExtResource("4_pjr4y")]
+position = Vector2(240, 400)
+
+[connection signal="button_pressed" from="Button" to="CagedCE" method="_on_button_button_pressed"]

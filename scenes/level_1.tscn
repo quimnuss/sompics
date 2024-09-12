@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://crwoi120lyg6h"]
+[gd_scene load_steps=10 format=3 uid="uid://crwoi120lyg6h"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_swaw2"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_x7fib"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://actors/respawn_one.gd" id="5_m0ni4"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="6_mj6gc"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="7_aqsyc"]
+[ext_resource type="Resource" uid="uid://b41c5wu1e8a2f" path="res://data/fita_erp_todo1.tres" id="8_yywr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yue0q"]
 size = Vector2(1008, 173)
@@ -52,6 +53,6 @@ position = Vector2(522, 306)
 
 [node name="Collectible" parent="." instance=ExtResource("7_aqsyc")]
 position = Vector2(368, 424)
-collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([null])
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("8_yywr3")])
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

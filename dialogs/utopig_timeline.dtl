@@ -2,7 +2,7 @@ join som_character 0
 join utopig_character 3
 utopig_character: Benvolguts! Sóc UtoPiG! Sóc aquí per ajudar-vos a escapar-vos!
 utopig_character: Els Xupòpters ens han atrapat a una ronda interminable. El DrBack vol impedir que poseu a producció per a què externalitzeu i puguin fer-se d'or!
-utopig_character: El DrBack vol impedir que poseu a producció per a què externalitzeu i puguin fer-se d'or! L'objectiu és que estalvíem i aconseguim contractes per a deixar sense feina al DrBack. Teniu el recompte aquí a dalt!
+utopig_character: L'objectiu  [shake]O K R[/shake] és que estalvíem i aconseguim contractes per a deixar sense feina al DrBack. Teniu el recompte aquí a dalt!
 utopig_character: També trobareu Fites pel camí que tenen aquesta pinta\:
 join collectible_character 2
 utopig_character: Recolliu-les totes! Ànims i Bona Sort!
