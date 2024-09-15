@@ -53,8 +53,15 @@ theme_override_constants/separation = 30
 [node name="Button" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Level Select"
+text = "Levels"
 script = ExtResource("5_1wjmb")
+
+[node name="Button2" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fites"
+script = ExtResource("5_1wjmb")
+scene_filename = "res://ui/fita_browser.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/VBoxContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -80,3 +87,4 @@ stretch_mode = 3
 
 [connection signal="all_in" from="Door" to="." method="_on_door_all_in"]
 [connection signal="pressed" from="UI/VBoxContainer/Button" to="UI/VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Button2" to="UI/VBoxContainer/Button2" method="_on_pressed"]

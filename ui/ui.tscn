@@ -35,12 +35,18 @@ theme_override_constants/separation = 15
 
 [node name="LevelSelect" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Level Select"
+text = "Levels"
 script = ExtResource("2_8ukki")
 
 [node name="Restart" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Restart Level"
+
+[node name="FitaBrowser" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Fites"
+script = ExtResource("2_8ukki")
+scene_filename = "res://ui/fita_browser.tscn"
 
 [node name="GameLost" type="Label" parent="."]
 visible = false
@@ -90,3 +96,4 @@ horizontal_alignment = 2
 
 [connection signal="pressed" from="HBoxContainer/LevelSelect" to="HBoxContainer/LevelSelect" method="_on_pressed"]
 [connection signal="pressed" from="HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HBoxContainer/FitaBrowser" to="HBoxContainer/FitaBrowser" method="_on_pressed"]

@@ -4,8 +4,13 @@ extends HBoxContainer
 
 var visible_index : int = 0
 
+
+func _ready():
+    if cards.is_empty():
+        cards = get_children()
+
 func update():
-    var cards = get_children()
+    cards = get_children()
     if len(cards) <= 1:
         visible_index = 0
         return

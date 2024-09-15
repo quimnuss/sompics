@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_1gl6b")
-title = "Exemple"
+title = "Exemple 1"
 team = "ERP"
 time = "Q2"
 related_fites = Array[String]([])
