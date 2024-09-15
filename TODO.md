@@ -2,12 +2,6 @@
 
 ## now
 
-- [ ] configurable number of players in-game
-
-We can just add the name in the persistence array if it matches possible names
-and either restart level or spawn_one in PlayerSpawner reacting to a new_player signal
-Available on the first 2 levels only for simplicity (no attached, no flying)
-
 - [ ] DrBack defeat on level 17 (animation and fireworks on defeat)
 - [ ] Friday Timer
 - [ ] Prevent double estalvi on level restart
@@ -34,6 +28,7 @@ Available on the first 2 levels only for simplicity (no attached, no flying)
 
 # Done
 
+- [x] configurable number of players in-game
 - [x] Fites Screen
 - [x] Free CE
 - [x] Dialogic Astroboy
@@ -98,6 +93,8 @@ Available on the first 2 levels only for simplicity (no attached, no flying)
 'level_17_5.tscn' : [],
 'level_18.tscn' : [],
 }
+
+## pending
 
 fita_po_deute_tecnic.tres
 fita_po_mindset.tres

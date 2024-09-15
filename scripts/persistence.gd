@@ -24,6 +24,32 @@ var pics : Array = [
     #'daniquilez'
 #]
 ]
+
+const possible_pics : Array = [
+    'marta',
+    'pol',
+    'joana',
+    'juanpe',
+    'david',
+    'marite',
+    'isra',
+    'daniestanyol',
+    'xavidolz',
+    'benjami',
+    'nuse',
+    'fran',
+    'jordi',
+    'joan',
+    'raul',
+    'lucia',
+    'pere',
+    'bea',
+    'angel',
+    'oriol',
+    'xavierbonet',
+    'daniquilez'
+]
+
 var active_pic : int = 0
 
 var ce_members : Array[String] = ['juanpe', 'xavierbonet', 'benjami', 'daniquilez']

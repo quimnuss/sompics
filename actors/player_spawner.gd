@@ -54,6 +54,36 @@ func _ready():
             pic.pic_back.connect(door.pic_back)
             pic.pic_exit.connect(door.pic_exit)
 
+func spawn_one(pic_name : String):
+    var markers = markers_node.get_children() if markers_node else Array()
+    var pics_array = Persistence.pics
+
+    if attached:
+        spawn_attached(pic_name)
+    elif not markers.is_empty():
+        var index : int = pics_array.find(pic_name)
+        if markers[index%len(markers)] is Marker2D:
+            spawn_at(pic_name, markers[index].global_position)
+        else:
+            spawn(pic_name)
+    elif not is_gravity_on:
+        spawn_flying(pic_name)
+    else:
+        spawn(pic_name)
+
+    for pic in get_tree().get_nodes_in_group('pics'):
+        if pic.person == pic_name:
+            var door : Door = get_node_or_null("../Door")
+            if door:
+                door.num_pics += 1
+                pic.pic_back.connect(door.pic_back)
+                pic.pic_exit.connect(door.pic_exit)
+
+func despawn(pic : Pic):
+    pic.queue_free()
+    var door : Door = get_node_or_null("../Door")
+    if door:
+        door.num_pics -= 1
 
 func spawn_at(pic_name : String, spawn_point : Vector2):
     var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
