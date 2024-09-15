@@ -129,8 +129,11 @@ func _process(delta):
     if len(pics) == 0:
         return
     var avg_pic_position : Vector2 = Vector2(0,0)
+    var max_pic_position : Vector2 = pics[0].global_position
+    var min_pic_position : Vector2 = pics[0].global_position
     for pic in pics:
-        avg_pic_position += pic.global_position
-    avg_pic_position = avg_pic_position/len(pics)
+        max_pic_position.x = maxf(max_pic_position.x, pic.global_position.x)
+        min_pic_position.x = minf(min_pic_position.x, pic.global_position.x)
+    avg_pic_position = (max_pic_position + min_pic_position)/2
     player_average_position.emit(avg_pic_position)
 
