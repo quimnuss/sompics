@@ -6,7 +6,6 @@
 - [ ] Friday Timer
 - [ ] Prevent double estalvi on level restart
 - [ ] Fites Persistence (don't recatch fita during a playthru)
-- [ ] number pics bridge (so they all fall in the water)
 
 ## next
 
@@ -28,6 +27,7 @@
 
 # Done
 
+- [x] number pics bridge (so they all fall in the water)
 - [x] Collectibles cards forward backward arrows
 - [x] Full house in intro level
 - [x] hard boundaries on intro level

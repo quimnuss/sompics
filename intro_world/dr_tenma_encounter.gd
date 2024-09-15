@@ -9,11 +9,13 @@ const level_dir : String = 'res://scenes/'
 var dr_back_met : bool = false
 
 func _on_area_2d_body_entered(body):
+    start_dr_back_encounter()
+
+func start_dr_back_encounter():
     if not dr_back_met:
         dr_back_met = true
         get_tree().call_group('pics', 'possess_toggle', false)
         animation_player.play("DrBack")
-
 
 func _on_animation_player_animation_finished(anim_name):
     if anim_name == 'DrBack':
