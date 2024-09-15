@@ -13,7 +13,6 @@
 - [ ] Acció POs
 - [ ] Place latest collectibles
 - [ ] GooseLuis Money
-- [ ] Collectibles cards forward backward arrows
 - [ ] estalvi persistence (in case of restart)
 - [ ] Credits
 
@@ -29,6 +28,7 @@
 
 # Done
 
+- [x] Collectibles cards forward backward arrows
 - [x] Full house in intro level
 - [x] hard boundaries on intro level
 - [x] configurable number of players in-game
