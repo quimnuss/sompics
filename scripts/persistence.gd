@@ -95,6 +95,9 @@ var level_order : Array[String] = [
     'outro.tscn',
 ]
 
+var is_friday_counting : bool = false
+var elapsed_time : float = 0
+
 var money : int = 900000 :
     set(value):
         money = value
@@ -119,3 +122,7 @@ func _input(event):
         get_tree().change_scene_to_file('res://ui/level_select_menu.tscn')
     elif event.is_action_pressed("quit"):
         get_tree().quit()
+
+func _process(delta):
+    if is_friday_counting:
+        elapsed_time += delta

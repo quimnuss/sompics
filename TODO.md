@@ -6,6 +6,7 @@
 - [ ] Friday Timer
 - [ ] Prevent double estalvi on level restart
 - [ ] Fites Persistence (don't recatch fita during a playthru)
+- [ ] Posar forats negres arreu
 
 ## next
 
