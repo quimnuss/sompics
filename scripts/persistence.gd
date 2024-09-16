@@ -96,6 +96,7 @@ var level_order : Array[String] = [
 ]
 
 var is_friday_counting : bool = false
+const friday_limit : int = 2*60
 var elapsed_time : float = 0
 
 var money : int = 900000 :

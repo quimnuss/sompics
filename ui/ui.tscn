@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://82aeqqi2rddp"]
+[gd_scene load_steps=11 format=3 uid="uid://82aeqqi2rddp"]
 
 [ext_resource type="Script" path="res://ui/title.gd" id="1_cscm0"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_mu34e"]
 [ext_resource type="Script" path="res://ui/menu_ingame.gd" id="2_8ukki"]
 [ext_resource type="Script" path="res://ui/fps.gd" id="4_kyt6h"]
 [ext_resource type="PackedScene" uid="uid://bpgt4i1nf2hxx" path="res://ui/drback_estalvi_container.tscn" id="5_onwvy"]
+[ext_resource type="Script" path="res://ui/friday_logic.gd" id="6_7kdj3"]
 [ext_resource type="Texture2D" uid="uid://56se6t0u3a00" path="res://assets/progressbar/32x32 circle bar under.png" id="6_cqbpi"]
 [ext_resource type="Texture2D" uid="uid://cky0lms1y3d4n" path="res://assets/progressbar/32x32 circle bar over.png" id="7_kp628"]
 [ext_resource type="Texture2D" uid="uid://32b8oomhl3xe" path="res://assets/progressbar/32x32 circle bar progress green.png" id="8_x764d"]
+[ext_resource type="Script" path="res://ui/friday_container.gd" id="10_ibyny"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_mu34e")
@@ -106,6 +108,7 @@ offset_right = 336.0
 offset_bottom = 20.0
 grow_horizontal = 2
 text = "Dilluns Matinada"
+script = ExtResource("6_7kdj3")
 
 [node name="FridayProgressBar" type="TextureProgressBar" parent="FridayLabel"]
 custom_minimum_size = Vector2(32, 32)
@@ -120,6 +123,56 @@ texture_under = ExtResource("6_cqbpi")
 texture_over = ExtResource("7_kp628")
 texture_progress = ExtResource("8_x764d")
 
+[node name="FridayContainer" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("10_ibyny")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FridayContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Friday" type="RichTextLabel" parent="FridayContainer/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]
+És Divendres!
+
+[color=orange][pulse]NO DEPLOYS ON DIVENDRES[/pulse][/color]
+
+[color=red][shake]Game Over[/shake][/color]
+[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FridayContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Continue" type="Button" parent="FridayContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Continuem?"
+
+[node name="ToFites" type="Button" parent="FridayContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Cap a Microsoft Fites"
+
 [connection signal="pressed" from="HBoxContainer/LevelSelect" to="HBoxContainer/LevelSelect" method="_on_pressed"]
 [connection signal="pressed" from="HBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="HBoxContainer/FitaBrowser" to="HBoxContainer/FitaBrowser" method="_on_pressed"]
+[connection signal="pressed" from="FridayContainer/VBoxContainer/HBoxContainer/Continue" to="FridayContainer" method="_on_continue_pressed"]
+[connection signal="pressed" from="FridayContainer/VBoxContainer/HBoxContainer/ToFites" to="FridayContainer" method="_on_to_fites_pressed"]
