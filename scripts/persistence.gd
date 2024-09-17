@@ -100,7 +100,7 @@ const friday_limit_minutes : int = 40
 const friday_limit : int = friday_limit_minutes*60
 var elapsed_time : float = 0
 
-var money : int = 900000 :
+var money : int = 900 :
     set(value):
         money = value
         money_changed.emit()
