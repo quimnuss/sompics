@@ -23,6 +23,15 @@
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""
+},
+"sad": {
+"export_overrides": {
+"image": "\"res://intro_world/dr_tenma_sad.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
 }
 },
 "scale": 1.0
