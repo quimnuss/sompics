@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://x2jloum5dt5r"]
+[gd_scene load_steps=17 format=3 uid="uid://x2jloum5dt5r"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1pcra"]
 [ext_resource type="Script" path="res://scenes/level_contracts.gd" id="1_5p0fe"]
@@ -11,8 +11,36 @@
 [ext_resource type="Script" path="res://scenes/area_spawner.gd" id="8_gfw8s"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="9_shls2"]
 [ext_resource type="SpriteFrames" uid="uid://dkqtboo71wasm" path="res://actors/villans_spriteframes.tres" id="11_owru2"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="12_w1o01"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1eyb5"]
+
+[sub_resource type="Animation" id="Animation_inmpi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrBack:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"drback"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DrBack:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_08s2v"]
 resource_name = "drback_defeated"
@@ -55,32 +83,19 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_inmpi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DrBack:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireworksSpawner")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"drback"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DrBack:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [{
+"args": [],
+"method": &"start"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_smka0"]
@@ -181,5 +196,19 @@ libraries = {
 "": SubResource("AnimationLibrary_smka0")
 }
 
+[node name="FireworksSpawner" type="Node2D" parent="."]
+position = Vector2(520, 528)
+script = ExtResource("12_w1o01")
+
+[node name="SpawnTimer" type="Timer" parent="FireworksSpawner"]
+wait_time = 0.5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="FireworksSpawner"]
+offset_left = -451.0
+offset_right = 473.0
+offset_bottom = 40.0
+border_width = 3.0
+
 [connection signal="timeout" from="UI/UITimer" to="." method="_on_ui_timer_timeout"]
 [connection signal="timeout" from="AreaSpawner/SpawnTimer" to="AreaSpawner" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="FireworksSpawner/SpawnTimer" to="FireworksSpawner" method="_on_spawn_timer_timeout"]
