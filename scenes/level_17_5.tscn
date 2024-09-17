@@ -9,5 +9,5 @@ script = ExtResource("1_optdo")
 
 [node name="IntermissionLevel" parent="." instance=ExtResource("1_sxqqu")]
 timeline = ExtResource("2_hd4kw")
-villan_1_name = "drback"
+villan_1_name = "drback_defeated"
 villan_2_name = ""

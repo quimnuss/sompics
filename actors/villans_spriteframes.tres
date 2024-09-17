@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=128 format=3 uid="uid://dkqtboo71wasm"]
+[gd_resource type="SpriteFrames" load_steps=134 format=3 uid="uid://dkqtboo71wasm"]
 
 [ext_resource type="Texture2D" uid="uid://dh0b728qf4d2f" path="res://assets/14-bee/Bee_Idle.png" id="1_fxvou"]
 [ext_resource type="Texture2D" uid="uid://cgmb3c0omkhgp" path="res://intro_world/astroboy_sheet_equal.png" id="1_v6s7s"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0rj7tn0mfug7" path="res://assets/characters/sage_snake.png" id="4_wmmho"]
 [ext_resource type="Texture2D" uid="uid://bcwrc4qieig1q" path="res://assets/characters/flying_pig_spritesheet.png" id="5_0tm5b"]
 [ext_resource type="Texture2D" uid="uid://bhkgbvslw45fm" path="res://assets/characters/helpscout_logo.png" id="5_ff2td"]
+[ext_resource type="Texture2D" uid="uid://col78xo7dnbqs" path="res://assets/characters/drback_defeated_spritesheet.png" id="5_ftss3"]
 [ext_resource type="Texture2D" uid="uid://1kgxeta46qc4" path="res://assets/characters/trello_logo.png" id="7_vnmh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_18ce6"]
@@ -41,6 +42,26 @@ region = Rect2(28, 0, 28, 57)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8xp2"]
 atlas = ExtResource("4_4otrg")
 region = Rect2(56, 0, 28, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wljlh"]
+atlas = ExtResource("5_ftss3")
+region = Rect2(0, 0, 56, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dvrc"]
+atlas = ExtResource("5_ftss3")
+region = Rect2(56, 0, 56, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg7lk"]
+atlas = ExtResource("5_ftss3")
+region = Rect2(112, 0, 56, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j5sq"]
+atlas = ExtResource("5_ftss3")
+region = Rect2(168, 0, 56, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hh24"]
+atlas = ExtResource("5_ftss3")
+region = Rect2(224, 0, 56, 74)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_klcd7"]
 atlas = ExtResource("1_v6s7s")
@@ -532,6 +553,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"drback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wljlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dvrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg7lk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j5sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hh24")
+}],
+"loop": true,
+"name": &"drback_defeated",
 "speed": 5.0
 }, {
 "frames": [{

@@ -42,7 +42,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]Agafeu els contractes [color=yellow]contractes[/color] [color=lightblue]bons[/color] i eviteu els [color=red]dolents[/color]!
-Deixeu el DrBack sense vida per a què no torni mai més![/center]"
+Deixeu el DrBack sense diners per a què no torni mai més![/center]"
 fit_content = true
 
 [node name="TileMap" type="TileMap" parent="."]

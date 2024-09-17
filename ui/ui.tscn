@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://82aeqqi2rddp"]
+[gd_scene load_steps=12 format=3 uid="uid://82aeqqi2rddp"]
 
 [ext_resource type="Script" path="res://ui/title.gd" id="1_cscm0"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_mu34e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cky0lms1y3d4n" path="res://assets/progressbar/32x32 circle bar over.png" id="7_kp628"]
 [ext_resource type="Texture2D" uid="uid://32b8oomhl3xe" path="res://assets/progressbar/32x32 circle bar progress green.png" id="8_x764d"]
 [ext_resource type="Script" path="res://ui/friday_container.gd" id="10_ibyny"]
+[ext_resource type="Texture2D" uid="uid://cnx8sd80vyyxn" path="res://assets/frame_varied.png" id="11_853ds"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_mu34e")
@@ -123,19 +124,36 @@ texture_under = ExtResource("6_cqbpi")
 texture_over = ExtResource("7_kp628")
 texture_progress = ExtResource("8_x764d")
 
-[node name="FridayContainer" type="CenterContainer" parent="."]
+[node name="FridayContainer" type="PanelContainer" parent="."]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -237.5
+offset_right = 300.0
+offset_bottom = 237.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("10_ibyny")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="FridayContainer"]
+layout_mode = 2
+texture = ExtResource("11_853ds")
+region_rect = Rect2(268, 664, 128, 128)
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
 [node name="VBoxContainer" type="VBoxContainer" parent="FridayContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 20
 
 [node name="Friday" type="RichTextLabel" parent="FridayContainer/VBoxContainer"]
@@ -146,13 +164,11 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[center]
-És Divendres!
+text = "[center]És Divendres!
 
 [color=orange][pulse]NO DEPLOYS ON DIVENDRES[/pulse][/color]
 
-[color=red][shake]Game Over[/shake][/color]
-[/center]"
+[color=red][shake]Game Over[/shake][/color][/center]"
 fit_content = true
 scroll_active = false
 

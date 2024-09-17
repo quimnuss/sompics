@@ -3,7 +3,6 @@
 ## now
 
 - [ ] DrBack defeat on level 17 (animation and fireworks on defeat)
-- [ ] Friday Timer
 - [ ] Prevent double estalvi on level restart
 - [ ] Fites Persistence (don't recatch fita during a playthru)
 - [ ] Posar forats negres arreu
@@ -28,6 +27,7 @@
 
 # Done
 
+- [x] Friday Timer
 - [x] number pics bridge (so they all fall in the water)
 - [x] Collectibles cards forward backward arrows
 - [x] Full house in intro level

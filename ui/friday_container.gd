@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Container
 
 
 func _on_continue_pressed():
