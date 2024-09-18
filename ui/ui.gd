@@ -17,7 +17,7 @@ func toggle_drback(new_visible : bool):
     lower_container.visible = new_visible
 
 
-func _process(delta):
+func _process(_delta):
     $ActivePic.set_text(Persistence.pics[Persistence.active_pic])
     
     if Persistence.is_friday_counting and Persistence.elapsed_time > Persistence.friday_limit:

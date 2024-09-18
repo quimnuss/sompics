@@ -21,7 +21,7 @@ func _input(event):
         Dialogic.clear()
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
     if entered:
         return
     entered = true
@@ -44,6 +44,5 @@ func _on_dialogic_timeline_ended():
     goose_luis.flip_h = true
     animation_player.play_backwards("gl_departure")
     get_tree().call_group('pics', 'possess_toggle', true)
-    var foo = Dialogic.VAR
     prints('Accepted GL help?', Dialogic.VAR.goose_luis_help)
     Persistence.goose_luis_help = Dialogic.VAR.goose_luis_help

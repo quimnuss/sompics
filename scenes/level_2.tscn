@@ -36,7 +36,7 @@ position = Vector2(168, 184)
 script = ExtResource("4_auvvl")
 
 [node name="AnimatableWeightPlatform" parent="." instance=ExtResource("8_dgy5t")]
-position = Vector2(672, 520)
+position = Vector2(672, 504)
 
 [node name="Collectible" parent="." instance=ExtResource("8_oktpo")]
 position = Vector2(528, 192)

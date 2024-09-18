@@ -7,8 +7,8 @@ extends Node2D
 
 func _ready():
     var calls = get_tree().get_nodes_in_group('calls')
-    for call : CallDotFalling in calls:
-        call.picked_up.connect(phone_queue._on_call_picked)
+    for a_call : CallDotFalling in calls:
+        a_call.picked_up.connect(phone_queue._on_call_picked)
 
 
 func _on_ui_timer_timeout():

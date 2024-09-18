@@ -11,7 +11,7 @@ var textures : Array[Texture] = [
 ]
 
 func _ready():
-    var color : Color = colors.pick_random()
+    #var color : Color = colors.pick_random()
     explosion.texture = textures.pick_random()
     var height : float = randf_range(150,300)
     var explosion_scale : float = randf_range(2,4)

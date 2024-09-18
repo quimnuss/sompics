@@ -36,7 +36,7 @@ func somebody_stopped():
         if all_stopped.get_connections():
             all_stopped.disconnect(all_stopped.get_connections()[0]['callable'])
 
-func _process(delta):
+func _process(_delta):
     var previous_total_time : int = total_time
     aggregate_time()
     if previous_total_time != total_time:

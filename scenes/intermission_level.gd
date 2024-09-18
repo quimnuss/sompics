@@ -25,7 +25,7 @@ func _input(event):
         _on_dialogic_timeline_ended()
         Dialogic.clear()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
     if entered or Dialogic.current_timeline != null:
         return
     entered = true

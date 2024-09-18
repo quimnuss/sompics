@@ -13,6 +13,7 @@ var is_halted : bool = false
 signal timeout
 
 func update_timer(remaining_seconds : int):
+    @warning_ignore("integer_division")
     var secs : int = remaining_seconds % 60
     var mins : int = remaining_seconds / 60
     label.set_text("%02d:%02d" % [mins, secs])

@@ -105,6 +105,7 @@ func spawn_flying(pic_name : String):
     pic.person = pic_name
     if not is_gravity_on:
         pic.is_flying = true
+        @warning_ignore("integer_division")
         var shift_spawn : Vector2 = spawned_pics%6 * Vector2(50,0) + spawned_pics/6 * Vector2(0, 50)
         pic.position += shift_spawn
         spawned_pics += 1
@@ -124,7 +125,7 @@ func spawn_attached(pic_name):
     last_pic = pic
 
 
-func _process(delta):
+func _process(_delta):
     var pics : Array = get_tree().get_nodes_in_group('pics')
     if len(pics) == 0:
         return

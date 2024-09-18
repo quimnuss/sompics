@@ -15,8 +15,8 @@ func add_random_call():
 
 func picked_correct_call():
     print('correct!')
-    var call : CallDot = call_queue_dots.pop_front()
-    call.queue_free()
+    var a_call : CallDot = call_queue_dots.pop_front()
+    a_call.queue_free()
     for call_dot : CallDot in call_queue_dots:
         call_dot.position.x -= DOT_SIZE + SPACING
     if call_queue_dots.is_empty():

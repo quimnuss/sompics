@@ -7,7 +7,7 @@ var length : int
 const MAX_LENGTH : int = 5
 
 func _ready():
-    var initial_bridge_tiles : Array[Vector2i];
+    var initial_bridge_tiles : Array[Vector2i] = []
     var num_pics : int = len(Persistence.pics)
     length = max(0, MAX_LENGTH - floor(num_pics/2.0))
     for i in range(length):

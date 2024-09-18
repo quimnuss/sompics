@@ -8,7 +8,7 @@ const level_dir : String = 'res://scenes/'
 
 var dr_back_met : bool = false
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
     start_dr_back_encounter()
 
 func start_dr_back_encounter():

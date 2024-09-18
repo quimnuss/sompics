@@ -7,7 +7,7 @@ var average_position : Vector2 = Vector2(576, 328)
 func _ready():
     self.global_position = start_position
 
-func _process(delta):
+func _process(_delta):
     self.global_position.y = start_position.y
     self.global_position.x = average_position.x
 
