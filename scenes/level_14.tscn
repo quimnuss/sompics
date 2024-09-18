@@ -41,7 +41,7 @@ gravity_scale = 0.0
 position = Vector2(592, 163)
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(96, 176)
+position = Vector2(89, 189)
 script = ExtResource("5_mvno2")
 
 [node name="Area2D2" type="Area2D" parent="." node_paths=PackedStringArray("keyspawn")]

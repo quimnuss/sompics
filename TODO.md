@@ -2,7 +2,6 @@
 
 ## now
 
-- [ ] DrBack defeat on level 17 (animation and fireworks on defeat)
 - [ ] Prevent double estalvi on level restart
 - [ ] Fites Persistence (don't recatch fita during a playthru)
 - [ ] Posar forats negres arreu
@@ -17,7 +16,6 @@
 
 ## later
 
-- [ ] Intro level: after the bridge
 - [ ] Resum del torn de telèfon tipo tomàtic
 - [ ] death animation
 - [ ] noves cares
@@ -27,6 +25,8 @@
 
 # Done
 
+- [x] Intro level: after the bridge
+- [x] DrBack defeat on level 17 (animation and fireworks on defeat)
 - [x] Friday Timer
 - [x] number pics bridge (so they all fall in the water)
 - [x] Collectibles cards forward backward arrows

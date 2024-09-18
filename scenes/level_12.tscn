@@ -204,7 +204,7 @@ position = Vector2(840, 560)
 position = Vector2(624, 560)
 
 [node name="Collectible" parent="." instance=ExtResource("9_fr1ol")]
-position = Vector2(1096, 272)
+position = Vector2(1048, 240)
 collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("10_yq5x3")])
 
 [connection signal="players_spawned" from="PlayerSpawner" to="TimedButtonCollector" method="_on_player_spawner_players_spawned"]
