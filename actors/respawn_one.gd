@@ -4,11 +4,16 @@ extends Area2D
 
 const RESPAWN_WAIT : float = 0.4
 
+var respawning_pics : Array[Pic]
+
 func _on_body_entered(body):
-    if body is Pic:
+    if body is Pic and body not in respawning_pics:
+        respawning_pics.push_back(body)
         body.drop()
+        # TODO tween rotation
         await get_tree().create_timer(RESPAWN_WAIT).timeout
         body.global_position = owner.get_node('PlayerSpawner').global_position + Vector2(randi_range(-50,50),randi_range(0,50))
+        respawning_pics.pop_front()
 
 
     if body is Key and not body.freeze:

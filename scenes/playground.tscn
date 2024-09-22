@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bifg0om83dt7j"]
+[gd_scene load_steps=26 format=3 uid="uid://bifg0om83dt7j"]
 
 [ext_resource type="Script" path="res://scenes/playground.gd" id="1_77m0m"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_c81co"]
@@ -9,16 +9,73 @@
 [ext_resource type="PackedScene" uid="uid://cwf4yqf0soyw2" path="res://ui/fueguito_count.tscn" id="4_0v4kh"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_o5gmv"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="5_cj3ad"]
-[ext_resource type="Script" path="res://actors/respawn_all.gd" id="7_djybp"]
-[ext_resource type="Texture2D" uid="uid://cnr7jd458p5nk" path="res://assets/Items/door_openMid.png" id="8_5c4go"]
 [ext_resource type="PackedScene" uid="uid://c5erylmd5leup" path="res://actors/drop_box.tscn" id="9_5ywgi"]
+[ext_resource type="Script" path="res://actors/respawn_one.gd" id="10_gxl6j"]
 [ext_resource type="PackedScene" uid="uid://4x0l8tl5cstu" path="res://actors/weight_platform.tscn" id="10_qsupa"]
+[ext_resource type="Texture2D" uid="uid://btmhdxqp8po3t" path="res://assets/portal.png" id="11_7dawc"]
 [ext_resource type="PackedScene" uid="uid://bh44brmlp1s8k" path="res://actors/platform.tscn" id="11_sskg7"]
 [ext_resource type="PackedScene" uid="uid://bde6w2sxt4efv" path="res://actors/coin.tscn" id="14_sjfhm"]
 [ext_resource type="PackedScene" uid="uid://1x0pl6tlptup" path="res://actors/spring.tscn" id="16_16d4q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp76t"]
-size = Vector2(60, 42)
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6lj5"]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq282"]
+atlas = ExtResource("11_7dawc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12nip"]
+atlas = ExtResource("11_7dawc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8toc"]
+atlas = ExtResource("11_7dawc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbejy"]
+atlas = ExtResource("11_7dawc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flobl"]
+atlas = ExtResource("11_7dawc")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg7nx"]
+atlas = ExtResource("11_7dawc")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00d35"]
+atlas = ExtResource("11_7dawc")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oblhc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq282")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12nip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8toc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbejy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flobl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg7nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00d35")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_77m0m")
@@ -62,16 +119,15 @@ position = Vector2(584, 528)
 position = Vector2(888, 368)
 collision_layer = 0
 collision_mask = 6
-script = ExtResource("7_djybp")
+script = ExtResource("10_gxl6j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(10, 72)
-shape = SubResource("RectangleShape2D_xp76t")
+shape = SubResource("CircleShape2D_x6lj5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(10.5, 69.5)
-scale = Vector2(0.842857, 0.614286)
-texture = ExtResource("8_5c4go")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_oblhc")
+autoplay = "default"
+frame_progress = 0.597088
 
 [node name="KeySpawn" type="Marker2D" parent="."]
 position = Vector2(776, 448)
