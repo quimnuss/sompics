@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_0vyqo")
-title = "Focus enDeute Tècnic"
+title = "Focus en Deute Tècnic"
 team = "POs"
 time = "Q1"
 impacte = "En els equips amb qui treballem per rondes hem pogut habilitar espais sostinguts de Focus per poder abordar qüestions de deute tècnic. Exemples: migració webforms UI , Uiqmako, Timescale, projecte Algemesí de testos, millorar validacions formularis,..."

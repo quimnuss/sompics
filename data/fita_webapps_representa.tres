@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_1b0bs")
-title = "OficinaVirtual Representa"
+title = "Oficina Virtual Representa"
 team = "Webapps"
 time = "Q2"
 related_fites = Array[String]([])

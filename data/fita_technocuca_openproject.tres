@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_234l2")
-title = "Mort altrello, benvingutOpenProject"
+title = "Mort al trello, benvingut OpenProject"
 team = "Technocuca"
 time = "Q1"
 related_fites = Array[String]([])

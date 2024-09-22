@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_cissr")
-title = "Balanç de costos ambresultats"
+title = "Balanç de costos amb resultats"
 team = "Dades"
 time = "Q3"
 related_fites = Array[String]([])
