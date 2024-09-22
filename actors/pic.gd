@@ -152,7 +152,9 @@ func external_input(player : String, action : String, is_pressed : bool = true):
     if player != self.person:
         return
     var input_action : String = action + '-' + player
-    prints("external input ", input_action)
+    prints("external input ", input_action, "and", "is possessed" if is_possessed else "is NOT possessed")
+    if not is_possessed:
+        return
     if action == 'move_up':
         input_action = 'jump-' + player
     if is_pressed:
@@ -363,6 +365,12 @@ func _physics_process_attached(delta : float, just_jumped : bool, direction : fl
 
 func possess_toggle(new_is_possessed : bool):
     is_possessed = new_is_possessed
+    if not is_possessed:
+        velocity = Vector2.ZERO
+        Input.action_release(move_left)
+        Input.action_release(move_right)
+        Input.action_release(jump)
+        Input.action_release(move_down)
 
 
 func _on_coyote_timer_timeout():
