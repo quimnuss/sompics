@@ -11,3 +11,8 @@ script = ExtResource("1_optdo")
 timeline = ExtResource("2_hd4kw")
 villan_1_name = "drback_defeated"
 villan_2_name = ""
+
+[node name="Door" parent="IntermissionLevel" index="1"]
+is_end_level = true
+
+[editable path="IntermissionLevel"]

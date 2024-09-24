@@ -4,13 +4,11 @@
 
 - [ ] Prevent double estalvi on level restart
 - [ ] Fites Persistence (don't recatch fita during a playthru)
-- [ ] Posar forats negres arreu
 
 ## next
 
 - [ ] Acció POs
 - [ ] Place latest collectibles
-- [ ] GooseLuis Money
 - [ ] estalvi persistence (in case of restart)
 - [ ] Credits
 
@@ -25,6 +23,8 @@
 
 # Done
 
+- [ ] ~Posar forats negres arreu~ abandoned because it's hard enough already
+- [x] GooseLuis Money
 - [x] Intro level: after the bridge
 - [x] DrBack defeat on level 17 (animation and fireworks on defeat)
 - [x] Friday Timer

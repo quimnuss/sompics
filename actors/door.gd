@@ -6,6 +6,7 @@ class_name Door
 const level_dir : String = 'res://scenes/'
 
 @export var is_open : bool = false
+@export var is_end_level : bool = false
 
 signal door_open
 signal level_exit
@@ -41,15 +42,15 @@ func _ready():
 func open():
     door_sprite.play('open')
     is_open = true
-    Persistence.estalvi(level_estalvi)
+    if not is_end_level:
+        Persistence.estalvi(level_estalvi)
     door_open.emit()
     await door_sprite.animation_finished
-    if Persistence.goose_luis_help:
-        var goose_luis = $CanvasLayer/AnimatedSprite2D
-        goose_luis.visible = true
-        goose_luis.play()
-        await goose_luis.animation_finished
-        goose_luis.visible = false
+    if Persistence.goose_luis_help and not is_end_level:
+        var anim_player : AnimationPlayer = $CanvasLayer/AnimationPlayer
+        anim_player.play('default')
+        await anim_player.animation_finished
+        Persistence.estalvi(level_estalvi*0.2)
 
 func close():
     is_open = false
