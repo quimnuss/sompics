@@ -81,9 +81,9 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_m5r1r"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 990, 211, 0, 0, 0, 0, 712, 203, 0, 0, 0, 0, 990, 279, 0, 0, 0, 0, 717, 309, 0, 0, 0, 0, 985, 347)
+"points": PackedVector2Array(0, 0, 0, 0, 990, 211, 0, 0, 0, 0, 477, 200, 0, 0, 0, 0, 466, 514, 0, 0, 0, 0, 654, 511, 0, 0, 0, 0, 985, 272, 0, 0, 0, 0, 990, 211)
 }
-point_count = 5
+point_count = 6
 
 [sub_resource type="GDScript" id="GDScript_dvp1s"]
 script/source = "extends Path2D
@@ -183,7 +183,7 @@ script = SubResource("GDScript_dvp1s")
 
 [node name="EvilBeeFollowPath" type="PathFollow2D" parent="EvilBeePath"]
 position = Vector2(990, 211)
-rotation = -3.11282
+rotation = -3.12015
 script = ExtResource("19_wofl2")
 
 [node name="EvilBee" parent="EvilBeePath/EvilBeeFollowPath" instance=ExtResource("17_cybxe")]

@@ -8,7 +8,8 @@ var respawning_pics : Array[Pic]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    $AnimatedSprite2D.play("idle_right")
+    $AnimationPlayer.play("idle_right")
+    $IdleSound.play()
 
 
 
@@ -23,9 +24,11 @@ func _on_body_entered(body):
         respawning_pics.push_back(body)
         body.drop()
         # TODO tween rotation
+        $HitSound.play()
         await get_tree().create_timer(RESPAWN_WAIT).timeout
         body.global_position = owner.get_node('PlayerSpawner').global_position + Vector2(randi_range(-50,50),randi_range(0,50))
         respawning_pics.pop_front()
+        
 
 
     if body is Key and not body.freeze:
@@ -40,4 +43,6 @@ func _on_body_entered(body):
         body.linear_velocity = Vector2.ZERO
         await get_tree().create_timer(0.5).timeout
         body.call_deferred("set_freeze_enabled", false)
+
+
 

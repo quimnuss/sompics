@@ -1,93 +1,102 @@
-[gd_scene load_steps=13 format=3 uid="uid://f85oyoih74nu"]
+[gd_scene load_steps=9 format=3 uid="uid://f85oyoih74nu"]
 
 [ext_resource type="Script" path="res://characters/evil_bee.gd" id="1_lohrp"]
 [ext_resource type="Texture2D" uid="uid://dh0b728qf4d2f" path="res://assets/14-bee/Bee_Idle.png" id="1_lwut2"]
+[ext_resource type="AudioStream" uid="uid://c663ndcvk3f7m" path="res://assets/14-bee/BeeSound.ogg" id="3_hd18y"]
+[ext_resource type="AudioStream" uid="uid://cksim7x7erdow" path="res://assets/14-bee/BeeHit.wav" id="4_36quc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ptv8"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(0, 64, 64, 64)
+[sub_resource type="Animation" id="Animation_576au"]
+resource_name = "idle_right"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(4, -13), Vector2(4, -13), Vector2(4, -8), Vector2(4, -13)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hre1"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(64, 64, 64, 64)
+[sub_resource type="Animation" id="Animation_df1ei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -13)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qcuit"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(128, 64, 64, 64)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mpmr"]
+_data = {
+"RESET": SubResource("Animation_df1ei"),
+"idle_right": SubResource("Animation_576au")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4e6p0"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(192, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfbpb"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(0, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_okalo"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(64, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i7tfv"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(128, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xwhk1"]
-atlas = ExtResource("1_lwut2")
-region = Rect2(192, 128, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cp6kt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ptv8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6hre1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qcuit")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4e6p0")
-}],
-"loop": true,
-"name": &"idle_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yfbpb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_okalo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i7tfv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xwhk1")
-}],
-"loop": true,
-"name": &"idle_right",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srmcl"]
-radius = 11.0
-height = 26.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j751b"]
+radius = 8.0
+height = 28.0
 
 [node name="EvilBee" type="Area2D"]
 position = Vector2(1, 8)
 script = ExtResource("1_lohrp")
-metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Body" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_cp6kt")
-animation = &"idle_right"
-frame_progress = 0.447793
+texture = ExtResource("1_lwut2")
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2mpmr")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -11)
+position = Vector2(4, -13)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_srmcl")
+shape = SubResource("CapsuleShape2D_j751b")
+
+[node name="IdleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hd18y")
+volume_db = -5.956
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_36quc")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
