@@ -1,98 +1,53 @@
-[gd_scene load_steps=17 format=3 uid="uid://31y11begqd5e"]
+[gd_scene load_steps=14 format=3 uid="uid://31y11begqd5e"]
 
 [ext_resource type="Script" path="res://actors/door.gd" id="1_jq57x"]
 [ext_resource type="SpriteFrames" uid="uid://cu3btbkmvpgbv" path="res://actors/door_spriteframes.tres" id="2_hivc1"]
-[ext_resource type="Texture2D" uid="uid://df64b8jevoluv" path="res://assets/goose_typing_spritesheet.png" id="3_4or3v"]
+[ext_resource type="Texture2D" uid="uid://0gjvf8xk877m" path="res://assets/characters/gooseluis_spritesheet.png" id="3_b4c0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5icyh"]
 size = Vector2(30, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lkq53"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(333, 0, 333, 345)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rigon"]
+atlas = ExtResource("3_b4c0e")
+region = Rect2(0, 0, 128, 126)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yedwh"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(666, 0, 333, 345)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yqa5"]
+atlas = ExtResource("3_b4c0e")
+region = Rect2(128, 0, 128, 126)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5jgy"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(999, 0, 333, 345)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpc74"]
+atlas = ExtResource("3_b4c0e")
+region = Rect2(256, 0, 128, 126)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyujn"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(1332, 0, 333, 345)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kprwt"]
+atlas = ExtResource("3_b4c0e")
+region = Rect2(384, 0, 128, 126)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3iaf"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(1665, 0, 333, 345)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6m6m"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(1998, 0, 333, 345)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1ef1"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(2331, 0, 333, 345)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_irc8y"]
-atlas = ExtResource("3_4or3v")
-region = Rect2(0, 0, 333, 345)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1c8p"]
+atlas = ExtResource("3_b4c0e")
+region = Rect2(512, 0, 128, 126)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_12pfl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lkq53")
+"texture": SubResource("AtlasTexture_rigon")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yedwh")
+"texture": SubResource("AtlasTexture_8yqa5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w5jgy")
+"texture": SubResource("AtlasTexture_vpc74")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yyujn")
+"texture": SubResource("AtlasTexture_kprwt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n3iaf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p6m6m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1ef1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_irc8y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lkq53")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yedwh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5jgy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yyujn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n3iaf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p6m6m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1ef1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_irc8y")
+"texture": SubResource("AtlasTexture_v1c8p")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="Animation" id="Animation_llmo4"]
@@ -147,7 +102,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 3, 3.5),
 "transitions": PackedFloat32Array(8, 1, 0.4, 8),
 "update": 0,
-"values": [Vector2(168, 920), Vector2(168, 496), Vector2(168, 496), Vector2(168, 920)]
+"values": [Vector2(168, 920), Vector2(168, 600), Vector2(168, 600), Vector2(168, 920)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -219,8 +174,7 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(168, 920)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_12pfl")
-frame = 5
-frame_progress = 0.108269
+frame_progress = 0.0188617
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {

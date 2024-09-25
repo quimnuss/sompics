@@ -49,5 +49,5 @@ Convert gif to spritesheet with
 
 ```
 convert -coalesce input.gif frames/%02d.png
-montage -background transparent -tile 4x frames/*.png spritesheet.png
+montage -mode concatenate -quality 100 -background transparent -tile 5x frames/*.png spritesheet.png 
 ```
