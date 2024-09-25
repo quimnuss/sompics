@@ -126,7 +126,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -292,13 +292,15 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_qnlmo")
 disabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Body" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(0, -8)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_6xg8w")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.825018
 
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(0, -3)

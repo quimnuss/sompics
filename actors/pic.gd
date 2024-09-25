@@ -3,6 +3,7 @@ class_name Pic
 @onready var head : Sprite2D = $Head
 @onready var jump_sound : AudioStreamPlayer = $jump_sound
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var body = $Body
 
 @export var SPEED :float = 200.0
 const JUMP_VELOCITY : float = -400.0
@@ -275,11 +276,18 @@ func _physics_process(delta):
         is_jumping = false
 
     if velocity.x > 0:
-        #$AnimatedSprite2d.flip_h = false
+        body.flip_h = false
         head.flip_h = false
     elif velocity.x < 0:
-        #$AnimatedSprite2d.flip_h = true
+        body.flip_h = true
         head.flip_h = true
+
+    if not is_on_floor():
+        body.play('jump')
+    elif is_on_floor() and velocity.x != 0:
+        body.play('run_short')
+    else:
+        body.play('idle')
 
     was_on_floor = is_on_floor()
 
