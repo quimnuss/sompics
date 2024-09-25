@@ -77,13 +77,15 @@ func enter_door():
     get_node("CollisionShape2D").disabled = true
     self.is_out = true
     head.set_modulate(Color(1,1,1,0.25))
+    body.set_modulate(Color(1,1,1,0.25))
     pic_exit.emit()
 
 
 func exit_door():
     self.set_physics_process(true)
     get_node("CollisionShape2D").disabled = false
-    head.set_modulate(Color(1,1,1,1))
+    head.set_modulate(Color.WHITE)
+    body.set_modulate(Color.WHITE)
     self.is_out = false
     pic_back.emit()
 
@@ -283,11 +285,20 @@ func _physics_process(delta):
         head.flip_h = true
 
     if not is_on_floor():
-        body.play('jump')
+        if person in ['isra','xavidolz']:
+            body.play('jump_' + person)
+        else:
+            body.play('jump')
     elif is_on_floor() and velocity.x != 0:
-        body.play('run_short')
+        if person in ['isra','xavidolz']:
+            body.play('run_' + person)
+        else:
+            body.play('run_short')
     else:
-        body.play('idle')
+        if person in ['isra','xavidolz']:
+            body.play('idle_' + person)
+        else:
+            body.play('idle')
 
     was_on_floor = is_on_floor()
 

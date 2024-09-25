@@ -50,7 +50,7 @@ func open():
         var anim_player : AnimationPlayer = $CanvasLayer/AnimationPlayer
         anim_player.play('default')
         await anim_player.animation_finished
-        Persistence.estalvi(level_estalvi*0.2)
+        Persistence.estalvi(round(level_estalvi * 0.2))
 
 func close():
     is_open = false

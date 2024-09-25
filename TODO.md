@@ -4,6 +4,7 @@
 
 - [ ] Prevent double estalvi on level restart
 - [ ] Fites Persistence (don't recatch fita during a playthru)
+- [ ] Change color of speaker dialogic
 
 ## next
 
