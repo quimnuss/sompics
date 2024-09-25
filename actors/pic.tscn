@@ -423,10 +423,10 @@ shape = SubResource("RectangleShape2D_qnlmo")
 disabled = true
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -6)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_6xg8w")
-animation = &"jump_isra"
+animation = &"jump_xavidolz"
 autoplay = "idle"
 
 [node name="Head" type="Sprite2D" parent="."]
