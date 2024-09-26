@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsli3iqpvgd5n"]
+[gd_scene load_steps=13 format=3 uid="uid://bsli3iqpvgd5n"]
 
 [ext_resource type="Texture2D" uid="uid://clor2orgdclxr" path="res://assets/outro/clouds.png" id="1_12cw7"]
 [ext_resource type="Texture2D" uid="uid://ogbjf3er06qn" path="res://assets/outro/sunset.png" id="1_omvhw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://w1rri1w0bp07" path="res://assets/outro/cliff_water.png" id="8_xv1xm"]
 [ext_resource type="Texture2D" uid="uid://cvgru8dk2jfed" path="res://assets/outro/cliff_water_2.png" id="9_f7vej"]
 [ext_resource type="Texture2D" uid="uid://ctpgwkypxbbs8" path="res://assets/outro/cliff_water_3.png" id="10_sk7bb"]
+[ext_resource type="Script" path="res://scripts/text_scroll.gd" id="12_w4exh"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -149,3 +150,53 @@ scale = Vector2(0.184283, 0.184283)
 texture = ExtResource("5_1agtv")
 region_enabled = true
 region_rect = Rect2(0, 808, 913, 168)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 88.0
+offset_right = 20.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("12_w4exh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.0
+offset_right = 236.0
+offset_bottom = 568.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]
+[font_size=60][wave][rainbow]Som Pics[/rainbow][/wave][/font_size]
+
+[font_size=50]Concepte[/font_size]
+
+Gil, Marta i Pol
+
+
+[font_size=50]Joystick i altres[/font_size]
+
+Diego
+
+
+[font_size=50]GameDev[/font_size]
+
+Pol
+[/center]"
+fit_content = true
+scroll_active = false
