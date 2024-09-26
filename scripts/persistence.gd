@@ -55,6 +55,8 @@ var active_pic : int = 0
 
 var ce_members : Array[String] = ['juanpe', 'xavierbonet', 'benjami', 'daniquilez']
 
+var pics_with_body : Array[String] = ['xavidolz', 'isra']
+
 var levels : Array = [
     true, true, true, true, true, true, true, true, true, true,
     true, true, true, true, true, true, true, true, true, false

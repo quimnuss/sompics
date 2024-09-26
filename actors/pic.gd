@@ -55,6 +55,10 @@ func _ready():
     self.name = person
     coyote_timer.wait_time = coyote_frames / 60.0
     add_to_group('pics')
+    
+    if name not in Persistence.pics_with_body:
+        head.visible = true
+        #body.visible = false
 
     self.move_left = self.move_left + '-' + person
     self.move_right = self.move_right  + '-' + person
@@ -234,6 +238,16 @@ func _physics_process(delta):
     if is_flying:
         velocity = flying_direction * SPEED
         move_and_slide()
+        if velocity.x != 0:
+            if person in Persistence.pics_with_body:
+                body.play('run_' + person)
+            else:
+                body.play('run_short')
+        else:
+            if person in Persistence.pics_with_body:
+                body.play('idle_' + person)
+            else:
+                body.play('idle')
         return
 
     # attached
