@@ -4,6 +4,7 @@ extends Area2D
 @onready var animation_player = $AnimationPlayer
 @onready var idle_sound = $IdleSound
 @onready var hit_sound = $HitSound
+@onready var body = $Body
 
 const RESPAWN_WAIT : float = 2 # should be equal or greater than pic kill animation
 
@@ -13,6 +14,9 @@ func _ready():
     animation_player.play("idle_right")
     idle_sound.play()
 
+func set_flip(new_flip : bool):
+    #body.flip_v = new_flip
+    body.flip_h = new_flip
 
 func _on_body_entered(body):
     

@@ -3,6 +3,7 @@ extends PathFollow2D
 var speed = 0.2
 var reverse_speed = -0.2
 var target = 0.99
+@onready var actor = $EvilBee
 
 
 func _process(delta):
@@ -10,7 +11,9 @@ func _process(delta):
 
 
 func loop_movement(delta):
-    progress_ratio += delta * speed
+    progress_ratio = fmod(progress_ratio + delta * speed,1)
+    var is_flipped : bool = progress_ratio < 0.5
+    actor.set_flip(is_flipped)
 
 
 func bouncing_movement(delta):

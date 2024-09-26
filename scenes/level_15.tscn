@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0lqniruvbrij"]
+[gd_scene load_steps=16 format=3 uid="uid://c0lqniruvbrij"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_fcghl"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_5fi13"]
@@ -18,22 +18,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_ydile"]
 _data = {
-"points": PackedVector2Array(-77.4207, -44.0497, 77.4207, 44.0497, 453, 426, -34.7058, 34.7058, 34.7058, -34.7058, 1040, 426, 42.7149, 16.0181, -42.7149, -16.0181, 1041, 320, 61.4026, -50.7239, -61.4026, 50.7239, 457, 329, 0, 0, 0, 0, 453, 426)
+"points": PackedVector2Array(-77.4207, -44.0497, 77.4207, 44.0497, 455, 398, -33.8149, 32.924, 33.8149, -32.924, 1043, 380, 42.7149, 16.0181, -42.7149, -16.0181, 1035, 325, 61.4026, -50.7239, -61.4026, 50.7239, 457, 351, 0, 0, 0, 0, 455, 398)
 }
 point_count = 5
-
-[sub_resource type="GDScript" id="GDScript_54cx8"]
-script/source = "extends Path2D
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
-"
 
 [node name="MainLevel" type="Node2D"]
 
@@ -98,11 +85,9 @@ collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtRes
 
 [node name="EvilBeePath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ydile")
-script = SubResource("GDScript_54cx8")
 
 [node name="EvilBeeFollowPath" type="PathFollow2D" parent="EvilBeePath"]
-position = Vector2(453, 426)
-rotation = 0.517287
+position = Vector2(455, 398)
 rotates = false
 script = ExtResource("12_lv82j")
 
