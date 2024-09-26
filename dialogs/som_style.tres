@@ -55,7 +55,7 @@ overrides = {}
 script = ExtResource("10_k1sj0")
 name = "som_style"
 base_overrides = {
-"global_bg_color": "Color(0.721729, 0.107849, 0.726562, 0.733333)"
+"global_bg_color": "Color(0.109804, 0.72549, 0.509804, 1)"
 }
 layers = Array[ExtResource("2_4sfnt")]([SubResource("Resource_mvwlc"), SubResource("Resource_v7m47"), SubResource("Resource_xhy52"), SubResource("Resource_ohnb6"), SubResource("Resource_sdgng"), SubResource("Resource_qqvk8"), SubResource("Resource_j56k1"), SubResource("Resource_kulg4")])
 metadata/_latest_layer = -1

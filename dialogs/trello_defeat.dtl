@@ -3,6 +3,7 @@ join openproject_character 0 [animation="Slide In Down"]
 join trello_character 3 [animation="Bounce In" length="1" wait="true"]
 join helpscout_character 4
 trello_character (idle): Nooo No pot ser que hagueu trobat un substitut!
+openproject_character (idle): Sóc molt útil!
 helpscout_character (idle): Ens venjarem!
 leave helpscout_character
 leave trello_character

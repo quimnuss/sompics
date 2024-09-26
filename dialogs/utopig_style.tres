@@ -55,7 +55,7 @@ overrides = {}
 script = ExtResource("10_80xvx")
 name = "utopig_style"
 base_overrides = {
-"global_bg_color": "Color(0.721729, 0.107849, 0.726562, 0.733333)"
+"global_bg_color": "Color(0.227451, 0.72549, 0.109804, 0.733333)"
 }
 layers = Array[ExtResource("2_ipomx")]([SubResource("Resource_c4ivf"), SubResource("Resource_yl7jc"), SubResource("Resource_ad556"), SubResource("Resource_k24m2"), SubResource("Resource_msgu2"), SubResource("Resource_8rnt8"), SubResource("Resource_7w8f8"), SubResource("Resource_muhgr")])
 metadata/_latest_layer = -1
