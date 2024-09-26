@@ -23,6 +23,15 @@
 "offset": Vector2(0, 0),
 "scale": 1.0,
 "scene": "res://assets/characters/goose_luis_portait.tscn"
+},
+"talking": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://assets/characters/goose_luis_talking_portait.tscn"
 }
 },
 "scale": 0.5
