@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bifg0om83dt7j"]
+[gd_scene load_steps=29 format=3 uid="uid://bifg0om83dt7j"]
 
 [ext_resource type="Script" path="res://scenes/playground.gd" id="1_77m0m"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="1_c81co"]
@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bh44brmlp1s8k" path="res://actors/platform.tscn" id="11_sskg7"]
 [ext_resource type="PackedScene" uid="uid://bde6w2sxt4efv" path="res://actors/coin.tscn" id="14_sjfhm"]
 [ext_resource type="PackedScene" uid="uid://1x0pl6tlptup" path="res://actors/spring.tscn" id="16_16d4q"]
-[ext_resource type="PackedScene" uid="uid://f85oyoih74nu" path="res://characters/evil_bee.tscn" id="17_cybxe"]
-[ext_resource type="Script" path="res://scenes/EvilBeeFollowPath.gd" id="19_wofl2"]
+[ext_resource type="PackedScene" uid="uid://f85oyoih74nu" path="res://actors/evil_bee.tscn" id="17_cybxe"]
+[ext_resource type="Script" path="res://scripts/evilbee_follow_path.gd" id="19_wofl2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6lj5"]
 radius = 16.0
@@ -84,19 +84,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 990, 211, 0, 0, 0, 0, 477, 200, 0, 0, 0, 0, 466, 514, 0, 0, 0, 0, 654, 511, 0, 0, 0, 0, 985, 272, 0, 0, 0, 0, 990, 211)
 }
 point_count = 6
-
-[sub_resource type="GDScript" id="GDScript_dvp1s"]
-script/source = "extends Path2D
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
-"
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_77m0m")
@@ -179,11 +166,11 @@ position = Vector2(696, 528)
 
 [node name="EvilBeePath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_m5r1r")
-script = SubResource("GDScript_dvp1s")
 
 [node name="EvilBeeFollowPath" type="PathFollow2D" parent="EvilBeePath"]
 position = Vector2(990, 211)
 rotation = -3.12015
+rotates = false
 script = ExtResource("19_wofl2")
 
 [node name="EvilBee" parent="EvilBeePath/EvilBeeFollowPath" instance=ExtResource("17_cybxe")]

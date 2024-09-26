@@ -3,13 +3,13 @@ extends Node
 #var pics : Array = []
 var pics : Array = [
     #'marta',
+    'xavidolz',
     'pol',
     #'joana', 'juanpe',
     #'david',
     #'marite',
     #'isra',
     #'daniestanyol',
-    'xavidolz',
     #'benjami',
     #'nuse',
     #'fran',

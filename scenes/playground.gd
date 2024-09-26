@@ -2,11 +2,6 @@ extends Node2D
 
 @onready var tile_map = $TileMap
 
-func _ready():
-    $EvilBeePath/EvilBeeFollowPath.rotates = false
-    $EvilBeePath/EvilBeeFollowPath/EvilBee/Body.rotation = PI
-
-
 func build_bridge():
     for i in range(4):
         tile_map.set_cells_terrain_connect(0, [Vector2i(23-i,15)], 0, 2)

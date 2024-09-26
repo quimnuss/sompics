@@ -136,19 +136,25 @@ func ropes_attach():
         rope_attach(attached_pic)
 
 func unghost():
-    $Head.modulate.a = 1
+    head.modulate.a = 1
 
 
 func ghost():
-    $Head.modulate.a = 0.6
+    head.modulate.a = 0.6
 
 
 func kill():
-    head.set_modulate(Color(0.3,0.3,0.3,1))
+    head.set_modulate(Color(0.3,0.3,0.3))
+    body.set_modulate(Color(0.3,0.3,0.3))
     self.set_physics_process(false)
     self.set_process(false)
     animation_player.play('death')
 
+func revive():
+    animation_player.play('RESET')
+    self.set_physics_process(true)
+    self.set_process(true)
+    body.set_modulate(Color(1,1,1))
 
 func external_input(player : String, action : String, is_pressed : bool = true):
 

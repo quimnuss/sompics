@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0lqniruvbrij"]
+[gd_scene load_steps=17 format=3 uid="uid://c0lqniruvbrij"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_fcghl"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_5fi13"]
@@ -11,9 +11,29 @@
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="10_lp47y"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="10_ql1es"]
 [ext_resource type="Resource" uid="uid://dkwmpdkswnx35" path="res://data/fita_technocuca_novetats.tres" id="11_xtp58"]
-[ext_resource type="PackedScene" uid="uid://ux6scbkuqpem" path="res://actors/evil_bee.tscn" id="12_ad34h"]
+[ext_resource type="PackedScene" uid="uid://f85oyoih74nu" path="res://actors/evil_bee.tscn" id="12_ad34h"]
+[ext_resource type="Script" path="res://scripts/evilbee_follow_path.gd" id="12_lv82j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1eyb5"]
+
+[sub_resource type="Curve2D" id="Curve2D_ydile"]
+_data = {
+"points": PackedVector2Array(-77.4207, -44.0497, 77.4207, 44.0497, 453, 426, -34.7058, 34.7058, 34.7058, -34.7058, 1040, 426, 42.7149, 16.0181, -42.7149, -16.0181, 1041, 320, 61.4026, -50.7239, -61.4026, 50.7239, 457, 329, 0, 0, 0, 0, 453, 426)
+}
+point_count = 5
+
+[sub_resource type="GDScript" id="GDScript_54cx8"]
+script/source = "extends Path2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+    pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+    pass
+"
 
 [node name="MainLevel" type="Node2D"]
 
@@ -76,7 +96,19 @@ shape = SubResource("WorldBoundaryShape2D_1eyb5")
 position = Vector2(849, 222)
 collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_xtp58")])
 
-[node name="EvilBee" parent="." instance=ExtResource("12_ad34h")]
-position = Vector2(443, 98)
+[node name="EvilBeePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ydile")
+script = SubResource("GDScript_54cx8")
+
+[node name="EvilBeeFollowPath" type="PathFollow2D" parent="EvilBeePath"]
+position = Vector2(453, 426)
+rotation = 0.517287
+rotates = false
+script = ExtResource("12_lv82j")
+
+[node name="EvilBee" parent="EvilBeePath/EvilBeeFollowPath" instance=ExtResource("12_ad34h")]
+collision_layer = 0
+collision_mask = 6
 
 [connection signal="timeout" from="AreaSpawner/SpawnTimer" to="AreaSpawner" method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="EvilBeePath/EvilBeeFollowPath/EvilBee" to="EvilBeePath/EvilBeeFollowPath/EvilBee" method="_on_body_entered"]
