@@ -3,7 +3,9 @@ extends Node2D
 @onready var tile_map = $TileMap
 
 func _ready():
-    pass
+    $EvilBeePath/EvilBeeFollowPath.rotates = false
+    $EvilBeePath/EvilBeeFollowPath/EvilBee/Body.rotation = PI
+
 
 func build_bridge():
     for i in range(4):
