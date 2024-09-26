@@ -4,12 +4,15 @@ extends Node2D
 @onready var ui = $UI
 
 var restarting : bool = false
+const background_music = preload("res://assets/hollow_knight_sealed_vessel.ogg")
 
 func _ready():
     for pic : Pic in get_tree().get_nodes_in_group('pics'):
         pic.gravity = 0
     player_spawner.players_spawned.connect(start_level)
     ui.toggle_drback(false)
+
+    AudioPlayer.crossfade(background_music)
 
 func start_level():
     animation_player.play("level_pursuit")

@@ -6,9 +6,13 @@ var grid_width = 710
 
 @onready var gridbox = $VBoxContainer/HBoxContainer/ClipControl/GridBox
 
+const background_music = preload("res://assets/hollow_knight_fungal_wastes.ogg")
+
 const level_dir : String = 'res://scenes/'
 
 func _ready():
+    AudioPlayer.crossfade(background_music)
+    
     num_grids = gridbox.get_child_count()
     for grid in gridbox.get_children():
         for box : LevelBox in grid.get_children():
