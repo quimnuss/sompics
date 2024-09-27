@@ -1,10 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfa1h1cv5i3ab"]
+[gd_scene load_steps=14 format=3 uid="uid://cfa1h1cv5i3ab"]
 
 [ext_resource type="Script" path="res://actors/pic.gd" id="1_5ledp"]
 [ext_resource type="Texture2D" uid="uid://bqfcakkq4u0tm" path="res://assets/13-Dialogue Boxes/!!! In (24x8).png" id="2_b3t8c"]
-[ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_srj8h"]
-[ext_resource type="Script" path="res://actors/head.gd" id="3_h8ejj"]
-[ext_resource type="SpriteFrames" uid="uid://bjhrva6vf30wd" path="res://actors/pic_spriteframes.tres" id="3_vi0i1"]
 [ext_resource type="Script" path="res://actors/pic_body.gd" id="4_2rafj"]
 [ext_resource type="Texture2D" uid="uid://c3rhcrxwnne0l" path="res://assets/it/marta.png" id="4_mvi6l"]
 [ext_resource type="AudioStream" uid="uid://dj2q23b8ll78y" path="res://assets/jump.ogg" id="5_h2mhi"]
@@ -20,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head:offset")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,70 +29,34 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("PicBody:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Head:position")
+tracks/2/path = NodePath("PicBody:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -3)]
+"values": [Vector2(1, -9)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Body:position")
+tracks/3/path = NodePath("PicBody:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -6)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PicBody:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PicBody:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, -9)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("PicBody:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -120,46 +81,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head:position")
+tracks/1/path = NodePath("PicBody:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1, 2),
-"transitions": PackedFloat32Array(1, 1.62451, 0.378929),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 600)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -6), Vector2(0, -100), Vector2(0, 600)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PicBody:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = false
-tracks/3/keys = {
 "times": PackedFloat32Array(0.5, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, -9), Vector2(1, -100), Vector2(1, 600)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PicBody:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PicBody:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -173,22 +110,10 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head:offset")
+tracks/0/path = NodePath("PicBody:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PicBody:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -269,23 +194,6 @@ region_rect = Rect2(78, 2, 14, 13)
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_qnlmo")
 disabled = true
-
-[node name="Body" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(0, -6)
-scale = Vector2(1.5, 1.5)
-sprite_frames = ExtResource("3_vi0i1")
-animation = &"jump_xavidolz"
-autoplay = "idle"
-
-[node name="Head" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -3)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_srj8h")
-region_enabled = true
-region_rect = Rect2(59, 229, 123, 137)
-script = ExtResource("3_h8ejj")
 
 [node name="PicBody" type="Sprite2D" parent="."]
 position = Vector2(1, -9)

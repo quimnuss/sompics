@@ -1,9 +1,8 @@
 extends CharacterBody2D
 class_name Pic
-@onready var head : Sprite2D = $Head
+
 @onready var jump_sound : AudioStreamPlayer = $jump_sound
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var body = $Body
 @onready var pic_body = $PicBody
 
 @export var SPEED :float = 200.0
@@ -52,7 +51,6 @@ signal pic_exit
 signal pic_back
 
 func _ready():
-    head.set_person(person)
     self.name = person
     coyote_timer.wait_time = coyote_frames / 60.0
     add_to_group('pics')
@@ -77,16 +75,14 @@ func enter_door():
     self.set_physics_process(false)
     get_node("CollisionShape2D").disabled = true
     self.is_out = true
-    head.set_modulate(Color(1,1,1,0.25))
-    body.set_modulate(Color(1,1,1,0.25))
+    pic_body.set_modulate(Color(1,1,1,0.25))
     pic_exit.emit()
 
 
 func exit_door():
     self.set_physics_process(true)
     get_node("CollisionShape2D").disabled = false
-    head.set_modulate(Color.WHITE)
-    body.set_modulate(Color.WHITE)
+    pic_body.set_modulate(Color.WHITE)
     self.is_out = false
     pic_back.emit()
 
@@ -137,16 +133,14 @@ func ropes_attach():
         rope_attach(attached_pic)
 
 func unghost():
-    head.modulate.a = 1
+    pic_body.modulate.a = 1
 
 
 func ghost():
-    head.modulate.a = 0.6
+    pic_body.modulate.a = 0.5
 
 
 func kill():
-    head.set_modulate(Color(0.3,0.3,0.3))
-    body.set_modulate(Color(0.3,0.3,0.3))
     self.set_physics_process(false)
     self.set_process(false)
     animation_player.play('death')
@@ -155,7 +149,8 @@ func revive():
     animation_player.play('RESET')
     self.set_physics_process(true)
     self.set_process(true)
-    body.set_modulate(Color(1,1,1))
+    if person in Persistence.ce_members:
+        ghost()
 
 func external_input(player : String, action : String, is_pressed : bool = true):
 
@@ -227,12 +222,8 @@ func animate():
 
     if velocity.x > 0:
         pic_body.flip_h = false
-        body.flip_h = false
-        head.flip_h = false
     elif velocity.x < 0:
         pic_body.flip_h = true
-        body.flip_h = true
-        head.flip_h = true
 
 func _physics_process(delta):
 
@@ -381,13 +372,6 @@ func _physics_process_attached(delta : float, just_jumped : bool, direction : fl
 
     if (is_on_floor() or is_on_wall()) and is_jumping:
         is_jumping = false
-
-    if velocity.x > 0:
-        #$AnimatedSprite2d.flip_h = false
-        head.flip_h = false
-    if velocity.x < 0:
-        #$AnimatedSprite2d.flip_h = true
-        head.flip_h = true
 
     was_on_floor = is_on_floor()
 
