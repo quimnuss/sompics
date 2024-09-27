@@ -1,8 +1,8 @@
 [gd_resource type="SpriteFrames" load_steps=37 format=3 uid="uid://bjhrva6vf30wd"]
 
 [ext_resource type="Texture2D" uid="uid://bqjx1amkj537a" path="res://assets/dungeon_characters.png" id="1_ue10g"]
-[ext_resource type="Texture2D" uid="uid://b3et6od8a4h7y" path="res://assets/isra.png" id="2_clutt"]
-[ext_resource type="Texture2D" uid="uid://g3jl102fjy3q" path="res://assets/xavi-d.png" id="3_6sshv"]
+[ext_resource type="Texture2D" uid="uid://b3et6od8a4h7y" path="res://assets/it/isra.png" id="2_clutt"]
+[ext_resource type="Texture2D" uid="uid://g3jl102fjy3q" path="res://assets/it/xavidolz.png" id="3_6sshv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox17r"]
 atlas = ExtResource("1_ue10g")

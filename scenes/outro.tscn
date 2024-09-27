@@ -14,8 +14,8 @@
 [ext_resource type="Script" path="res://scripts/text_scroll.gd" id="12_w4exh"]
 [ext_resource type="Texture2D" uid="uid://0gjvf8xk877m" path="res://assets/characters/gooseluis_spritesheet.png" id="13_u47hh"]
 [ext_resource type="Texture2D" uid="uid://cuhwtn4yuo0of" path="res://assets/14-bee/Bee_Walk.png" id="14_mlw0i"]
-[ext_resource type="Texture2D" uid="uid://g3jl102fjy3q" path="res://assets/xavi-d.png" id="15_mvovx"]
-[ext_resource type="Texture2D" uid="uid://b3et6od8a4h7y" path="res://assets/isra.png" id="15_r4c6r"]
+[ext_resource type="Texture2D" uid="uid://g3jl102fjy3q" path="res://assets/it/xavidolz.png" id="15_mvovx"]
+[ext_resource type="Texture2D" uid="uid://b3et6od8a4h7y" path="res://assets/it/isra.png" id="15_r4c6r"]
 [ext_resource type="Texture2D" uid="uid://pfebdr0vvevt" path="res://assets/dancing_plant_spike_spritesheet.png" id="16_en8ic"]
 [ext_resource type="AudioStream" uid="uid://be1n52hpxc58f" path="res://assets/hollow_knight_city_of_tears.ogg" id="18_g8du8"]
 

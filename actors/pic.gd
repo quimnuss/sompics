@@ -4,6 +4,7 @@ class_name Pic
 @onready var jump_sound : AudioStreamPlayer = $jump_sound
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var body = $Body
+@onready var pic_body = $PicBody
 
 @export var SPEED :float = 200.0
 const JUMP_VELOCITY : float = -400.0
@@ -55,10 +56,6 @@ func _ready():
     self.name = person
     coyote_timer.wait_time = coyote_frames / 60.0
     add_to_group('pics')
-    
-    if name not in Persistence.pics_with_body:
-        head.visible = true
-        #body.visible = false
 
     self.move_left = self.move_left + '-' + person
     self.move_right = self.move_right  + '-' + person
@@ -214,6 +211,29 @@ func draw_ropes():
         else:
             rope.visible = false
 
+func animate():
+    if is_flying:
+        if velocity.length() != 0:
+            animation_player.play('run')
+        else:
+            animation_player.play('idle')
+    else:
+        if is_on_floor() and velocity.x != 0:
+            animation_player.play('run')
+        elif not is_on_floor():
+            animation_player.play('jump')
+        else:
+            animation_player.play('idle')
+
+    if velocity.x > 0:
+        pic_body.flip_h = false
+        body.flip_h = false
+        head.flip_h = false
+    elif velocity.x < 0:
+        pic_body.flip_h = true
+        body.flip_h = true
+        head.flip_h = true
+
 func _physics_process(delta):
 
     var is_controlled : bool = get_is_controlled()
@@ -235,19 +255,11 @@ func _physics_process(delta):
         if flying_direction == Vector2.ZERO:
             flying_direction = Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'move_down-q')
 
+    animate()
+
     if is_flying:
         velocity = flying_direction * SPEED
         move_and_slide()
-        if velocity.x != 0:
-            if person in Persistence.pics_with_body:
-                body.play('run_' + person)
-            else:
-                body.play('run_short')
-        else:
-            if person in Persistence.pics_with_body:
-                body.play('idle_' + person)
-            else:
-                body.play('idle')
         return
 
     # attached
@@ -297,28 +309,6 @@ func _physics_process(delta):
     if is_on_floor() and is_jumping:
         is_jumping = false
 
-    if velocity.x > 0:
-        body.flip_h = false
-        head.flip_h = false
-    elif velocity.x < 0:
-        body.flip_h = true
-        head.flip_h = true
-
-    if not is_on_floor():
-        if person in ['isra','xavidolz']:
-            body.play('jump_' + person)
-        else:
-            body.play('jump')
-    elif is_on_floor() and velocity.x != 0:
-        if person in ['isra','xavidolz']:
-            body.play('run_' + person)
-        else:
-            body.play('run_short')
-    else:
-        if person in ['isra','xavidolz']:
-            body.play('idle_' + person)
-        else:
-            body.play('idle')
 
     was_on_floor = is_on_floor()
 
