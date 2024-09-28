@@ -50,6 +50,7 @@ var debug_velocity : Vector2
 signal pic_exit
 signal pic_back
 
+
 func _ready():
     self.name = person
     coyote_timer.wait_time = coyote_frames / 60.0
@@ -88,7 +89,7 @@ func exit_door():
 
 
 func get_is_controlled() -> bool:
-    # TODO check out of bounds because pic went off
+    Persistence.active_pic = Persistence.active_pic % len(Persistence.pics)
     return Persistence.pics[Persistence.active_pic] == person and is_possessed
 
 

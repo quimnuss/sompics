@@ -1,16 +1,29 @@
-[gd_scene load_steps=12 format=3 uid="uid://82aeqqi2rddp"]
+[gd_scene load_steps=18 format=3 uid="uid://82aeqqi2rddp"]
 
 [ext_resource type="Script" path="res://ui/title.gd" id="1_cscm0"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_mu34e"]
 [ext_resource type="Script" path="res://ui/menu_ingame.gd" id="2_8ukki"]
 [ext_resource type="Script" path="res://ui/fps.gd" id="4_kyt6h"]
+[ext_resource type="Texture2D" uid="uid://ccw4sv2agsamb" path="res://assets/sound_on.png" id="4_ybfjq"]
+[ext_resource type="Texture2D" uid="uid://d1wkyu1ahid6x" path="res://assets/sound_off.png" id="5_lqrp4"]
 [ext_resource type="PackedScene" uid="uid://bpgt4i1nf2hxx" path="res://ui/drback_estalvi_container.tscn" id="5_onwvy"]
 [ext_resource type="Script" path="res://ui/friday_logic.gd" id="6_7kdj3"]
+[ext_resource type="Script" path="res://ui/music.gd" id="6_7rd2k"]
 [ext_resource type="Texture2D" uid="uid://56se6t0u3a00" path="res://assets/progressbar/32x32 circle bar under.png" id="6_cqbpi"]
 [ext_resource type="Texture2D" uid="uid://cky0lms1y3d4n" path="res://assets/progressbar/32x32 circle bar over.png" id="7_kp628"]
 [ext_resource type="Texture2D" uid="uid://32b8oomhl3xe" path="res://assets/progressbar/32x32 circle bar progress green.png" id="8_x764d"]
 [ext_resource type="Script" path="res://ui/friday_container.gd" id="10_ibyny"]
 [ext_resource type="Texture2D" uid="uid://cnx8sd80vyyxn" path="res://assets/frame_varied.png" id="11_853ds"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qss3b"]
+texture = ExtResource("4_ybfjq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76q70"]
+texture = ExtResource("4_ybfjq")
+modulate_color = Color(0, 0.568627, 0.643137, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmn3w"]
+texture = ExtResource("5_lqrp4")
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_mu34e")
@@ -54,6 +67,36 @@ text = "Fites"
 script = ExtResource("2_8ukki")
 scene_filename = "res://ui/fita_browser.tscn"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="Music" type="Button" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_qss3b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_76q70")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tmn3w")
+toggle_mode = true
+script = ExtResource("6_7rd2k")
+
+[node name="FPS" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "000 FPS"
+horizontal_alignment = 2
+script = ExtResource("4_kyt6h")
+
+[node name="ActivePic" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "nobody"
+horizontal_alignment = 2
+
 [node name="GameLost" type="Label" parent="."]
 visible = false
 anchors_preset = 8
@@ -75,28 +118,6 @@ text = "Game Lost!
 Retrying..."
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="FPS" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 20.0
-grow_horizontal = 0
-text = "000 FPS"
-horizontal_alignment = 2
-script = ExtResource("4_kyt6h")
-
-[node name="ActivePic" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -152.0
-offset_right = -91.0
-offset_bottom = 20.0
-grow_horizontal = 0
-text = "nobody"
-horizontal_alignment = 2
 
 [node name="LowerContainer" parent="." instance=ExtResource("5_onwvy")]
 
@@ -191,5 +212,6 @@ text = "Cap a Microsoft Fites"
 [connection signal="pressed" from="HBoxContainer/LevelSelect" to="HBoxContainer/LevelSelect" method="_on_pressed"]
 [connection signal="pressed" from="HBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="HBoxContainer/FitaBrowser" to="HBoxContainer/FitaBrowser" method="_on_pressed"]
+[connection signal="toggled" from="HBoxContainer2/Music" to="HBoxContainer2/Music" method="_on_toggled"]
 [connection signal="pressed" from="FridayContainer/VBoxContainer/HBoxContainer/Continue" to="FridayContainer" method="_on_continue_pressed"]
 [connection signal="pressed" from="FridayContainer/VBoxContainer/HBoxContainer/ToFites" to="FridayContainer" method="_on_to_fites_pressed"]

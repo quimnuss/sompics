@@ -26,7 +26,7 @@ layer_2/tile_data = PackedInt32Array(196611, 65537, 7, 262147, 65537, 8, 327683,
 [node name="Door" parent="." instance=ExtResource("3_ccq3l")]
 position = Vector2(322, 387)
 is_open = true
-next_level = "level_1.tscn"
+next_level = "disclaimer.tscn"
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(185, 206)

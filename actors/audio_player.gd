@@ -38,6 +38,11 @@ func crossfade(music : AudioStream, volume = -3.0):
 
     track_2.play()
 
+func resume_play():
+    if is_on_track_1:
+        track_1.play()
+    else:
+        track_2.play()
 
 func stop():
     track_1.stop()

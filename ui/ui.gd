@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var game_lost = $GameLost
 @onready var lower_container = $LowerContainer
 @onready var friday_container = $FridayContainer
+@onready var active_pic = $HBoxContainer2/ActivePic
 
 
 func _on_restart_pressed():
@@ -18,8 +19,8 @@ func toggle_drback(new_visible : bool):
 
 
 func _process(_delta):
-    $ActivePic.set_text(Persistence.pics[Persistence.active_pic])
-    
+    active_pic.set_text(Persistence.pics[Persistence.active_pic])
+
     if Persistence.is_friday_counting and Persistence.elapsed_time > Persistence.friday_limit:
         friday_container.visible = true
         Persistence.is_friday_counting = false
