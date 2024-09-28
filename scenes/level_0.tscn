@@ -11,3 +11,4 @@ script = ExtResource("1_64hed")
 timeline = ExtResource("2_y3qfu")
 villan_1_name = "utopig"
 villan_2_name = ""
+is_hero = true

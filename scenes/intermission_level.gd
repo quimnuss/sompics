@@ -5,9 +5,13 @@ extends Node2D
 @onready var villan_2 = $Villan1/Villan2
 @onready var collision_shape_2d = $Villan1/Area2D/CollisionShape2D
 @onready var door : Door = $Door
+@onready var villain_sound_effect = $Villan1/VillainSoundEffect
+@onready var hero_sound_effect = $Villan1/HeroSoundEffect
 
 @export var villan_1_name : String = 'dset'
 @export var villan_2_name : String
+
+@export var is_hero : bool = false
 
 var entered : bool = false
 
@@ -29,6 +33,10 @@ func _on_area_2d_body_entered(_body):
     if entered or Dialogic.current_timeline != null:
         return
     entered = true
+    if is_hero:
+        hero_sound_effect.play()
+    else:
+        villain_sound_effect.play()
     create_tween().tween_property(villan_1, "modulate:a", 1.0, 2.0)
     get_tree().call_group('pics', 'possess_toggle', false)
     await get_tree().create_timer(2).timeout

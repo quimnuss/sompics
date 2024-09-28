@@ -4,6 +4,8 @@ extends Node
 @onready var player_spawner = $"../PlayerSpawner"
 @onready var pics_camera = $"../PicsCamera"
 
+const background_music = preload("res://assets/hollow_knight_fungal_wastes.ogg")
+const suspense_music = preload("res://assets/suspense_music.ogg")
 const level_dir : String = 'res://scenes/'
 
 var dr_back_met : bool = false
@@ -16,6 +18,7 @@ func start_dr_back_encounter():
         dr_back_met = true
         get_tree().call_group('pics', 'possess_toggle', false)
         animation_player.play("DrBack")
+        AudioPlayer.crossfade(suspense_music)
 
 func _on_animation_player_animation_finished(anim_name):
     if anim_name == 'DrBack':
@@ -37,6 +40,9 @@ func to_welcome_level():
         if not ResourceLoader.exists(level_dir + next_level):
             push_error(next_level,' does not exist. Defaulting to welcome')
             next_level = 'welcome_level.tscn'
+
+
+    AudioPlayer.crossfade(background_music)
 
     prints(level, '->', next_level)
     get_tree().change_scene_to_file(level_dir + next_level)

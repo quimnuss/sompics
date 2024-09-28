@@ -103,6 +103,13 @@ theme_override_constants/v_separation = 5
 alignment = 1
 script = ExtResource("9_7nldc")
 
+[node name="Button" type="Button" parent="UI/PlayerSelector"]
+layout_mode = 2
+toggle_mode = true
+text = "tothom"
+
 [connection signal="all_in" from="Door" to="." method="_on_door_all_in"]
 [connection signal="pressed" from="UI/VBoxContainer/Button" to="UI/VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/Button2" to="UI/VBoxContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="UI/PlayerSelector/Button" to="UI/PlayerSelector" method="_on_button_pressed"]
+[connection signal="toggled" from="UI/PlayerSelector/Button" to="UI/PlayerSelector" method="_on_button_toggled"]

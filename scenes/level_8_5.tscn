@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://v2wls0f0r0np"]
+[gd_scene load_steps=17 format=3 uid="uid://v2wls0f0r0np"]
 
 [ext_resource type="Script" path="res://scenes/gooseluis_level.gd" id="1_ru3pk"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_b7721"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="4_rmlb6"]
 [ext_resource type="Texture2D" uid="uid://cd2n4m5acn14k" path="res://assets/goose_luis_spritesheet.png" id="5_42qad"]
 [ext_resource type="PackedScene" uid="uid://bpgt4i1nf2hxx" path="res://ui/drback_estalvi_container.tscn" id="6_pldku"]
+[ext_resource type="AudioStream" uid="uid://1euvwcxcejyi" path="res://assets/teleport.ogg" id="8_qsvot"]
 
 [sub_resource type="Animation" id="Animation_jfj3q"]
 length = 0.001
@@ -164,6 +165,9 @@ offset_left = -8.0
 offset_top = 24.0
 offset_right = -8.0
 offset_bottom = 64.0
+
+[node name="HeroEffect" type="AudioStreamPlayer" parent="GooseLuisLevel"]
+stream = ExtResource("8_qsvot")
 
 [node name="Collectible" parent="." instance=ExtResource("2_l3ww0")]
 visible = false

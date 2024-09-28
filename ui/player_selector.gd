@@ -5,6 +5,7 @@ extends Container
 func _ready():
     for person in Persistence.possible_pics:
         var player_toggle : PlayerToggle = PlayerToggle.new()
+        player_toggle.add_to_group('player_toggle')
         player_toggle.add_theme_font_size_override("font_size", 10)
         player_toggle.person = person
         player_toggle.button_pressed = person in Persistence.pics
@@ -27,3 +28,8 @@ func _on_player_toggle_player_toggle(toggled_on, player_name):
 
 func _on_respawn_pressed():
     get_tree().reload_current_scene()
+
+
+func _on_button_toggled(toggled_on):
+    get_tree().call_group('player_toggle', 'set_pressed', toggled_on)
+

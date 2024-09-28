@@ -7,6 +7,7 @@ extends Node2D
 
 @onready var animation_player = $AnimationPlayer
 @onready var goose_luis = $GooseLuis
+@onready var hero_effect = $HeroEffect
 
 var entered : bool = false
 var landed : bool = false
@@ -27,6 +28,7 @@ func _on_area_2d_body_entered(_body):
     entered = true
     get_tree().call_group('pics', 'possess_toggle', false)
     collision_shape_2d.call_deferred('set_disabled', true)
+    hero_effect.play()
     animation_player.play("gl_arrival")
 
 

@@ -17,12 +17,7 @@ func _ready():
     AudioPlayer.crossfade(background_music)
     if Persistence.is_first_time_level_18:
         Persistence.is_first_time_level_18 = false
-        # wait for music drop
-        await get_tree().create_timer(17).timeout
-        if not players_ready:
-            player_spawner.players_spawned.connect(start_level)
-        else:
-            animation_player.play("level_pursuit")
+        animation_player.play("first_level_pursuit")
     else:
         player_spawner.players_spawned.connect(start_level)
 

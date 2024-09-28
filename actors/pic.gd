@@ -89,6 +89,8 @@ func exit_door():
 
 
 func get_is_controlled() -> bool:
+    if Persistence.pics.is_empty():
+        return false
     Persistence.active_pic = Persistence.active_pic % len(Persistence.pics)
     return Persistence.pics[Persistence.active_pic] == person and is_possessed
 
