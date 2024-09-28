@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var game_lost = $GameLost
 @onready var lower_container = $LowerContainer
 @onready var friday_container = $FridayContainer
-@onready var active_pic = $HBoxContainer2/ActivePic
+@onready var active_pic = %ActivePic
 
 
 func _on_restart_pressed():

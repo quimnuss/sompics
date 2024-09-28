@@ -2,6 +2,7 @@ extends Node2D
 class_name Door
 
 @onready var door_sprite = $DoorSprite
+@onready var door_open_effect = $DoorOpenEffect
 
 const level_dir : String = 'res://scenes/'
 
@@ -41,6 +42,7 @@ func _ready():
 
 func open():
     door_sprite.play('open')
+    door_open_effect.play()
     is_open = true
     if not is_end_level:
         Persistence.estalvi(level_estalvi)
