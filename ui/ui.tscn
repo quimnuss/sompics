@@ -67,7 +67,7 @@ text = "Fites"
 script = ExtResource("2_8ukki")
 scene_filename = "res://ui/fita_browser.tscn"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="RightBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -76,7 +76,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 theme_override_constants/separation = 20
 
-[node name="Music" type="Button" parent="HBoxContainer2"]
+[node name="Music" type="Button" parent="RightBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 focus_mode = 0
@@ -86,13 +86,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_tmn3w")
 toggle_mode = true
 script = ExtResource("6_7rd2k")
 
-[node name="FPS" type="Label" parent="HBoxContainer2"]
+[node name="FPS" type="Label" parent="RightBoxContainer"]
 layout_mode = 2
 text = "000 FPS"
 horizontal_alignment = 2
 script = ExtResource("4_kyt6h")
 
-[node name="ActivePic" type="Label" parent="HBoxContainer2"]
+[node name="ActivePic" type="Label" parent="RightBoxContainer"]
 layout_mode = 2
 text = "nobody"
 horizontal_alignment = 2
@@ -194,17 +194,17 @@ text = "[center]És Divendres!
 fit_content = true
 scroll_active = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="FridayContainer/VBoxContainer"]
+[node name="FridayBoxContainer" type="HBoxContainer" parent="FridayContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Continue" type="Button" parent="FridayContainer/VBoxContainer/HBoxContainer"]
+[node name="Continue" type="Button" parent="FridayContainer/VBoxContainer/FridayBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Continuem?"
 
-[node name="ToFites" type="Button" parent="FridayContainer/VBoxContainer/HBoxContainer"]
+[node name="ToFites" type="Button" parent="FridayContainer/VBoxContainer/FridayBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Cap a Microsoft Fites"
@@ -212,6 +212,6 @@ text = "Cap a Microsoft Fites"
 [connection signal="pressed" from="HBoxContainer/LevelSelect" to="HBoxContainer/LevelSelect" method="_on_pressed"]
 [connection signal="pressed" from="HBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="HBoxContainer/FitaBrowser" to="HBoxContainer/FitaBrowser" method="_on_pressed"]
-[connection signal="toggled" from="HBoxContainer2/Music" to="HBoxContainer2/Music" method="_on_toggled"]
-[connection signal="pressed" from="FridayContainer/VBoxContainer/HBoxContainer/Continue" to="FridayContainer" method="_on_continue_pressed"]
-[connection signal="pressed" from="FridayContainer/VBoxContainer/HBoxContainer/ToFites" to="FridayContainer" method="_on_to_fites_pressed"]
+[connection signal="toggled" from="RightBoxContainer/Music" to="RightBoxContainer/Music" method="_on_toggled"]
+[connection signal="pressed" from="FridayContainer/VBoxContainer/FridayBoxContainer/Continue" to="FridayContainer" method="_on_continue_pressed"]
+[connection signal="pressed" from="FridayContainer/VBoxContainer/FridayBoxContainer/ToFites" to="FridayContainer" method="_on_to_fites_pressed"]
