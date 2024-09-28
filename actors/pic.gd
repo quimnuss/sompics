@@ -88,6 +88,7 @@ func exit_door():
 
 
 func get_is_controlled() -> bool:
+    # TODO check out of bounds because pic went off
     return Persistence.pics[Persistence.active_pic] == person and is_possessed
 
 
