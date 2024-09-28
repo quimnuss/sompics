@@ -76,6 +76,7 @@ var levels : Array = [
 
 var level_order : Array[String] = [
     'welcome_level.tscn',
+    'disclaimer.tscn',
     'intro_world_medieval.tscn',
     'level_0.tscn',
     'level_1.tscn',
@@ -114,6 +115,7 @@ var is_friday_counting : bool = false
 const friday_limit_minutes : int = 40
 const friday_limit : int = friday_limit_minutes*60
 var elapsed_time : float = 0
+var is_first_time_level_18 : bool = true
 
 var money : int = 900000 :
     set(value):

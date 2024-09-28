@@ -6,13 +6,28 @@ extends Node2D
 var restarting : bool = false
 const background_music = preload("res://assets/hollow_knight_sealed_vessel.ogg")
 
+var players_ready : bool = false
+
 func _ready():
     for pic : Pic in get_tree().get_nodes_in_group('pics'):
         pic.gravity = 0
-    player_spawner.players_spawned.connect(start_level)
+    player_spawner.players_spawned.connect(set_players_ready)
     ui.toggle_drback(false)
 
     AudioPlayer.crossfade(background_music)
+    if Persistence.is_first_time_level_18:
+        Persistence.is_first_time_level_18 = false
+        # wait for music drop
+        await get_tree().create_timer(17).timeout
+        if not players_ready:
+            player_spawner.players_spawned.connect(start_level)
+        else:
+            animation_player.play("level_pursuit")
+    else:
+        player_spawner.players_spawned.connect(start_level)
+
+func set_players_ready():
+    players_ready = true
 
 func start_level():
     animation_player.play("level_pursuit")
