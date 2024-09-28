@@ -2,28 +2,30 @@
 
 ## now
 
-- [ ] Prevent double estalvi on level restart
-- [ ] Fites Persistence (don't recatch fita during a playthru)
-- [ ] Change color of speaker dialogic
+- [ ] birds flying outro
+- [ ] change dropped pickups to phones, contracts and droplet
+- [ ] Place latest collectibles
 
 ## next
 
+- [ ] Fites Persistence (don't recatch fita during a playthru)
 - [ ] Acció POs
-- [ ] Place latest collectibles
 - [ ] estalvi persistence (in case of restart)
-- [ ] Credits
 
 ## later
 
+- [ ] Prevent double estalvi on level restart
 - [ ] Resum del torn de telèfon tipo tomàtic
-- [ ] death animation
-- [ ] noves cares
 - [ ] level transition
 - [ ] better game over transition
-- [ ] juice
 
 # Done
 
+- [x] death animation
+- [x] noves cares
+- [x] juice
+- [x] Credits
+- [x] Change color of speaker dialogic
 - [ ] ~Posar forats negres arreu~ abandoned because it's hard enough already
 - [x] GooseLuis Money
 - [x] Intro level: after the bridge
