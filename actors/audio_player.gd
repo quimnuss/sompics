@@ -13,7 +13,7 @@ func _ready():
         play_music(background_music, -3.0)
 
 func play_music(music : AudioStream, volume = 0.0):
-    var test : AudioStream = track_1.stream
+
     if track_1.stream == music:
         return
 

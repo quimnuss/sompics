@@ -58,6 +58,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Subtitle:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_npfw5"]
 length = 0.001
@@ -96,6 +108,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Subtitle:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wqkmr"]
@@ -436,7 +460,25 @@ theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
-text = "[wave][rainbow]Som Pics[/rainbow][/wave]"
+text = "[center][wave][rainbow]Som Pics[/rainbow][/wave]"
+fit_content = true
+
+[node name="Subtitle" type="RichTextLabel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 8.0
+offset_top = 360.0
+offset_right = 536.0
+offset_bottom = 460.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+bbcode_enabled = true
+text = "[center]L'equip d'IT ja és lliure![/center]"
+fit_content = true
 
 [node name="ThankYou" type="RichTextLabel" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
@@ -494,6 +536,7 @@ script = ExtResource("12_w4exh")
 
 [node name="Title" type="RichTextLabel" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
 offset_left = -108.0
 offset_top = 48.0
 offset_right = 192.0
@@ -551,9 +594,10 @@ Marta, Gil
 
 
 
-[font_size=50]Sound[/font_size]
+[font_size=50]Música[/font_size]
 
-[font_size=30]original_sound, HollowKnight[/font_size]
+[font_size=30]original_sound,
+HollowKnight[/font_size]
 
 
 [/center]"
