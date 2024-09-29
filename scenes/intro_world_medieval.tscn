@@ -2412,7 +2412,8 @@ script = ExtResource("1_x1nh6")
 
 [node name="ParallaxLayerSky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0)
-motion_mirroring = Vector2(1120, 0)
+motion_offset = Vector2(-100, 0)
+motion_mirroring = Vector2(1024, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayerSky"]
 offset_right = 1120.0
@@ -2423,7 +2424,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayerClouds" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.3, 0)
-motion_mirroring = Vector2(1088, 0)
+motion_mirroring = Vector2(1152, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayerClouds"]
 offset_top = 96.0
@@ -2436,7 +2437,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ParallaxLayerSea" type="ParallaxLayer" parent="ParallaxBackground"]
 visible = false
 motion_scale = Vector2(0.4, 0)
-motion_mirroring = Vector2(1120, 0)
+motion_mirroring = Vector2(1024, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayerSea"]
 offset_left = -2.0
@@ -2449,7 +2450,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayerMountains" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.4, 0)
-motion_mirroring = Vector2(1120, 0)
+motion_offset = Vector2(-100, 0)
+motion_mirroring = Vector2(1152, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayerMountains"]
 offset_left = -2.0
@@ -2512,6 +2514,7 @@ occluder = SubResource("OccluderPolygon2D_l7vql")
 occluder_light_mask = 2
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
+z_index = 1
 position = Vector2(680, 112)
 script = ExtResource("6_8gqh5")
 

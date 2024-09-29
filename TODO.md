@@ -3,9 +3,7 @@
 ## now
 
 - [ ] Place latest collectibles
-- [ ] change dropped pickups to phones, contracts and droplet
 - [ ] birds flying outro
-- [ ] fire layer on intro should be behind
 
 ## next
 
@@ -22,6 +20,9 @@
 
 # Done
 
+- [x] fix parallax layer popping
+- [x] fire layer on intro should be behind
+- [x] change dropped pickups to phones, contracts and droplet
 - [x] death animation
 - [x] noves cares
 - [x] juice
