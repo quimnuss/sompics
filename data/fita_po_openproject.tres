@@ -4,10 +4,17 @@
 
 [resource]
 script = ExtResource("1_rb0r3")
-title = "POs per fer"
-team = "Dades"
+title = "Trello -> OpenProject"
+team = "POs"
 time = "Q3"
 related_fites = Array[String]([])
-impacte = "Oh lai la"
-enabler = "La masovera, la masovera"
-added_value = "La masovera se'n va al mercat"
+impacte = "Molt poc impacte, i aquest és el gran èxit: poques consultes i dubtes.
+En marxa proves per encabir-hi la gestió no IT en projectes aïllats.
+Es detecten però qüestions que considerem millorables sobretot des de l’entorn IT.
+Pendent treure més suc a la part de mètrica relacionada"
+enabler = "L’anàlisi fet a la comissió de la Technocuca i la bona predisposició de tothom. 
+El suport IT per trobar alternatives als casos d’ús que ho requerien.
+Força temps dedicat des de PO’s amb els equips per entendre les seves necessitats, organitzar el nou funcionament, i formar i acompanyar als equips.
+El fet que Trello cobra per més de 10 usuaris :)"
+added_value = "Tenim un programa de gestió de projectes a un cost raonable i força més potent que el que utilitzaven. 
+Podem plantejar-nos noves maneres de funcionar, hem millorat el seguiment i podrem extreure un major nombre de dades.  "
