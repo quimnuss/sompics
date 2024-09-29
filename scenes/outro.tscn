@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bsli3iqpvgd5n"]
+[gd_scene load_steps=57 format=3 uid="uid://bsli3iqpvgd5n"]
 
 [ext_resource type="Texture2D" uid="uid://clor2orgdclxr" path="res://assets/outro/clouds.png" id="1_12cw7"]
 [ext_resource type="Script" path="res://scenes/outro.gd" id="1_g0of4"]
@@ -13,11 +13,109 @@
 [ext_resource type="Texture2D" uid="uid://cvgru8dk2jfed" path="res://assets/outro/cliff_water_2.png" id="9_f7vej"]
 [ext_resource type="Texture2D" uid="uid://ctpgwkypxbbs8" path="res://assets/outro/cliff_water_3.png" id="10_sk7bb"]
 [ext_resource type="Script" path="res://scripts/text_scroll.gd" id="12_w4exh"]
+[ext_resource type="Texture2D" uid="uid://dcjrhq7jemy0s" path="res://assets/bird_spritesheet.png" id="13_ebwp2"]
 [ext_resource type="Texture2D" uid="uid://0gjvf8xk877m" path="res://assets/characters/gooseluis_spritesheet.png" id="13_u47hh"]
 [ext_resource type="Texture2D" uid="uid://cuhwtn4yuo0of" path="res://assets/14-bee/Bee_Walk.png" id="14_mlw0i"]
 [ext_resource type="Texture2D" uid="uid://pfebdr0vvevt" path="res://assets/dancing_plant_spike_spritesheet.png" id="16_en8ic"]
 [ext_resource type="Texture2D" uid="uid://dyg4mjki36i4o" path="res://assets/it/bea.png" id="16_mxgmh"]
 [ext_resource type="Texture2D" uid="uid://sox5whjgc6ee" path="res://assets/it/angel.png" id="18_57u2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xcl8"]
+atlas = ExtResource("13_ebwp2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjxss"]
+atlas = ExtResource("13_ebwp2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dflqj"]
+atlas = ExtResource("13_ebwp2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd02t"]
+atlas = ExtResource("13_ebwp2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wde2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xcl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjxss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dflqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd02t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_0h5dg"]
+resource_name = "birdflock"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bird1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-496, 16), Vector2(256, -72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bird1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7o1ye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bird1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-664, 176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bird1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_74ine"]
+_data = {
+"RESET": SubResource("Animation_7o1ye"),
+"birdflock": SubResource("Animation_0h5dg")
+}
 
 [sub_resource type="Animation" id="Animation_odvr8"]
 resource_name = "Credits"
@@ -362,6 +460,12 @@ region_rect = Rect2(-400, -310.26, 1200, 800)
 script = ExtResource("2_hgmd7")
 speed = Vector2(-3.5, 0)
 
+[node name="Bird1" type="AnimatedSprite2D" parent="Composition"]
+position = Vector2(-664, 176)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wde2h")
+autoplay = "default"
+
 [node name="Cliff" type="Sprite2D" parent="Composition"]
 position = Vector2(0, 4)
 scale = Vector2(1.8, 1.8)
@@ -438,6 +542,12 @@ scale = Vector2(0.184283, 0.184283)
 texture = ExtResource("5_1agtv")
 region_enabled = true
 region_rect = Rect2(0, 808, 913, 168)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Composition"]
+libraries = {
+"": SubResource("AnimationLibrary_74ine")
+}
+autoplay = "birdflock"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
