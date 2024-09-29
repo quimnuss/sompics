@@ -1,4 +1,6 @@
 extends Node2D
+@onready var good_pickup_sound = $GoodPickupSound
+@onready var bad_pickup_sound = $BadPickupSound
 
 var call_queue_dots : Array[CallDot]
 
@@ -14,7 +16,7 @@ func add_random_call():
     add_child(call_dot)
 
 func picked_correct_call():
-    print('correct!')
+    good_pickup_sound.play()
     var a_call : CallDot = call_queue_dots.pop_front()
     a_call.queue_free()
     for call_dot : CallDot in call_queue_dots:
@@ -25,7 +27,7 @@ func picked_correct_call():
         Persistence.estalvi(300)
 
 func picked_wrong_call(color):
-    prints('wrong! expected',call_queue_dots[0].modulate,'got',color)
+    bad_pickup_sound.play()
     Persistence.estalvi(-300)
 
 func clear():

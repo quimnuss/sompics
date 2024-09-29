@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/hateno_village.ogg-0b87ff7d1983baba2c770ce1e1
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

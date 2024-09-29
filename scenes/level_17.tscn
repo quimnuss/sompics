@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://x2jloum5dt5r"]
+[gd_scene load_steps=19 format=3 uid="uid://x2jloum5dt5r"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1pcra"]
 [ext_resource type="Script" path="res://scenes/level_contracts.gd" id="1_5p0fe"]
@@ -8,8 +8,10 @@
 [ext_resource type="Script" path="res://scripts/fade_out.gd" id="4_yn3ha"]
 [ext_resource type="Script" path="res://actors/contract_receiver.gd" id="6_10gvf"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="7_ipxdm"]
-[ext_resource type="Script" path="res://scenes/area_spawner.gd" id="8_gfw8s"]
+[ext_resource type="Script" path="res://actors/area_spawner.gd" id="8_gfw8s"]
+[ext_resource type="AudioStream" uid="uid://b4odq8vtywypw" path="res://assets/pickup_sound.ogg" id="9_j23bo"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="9_shls2"]
+[ext_resource type="AudioStream" uid="uid://d3407fp1xxmrt" path="res://assets/pickup_wrong_sound.ogg" id="10_xa7fm"]
 [ext_resource type="SpriteFrames" uid="uid://dkqtboo71wasm" path="res://actors/villans_spriteframes.tres" id="11_owru2"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="12_w1o01"]
 
@@ -157,6 +159,12 @@ script = ExtResource("7_ipxdm")
 
 [node name="PickupReceiver" type="Node2D" parent="."]
 script = ExtResource("6_10gvf")
+
+[node name="GoodPickupSound" type="AudioStreamPlayer" parent="PickupReceiver"]
+stream = ExtResource("9_j23bo")
+
+[node name="BadPickupSound" type="AudioStreamPlayer" parent="PickupReceiver"]
+stream = ExtResource("10_xa7fm")
 
 [node name="AreaSpawner" type="Node2D" parent="." node_paths=PackedStringArray("pickup_receiver")]
 position = Vector2(520, 144)

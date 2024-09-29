@@ -61,6 +61,12 @@ func _ready():
     self.jump = self.jump  + '-' + person
     self.move_down = self.move_down  + '-' + person
 
+    # ensure we're not pressing on respawn
+    Input.action_release(self.move_left)
+    Input.action_release(self.move_right)
+    Input.action_release(self.jump)
+    Input.action_release(self.move_down)
+
     for action : String in actions:
         if not InputMap.has_action(action + '-' + person):
             InputMap.add_action(action + '-' + person)

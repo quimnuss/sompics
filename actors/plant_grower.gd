@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var pot = $Pot
+@onready var good_pickup_sound = $GoodPickupSound
+@onready var bad_pickup_sound = $BadPickupSound
 
 var plant_level_scene : PackedScene = preload("res://actors/plant_level.tscn")
 
@@ -29,4 +31,7 @@ func add_level():
 func _on_picked(color : Color):
 
     if color == CallDot.WATER_COLOR:
+        good_pickup_sound.play()
         call_deferred('add_level')
+    else:
+        bad_pickup_sound.play()

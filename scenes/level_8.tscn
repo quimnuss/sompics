@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dobxhogwkrtsa"]
+[gd_scene load_steps=17 format=3 uid="uid://dobxhogwkrtsa"]
 
 [ext_resource type="Script" path="res://scenes/level_phones.gd" id="1_vs8bu"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_ag8tm"]
@@ -8,8 +8,10 @@
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="5_wk735"]
 [ext_resource type="Texture2D" uid="uid://cmd7ywvdh4356" path="res://assets/tomatic.png" id="7_vo3v2"]
 [ext_resource type="Script" path="res://actors/phone_queue.gd" id="8_14i4i"]
-[ext_resource type="Script" path="res://scenes/area_spawner.gd" id="9_x5b7r"]
+[ext_resource type="AudioStream" uid="uid://b4odq8vtywypw" path="res://assets/pickup_sound.ogg" id="9_s13mu"]
+[ext_resource type="Script" path="res://actors/area_spawner.gd" id="9_x5b7r"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="10_hrylp"]
+[ext_resource type="AudioStream" uid="uid://d3407fp1xxmrt" path="res://assets/pickup_wrong_sound.ogg" id="10_thl7w"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="11_tk8dp"]
 [ext_resource type="Resource" uid="uid://cn566rrv4mb0x" path="res://data/fita_webapps_trucades.tres" id="12_vh0u4"]
 
@@ -73,6 +75,12 @@ script = ExtResource("8_14i4i")
 [node name="Timer" type="Timer" parent="Tomatic/PhoneQueue"]
 wait_time = 2.0
 autostart = true
+
+[node name="GoodPickupSound" type="AudioStreamPlayer" parent="Tomatic/PhoneQueue"]
+stream = ExtResource("9_s13mu")
+
+[node name="BadPickupSound" type="AudioStreamPlayer" parent="Tomatic/PhoneQueue"]
+stream = ExtResource("10_thl7w")
 
 [node name="AreaSpawner" type="Node2D" parent="." node_paths=PackedStringArray("pickup_receiver")]
 position = Vector2(525, 130)

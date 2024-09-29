@@ -15,7 +15,7 @@ To play with android joysticks find the joystick [here](https://github.com/diego
 and start with
 
 ```bash
-go run cmd/joystick-client/client.go  -serverAddr ws://localhost:9080 -clientAddr 0.0.0.0:8081 -clientName ""
+go run cmd/joystick-client/client.go  -serverAddr ws://192.168.1.xxx:9080 -clientAddr 0.0.0.0:8081 -clientName ""
 ```
 Then go with your phone to the host ip `http://192.168.1.xxx:8081`, put a valid name in the field,
 connect and jump!

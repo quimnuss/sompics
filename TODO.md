@@ -4,6 +4,7 @@
 
 - [ ] Update erp and sync with drive
 - [ ] birds flying outro
+- [ ] sound effect on escaping and faster stopping music?
 
 ## next
 

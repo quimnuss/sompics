@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0lqniruvbrij"]
+[gd_scene load_steps=19 format=3 uid="uid://c0lqniruvbrij"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_fcghl"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="3_5fi13"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bnj6qpvps607d" path="res://assets/pot.png" id="5_d4o28"]
 [ext_resource type="PackedScene" uid="uid://b6toeukp5owbb" path="res://actors/plant_level.tscn" id="6_i5b8o"]
 [ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_t861d"]
-[ext_resource type="Script" path="res://scenes/area_spawner.gd" id="9_4jofa"]
+[ext_resource type="AudioStream" uid="uid://b4odq8vtywypw" path="res://assets/pickup_sound.ogg" id="7_p16w0"]
+[ext_resource type="AudioStream" uid="uid://d3407fp1xxmrt" path="res://assets/pickup_wrong_sound.ogg" id="8_3dcv8"]
+[ext_resource type="Script" path="res://actors/area_spawner.gd" id="9_4jofa"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="10_lp47y"]
 [ext_resource type="Script" path="res://actors/killzone_generic.gd" id="10_ql1es"]
 [ext_resource type="Resource" uid="uid://dkwmpdkswnx35" path="res://data/fita_technocuca_novetats.tres" id="11_xtp58"]
@@ -51,6 +53,12 @@ texture = ExtResource("5_d4o28")
 offset = Vector2(2, 0)
 
 [node name="PlantLevel" parent="PlantGrower/Pot" instance=ExtResource("6_i5b8o")]
+
+[node name="GoodPickupSound" type="AudioStreamPlayer" parent="PlantGrower"]
+stream = ExtResource("7_p16w0")
+
+[node name="BadPickupSound" type="AudioStreamPlayer" parent="PlantGrower"]
+stream = ExtResource("8_3dcv8")
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(128, 392)
