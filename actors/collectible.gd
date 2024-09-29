@@ -21,6 +21,19 @@ func _ready():
 
     from_collectible_data()
 
+    fita_consumed = is_consumed()
+    if fita_consumed:
+        visually_consumed()
+
+func visually_consumed():
+    self.modulate.a = 0.2
+
+func is_consumed():
+    for collectible_data in collectible_datas:
+        if collectible_data.title not in Persistence.consumed_fites:
+            return false
+    return true
+
 func from_collectible_data():
     for collectible_data in collectible_datas:
         var collectible_card : CollectibleCard = preload('res://ui/collectible_card.tscn').instantiate()
@@ -44,9 +57,9 @@ func _on_area_2d_body_entered(body):
     if body is Pic and not fita_consumed:
         fita_consumed = true
         for collectible_data in collectible_datas:
-            Persistence.savegame.add_fita(collectible_data)
+            Persistence.add_fita(collectible_data)
         animation_player.play('wobble')
-        self.modulate.a = 0.2
+        visually_consumed()
         canvas_layer.visible = true
         get_tree().call_group('pics', 'possess_toggle', false)
         picked_up.emit()

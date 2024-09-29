@@ -67,8 +67,6 @@ var active_pic : int = 0
 
 var ce_members : Array[String] = ['juanpe', 'xavierbonet', 'benjami', 'daniquilez']
 
-var savegame : SaveGame
-
 var levels : Array = [
     true, true, true, true, true, true, true, true, true, true,
     true, true, true, true, true, true, true, true, true, false
@@ -111,6 +109,8 @@ var level_order : Array[String] = [
     'outro.tscn',
 ]
 
+var consumed_fites : Array[String]
+
 var is_friday_counting : bool = false
 const friday_limit_minutes : int = 40
 const friday_limit : int = friday_limit_minutes*60
@@ -134,6 +134,10 @@ func estalvi(value : int):
     money -= value
     money = clamp(money, 0, 1000000)
 
+func _ready():
+    #load_game()
+    pass
+
 func _input(event):
     if event.is_action_pressed("switch_pic"):
         active_pic = (active_pic+1)%len(pics)
@@ -146,20 +150,31 @@ func _process(delta):
     if is_friday_counting:
         elapsed_time += delta
 
+func add_fita(fita : CollectibleData):
+    if fita.title not in consumed_fites:
+        consumed_fites.append(fita.title)
+        save_game()
+
+const SAVEFILE : String = "user://sompics_savegame.save"
+
 func save_game():
-    var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-    var json_string = JSON.stringify(savegame.as_dict())
+    var save_file = FileAccess.open(SAVEFILE, FileAccess.WRITE)
+    var game_state_dict : Dictionary = {'fites': consumed_fites}
+    game_state_dict['money'] = money
+    var json_string = JSON.stringify(game_state_dict)
     save_file.store_line(json_string)
 
 func load_game():
-    if not FileAccess.file_exists("user://savegame.save"):
+    if not FileAccess.file_exists(SAVEFILE):
         return
-    var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+    var save_file = FileAccess.open(SAVEFILE, FileAccess.READ)
     var json_string = save_file.get_line()
     var json = JSON.new()
     var parse_result = json.parse(json_string)
     if not parse_result == OK:
         print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
         return
-    var node_data = json.get_data()
-    savegame.from_dict(node_data)
+    var saved_data = json.get_data()
+    var savegame_fites = saved_data.get('fites',[])
+    Persistence.consumed_fites.append_array(savegame_fites)
+    Persistence.money = saved_data.get('money', money)

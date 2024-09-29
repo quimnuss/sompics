@@ -7,9 +7,7 @@
 
 ## next
 
-- [ ] Fites Persistence (don't recatch fita during a playthru)
 - [ ] Acció POs
-- [ ] estalvi persistence (in case of restart)
 
 ## later
 
@@ -20,6 +18,8 @@
 
 # Done
 
+- [x] estalvi persistence (in case of restart)
+- [x] Fites Persistence (don't recatch fita during a playthru)
 - [x] fix parallax layer popping
 - [x] fire layer on intro should be behind
 - [x] change dropped pickups to phones, contracts and droplet
