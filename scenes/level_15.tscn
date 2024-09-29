@@ -59,6 +59,7 @@ script = ExtResource("6_t861d")
 position = Vector2(528, 136)
 script = ExtResource("9_4jofa")
 pickup_receiver = NodePath("../PlantGrower")
+icon_type = 3
 
 [node name="SpawnTimer" type="Timer" parent="AreaSpawner"]
 wait_time = 0.5

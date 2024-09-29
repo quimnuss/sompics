@@ -6,11 +6,14 @@ const FALL_SPEED : float = 200
 
 var call_color : Color
 
+@export_enum('Circle', 'Call', 'Contract', 'Plant') var icon_type : int = 0
+
 signal picked_up(Color)
 
 func _ready():
     self.body_entered.connect(_on_body_entered)
     self.add_to_group('calls')
+    call_dot.set_type(self.icon_type)
     call_color = call_dot.call_color
 
 func _physics_process(delta):

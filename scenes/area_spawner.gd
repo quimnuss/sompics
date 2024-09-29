@@ -4,6 +4,8 @@ extends Node2D
 @onready var spawn_rect := $ReferenceRect
 @export var pickup_receiver : Node2D
 
+@export_enum('Circle', 'Call', 'Contract', 'Plant') var icon_type : int = 0
+
 # returns a local position offset within referencerect
 func random_point() -> Vector2:
     var offset : Vector2 = spawn_rect.global_position + spawn_rect.size * Vector2(randf(), randf())
@@ -11,6 +13,7 @@ func random_point() -> Vector2:
 
 func _on_spawn_timer_timeout():
     var spawn : CallDotFalling = spawnable.instantiate()
+    spawn.icon_type = icon_type
     spawn.picked_up.connect(pickup_receiver._on_picked)
     add_child(spawn)
     spawn.global_position = random_point()

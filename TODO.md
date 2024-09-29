@@ -2,9 +2,10 @@
 
 ## now
 
-- [ ] birds flying outro
-- [ ] change dropped pickups to phones, contracts and droplet
 - [ ] Place latest collectibles
+- [ ] change dropped pickups to phones, contracts and droplet
+- [ ] birds flying outro
+- [ ] fire layer on intro should be behind
 
 ## next
 

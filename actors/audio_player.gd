@@ -4,7 +4,7 @@ const background_music = preload("res://assets/kernel_panic.ogg")
 @onready var track_1 = $Track1
 @onready var track_2 = $Track2
 
-var is_demo : bool = true
+var is_demo : bool = false
 
 var is_on_track_1 : bool = true
 

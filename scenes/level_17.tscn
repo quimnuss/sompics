@@ -162,6 +162,7 @@ script = ExtResource("6_10gvf")
 position = Vector2(520, 144)
 script = ExtResource("8_gfw8s")
 pickup_receiver = NodePath("../PickupReceiver")
+icon_type = 2
 
 [node name="SpawnTimer" type="Timer" parent="AreaSpawner"]
 wait_time = 0.5

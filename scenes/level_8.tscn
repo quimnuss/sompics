@@ -78,6 +78,7 @@ autostart = true
 position = Vector2(525, 130)
 script = ExtResource("9_x5b7r")
 pickup_receiver = NodePath("../Tomatic/PhoneQueue")
+icon_type = 1
 
 [node name="SpawnTimer" type="Timer" parent="AreaSpawner"]
 wait_time = 0.5
