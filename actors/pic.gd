@@ -154,9 +154,9 @@ func kill():
     self.set_physics_process(false)
     self.set_process(false)
     animation_player.play('death')
+    animation_player.queue('RESET')
 
 func revive():
-    animation_player.play('RESET')
     self.set_physics_process(true)
     self.set_process(true)
     if person in Persistence.ce_members:

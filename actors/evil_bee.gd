@@ -6,7 +6,7 @@ extends Area2D
 @onready var hit_sound := $HitSound
 @onready var bee_body : Sprite2D = $BeeBody
 
-const RESPAWN_WAIT : float = 2 # should be equal or greater than pic kill animation
+const RESPAWN_WAIT : float = 2.1 # should be equal or greater than pic kill animation
 
 var respawning_pics : Array[Pic]
 
@@ -28,10 +28,11 @@ func _on_body_entered(body):
         #var tween = create_tween()
         #tween.tween_property(pic.body, 'rotation', 10*PI, RESPAWN_WAIT).set_ease(Tween.EASE_OUT).from(0)
         #tween.play()
+        
         pic.kill()
         await get_tree().create_timer(RESPAWN_WAIT).timeout
         pic.revive()
-        pic.global_position = owner.get_node('PlayerSpawner').global_position + Vector2(randi_range(-50,50),randi_range(0,50))
+        #pic.global_position = owner.get_node('PlayerSpawner').global_position + Vector2(randi_range(-50,50),randi_range(0,50))
         #pic.body.set_rotation(0)
-        respawning_pics.pop_front()
+        respawning_pics.erase(pic)
 
