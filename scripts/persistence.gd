@@ -67,7 +67,7 @@ var active_pic : int = 0
 
 var ce_members : Array[String] = ['juanpe', 'xavierbonet', 'benjami', 'daniquilez']
 
-var pics_with_body : Array[String] = ['xavidolz', 'isra']
+var savegame : SaveGame
 
 var levels : Array = [
     true, true, true, true, true, true, true, true, true, true,
@@ -145,3 +145,21 @@ func _input(event):
 func _process(delta):
     if is_friday_counting:
         elapsed_time += delta
+
+func save_game():
+    var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+    var json_string = JSON.stringify(savegame.as_dict())
+    save_file.store_line(json_string)
+
+func load_game():
+    if not FileAccess.file_exists("user://savegame.save"):
+        return
+    var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+    var json_string = save_file.get_line()
+    var json = JSON.new()
+    var parse_result = json.parse(json_string)
+    if not parse_result == OK:
+        print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+        return
+    var node_data = json.get_data()
+    savegame.from_dict(node_data)

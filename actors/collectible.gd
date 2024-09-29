@@ -43,6 +43,8 @@ func _unhandled_input(event):
 func _on_area_2d_body_entered(body):
     if body is Pic and not fita_consumed:
         fita_consumed = true
+        for collectible_data in collectible_datas:
+            Persistence.savegame.add_fita(collectible_data)
         animation_player.play('wobble')
         self.modulate.a = 0.2
         canvas_layer.visible = true
