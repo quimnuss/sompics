@@ -8,15 +8,14 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 script = ExtResource("1_5xgjg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -110,6 +109,19 @@ theme = ExtResource("1_turvf")
 text = "2024"
 fit_content = true
 
+[node name="FitaVista" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.25098, 0.25098, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Fita
+Vista"
+
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -149,3 +161,5 @@ layout_mode = 2
 theme = ExtResource("1_turvf")
 text = "lorem ipsum one more time"
 fit_content = true
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/FitaVista" to="." method="_on_fita_vista_toggled"]

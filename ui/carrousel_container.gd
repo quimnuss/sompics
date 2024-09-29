@@ -27,6 +27,16 @@ func _unhandled_input(event):
     elif event.is_action_pressed('ui_right'):
         _on_right_pressed()
 
+func _on_fita_selected(fita_name : String):
+    var index : int = 0
+    for card in cards:
+        if card is CollectibleCard:
+            if card.collectible_data.title == fita_name:
+                visible_index = index
+                update()
+                return
+            index += 1
+
 func _on_left_pressed():
     visible_index -= 1
     update()

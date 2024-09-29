@@ -12,7 +12,7 @@ const level_dir : String = 'res://scenes/'
 
 func _ready():
     AudioPlayer.crossfade(background_music)
-    
+
     num_grids = gridbox.get_child_count()
     for grid in gridbox.get_children():
         for box : LevelBox in grid.get_children():
