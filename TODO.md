@@ -3,8 +3,10 @@
 ## now
 
 - [ ] Update erp and sync with drive
+- [ ] Fix wall speed change in final level
+- [ ] sound effect on escaping and faster stopping music? (fade in scene)
 - [ ] birds flying outro
-- [ ] sound effect on escaping and faster stopping music?
+- [ ] Add fireworks on outro
 
 ## next
 
@@ -19,6 +21,9 @@
 
 # Done
 
+- [x] fix door collision when already in area2d
+- [x] estalvi indicators
+- [x] collectible estalvi
 - [x] Betterfita browser, add fita vista
 - [x] Place latest collectibles
 - [x] estalvi persistence (in case of restart)

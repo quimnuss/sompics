@@ -1,8 +1,9 @@
 extends Node2D
 class_name Door
 
-@onready var door_sprite = $DoorSprite
-@onready var door_open_effect = $DoorOpenEffect
+@onready var door_sprite := $DoorSprite
+@onready var door_open_effect := $DoorOpenEffect
+@onready var area_2d = $Area2D
 
 const level_dir : String = 'res://scenes/'
 
@@ -20,13 +21,12 @@ var num_pics : int = 2
 var level_num : int = 0
 
 @export var next_level : String
-
 @export var level_estalvi : int = 30000
 
 func _ready():
     num_pics = len(Persistence.pics)
     if is_open:
-        door_sprite.play('open')
+        open_no_estalvi()
     var fullpath : String = get_tree().current_scene.scene_file_path
     var level : String = fullpath.get_file()
     var level_index : int = Persistence.level_order.find(level)
@@ -41,10 +41,18 @@ func _ready():
 
     prints(level, '->', next_level)
 
+func open_no_estalvi():
+    door_sprite.play('open')
+    door_open_effect.play()
+    is_open = true
+    area_2d.set_collision_mask_value(2, true)
+    await door_sprite.animation_finished
+
 func open():
     door_sprite.play('open')
     door_open_effect.play()
     is_open = true
+    area_2d.set_collision_mask_value(2, true)
     if not is_end_level:
         Persistence.estalvi(level_estalvi)
         has_estalvied.emit(level_estalvi)
@@ -79,7 +87,10 @@ func _on_area_2d_body_entered(body):
         self.open()
 
     if body is Pic and is_open:
-        body.is_on_door = true
+        if is_end_level:
+            body.enter_door()
+        else:
+            body.is_on_door = true
 
 func _on_area_2d_body_exited(body):
     if body is Pic and is_open:
