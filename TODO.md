@@ -4,7 +4,7 @@
 
 - [ ] Update erp and sync with drive
 - [ ] Fix wall speed change in final level
-- [ ] sound effect on escaping and faster stopping music? (fade in scene)
+- [ ] sound effect on escaping and faster stopping music? (fade out wall scene much better plan!)
 - [ ] birds flying outro
 - [ ] Add fireworks on outro
 
