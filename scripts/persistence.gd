@@ -112,7 +112,7 @@ var level_order : Array[String] = [
 var consumed_fites : Array[String]
 
 var is_friday_counting : bool = false
-const friday_limit_minutes : int = 40
+const friday_limit_minutes : int = 2
 const friday_limit : int = friday_limit_minutes*60
 var elapsed_time : float = 0
 var is_first_time_level_18 : bool = true

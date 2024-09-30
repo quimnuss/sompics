@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://beieffefrp6x"]
+[gd_scene load_steps=13 format=3 uid="uid://beieffefrp6x"]
 
 [ext_resource type="Texture2D" uid="uid://bsage84pqoh1q" path="res://assets/08-Box/Idle.png" id="1_iftxx"]
 [ext_resource type="Script" path="res://actors/collectible.gd" id="1_injlv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://ui/carrousel_container.gd" id="3_hakwb"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="3_hx4ch"]
 [ext_resource type="StyleBox" uid="uid://x8u3seqyt5bn" path="res://ui/button_style.tres" id="3_y5viw"]
+[ext_resource type="Script" path="res://scripts/money_up_component.gd" id="7_inxvf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4bgec"]
 radius = 16.0
@@ -93,6 +94,9 @@ _data = {
 [node name="Collectible" type="Node2D"]
 position = Vector2(0, 10)
 script = ExtResource("1_injlv")
+
+[node name="MoneyUpComponent" type="Node2D" parent="."]
+script = ExtResource("7_inxvf")
 
 [node name="Anchor" type="Node2D" parent="."]
 

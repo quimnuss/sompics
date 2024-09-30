@@ -28,7 +28,7 @@ func _on_body_entered(body):
         #var tween = create_tween()
         #tween.tween_property(pic.body, 'rotation', 10*PI, RESPAWN_WAIT).set_ease(Tween.EASE_OUT).from(0)
         #tween.play()
-        
+
         pic.kill()
         await get_tree().create_timer(RESPAWN_WAIT).timeout
         pic.revive()

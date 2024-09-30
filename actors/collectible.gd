@@ -3,6 +3,7 @@ extends Node2D
 @export var collectible_datas : Array[CollectibleData]
 @onready var animation_player = $AnimationPlayer
 @onready var canvas_layer = $CanvasLayer
+@onready var sprite_anchor = $Anchor
 
 @onready var collectible_cards = %CollectibleCards
 
@@ -10,6 +11,9 @@ var fita_consumed = false
 
 signal picked_up
 signal resume_game
+signal has_estalvied(amount : int)
+
+var estalvi_amount : int = 1000
 
 func _ready():
     if OS.is_debug_build() and get_tree().root == get_parent():
@@ -26,7 +30,7 @@ func _ready():
         visually_consumed()
 
 func visually_consumed():
-    self.modulate.a = 0.2
+    sprite_anchor.modulate.a = 0.2
 
 func is_consumed():
     for collectible_data in collectible_datas:
@@ -60,9 +64,12 @@ func _on_area_2d_body_entered(body):
             Persistence.add_fita(collectible_data)
         animation_player.play('wobble')
         visually_consumed()
-        canvas_layer.visible = true
         get_tree().call_group('pics', 'possess_toggle', false)
         picked_up.emit()
+        Persistence.estalvi(estalvi_amount)
+        has_estalvied.emit(estalvi_amount)
+        await get_tree().create_timer(1).timeout
+        canvas_layer.visible = true
 
 func _on_button_pressed():
     return_to_game()

@@ -12,6 +12,7 @@ const level_dir : String = 'res://scenes/'
 signal door_open
 signal level_exit
 signal all_in
+signal has_estalvied(amount : int)
 
 var pics_in : int = 0
 var num_pics : int = 2
@@ -46,6 +47,7 @@ func open():
     is_open = true
     if not is_end_level:
         Persistence.estalvi(level_estalvi)
+        has_estalvied.emit(level_estalvi)
     door_open.emit()
     await door_sprite.animation_finished
     if Persistence.goose_luis_help and not is_end_level:
@@ -53,6 +55,7 @@ func open():
         anim_player.play('default')
         await anim_player.animation_finished
         Persistence.estalvi(round(level_estalvi * 0.2))
+        has_estalvied.emit(level_estalvi)
 
 func close():
     is_open = false
