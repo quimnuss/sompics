@@ -49,6 +49,7 @@ offset = Vector2(0, -110)
 duration = 6.0
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="PlatformVertical"]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformVertical/AnimatableBody2D"]
 position = Vector2(16, 5)

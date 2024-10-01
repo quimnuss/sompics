@@ -2,6 +2,7 @@ extends Node2D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var player_spawner = $PlayerSpawner
 @onready var ui = $UI
+@onready var tile_map = $TileMap
 
 var restarting : bool = false
 const background_music = preload("res://assets/hollow_knight_sealed_vessel.ogg")
@@ -26,6 +27,19 @@ func set_players_ready():
 
 func start_level():
     animation_player.play("level_pursuit")
+
+func fill_hole_instant():
+    var hole_coords : Array[Vector2i]
+    for i in range(41):
+        hole_coords.append(Vector2i(16,i))
+
+    tile_map.set_cells_terrain_connect(2, hole_coords, 0, 1)
+
+func fill_hole():
+    for i in range(41):
+        tile_map.set_cells_terrain_connect(2, [Vector2i(16,i)], 0, 1)
+        await get_tree().create_timer(0.1).timeout
+
 
 func _on_collided():
     if not restarting:

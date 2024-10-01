@@ -80,6 +80,7 @@ func pic_exit():
             change_to_next_level()
         else:
             AudioPlayer.fade_out()
+            $"../UI".visible = false
             var tween : Tween = create_tween()
             tween.tween_property($CanvasModulate, 'color', Color.BLACK, 3)
             tween.tween_callback(change_to_next_level).set_delay(2)
