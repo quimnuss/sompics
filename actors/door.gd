@@ -81,9 +81,10 @@ func pic_exit():
         else:
             AudioPlayer.fade_out()
             $"../UI".visible = false
+            $EscapeSound.play()
             var tween : Tween = create_tween()
             tween.tween_property($CanvasModulate, 'color', Color.BLACK, 3)
-            tween.tween_callback(change_to_next_level).set_delay(2)
+            tween.tween_callback(change_to_next_level).set_delay(4)
             get_tree().call_group('pics', 'queue_free')
 
 

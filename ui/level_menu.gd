@@ -11,7 +11,7 @@ const background_music = preload("res://assets/hollow_knight_fungal_wastes.ogg")
 const level_dir : String = 'res://scenes/'
 
 func _ready():
-    AudioPlayer.crossfade(background_music)
+    AudioPlayer.crossfade(background_music, -6.0, 1.5)
 
     num_grids = gridbox.get_child_count()
     for grid in gridbox.get_children():
@@ -39,3 +39,7 @@ func _on_next_button_pressed():
         var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
         tween.tween_property(gridbox, "position:x", gridbox.position.x - grid_width, 0.5)
 #		gridbox.position.x -= grid_width
+
+
+func _on_button_pressed():
+    get_tree().change_scene_to_file("res://scenes/welcome_level.tscn")

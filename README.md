@@ -6,6 +6,7 @@ A silly Game for Funk together
 
 [Tileset and more](https://pixelfrog-assets.itch.io/kings-and-pigs) by PixelFrog
 [2 Impact Wet](https://freesound.org/s/376818/) by original_sound License: Attribution 3.0
+[Miracle Arp](https://freesound.org/s/347725/) by newagesoup License: Attribution NonCommercial 4.0
 [Medieval Art](https://gandalfhardcore.itch.io/free-pixel-art-male-and-female-character) by gandalfhardcore
 
 # Joystick

@@ -49,7 +49,6 @@ position = Vector2(1072, 552)
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(576, 304)
 script = ExtResource("6_ea4e5")
-spawn_delay = 0.15
 
 [node name="Markers" type="Node2D" parent="PlayerSpawner"]
 

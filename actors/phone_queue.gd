@@ -26,7 +26,7 @@ func picked_correct_call():
     else:
         Persistence.estalvi(300)
 
-func picked_wrong_call(color):
+func picked_wrong_call(_color):
     bad_pickup_sound.play()
     Persistence.estalvi(-300)
 

@@ -9,7 +9,7 @@ class_name PlayerSpawner
 
 @export var rigipics_spawn : bool = false
 @export var is_gravity_on : bool = true
-@export var spawn_delay : float = 0.3
+@export var spawn_delay : float = 0.15
 @export var spawn_half_range : Vector2 = Vector2(70, 50)
 
 var pic_scene := preload('res://actors/pic.tscn')

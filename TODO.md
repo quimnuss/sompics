@@ -2,12 +2,11 @@
 
 ## now
 
+- [ ] ! level 12 add up to 28 players (now it's 24!)
 - [ ] Better initial tutorial (explain controls, explain friday maybe on disclaimer?)
-- [ ] Player selector screen in case people want to join in gradually?
 
 - [ ] Update erp and sync with drive
 - [ ] Fix wall speed change in final level
-- [ ] sound effect on escaping and faster stopping music? (fade out wall scene much better plan!)
 - [ ] birds flying outro
 - [ ] Add fireworks on outro
 
@@ -24,6 +23,9 @@
 
 # Done
 
+- [x] sound effect on escaping and faster stopping music
+- [x] Player selector screen in case people want to join in gradually?
+- [x] fade out wall scene much better plan!
 - [x] fix door collision when already in area2d
 - [x] estalvi indicators
 - [x] collectible estalvi
