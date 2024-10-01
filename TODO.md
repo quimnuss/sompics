@@ -2,6 +2,9 @@
 
 ## now
 
+- [ ] Better initial tutorial (explain controls, explain friday maybe on disclaimer?)
+- [ ] Player selector screen in case people want to join in gradually?
+
 - [ ] Update erp and sync with drive
 - [ ] Fix wall speed change in final level
 - [ ] sound effect on escaping and faster stopping music? (fade out wall scene much better plan!)
