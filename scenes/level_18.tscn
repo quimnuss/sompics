@@ -238,6 +238,9 @@ position = Vector2(4082, 376)
 is_end_level = true
 next_level = "welcome_level.tscn"
 
+[node name="CanvasModulate" type="CanvasModulate" parent="Door"]
+position = Vector2(-4082, -376)
+
 [node name="Key" parent="." instance=ExtResource("5_cf3bq")]
 position = Vector2(3008, 320)
 collision_mask = 0

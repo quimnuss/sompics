@@ -104,7 +104,7 @@ func spawn_flying(pic_name : String):
     var pic = ripic_scene.instantiate() if rigipics_spawn else pic_scene.instantiate()
     pic.person = pic_name
     if not is_gravity_on:
-        pic.is_flying = true
+        pic.set_is_flying()
         @warning_ignore("integer_division")
         var shift_spawn : Vector2 = spawned_pics%6 * Vector2(50,0) + spawned_pics/6 * Vector2(0, 50)
         pic.position += shift_spawn

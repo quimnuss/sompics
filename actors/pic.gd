@@ -77,10 +77,13 @@ func _ready():
     if person in Persistence.ce_members:
         ghost()
 
+func set_is_flying():
+    is_flying = true
+    self.motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 
 func enter_door():
     self.set_physics_process(false)
-    get_node("CollisionShape2D").disabled = true
+    get_node("CollisionShape2D").call_deferred('set_disabled', true)
     self.is_out = true
     pic_body.set_modulate(Color(1,1,1,0.25))
     pic_exit.emit()
@@ -88,7 +91,7 @@ func enter_door():
 
 func exit_door():
     self.set_physics_process(true)
-    get_node("CollisionShape2D").disabled = false
+    get_node("CollisionShape2D").call_deferred('set_disabled', false)
     pic_body.set_modulate(Color.WHITE)
     self.is_out = false
     pic_back.emit()

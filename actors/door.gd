@@ -76,7 +76,18 @@ func pic_exit():
     pics_in += 1
     if pics_in >= num_pics:
         all_in.emit()
-        get_tree().call_deferred('change_scene_to_file',(level_dir + next_level))
+        if not is_end_level:
+            change_to_next_level()
+        else:
+            AudioPlayer.fade_out()
+            var tween : Tween = create_tween()
+            tween.tween_property($CanvasModulate, 'color', Color.BLACK, 3)
+            tween.tween_callback(change_to_next_level).set_delay(2)
+            get_tree().call_group('pics', 'queue_free')
+
+
+func change_to_next_level():
+    get_tree().call_deferred('change_scene_to_file',(level_dir + next_level))
 
 func pic_back():
     pics_in -= 1
@@ -87,10 +98,12 @@ func _on_area_2d_body_entered(body):
         self.open()
 
     if body is Pic and is_open:
+        var pic : Pic = body as Pic
         if is_end_level:
-            body.enter_door()
+            pic.enter_door()
+            pic.set_process(false)
         else:
-            body.is_on_door = true
+            pic.is_on_door = true
 
 func _on_area_2d_body_exited(body):
     if body is Pic and is_open:
