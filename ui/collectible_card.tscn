@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw585chtqxktl"]
+[gd_scene load_steps=6 format=3 uid="uid://bw585chtqxktl"]
 
 [ext_resource type="Script" path="res://ui/collectible_card.gd" id="1_5xgjg"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="1_turvf"]
 [ext_resource type="Texture2D" uid="uid://cnx8sd80vyyxn" path="res://assets/frame_varied.png" id="2_cyq3q"]
+[ext_resource type="Texture2D" uid="uid://dw5neolh4ijeg" path="res://assets/collectibles_big.png" id="4_1c622"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oes8s"]
+atlas = ExtResource("4_1c622")
+region = Rect2(0, 0, 128, 128)
 
 [node name="CollectibleCard" type="MarginContainer"]
 anchors_preset = 15
@@ -70,6 +75,14 @@ layout_mode = 2
 theme = ExtResource("1_turvf")
 text = "lololo"
 fit_content = true
+
+[node name="FitaImage" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_oes8s")
+expand_mode = 2
+stretch_mode = 3
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

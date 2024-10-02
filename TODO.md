@@ -22,6 +22,7 @@
 
 # Done
 
+- [x] New collectible images
 - [x] ! level 12 add up to 28 players (now it's 24!)
 - [x] sound effect on escaping and faster stopping music
 - [x] Player selector screen in case people want to join in gradually?

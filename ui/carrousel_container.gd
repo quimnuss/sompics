@@ -43,6 +43,5 @@ func _on_left_pressed():
 
 
 func _on_right_pressed():
-
     visible_index += 1
     update()

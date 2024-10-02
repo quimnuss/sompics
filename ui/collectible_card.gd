@@ -10,6 +10,11 @@ class_name CollectibleCard
 @onready var how_text = $MarginContainer/VBoxContainer/HowText
 @onready var why_text = $MarginContainer/VBoxContainer/WhyText
 @onready var fita_vista = $MarginContainer/VBoxContainer/HBoxContainer/FitaVista
+@onready var fita_image = $MarginContainer/VBoxContainer/HBoxContainer/FitaImage
+
+var image_position : Array[String] = ['all','Dades', 'ERP', 'Suport', 'Webapps']
+
+@export var debug_image_region : Rect2
 
 func _ready():
     add_to_group('collectiblecard')
@@ -28,9 +33,19 @@ func refresh_collectible():
     why_text.text = collectible_data.added_value
     var is_consumed : bool = collectible_data.title in Persistence.consumed_fites
     fita_vista.set_pressed(is_consumed)
+    set_image(collectible_data.team)
+
+
 
 func set_data(new_collectible_data : CollectibleData):
     collectible_data = new_collectible_data
+
+
+func set_image(team : String):
+    var region_offset : int = image_position.find(team)
+    region_offset = 0 if region_offset < 0 else region_offset
+    fita_image.texture.region = Rect2(128*region_offset,0,128,128)
+    debug_image_region = Rect2(128*region_offset,0,128,128)
 
 
 
