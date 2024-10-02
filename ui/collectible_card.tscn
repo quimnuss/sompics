@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw585chtqxktl"]
+[gd_scene load_steps=9 format=3 uid="uid://bw585chtqxktl"]
 
 [ext_resource type="Script" path="res://ui/collectible_card.gd" id="1_5xgjg"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="1_turvf"]
 [ext_resource type="Texture2D" uid="uid://cnx8sd80vyyxn" path="res://assets/frame_varied.png" id="2_cyq3q"]
-[ext_resource type="Texture2D" uid="uid://dw5neolh4ijeg" path="res://assets/collectibles_big.png" id="4_1c622"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oes8s"]
-atlas = ExtResource("4_1c622")
-region = Rect2(0, 0, 128, 128)
+[ext_resource type="Texture2D" uid="uid://c87v5ldogpg1e" path="res://assets/collectible_all.png" id="4_76wg0"]
+[ext_resource type="Texture2D" uid="uid://dfimdec4p16p5" path="res://assets/collectible_dades.png" id="5_itpr7"]
+[ext_resource type="Texture2D" uid="uid://7fewi3d35tme" path="res://assets/collectible_webapps.png" id="6_p4av6"]
+[ext_resource type="Texture2D" uid="uid://dqitfvbhi0biv" path="res://assets/collectible_erp.png" id="7_4km35"]
+[ext_resource type="Texture2D" uid="uid://dpycfq2ioqi7x" path="res://assets/collectible_suport.png" id="8_s2amp"]
 
 [node name="CollectibleCard" type="MarginContainer"]
 anchors_preset = 15
@@ -76,13 +76,55 @@ theme = ExtResource("1_turvf")
 text = "lololo"
 fit_content = true
 
-[node name="FitaImage" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="FitaImageAll" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 visible = false
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-texture = SubResource("AtlasTexture_oes8s")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_76wg0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FitaImageDades" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_itpr7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FitaImageWebapps" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_p4av6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FitaImageERP" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_4km35")
 expand_mode = 2
-stretch_mode = 3
+stretch_mode = 5
+
+[node name="FitaImageSuport" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_s2amp")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

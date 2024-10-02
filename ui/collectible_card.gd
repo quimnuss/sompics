@@ -10,7 +10,6 @@ class_name CollectibleCard
 @onready var how_text = $MarginContainer/VBoxContainer/HowText
 @onready var why_text = $MarginContainer/VBoxContainer/WhyText
 @onready var fita_vista = $MarginContainer/VBoxContainer/HBoxContainer/FitaVista
-@onready var fita_image = $MarginContainer/VBoxContainer/HBoxContainer/FitaImage
 
 var image_position : Array[String] = ['all','Dades', 'ERP', 'Suport', 'Webapps']
 
@@ -42,10 +41,17 @@ func set_data(new_collectible_data : CollectibleData):
 
 
 func set_image(team : String):
-    var region_offset : int = image_position.find(team)
-    region_offset = 0 if region_offset < 0 else region_offset
-    fita_image.texture.region = Rect2(128*region_offset,0,128,128)
-    debug_image_region = Rect2(128*region_offset,0,128,128)
+    match team:
+        'Webapps':
+            $MarginContainer/VBoxContainer/HBoxContainer/FitaImageWebapps.visible = true
+        'Dades':
+            $MarginContainer/VBoxContainer/HBoxContainer/FitaImageDades.visible = true
+        'ERP':
+            $MarginContainer/VBoxContainer/HBoxContainer/FitaImageERP.visible = true
+        'Suport':
+            $MarginContainer/VBoxContainer/HBoxContainer/FitaImageSuport.visible = true
+        _:
+            $MarginContainer/VBoxContainer/HBoxContainer/FitaImageAll.visible = true
 
 
 

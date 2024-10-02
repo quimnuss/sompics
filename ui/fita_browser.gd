@@ -5,6 +5,7 @@ extends Control
 @onready var collectible_cards = %CollectibleCards
 @onready var flow_container = %FlowContainer
 @onready var fita_carrousel = $FitaCarrousel
+@onready var right_button : Button = $FitaCarrousel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/RightButton
 
 func _ready():
     for collectible_data in collectible_datas:
@@ -21,6 +22,7 @@ func _ready():
 func popup_carrousel(fita_name):
     collectible_cards._on_fita_selected(fita_name)
     fita_carrousel.visible = true
+    right_button.grab_focus()
 
 
 func _on_button_pressed():
