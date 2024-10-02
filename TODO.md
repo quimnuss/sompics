@@ -5,9 +5,6 @@
 - [ ] Better initial tutorial (explain controls, explain friday maybe on disclaimer?)
 
 - [ ] Update erp and sync with drive
-- [ ] Fix wall speed change in final level
-- [ ] birds flying outro
-- [ ] Add fireworks on outro
 
 ## next
 
@@ -22,6 +19,9 @@
 
 # Done
 
+- [ ] ~Add fireworks on outro~ it would be too much
+- [x] birds flying outro
+- [ ] ~Fix wall speed change in final level~ --> it gives more tension actually
 - [x] New collectible images
 - [x] ! level 12 add up to 28 players (now it's 24!)
 - [x] sound effect on escaping and faster stopping music

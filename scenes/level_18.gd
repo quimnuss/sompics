@@ -29,17 +29,18 @@ func start_level():
     animation_player.play("level_pursuit")
 
 func fill_hole_instant():
-    var hole_coords : Array[Vector2i]
+    var hole_coords : Array[Vector2i] = []
     for i in range(41):
         hole_coords.append(Vector2i(16,i))
 
     tile_map.set_cells_terrain_connect(2, hole_coords, 0, 1)
 
 func fill_hole():
+    $FloorBreakSound.play()
     for i in range(41):
         tile_map.set_cells_terrain_connect(2, [Vector2i(16,i)], 0, 1)
         await get_tree().create_timer(0.1).timeout
-
+    $FloorBreakSound.stop()
 
 func _on_collided():
     if not restarting:
