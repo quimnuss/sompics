@@ -4,6 +4,7 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var canvas_layer = $CanvasLayer
 @onready var sprite_anchor = $Anchor
+@onready var card_sprite := $Anchor/CardSprite
 
 @onready var collectible_cards = %CollectibleCards
 
@@ -39,14 +40,30 @@ func is_consumed():
     return true
 
 func from_collectible_data():
+    var team : String = collectible_datas[0].team if not collectible_datas.is_empty() else 'all'
     for collectible_data in collectible_datas:
         var collectible_card : CollectibleCard = preload('res://ui/collectible_card.tscn').instantiate()
         collectible_card.set_data(collectible_data)
         collectible_cards.add_child(collectible_card)
+        if team != 'all' and team != collectible_data.team:
+            team = 'all'
+
     collectible_cards.update()
     if len(collectible_datas) <= 1:
         $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/LeftButton.queue_free()
         $CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/RightButton.queue_free()
+
+    match team:
+        'Dades':
+            card_sprite.frame = 1
+        'ERP':
+            card_sprite.frame = 2
+        'Webapps':
+            card_sprite.frame = 4
+        'Suport':
+            card_sprite.frame = 3
+        _:
+            card_sprite.frame = 0
 
 func return_to_game():
     get_tree().call_group('pics', 'possess_toggle', true)

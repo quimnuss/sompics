@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://beieffefrp6x"]
+[gd_scene load_steps=14 format=3 uid="uid://beieffefrp6x"]
 
 [ext_resource type="Texture2D" uid="uid://bsage84pqoh1q" path="res://assets/08-Box/Idle.png" id="1_iftxx"]
 [ext_resource type="Script" path="res://actors/collectible.gd" id="1_injlv"]
@@ -6,10 +6,11 @@
 [ext_resource type="Script" path="res://ui/carrousel_container.gd" id="3_hakwb"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="3_hx4ch"]
 [ext_resource type="StyleBox" uid="uid://x8u3seqyt5bn" path="res://ui/button_style.tres" id="3_y5viw"]
+[ext_resource type="Texture2D" uid="uid://cfc7lriau3noe" path="res://assets/collectibles.png" id="4_ahdw8"]
 [ext_resource type="Script" path="res://scripts/money_up_component.gd" id="7_inxvf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4bgec"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5y3k"]
+size = Vector2(30, 30)
 
 [sub_resource type="Animation" id="Animation_p518p"]
 length = 0.001
@@ -36,6 +37,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Anchor/CardSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ibosl"]
@@ -65,6 +78,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Anchor/CardSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.619608), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_8ljqi"]
@@ -103,12 +128,16 @@ script = ExtResource("7_inxvf")
 [node name="Sprite2D" type="Sprite2D" parent="Anchor"]
 texture = ExtResource("1_iftxx")
 
+[node name="CardSprite" type="Sprite2D" parent="Anchor"]
+texture = ExtResource("4_ahdw8")
+hframes = 5
+
 [node name="Area2D" type="Area2D" parent="Anchor"]
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/Area2D"]
-shape = SubResource("CircleShape2D_4bgec")
+shape = SubResource("RectangleShape2D_t5y3k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

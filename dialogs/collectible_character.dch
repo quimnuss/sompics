@@ -17,13 +17,13 @@
 "portraits": {
 "idle": {
 "export_overrides": {
-"image": "\"res://assets/08-Box/Idle.png\""
+"image": "\"res://assets/collectible_deck.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1,
+"scale": 1.0,
 "scene": ""
 }
 },
-"scale": 0.1
+"scale": 1.0
 }
