@@ -13,6 +13,6 @@ villan_1_name = "drback_defeated"
 villan_2_name = ""
 
 [node name="Door" parent="IntermissionLevel" index="1"]
-is_end_level = true
+does_estalvi = false
 
 [editable path="IntermissionLevel"]

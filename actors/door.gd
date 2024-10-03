@@ -9,6 +9,7 @@ const level_dir : String = 'res://scenes/'
 
 @export var is_open : bool = false
 @export var is_end_level : bool = false
+@export var does_estalvi : bool = true
 
 signal door_open
 signal level_exit
@@ -53,7 +54,7 @@ func open():
     door_open_effect.play()
     is_open = true
     area_2d.set_collision_mask_value(2, true)
-    if not is_end_level:
+    if does_estalvi:
         Persistence.estalvi(level_estalvi)
         has_estalvied.emit(level_estalvi)
     door_open.emit()

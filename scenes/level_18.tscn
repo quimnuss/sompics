@@ -270,6 +270,7 @@ volume_db = -10.0
 [node name="Door" parent="." instance=ExtResource("4_xxb0k")]
 position = Vector2(4082, 376)
 is_end_level = true
+does_estalvi = false
 next_level = "welcome_level.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Door"]
