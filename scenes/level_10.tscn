@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://ko1h6e2bpy25" path="res://assets/door-locked.ogg" id="10_qc5ac"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="12_mwqlm"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="13_s2ae2"]
-[ext_resource type="Resource" uid="uid://bxba1ewkf33g0" path="res://data/fita_erp_todo3.tres" id="14_fqi0e"]
+[ext_resource type="Resource" uid="uid://bxba1ewkf33g0" path="res://data/fita_erp_somstash.tres" id="14_fqi0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5icyh"]
 size = Vector2(30, 47)

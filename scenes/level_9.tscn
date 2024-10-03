@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://actors/killzone.gd" id="8_dhsv5"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="9_2capa"]
 [ext_resource type="AudioStream" uid="uid://dokloux848mqa" path="res://assets/game_over.ogg" id="9_b7go7"]
-[ext_resource type="Resource" uid="uid://ujej7sqbdrpn" path="res://data/fita_erp_todo4.tres" id="10_n45pl"]
+[ext_resource type="Resource" uid="uid://ujej7sqbdrpn" path="res://data/fita_erp_kalinfo.tres" id="10_n45pl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ce0ht"]
 size = Vector2(800, 26)

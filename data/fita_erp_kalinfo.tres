@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://ujej7sqbdrpn"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_fo20v"]
+
+[resource]
+script = ExtResource("1_fo20v")
+title = "Integració Odoo - Kallinfo"
+team = "ERP"
+time = "Q?"
+related_fites = Array[String]([])
+impacte = "Aprendre a programar moduls custom d'ODOO"
+enabler = "Comunicació amb webapps via contractes (pydantic) desenvolupament de backend desacoblat de frontend. Bona comunicació i treball entre equips."
+added_value = "Poder traçar la tipificació de trucades d'una forma mes moderna i àgil. Dotar al ET de dades sobre l'activitat de les trucades."

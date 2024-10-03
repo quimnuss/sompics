@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://bv6rrnunsesv8"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_318fx"]
+
+[resource]
+script = ExtResource("1_318fx")
+title = "CP en puppeteer"
+team = "ERP"
+time = "Q?"
+related_fites = Array[String]([])
+impacte = "Condicions particulars més mantenibles, de 1 mako enorme a 1 mako amb backend amb components en Python.
+Es pot testejar tot el codi que abans estava dins el mako."
+enabler = "Les diferents millores que s’han anat fent a l’ERP durant els anys com els Backends i la integració amb Puppeteer."
+added_value = "Poder fer canvis a les CCPP més àgilments, complir amb els requeriments legals més fàcilment"

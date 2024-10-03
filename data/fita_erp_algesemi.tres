@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://b41c5wu1e8a2f"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_1gl6b"]
+
+[resource]
+script = ExtResource("1_1gl6b")
+title = "Projecte Algemesí"
+team = "ERP"
+time = "Q?"
+related_fites = Array[String]([])
+impacte = "Disposar d'un coding style unificat i posar testos al dia per poder afrontar nous reptes.
+Totes les millores han d'anar dins una PR que compleixi validacions d’estils i tests."
+enabler = "Organització de jornades amb equips al estil IT-thon pero per ERP.
+Entrar targetes"
+added_value = "Codi mes similar, millor acabat, reducció dels bugs, control de testos mes acurat, prevenció d'errors per canvis GISCE."

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://cc5o0fj8vnerc"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_656mu"]
+
+[resource]
+script = ExtResource("1_656mu")
+title = "Millores rendiment ERP"
+team = "ERP"
+time = "Q?"
+related_fites = Array[String]([])
+impacte = "Sistema actualització mòduls, impressió de factura, timescale, keepup."
+enabler = "Focus i l’expertesa"
+added_value = "Fer més ràpid el desplegament de millores.
+Impressió de factures més ràpida afectant a l’enviament de factures."

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bw585chtqxktl" path="res://ui/collectible_card.tscn" id="2_ru3hq"]
 [ext_resource type="Resource" uid="uid://dbhmc4l0cuxbi" path="res://data/fita_dades_balanc_de_costos.tres" id="3_ee1ka"]
 [ext_resource type="Resource" uid="uid://d0kmoryfoho3q" path="res://data/fita_po_odoo.tres" id="4_d4h48"]
-[ext_resource type="Resource" uid="uid://b41c5wu1e8a2f" path="res://data/fita_erp_todo1.tres" id="5_delyd"]
+[ext_resource type="Resource" uid="uid://b41c5wu1e8a2f" path="res://data/fita_erp_algesemi.tres" id="5_delyd"]
 
 [node name="TestFitesCarrousel" type="Control"]
 layout_mode = 3

@@ -4,8 +4,6 @@
 
 - [ ] Better initial tutorial (explain controls, explain friday maybe on disclaimer?)
 
-- [ ] Update erp and sync with drive
-
 ## next
 
 - [ ] Acció POs
@@ -19,6 +17,8 @@
 
 # Done
 
+- [x] Update erp and sync with drive
+- [x] Fites 
 - [ ] ~Add fireworks on outro~ it would be too much
 - [x] birds flying outro
 - [ ] ~Fix wall speed change in final level~ --> it gives more tension actually
@@ -86,11 +86,11 @@
 
 {
 'level_0.tscn' : [],
-'level_1.tscn' : ['fita_po_mindset.tres', 'fita_erp_todo1.tres'],
+'level_1.tscn' : ['fita_po_mindset.tres', 'fita_erp_algesemi.tres'],
 'level_1_5.tscn' : ['fita_dades_balanc_de_costos.tres'],
 'level_2.tscn' : ['fita_dades_pmkanbanize.tres'],
 'level_3.tscn' : ['fita_webapps_representa.tres'],
-'level_3_5.tscn' : ['fita_po_odoo.tres', 'fita_po_deute_tecnic.tres'],
+'level_3_5.tscn' : ['fita_erp_odoo.tres/fita_po_odoo.tres', 'fita_po_deute_tecnic.tres'],
 'level_4.tscn' : ['fita_dades_transoceanics.tres'],
 'level_4_5.tscn': ['fita_webapps_novaweb.tres', 'fita_webapps_react.tres', 'fita_webapps_webforms.tres'],
 'level_5.tscn' : ['fita_suport_nsx.tres', 'fita_suport_sm.tres'],
@@ -99,18 +99,18 @@
 'level_7.tscn' : ['fita_technocuca_authentik.tres', 'fita_suport_authentik.tres'],
 'level_8.tscn' : ['fita_webapps_trucades.tres'],
 'level_8_5.tscn' : ['fita_webapps_solidar.tres', 'fita_technocuca_solidar.tres'],
-'level_9.tscn' : ['fita_erp_todo4.tres'],
+'level_9.tscn' : ['fita_erp_kalinfo.tres'],
 'level_9_5.tscn' : [],
-'level_10.tscn' : ['fita_erp_todo3.tres'],
-'level_11.tscn' : ['fita_erp_todo2.tres'],
-'level_12.tscn' : ['fita_erp_todo1.tres'],
+'level_10.tscn' : ['fita_erp_somstash.tres'],
+'level_11.tscn' : ['fita_erp_pupeteer.tres'],
+'level_12.tscn' : ['fita_erp_healthcheck.tres', 'fita_erp_rendiment.tres'],
 'level_12_5.tscn' : ['fita_po_openproject.tres', 'fita_technocuca_openproject.tres'],
 'level_13.tscn' : ['fita_dades_ingesta_cicd.tres'],
 'level_13_5.tscn' : [],
-'level_14.tscn' : ['fita_erp_todo5.tres'],
+'level_14.tscn' : ['fita_erp_healthcheck.tres'],
 'level_15.tscn' : ['fita_technocuca_novetats.tres', 'fita_technocuca_radar.tres'],
 'level_15_5.tscn' : ['fita_dades_jardiner.tres'],
-'level_16.tscn' : ['fita_webapps_generation.tres'],
+'level_16.tscn' : ['fita_webapps_generation.tres', 'fita_erp_odoo.tres''],
 'level_16_5.tscn' : [],
 'level_17.tscn' : [],
 'level_17_5.tscn' : [],
@@ -119,5 +119,7 @@
 
 ## pending
 
+
+fita_erp_bonus
 
 cuca

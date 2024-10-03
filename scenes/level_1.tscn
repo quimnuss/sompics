@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://actors/respawn_one.gd" id="5_m0ni4"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="6_mj6gc"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="7_aqsyc"]
-[ext_resource type="Resource" uid="uid://b41c5wu1e8a2f" path="res://data/fita_erp_todo1.tres" id="8_yywr3"]
+[ext_resource type="Resource" uid="uid://b41c5wu1e8a2f" path="res://data/fita_erp_algesemi.tres" id="8_yywr3"]
 [ext_resource type="Resource" uid="uid://c8ncm72mdjw07" path="res://data/fita_po_mindset.tres" id="9_dl0tf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yue0q"]

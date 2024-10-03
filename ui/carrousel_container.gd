@@ -22,6 +22,8 @@ func update():
     cards[visible_index].visible = true
 
 func _unhandled_input(event):
+    if self.is_visible_in_tree() == false:
+        return
     if event.is_action_pressed('ui_left'):
         _on_left_pressed()
     elif event.is_action_pressed('ui_right'):

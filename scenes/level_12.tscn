@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://actors/timed_button_collector.gd" id="7_e888t"]
 [ext_resource type="PackedScene" uid="uid://xaaky5nuxjpn" path="res://actors/timed_button.tscn" id="8_1lsmd"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="9_fr1ol"]
-[ext_resource type="Resource" uid="uid://cukn3piwopcn0" path="res://data/fita_erp_todo5.tres" id="10_naovt"]
+[ext_resource type="Resource" uid="uid://cukn3piwopcn0" path="res://data/fita_erp_healthcheck.tres" id="10_naovt"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_xpcfo")

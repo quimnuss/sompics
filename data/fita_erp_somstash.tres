@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://bxba1ewkf33g0"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_bic3y"]
+
+[resource]
+script = ExtResource("1_bic3y")
+title = "Anonimitzador de dades (aka som_stash)"
+team = "ERP"
+time = "Q?"
+related_fites = Array[String]([])
+impacte = "Poc impacte, ja que es tracta d’un requisit legal que ha de complir la cooperativa i feia molt de temps que es volia tenir."
+enabler = "Treballar en pair programming aïllats, PO's davant la no comunicació per part de legal."
+added_value = "Compliment de les lleis de protecció de dades al ERP, passar auditories i evitar sancions greus."

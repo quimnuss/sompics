@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dokloux848mqa" path="res://assets/game_over.ogg" id="8_13wsg"]
 [ext_resource type="PackedScene" uid="uid://bde6w2sxt4efv" path="res://actors/coin.tscn" id="9_62ej0"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="10_gpc44"]
-[ext_resource type="Resource" uid="uid://bhnkadlavrxa6" path="res://data/fita_erp_todo2.tres" id="11_pa32q"]
+[ext_resource type="Resource" uid="uid://bv6rrnunsesv8" path="res://data/fita_erp_pupeteer.tres" id="11_kxaie"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_vg1lw")
@@ -244,7 +244,7 @@ position = Vector2(104, 410)
 
 [node name="Collectible" parent="." instance=ExtResource("10_gpc44")]
 position = Vector2(88, 504)
-collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_pa32q")])
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_kxaie")])
 
 [connection signal="picked_up" from="Collectible" to="UI/UITimer" method="halt"]
 [connection signal="resume_game" from="Collectible" to="UI/UITimer" method="resume"]

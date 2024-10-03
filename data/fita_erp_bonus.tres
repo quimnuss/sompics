@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://ck7cc3hdlb5ss"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_sn6bj"]
+
+[resource]
+script = ExtResource("1_sn6bj")
+title = "Bonus Track: Gurb, SomEstalvi, GenerationKWh"
+team = "ERP"
+time = "Q?"
+related_fites = Array[String]([])
+impacte = "S'ha treballat sobretot des de després de la última TEEIT, amb gurb i generation hem tingut equips projectes i amb som estalvi diferents targetes fetes per diferents persones de l'equip."
+enabler = "Coneixements Minizinc d’en Pau Boix"
+added_value = "Som estalvi, estalviar Beedata, Generation millorar funcionalitats, Gurb iniciar aquest nou servei"
