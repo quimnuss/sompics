@@ -94,6 +94,7 @@ position = Vector2(849, 222)
 collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("11_xtp58"), ExtResource("12_8llcy")])
 
 [node name="EvilBeePath" type="Path2D" parent="."]
+position = Vector2(0, 34)
 curve = SubResource("Curve2D_ydile")
 
 [node name="EvilBeeFollowPath" type="PathFollow2D" parent="EvilBeePath"]

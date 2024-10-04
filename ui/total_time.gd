@@ -3,10 +3,10 @@ extends Label
 var lower_bound : int = 0
 var upper_bound : int = 50
 
-@export var TIME_PER_PIC : float = 70
+@export var TIME_PER_PIC : float = 70.0
 
 func _ready():
-    TIME_PER_PIC = 90 if len(Persistence.pics) > 10 else TIME_PER_PIC
+    TIME_PER_PIC = 90.0 if len(Persistence.pics) > 10 else TIME_PER_PIC
     upper_bound = ceili(TIME_PER_PIC * len(Persistence.pics))
 
 func update_timer(remaining_seconds : int):

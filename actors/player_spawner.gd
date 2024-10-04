@@ -76,8 +76,10 @@ func spawn_one(pic_name : String):
             var door : Door = get_node_or_null("../Door")
             if door:
                 door.num_pics += 1
-                pic.pic_back.connect(door.pic_back)
-                pic.pic_exit.connect(door.pic_exit)
+                if not pic.pic_back.is_connected(door.pic_back):
+                    pic.pic_back.connect(door.pic_back)
+                if not pic.pic_exit.is_connected(door.pic_exit):
+                    pic.pic_exit.connect(door.pic_exit)
 
 func despawn(pic : Pic):
     pic.queue_free()
