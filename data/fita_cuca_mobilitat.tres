@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://opx6vnlvy7nu"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_22g0m"]
+
+[resource]
+script = ExtResource("1_22g0m")
+title = "Gestió Som Comunitats + Mobilitat Interna"
+team = "Cuca"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Malgrat la situació de restricció pressupostària, hem pogut acomodar les necessitats dels diferents equips donant una resposta també a les inquietuds de les persones implicades.
+"
+enabler = "Posar atenció en les cures de les persones implicades.
+Dedicar temps a generar consens en lloc de confrontar posicions.
+"
+added_value = "L’ampliació de l’equip de Dades permetrà accelerar els seus projectes i hem empès a Pilotatge a afrontar el tema Som Comunitats dins de la discussió de projectes 2025."

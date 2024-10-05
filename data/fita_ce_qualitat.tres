@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://bif02tpjpqnpi"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_ouceq"]
+
+[resource]
+script = ExtResource("1_ouceq")
+title = "Començar a afegir qualitat en codi"
+team = "CE"
+time = "Q4"
+related_fites = Array[String]([])
+impacte = "Sensació d’haver encetat “el bon camí” tot i que és encara incipient (tests unitaris, una mica de pairing, documentar, demo data,...). També comencem a pensar en el projecte com un aplicatiu amb una arquitectura mantenible i escalable en comptes de només com un conjunt de petits features. Dificultats per encaixar aquesta capa en les dinàmiques de l’equip de “producte” del projecte. Camí encara amb molt recorregut."
+enabler = "La insistència/empoderament de l’equip tècnic. Els esforços per fer entendre la importància d’aquesta capa vers els equips de producte/estratègia/comercials. "
+added_value = "Començar a tenir un escenari menys arriscat i més segur/confiable en el desenvolupament."

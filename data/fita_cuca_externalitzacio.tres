@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dwmcli8ggy0py"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_0hf8m"]
+
+[resource]
+script = ExtResource("1_0hf8m")
+title = "Primera aplicació del protocol externalització"
+team = "Cuca"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Major control i garantia de mantenir els estàndards de qualitat i filosofia per les eines tecnològiques externes a l’equip IT que utilitzi la Cooperativa."
+enabler = "La creació d’un grup de treball dedicat a la redacció i l’acompanyament en la primera aplicació.
+"
+added_value = "Hem pogut acompanyar d’una manera estructurada en la decisió de com fer la nova web encara que no fos un projecte d’IT.
+"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dg6gbacrwsxl8"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_oehqn"]
+
+[resource]
+script = ExtResource("1_oehqn")
+title = "Rúbrica"
+team = "Cuca"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "A partir d’ara en les nostres sessions de feedback individuals ja no només rebem un retorn sobre les nostres funcions a la cooperativa de manera genèrica sinó també des d’un punt de vista tècnic aterrat a la nostra feina."
+enabler = "Per una banda la dedicació de persones concretes en la definició i implementació i per l’altra la col·laboració amb l’equip de Laboral que han validat el procés i acceptat d’incorporar-ho en les sessions."
+added_value = "Facilita la possibilitat de treballar amb objectius individuals que ens facin avançar en el nostre desevnolupament professional."

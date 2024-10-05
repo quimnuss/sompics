@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://bmvj5208vv155"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_d44qg"]
+
+[resource]
+script = ExtResource("1_d44qg")
+title = "App"
+team = "CE"
+time = "Q4"
+related_fites = Array[String]([])
+impacte = "Experiencia d’intercooperació amb altres developers. Experiencia en nou espai tecnològic. Dificultats a l’hora de tancar un MVP i amb la interrelació amb l’equip de Producte. Repte de coordinar frontend / backend. "
+enabler = "Tasca de coordinació i seguiment desde l’ET de Som Comunitats (Bengi). Diàleg permanent amb l’equip de producte."
+added_value = "Disposar del 1er espai d’interacció de les sòcies de les CCEE amb la Plataforma (l’Odoo és per les administradores de les CCEE)
+Coneixement en desenvolupament d’aplicacions"

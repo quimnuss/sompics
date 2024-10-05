@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dsr8iyfv2mejq"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_a8hff"]
+
+[resource]
+script = ExtResource("1_a8hff")
+title = "Indicador"
+team = "CE"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Ha estat difícil posar ordre als requeriments expresats per els diferents equips. Aprenentatge: disposar de les dades agregades/estructurades (data warehouse) és una etapa necessària però sense treballar prou la part visual (UI/UX) és quelcom incomplert."
+enabler = "El treball conjunt dels equips dels diferents àmbits del projecte de SomComunitats. L’expertesa tècnica de CoopDevs en el ram de analítica de Dades."
+added_value = "Poder tenir dades objectives sobre el estat i la evolució del projecte."

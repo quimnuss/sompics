@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://k8fvsr70j6yc"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_0qxra"]
+
+[resource]
+script = ExtResource("1_0qxra")
+title = "CECOS"
+team = "Cuca"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Potser es fa pesada la imputació, però esperem que ajudi els equips a tenir una visió general d'on s’estan dedicant les hores."
+enabler = "Llargues sessions de definició de CECOS i consens.
+"
+added_value = "Per primera vegada podem quantificar la despesa en hores i diners de cada activitat de la coope.
+"

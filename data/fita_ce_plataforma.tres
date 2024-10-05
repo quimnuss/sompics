@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dwxqxhv4h6sva"]
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://byupt4jemxdhf"]
 
-[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_bcoxd"]
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_rb0lj"]
 
 [resource]
-script = ExtResource("1_bcoxd")
-title = "Disposar Indicadors negoci SomComunitats"
+script = ExtResource("1_rb0lj")
+title = "Plataforma Operativa"
 team = "CE"
 time = "Q3"
 related_fites = Array[String]([])

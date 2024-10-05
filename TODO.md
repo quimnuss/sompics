@@ -2,6 +2,8 @@
 
 ## now
 
+- [ ] Place all fites
+
 ## next
 
 - [ ] Acció POs
@@ -119,7 +121,15 @@
 
 ## pending
 
-
-fita_erp_bonus
+fita_ce_app.tres
+fita_ce_indicadors.tres
+fita_ce_plataforma.tres
+fita_ce_qualitat.tres
+fita_erp_bonus.tres
+fita_cuca_cecos.tres
+fita_cuca_externalitzacio.tres
+fita_cuca_mobilitat.tres
+fita_cuca_rol_uxui.tres
+fita_cuca_rubrica.tres
 
 cuca

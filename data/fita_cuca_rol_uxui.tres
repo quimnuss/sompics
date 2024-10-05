@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://rh5ofhxwbiaa"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_bn86u"]
+
+[resource]
+script = ExtResource("1_bn86u")
+title = "Rol UX/UI"
+team = "Cuca"
+time = "Q2"
+related_fites = Array[String]([])
+impacte = "Podrem treballar amb una mirada que complementi el nostre rol de desenvolupament i ens ajudi a definir millor necessitats de les sòcies."
+enabler = "Encara que finalment ha quedat com un rol vinculat a Comunicació ha estat útil fer pedagogia a l’ET sobre la necessitat d’un rol d’aquestes característiques."
+added_value = "Serà un salt qualitatiu en l’orientació a les necessitats de les usuàries dels nostres serveis."
