@@ -2,7 +2,15 @@
 
 [ext_resource type="Script" path="res://ui/money_up.gd" id="1_ctdgb"]
 
-[node name="MoneyUp" type="Label"]
+[node name="MoneyUp" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ctdgb")
+
+[node name="MoneyUpLabel" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -14,4 +22,3 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "+ 1000"
-script = ExtResource("1_ctdgb")

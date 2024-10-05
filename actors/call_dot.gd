@@ -6,7 +6,7 @@ const BAD_CONTRACT : Color = Color.FIREBRICK
 
 @export var call_queue : Array[Color] = [Color.AQUAMARINE, Color.GOLD, Color.FIREBRICK]
 
-@export_enum('Circle', 'Call', 'Contract', 'Plant') var icon_type : int = CallType.CALL
+@export var icon_type : CallType = CallType.CALL
 
 var selected_sprite : Sprite2D
 
