@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d3mhx73q5oew6"]
+[gd_scene load_steps=51 format=3 uid="uid://d3mhx73q5oew6"]
 
 [ext_resource type="StyleBox" uid="uid://x8u3seqyt5bn" path="res://ui/button_style.tres" id="1_smf4e"]
 [ext_resource type="Script" path="res://ui/fita_browser.gd" id="1_xo0bf"]
@@ -16,11 +16,14 @@
 [ext_resource type="Resource" uid="uid://ujej7sqbdrpn" path="res://data/fita_erp_kalinfo.tres" id="10_j25no"]
 [ext_resource type="Resource" uid="uid://cukn3piwopcn0" path="res://data/fita_erp_healthcheck.tres" id="11_n4nsb"]
 [ext_resource type="Resource" uid="uid://dh3bsari7vpcq" path="res://data/fita_suport_authentik.tres" id="12_8x6ax"]
+[ext_resource type="Resource" uid="uid://ck7cc3hdlb5ss" path="res://data/fita_erp_bonus.tres" id="12_hr8it"]
 [ext_resource type="Resource" uid="uid://bvpx8sk2vclv3" path="res://data/fita_suport_nsx.tres" id="13_i7un3"]
 [ext_resource type="Resource" uid="uid://cpng0bsxogfto" path="res://data/fita_suport_sm.tres" id="14_5lx4o"]
 [ext_resource type="Resource" uid="uid://dwxqxhv4h6sva" path="res://data/fita_webapps_components.tres" id="15_4tew2"]
 [ext_resource type="Resource" uid="uid://o4eu5ibb0g4s" path="res://data/fita_webapps_generation.tres" id="16_cry2x"]
+[ext_resource type="Resource" uid="uid://bv6rrnunsesv8" path="res://data/fita_erp_pupeteer.tres" id="16_vqxxt"]
 [ext_resource type="Resource" uid="uid://c7fwdyiu6i7o3" path="res://data/fita_webapps_indexada.tres" id="17_rjdhl"]
+[ext_resource type="Resource" uid="uid://cc5o0fj8vnerc" path="res://data/fita_erp_rendiment.tres" id="18_cdtl1"]
 [ext_resource type="Resource" uid="uid://d05vq2ffcxb73" path="res://data/fita_webapps_novaweb.tres" id="18_f3cn1"]
 [ext_resource type="Resource" uid="uid://cmaomu1bb5gjn" path="res://data/fita_webapps_react.tres" id="19_v7y1k"]
 [ext_resource type="Resource" uid="uid://dibrk3kj62u7a" path="res://data/fita_webapps_representa.tres" id="20_qm77n"]
@@ -36,6 +39,15 @@
 [ext_resource type="Resource" uid="uid://c8ncm72mdjw07" path="res://data/fita_po_mindset.tres" id="30_xuidk"]
 [ext_resource type="Resource" uid="uid://d0kmoryfoho3q" path="res://data/fita_po_odoo.tres" id="31_hqg2t"]
 [ext_resource type="Resource" uid="uid://b3trjlwv1upec" path="res://data/fita_po_openproject.tres" id="32_2712s"]
+[ext_resource type="Resource" uid="uid://bmvj5208vv155" path="res://data/fita_ce_app.tres" id="33_y64w0"]
+[ext_resource type="Resource" uid="uid://dsr8iyfv2mejq" path="res://data/fita_ce_indicadors.tres" id="34_j8i7v"]
+[ext_resource type="Resource" uid="uid://byupt4jemxdhf" path="res://data/fita_ce_plataforma.tres" id="35_xlsa4"]
+[ext_resource type="Resource" uid="uid://bif02tpjpqnpi" path="res://data/fita_ce_qualitat.tres" id="36_2r73o"]
+[ext_resource type="Resource" uid="uid://k8fvsr70j6yc" path="res://data/fita_cuca_cecos.tres" id="37_ohkok"]
+[ext_resource type="Resource" uid="uid://dwmcli8ggy0py" path="res://data/fita_cuca_externalitzacio.tres" id="38_yi1fj"]
+[ext_resource type="Resource" uid="uid://opx6vnlvy7nu" path="res://data/fita_cuca_mobilitat.tres" id="39_verpr"]
+[ext_resource type="Resource" uid="uid://rh5ofhxwbiaa" path="res://data/fita_cuca_rol_uxui.tres" id="40_m8qqh"]
+[ext_resource type="Resource" uid="uid://dg6gbacrwsxl8" path="res://data/fita_cuca_rubrica.tres" id="41_br7wd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ck71a"]
 bg_color = Color(0.301961, 0.301961, 0.301961, 1)
@@ -51,7 +63,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xo0bf")
-collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("29_trbhb"), ExtResource("30_xuidk"), ExtResource("31_hqg2t"), ExtResource("32_2712s"), ExtResource("2_ljtju"), ExtResource("3_3w7gs"), ExtResource("4_u64op"), ExtResource("5_mer0w"), ExtResource("6_uocgh"), ExtResource("2_o2fxk"), ExtResource("8_nyx60"), ExtResource("9_jrfb0"), ExtResource("10_j25no"), ExtResource("11_n4nsb"), ExtResource("12_8x6ax"), ExtResource("13_i7un3"), ExtResource("14_5lx4o"), ExtResource("24_q5t8f"), ExtResource("25_0uu8t"), ExtResource("26_7xqtd"), ExtResource("27_or5xn"), ExtResource("28_ycqny"), ExtResource("15_4tew2"), ExtResource("16_cry2x"), ExtResource("17_rjdhl"), ExtResource("18_f3cn1"), ExtResource("19_v7y1k"), ExtResource("20_qm77n"), ExtResource("21_q47xe"), ExtResource("22_piu01"), ExtResource("23_5vqnd")])
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("29_trbhb"), ExtResource("30_xuidk"), ExtResource("31_hqg2t"), ExtResource("32_2712s"), ExtResource("2_ljtju"), ExtResource("3_3w7gs"), ExtResource("4_u64op"), ExtResource("5_mer0w"), ExtResource("6_uocgh"), ExtResource("2_o2fxk"), ExtResource("12_hr8it"), ExtResource("11_n4nsb"), ExtResource("10_j25no"), ExtResource("8_nyx60"), ExtResource("16_vqxxt"), ExtResource("9_jrfb0"), ExtResource("18_cdtl1"), ExtResource("12_8x6ax"), ExtResource("13_i7un3"), ExtResource("14_5lx4o"), ExtResource("24_q5t8f"), ExtResource("25_0uu8t"), ExtResource("26_7xqtd"), ExtResource("27_or5xn"), ExtResource("28_ycqny"), ExtResource("15_4tew2"), ExtResource("16_cry2x"), ExtResource("17_rjdhl"), ExtResource("18_f3cn1"), ExtResource("19_v7y1k"), ExtResource("20_qm77n"), ExtResource("21_q47xe"), ExtResource("22_piu01"), ExtResource("23_5vqnd"), ExtResource("33_y64w0"), ExtResource("34_j8i7v"), ExtResource("35_xlsa4"), ExtResource("36_2r73o"), ExtResource("37_ohkok"), ExtResource("38_yi1fj"), ExtResource("39_verpr"), ExtResource("40_m8qqh"), ExtResource("41_br7wd")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -75,7 +87,6 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/h_separation = 20
-alignment = 1
 
 [node name="ToLevelsButton" type="Button" parent="MarginContainer"]
 custom_minimum_size = Vector2(70, 40)

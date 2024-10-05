@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://4mnf02lgcfcj"]
+[gd_scene load_steps=7 format=3 uid="uid://4mnf02lgcfcj"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_mygww"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_h1t8y"]
 [ext_resource type="Resource" path="res://dialogs/dset_defeat.dtl" id="2_r15lh"]
 [ext_resource type="Resource" uid="uid://hnlptdgtr3ai" path="res://data/fita_dades_jardiner.tres" id="3_ykfsi"]
+[ext_resource type="Resource" uid="uid://opx6vnlvy7nu" path="res://data/fita_cuca_mobilitat.tres" id="5_3i6mm"]
+[ext_resource type="Resource" uid="uid://rh5ofhxwbiaa" path="res://data/fita_cuca_rol_uxui.tres" id="6_qdb8s"]
 
 [node name="MainLevel" type="Node2D"]
 
@@ -12,4 +14,4 @@ timeline = ExtResource("2_r15lh")
 
 [node name="Collectible" parent="." instance=ExtResource("2_h1t8y")]
 position = Vector2(275, 387)
-collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("3_ykfsi")])
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("3_ykfsi"), ExtResource("5_3i6mm"), ExtResource("6_qdb8s")])
