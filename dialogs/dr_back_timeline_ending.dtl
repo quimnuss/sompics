@@ -1,9 +1,9 @@
 join doctor_back (sad) 3
-join som_character 1
+join som_character 0
 if {drback_estalviat} == true:
 	\doctor_back (sad): M'heu guanyat... Sou bonissims... Fins mai més!
 else:
 	\doctor_back (sad): M'heu pres molts diners i heu vençut tots els Xupòpters.
-	\doctor_back (normal):  Però continuo viu. Tornaré!
+	\doctor_back (normal): Però continuo viu. Tornaré!
 leave doctor_back
 som_character (normal): Ara és el moment d'escapar-se abans no col·lapsi tot!

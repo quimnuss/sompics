@@ -29,7 +29,7 @@ func _ready():
 
     animate()
 
-func set_type(new_icon_type : int):
+func set_type(new_icon_type : CallType):
     sprite_anim_tween.kill()
     icon_type = new_icon_type
     animate()

@@ -18,7 +18,7 @@
 # Done
 
 - [x] Update erp and sync with drive
-- [x] Fites 
+- [x] Fites
 - [ ] ~Add fireworks on outro~ it would be too much
 - [x] birds flying outro
 - [ ] ~Fix wall speed change in final level~ --> it gives more tension actually

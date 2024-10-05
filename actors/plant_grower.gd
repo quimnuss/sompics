@@ -28,8 +28,7 @@ func add_level():
     new_plant_level.position.y -= (plant_level+1)*PLANT_OFFSET
     plant_level += 1
 
-func _on_picked(color : Color):
-
+func _on_picked_position(color : Color, _coords : Vector2):
     if color == CallDot.WATER_COLOR:
         good_pickup_sound.play()
         call_deferred('add_level')
