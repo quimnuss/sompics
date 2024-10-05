@@ -2,8 +2,6 @@
 
 ## now
 
-- [ ] Better initial tutorial (explain controls, explain friday maybe on disclaimer?)
-
 ## next
 
 - [ ] Acció POs
@@ -17,6 +15,8 @@
 
 # Done
 
+- [x] add amount popupon fallingdot
+- [ ] ~Better initial tutorial (explain controls, explain friday maybe on disclaimer?)~
 - [x] Update erp and sync with drive
 - [x] Fites
 - [ ] ~Add fireworks on outro~ it would be too much

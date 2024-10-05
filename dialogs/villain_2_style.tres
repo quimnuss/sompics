@@ -55,7 +55,7 @@ overrides = {}
 script = ExtResource("10_7ypyb")
 name = "villain_2_style"
 base_overrides = {
-"global_bg_color": "Color(0.72549, 0.109804, 0.384314, 0.733333)"
+"global_bg_color": "Color(0.109804, 0.133333, 0.72549, 0.960784)"
 }
 layers = Array[ExtResource("2_qwr70")]([SubResource("Resource_snvgu"), SubResource("Resource_vihjo"), SubResource("Resource_hvuxe"), SubResource("Resource_er0bt"), SubResource("Resource_kl34b"), SubResource("Resource_fxv2d"), SubResource("Resource_lj7qn"), SubResource("Resource_w1201")])
 metadata/_latest_layer = -1

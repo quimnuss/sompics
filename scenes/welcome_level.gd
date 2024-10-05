@@ -6,5 +6,3 @@ func _on_door_all_in():
     #AudioPlayer.stop()
     AudioPlayer.crossfade(background_music)
     pass
-
-

@@ -1,5 +1,14 @@
 join som_character 0
-join ce_character 3
-ce_character (idle): Grrr! Com heu arribat fins aquí?? Els vostres companys treballen per mi. Per això són fantasmes hahaha!
-som_character (normal): Noooo, els alliberarem!
-ce_character: Ni parlar-ne! Hahhaha! Ja tinc un Singulars a punt hahaha!
+join ce_character (angry) 3
+ce_character (angry): Grrr! Com heu arribat fins aquí?? Els vostres companys treballen per mi i fan el què els mano. Per això són fantasmes hahaha!
+- Ajuda'ns
+	som_character: Però tu ens havíes d'ajudar amb l'[shake]O K R[/shake]!
+	ce_character: El DrBack m'ha convençut a aprofitar el Singulars per als meus capricis!
+	som_character: Trobarem la manera de vènce't o convènce't!
+	ce_character (idle): [center]Gol·lum! Gol·lum!\
+\
+[font_size=16][color=gray]...potser hauríem d'escoltar el què diuen...[/color][/font_size][/center]
+	ce_character (angry): MAI! [pulse]Ha Ha Ha[/pulse]
+- William Wallace
+	som_character: Nooo, els alliberarem!
+	ce_character (angry): Ni parlar-ne! Hahhaha! Ja tinc un Singulars a punt hahaha!

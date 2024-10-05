@@ -1,7 +1,10 @@
 join som_character 0
-join ce_character 3
-ce_character (idle): AAAh. No creia que ho aconseguiríeu... Heu recuperat un dels vostres companys i heu estalviat prou per vènce'm. He amagat els altres i no els trobareu hahaha! Continuaran treballant per mi encara que ja no hi sigui.
-som_character (normal): Noooo, els alliberarem!
+join ce_character (angry) 3
+ce_character (angry): AAAh. No creia que ho aconseguiríeu... Heu recuperat un dels vostres companys i heu estalviat prou per vènce'm.
+som_character (normal): Has après la lliçó? Podrem confiar en tu per a derrotar al DrBack?
+ce_character (idle): Si... prometo que els escoltaré més i us ajudaré amb l'[shake] O K R [/shake].
+ce_character (idle): He amagat els altres per tot el castell... 
+som_character (normal): Els trobarem!
 leave ce_character
 join juanpe_character 3
 juanpe_character (idle): Ah! Quin alleujament! Però encara falten tres companys! Compteu amb mi!
