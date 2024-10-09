@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://beiy4fdpg1nq7"]
+[gd_scene load_steps=9 format=3 uid="uid://beiy4fdpg1nq7"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_tancy"]
 [ext_resource type="Script" path="res://scenes/level_4_5.gd" id="1_uhi1b"]
@@ -6,9 +6,6 @@
 [ext_resource type="SpriteFrames" uid="uid://00v4a50ywped" path="res://actors/ce_workers_spriteframes.tres" id="4_202e5"]
 [ext_resource type="PackedScene" uid="uid://c8s25jps0hbv6" path="res://actors/cage.tscn" id="5_pkrty"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="6_uq5ln"]
-[ext_resource type="Resource" uid="uid://d05vq2ffcxb73" path="res://data/fita_webapps_novaweb.tres" id="7_8dh7g"]
-[ext_resource type="Resource" uid="uid://cmaomu1bb5gjn" path="res://data/fita_webapps_react.tres" id="8_4sqlu"]
-[ext_resource type="Resource" uid="uid://cyy677mjasv88" path="res://data/fita_webapps_webforms.tres" id="9_7pg0m"]
 [ext_resource type="Resource" uid="uid://byupt4jemxdhf" path="res://data/fita_ce_plataforma.tres" id="10_r6ylm"]
 [ext_resource type="Resource" uid="uid://bmvj5208vv155" path="res://data/fita_ce_app.tres" id="11_khnuo"]
 
@@ -47,6 +44,6 @@ autoplay = "woman"
 
 [node name="Collectible" parent="." instance=ExtResource("6_uq5ln")]
 position = Vector2(1016, 344)
-collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("7_8dh7g"), ExtResource("8_4sqlu"), ExtResource("9_7pg0m"), ExtResource("10_r6ylm"), ExtResource("11_khnuo")])
+collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("10_r6ylm"), ExtResource("11_khnuo")])
 
 [editable path="IntermissionLevel"]

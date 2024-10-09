@@ -2,7 +2,6 @@
 
 ## now
 
-- [ ] Place all fites
 
 ## next
 
@@ -17,6 +16,8 @@
 
 # Done
 
+- [x] Recheck all fites
+- [x] Place all fites
 - [x] add amount popupon fallingdot
 - [ ] ~Better initial tutorial (explain controls, explain friday maybe on disclaimer?)~
 - [x] Update erp and sync with drive

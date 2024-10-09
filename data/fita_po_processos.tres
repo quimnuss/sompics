@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://c28ey2gi81mc2"]
+
+[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_31a8e"]
+
+[resource]
+script = ExtResource("1_31a8e")
+title = "Facilitar temps per millorar procesos de la Coope"
+team = "POs"
+time = "Q1"
+related_fites = Array[String]([])
+impacte = "En els equips amb qui treballem per rondes hem pogut habilitar temps per poder abordar propostes per aportar solucions a problemes relacionats amb processos habituals que es fan a la cooperativa. Sense que hi hagués una demanda directa de cap equip ET sinó per iniciativa dels propis equips IT.
+Exemples: 
+millores ERP pel procés de canvi de tarifes i anàlisi de millora relativa a aquesta comunicació 
+millores relatives a la vinculació dades ERP <> Mailchimp
+millores relatives al format i sistema traduccions pels textos jurídics
+adaptació del sistema Authentik per OV de Representació i assentar les bases per un ús col·lectiu"
+enabler = "Haver frenat la demanda general dels equips de la Cooperativa.
+El marc de treball demana més focus i evita part de la dispersió. Els equips treballen molt en els projectes i cada vegada tenen menys “deute tecnològic” pendent. Els projectes avancen a ritmes diferents i ens permeten trobar escletxes de temps per abordar aquest temes."
+added_value = "Simplificació i optimització de processos que comporta un alliberament de temps als equips"
