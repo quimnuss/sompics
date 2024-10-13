@@ -41,6 +41,8 @@ var is_out : bool = false
 
 @export var is_flying : bool = false
 
+enum PlayerScheme {EXTERNAL, Q_PLAYER, ARROWS_PLAYER}
+
 var is_possessed : bool = true
 
 var previous_position : float
@@ -97,16 +99,23 @@ func exit_door():
     pic_back.emit()
 
 
-func get_is_controlled() -> bool:
+func get_is_controlled_num() -> PlayerScheme:
     if Persistence.pics.is_empty():
-        return false
+        return PlayerScheme.EXTERNAL
     Persistence.active_pic = Persistence.active_pic % len(Persistence.pics)
-    return Persistence.pics[Persistence.active_pic] == person and is_possessed
+    var active_pic_2 : int = (Persistence.active_pic+1) % len(Persistence.pics)
+    if Persistence.pics[Persistence.active_pic] == person and is_possessed:
+        return PlayerScheme.Q_PLAYER
+    if Persistence.pics[active_pic_2] == person and is_possessed:
+        return PlayerScheme.ARROWS_PLAYER
+    return PlayerScheme.EXTERNAL
 
 
 func _process(_delta):
-    var is_controlled : bool = get_is_controlled()
-    var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
+    var control_scheme : PlayerScheme = get_is_controlled_num()
+    var just_jumped : bool = Input.is_action_just_pressed(jump) \
+                             or Input.is_action_just_pressed('jump-q') and PlayerScheme.Q_PLAYER == control_scheme \
+                             or Input.is_action_just_pressed('jump-pol') and PlayerScheme.ARROWS_PLAYER == control_scheme
 
     if is_on_door and not self.is_out and just_jumped:
         enter_door()
@@ -240,24 +249,25 @@ func animate():
 
 func _physics_process(delta):
 
-    var is_controlled : bool = get_is_controlled()
+    var control_scheme : PlayerScheme = get_is_controlled_num()
+    var just_jumped : bool = Input.is_action_just_pressed(jump) \
+                             or Input.is_action_just_pressed('jump-q') and PlayerScheme.Q_PLAYER == control_scheme \
+                             or Input.is_action_just_pressed('jump-pol') and PlayerScheme.ARROWS_PLAYER == control_scheme
 
-    # doesn't work dunno why. Anyway get_is_controlled is enough for external controllers so... whatever
-    #if not is_possessed:
-        #if not is_on_floor():
-            #velocity.y += gravity * delta
-            #move_and_slide()
-        #return
-
-    var just_jumped : bool = Input.is_action_just_pressed(jump) or Input.is_action_just_pressed('jump-q') and is_controlled
     var flying_direction : Vector2 = Input.get_vector(move_left, move_right, jump, move_down)
     var direction : float = Input.get_axis(move_left, move_right)
 
-    if is_controlled:
-        if direction == 0:
-            direction = Input.get_axis('move_left-q', 'move_right-q')
-        if flying_direction == Vector2.ZERO:
-            flying_direction = Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'move_down-q')
+    match control_scheme:
+        PlayerScheme.Q_PLAYER:
+            if direction == 0:
+                direction = Input.get_axis('move_left-q', 'move_right-q')
+            if flying_direction == Vector2.ZERO:
+                flying_direction = Input.get_vector('move_left-q', 'move_right-q', 'jump-q', 'move_down-q')
+        PlayerScheme.ARROWS_PLAYER:
+            if direction == 0:
+                direction = Input.get_axis('move_left-pol', 'move_right-pol')
+            if flying_direction == Vector2.ZERO:
+                flying_direction = Input.get_vector('move_left-pol', 'move_right-pol', 'jump-pol', 'move_down-pol')
 
     animate()
 
