@@ -16,4 +16,3 @@ func _on_ui_timer_timeout():
     timer.stop()
     door.open()
     phone_queue.clear()
-

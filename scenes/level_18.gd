@@ -2,7 +2,7 @@ extends Node2D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var player_spawner = $PlayerSpawner
 @onready var ui = $UI
-@onready var tile_map = $TileMap
+@onready var tile_map = $TileMap/Background
 
 var restarting : bool = false
 const background_music = preload("res://assets/hollow_knight_sealed_vessel.ogg")
@@ -33,12 +33,12 @@ func fill_hole_instant():
     for i in range(41):
         hole_coords.append(Vector2i(16,i))
 
-    tile_map.set_cells_terrain_connect(2, hole_coords, 0, 1)
+    tile_map.set_cells_terrain_connect(hole_coords, 0, 1)
 
 func fill_hole():
     $FloorBreakSound.play()
     for i in range(41):
-        tile_map.set_cells_terrain_connect(2, [Vector2i(16,i)], 0, 1)
+        tile_map.set_cells_terrain_connect([Vector2i(16,i)], 0, 1)
         await get_tree().create_timer(0.1).timeout
     $FloorBreakSound.stop()
 

@@ -30,9 +30,9 @@ signal pic_back
 signal pic_exit
 
 func _integrate_forces(state):
-    
+
     $Label.set_text("%5.01f %5.01f" % [self.linear_velocity.x, self.linear_velocity.y])
-    
+
     # TODO allow jumping only on floor (check with spring)
     # jump length control (press_release)
     if Input.is_action_just_pressed(jump) and floor_detector.is_colliding():
@@ -43,7 +43,7 @@ func _integrate_forces(state):
         rotation_direction += Vector2.RIGHT
     elif linear_velocity.x > 0:
         state.apply_force(10 * Vector2(-linear_velocity.x,0))
-        
+
     if Input.is_action_pressed(move_left):
         rotation_direction += Vector2.LEFT
     elif linear_velocity.x < 0:

@@ -56,6 +56,3 @@ func animate():
     if num_frames > 1:
         sprite_anim_tween = create_tween().set_loops()
         sprite_anim_tween.tween_property(selected_sprite, 'frame', num_frames-1, duration).from(0)
-
-
-

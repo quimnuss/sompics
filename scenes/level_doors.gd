@@ -16,4 +16,3 @@ func _ready():
             var aux_pos = fake_door.global_position
             fake_door.global_position = door.global_position
             door.global_position = aux_pos
-
