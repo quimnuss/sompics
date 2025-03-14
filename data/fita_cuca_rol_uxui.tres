@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://rh5ofhxwbiaa"]
 
-[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_bn86u"]
+[ext_resource type="Script" uid="uid://c3vsklt7mt5u4" path="res://scripts/collectible_data.gd" id="1_bn86u"]
 
 [resource]
 script = ExtResource("1_bn86u")

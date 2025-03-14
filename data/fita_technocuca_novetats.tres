@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dkwmpdkswnx35"]
 
-[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_x34wv"]
+[ext_resource type="Script" uid="uid://c3vsklt7mt5u4" path="res://scripts/collectible_data.gd" id="1_x34wv"]
 
 [resource]
 script = ExtResource("1_x34wv")
 title = "Xat de novetats IT"
 team = "Technocuca"
 time = "Q1"
-related_fita = ""
+related_fites = Array[String]([])
 impacte = "Tenim un Xat on deixem cosetes que anem trobant i que no es barreja amb la comunicació orgànica del Xat d’IT. Practiquem l’idea de compartir info i novetats en format càpsules."
 enabler = "Era molt senzill d’implementar realment. D’IT, prendre-ho amb lleugeresa i posar humor a les coses compartides"
 added_value = "Ens avisem de petites millores i novetats que fan que potser evitem errors al codi que fem, actualitzem eines a noves versions o ens adonem d’eines alternatives."

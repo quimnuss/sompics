@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://1x0pl6tlptup"]
 
-[ext_resource type="Script" path="res://actors/spring.gd" id="1_8mmfm"]
+[ext_resource type="Script" uid="uid://cb7gl310qt6fo" path="res://actors/spring.gd" id="1_8mmfm"]
 [ext_resource type="Texture2D" uid="uid://dkmekncwabv0n" path="res://assets/Items/springboardUp.png" id="1_dugar"]
 [ext_resource type="Texture2D" uid="uid://duv4dvqe1avak" path="res://assets/Items/springboardDown.png" id="2_vm6an"]
 

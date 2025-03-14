@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bflc0ohhvqc28"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_2lu0f"]
-[ext_resource type="Resource" path="res://dialogs/trello_encounter.dtl" id="2_vxrya"]
+[ext_resource type="Resource" uid="uid://dtqkv01hjjkm4" path="res://dialogs/trello_encounter.dtl" id="2_vxrya"]
 [ext_resource type="PackedScene" uid="uid://btkb2wr52a3v5" path="res://actors/caged_ce.tscn" id="3_wlc46"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="5_5gx8a"]
 

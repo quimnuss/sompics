@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://mi2j2npq21o5"]
 
-[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_0vyqo"]
+[ext_resource type="Script" uid="uid://c3vsklt7mt5u4" path="res://scripts/collectible_data.gd" id="1_0vyqo"]
 
 [resource]
 script = ExtResource("1_0vyqo")
 title = "Focus en Deute Tècnic"
 team = "POs"
 time = "Q1"
+related_fites = Array[String]([])
 impacte = "Millora dels processos de programació i desenvolupament de projectes dels equips IT gràcies a haver abordat deute tècnic amb el focus necessari.
 Exemples: migració webforms UI , Uiqmako, Timescale, projecte Algemesí de testos, millorar validacions formularis,..."
 enabler = "El marc de treball actual d’objectius i projectes fa més difícil que sorgeixin demandes constants desalineades i ajuda a planificar millor → Això ha frenat la demanda general de l’ET. 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7c3tu4o8qqlf"]
 
-[ext_resource type="Script" path="res://networking/websocket_minimal_controller.gd" id="1_231af"]
+[ext_resource type="Script" uid="uid://c5oukrpiel3cu" path="res://networking/websocket_minimal_controller.gd" id="1_231af"]
 
 [node name="WebsocketMinimalController" type="Node"]
 script = ExtResource("1_231af")

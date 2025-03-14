@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://etdc6h4b68ie"]
 
-[ext_resource type="Script" path="res://scenes/transition.gd" id="1_vy3nd"]
+[ext_resource type="Script" uid="uid://dfvlmb31h6nu0" path="res://scenes/transition.gd" id="1_vy3nd"]
 
 [node name="Transition" type="CanvasModulate"]
 color = Color(0, 0, 0, 1)

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://cj6mdml87ht7"]
 
-[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_y5nsi"]
+[ext_resource type="Script" uid="uid://c3vsklt7mt5u4" path="res://scripts/collectible_data.gd" id="1_y5nsi"]
 
 [resource]
 script = ExtResource("1_y5nsi")
 title = "Radar"
 team = "Technocuca"
 time = "Q2"
-related_fita = ""
+related_fites = Array[String]([])
 impacte = "Ens estàvem trepitjant amb diferents necessitats. Vam poder posar-les en comú i a partir d’aquí escollir l'eina que s’ajusta millor a tots els equips."
 enabler = "Tenir l’espai technocuca, sense aquest espai potser hauríem buscat diferents solucions per cada equip."
 added_value = "En un futur facilitarà la gestió d’usuàries i permetrà a les sòcies accedir amb una mateixa usuària a totes les aplicacions de Som."

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt5rlnqv2nbvb"]
 
-[ext_resource type="Script" path="res://scenes/level_17_5.gd" id="1_optdo"]
+[ext_resource type="Script" uid="uid://us4chplyodg5" path="res://scenes/level_17_5.gd" id="1_optdo"]
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_sxqqu"]
-[ext_resource type="Resource" path="res://dialogs/dr_back_timeline_ending.dtl" id="2_hd4kw"]
+[ext_resource type="Resource" uid="uid://dbp0356ieornj" path="res://dialogs/dr_back_timeline_ending.dtl" id="2_hd4kw"]
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_optdo")

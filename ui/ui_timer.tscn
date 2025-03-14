@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3htqdtri5tvh"]
 
-[ext_resource type="Script" path="res://ui/ui_timer.gd" id="1_q761h"]
+[ext_resource type="Script" uid="uid://bvkmtpu5ti3fy" path="res://ui/ui_timer.gd" id="1_q761h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nq8on"]
 bg_color = Color(0.592157, 0.843137, 0, 1)

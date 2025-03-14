@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://bklnv0w40tv51"]
 
-[ext_resource type="Script" path="res://scripts/collectible_data.gd" id="1_flllr"]
+[ext_resource type="Script" uid="uid://c3vsklt7mt5u4" path="res://scripts/collectible_data.gd" id="1_flllr"]
 
 [resource]
 script = ExtResource("1_flllr")
 title = "Radar"
 team = "Technocuca"
 time = "Q3"
-related_fita = "fita_suport_authentik.tres"
+related_fites = Array[String]([])
 impacte = "Aquesta eina permet saber quines eines tenim i quines vam descartar i la raó. D’aquesta manera, no provarem la mateixa eina 2 vegades i si canvia tota la technocuca (com ha passataquest darrer any) ho tenim tot en un sol lloc documentat."
 enabler = "Fer una petita comissió dins de la technocuca per agilitzar la implementació de l’eina."
 added_value = "Ara tenim en un únic espai (visual) accés als proveïdors i les eines que utilitzem o vam utilitzar a Som."

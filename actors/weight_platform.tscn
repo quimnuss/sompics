@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://4x0l8tl5cstu"]
 
-[ext_resource type="Script" path="res://actors/weight_platform.gd" id="1_auaht"]
+[ext_resource type="Script" uid="uid://cxfwfjsat3cia" path="res://actors/weight_platform.gd" id="1_auaht"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_v47gs"]
 
 [sub_resource type="Curve2D" id="Curve2D_h6c8s"]

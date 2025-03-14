@@ -1,9 +1,9 @@
 [gd_scene load_steps=57 format=3 uid="uid://bsli3iqpvgd5n"]
 
 [ext_resource type="Texture2D" uid="uid://clor2orgdclxr" path="res://assets/outro/clouds.png" id="1_12cw7"]
-[ext_resource type="Script" path="res://scenes/outro.gd" id="1_g0of4"]
+[ext_resource type="Script" uid="uid://cd11pd78tbjx4" path="res://scenes/outro.gd" id="1_g0of4"]
 [ext_resource type="Texture2D" uid="uid://ogbjf3er06qn" path="res://assets/outro/sunset.png" id="1_omvhw"]
-[ext_resource type="Script" path="res://scripts/sprite_autoslide.gd" id="2_hgmd7"]
+[ext_resource type="Script" uid="uid://ckio3jfc3ve3o" path="res://scripts/sprite_autoslide.gd" id="2_hgmd7"]
 [ext_resource type="Texture2D" uid="uid://duql2qffw2x1b" path="res://assets/outro/cliff.png" id="4_dyfsi"]
 [ext_resource type="Texture2D" uid="uid://cxn70uyv3alr2" path="res://assets/outro/clouds_2.png" id="4_natwv"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="5_1agtv"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://w1rri1w0bp07" path="res://assets/outro/cliff_water.png" id="8_xv1xm"]
 [ext_resource type="Texture2D" uid="uid://cvgru8dk2jfed" path="res://assets/outro/cliff_water_2.png" id="9_f7vej"]
 [ext_resource type="Texture2D" uid="uid://ctpgwkypxbbs8" path="res://assets/outro/cliff_water_3.png" id="10_sk7bb"]
-[ext_resource type="Script" path="res://scripts/text_scroll.gd" id="12_w4exh"]
+[ext_resource type="Script" uid="uid://dlckeqna17b7h" path="res://scripts/text_scroll.gd" id="12_w4exh"]
 [ext_resource type="Texture2D" uid="uid://dcjrhq7jemy0s" path="res://assets/bird_spritesheet.png" id="13_ebwp2"]
 [ext_resource type="Texture2D" uid="uid://0gjvf8xk877m" path="res://assets/characters/gooseluis_spritesheet.png" id="13_u47hh"]
 [ext_resource type="Texture2D" uid="uid://cuhwtn4yuo0of" path="res://assets/14-bee/Bee_Walk.png" id="14_mlw0i"]
@@ -257,8 +257,8 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_74ine"]
 _data = {
-"RESET": SubResource("Animation_7o1ye"),
-"birdflock": SubResource("Animation_0h5dg")
+&"RESET": SubResource("Animation_7o1ye"),
+&"birdflock": SubResource("Animation_0h5dg")
 }
 
 [sub_resource type="Animation" id="Animation_odvr8"]
@@ -414,8 +414,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wqkmr"]
 _data = {
-"Credits": SubResource("Animation_odvr8"),
-"RESET": SubResource("Animation_npfw5")
+&"Credits": SubResource("Animation_odvr8"),
+&"RESET": SubResource("Animation_npfw5")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4t8ts"]
@@ -754,7 +754,7 @@ region_rect = Rect2(0, 808, 913, 168)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Composition"]
 libraries = {
-"": SubResource("AnimationLibrary_74ine")
+&"": SubResource("AnimationLibrary_74ine")
 }
 autoplay = "birdflock"
 
@@ -766,7 +766,7 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_wqkmr")
+&"": SubResource("AnimationLibrary_wqkmr")
 }
 autoplay = "Credits"
 
@@ -777,11 +777,11 @@ offset_top = 224.0
 offset_right = 396.0
 offset_bottom = 324.0
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
-theme_override_font_sizes/italics_font_size = 60
-theme_override_font_sizes/bold_italics_font_size = 60
-theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
 text = "[center][wave][rainbow]Som Pics[/rainbow][/wave]"
 fit_content = true
@@ -794,11 +794,11 @@ offset_right = 536.0
 offset_bottom = 460.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 60
-theme_override_font_sizes/italics_font_size = 60
-theme_override_font_sizes/bold_italics_font_size = 60
-theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
 text = "[center]L'equip d'IT ja és lliure![/center]"
 fit_content = true
@@ -811,11 +811,11 @@ offset_top = 160.0
 offset_right = 744.0
 offset_bottom = 448.0
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
-theme_override_font_sizes/italics_font_size = 60
-theme_override_font_sizes/bold_italics_font_size = 60
-theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
 text = "[center][color=darkgreen]i gràcies a [/color]
 [rainbow]
@@ -831,11 +831,11 @@ offset_top = 160.0
 offset_right = 744.0
 offset_bottom = 448.0
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
-theme_override_font_sizes/italics_font_size = 60
-theme_override_font_sizes/bold_italics_font_size = 60
-theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
 text = "[center][color=darkgreen]
 Fi
@@ -864,11 +864,11 @@ offset_top = 48.0
 offset_right = 192.0
 offset_bottom = 148.0
 theme_override_constants/outline_size = 8
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
-theme_override_font_sizes/italics_font_size = 60
-theme_override_font_sizes/bold_italics_font_size = 60
-theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
 text = "[wave][rainbow]Som Pics[/rainbow][/wave]"
 

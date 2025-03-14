@@ -1,22 +1,19 @@
 [gd_scene load_steps=21 format=3 uid="uid://82aeqqi2rddp"]
 
-[ext_resource type="Script" path="res://ui/title.gd" id="1_cscm0"]
-[ext_resource type="Script" path="res://ui/ui.gd" id="1_mu34e"]
-[ext_resource type="Script" path="res://ui/menu_ingame.gd" id="2_8ukki"]
-[ext_resource type="Script" path="res://ui/fps.gd" id="4_kyt6h"]
+[ext_resource type="Script" uid="uid://h3nimn666v46" path="res://ui/title.gd" id="1_cscm0"]
+[ext_resource type="Script" uid="uid://b4kg18narwgc4" path="res://ui/ui.gd" id="1_mu34e"]
+[ext_resource type="Script" uid="uid://b4ieney8r1oht" path="res://ui/menu_ingame.gd" id="2_8ukki"]
+[ext_resource type="Script" uid="uid://bvbthlmpp4df5" path="res://ui/fps.gd" id="4_kyt6h"]
 [ext_resource type="Texture2D" uid="uid://ccw4sv2agsamb" path="res://assets/sound_on.png" id="4_ybfjq"]
 [ext_resource type="Texture2D" uid="uid://d1wkyu1ahid6x" path="res://assets/sound_off.png" id="5_lqrp4"]
 [ext_resource type="PackedScene" uid="uid://bpgt4i1nf2hxx" path="res://ui/drback_estalvi_container.tscn" id="5_onwvy"]
-[ext_resource type="Script" path="res://ui/friday_logic.gd" id="6_7kdj3"]
-[ext_resource type="Script" path="res://ui/music.gd" id="6_7rd2k"]
+[ext_resource type="Script" uid="uid://coyd4u2ydgbvh" path="res://ui/friday_logic.gd" id="6_7kdj3"]
+[ext_resource type="Script" uid="uid://nq4mmq0cb5h1" path="res://ui/music.gd" id="6_7rd2k"]
 [ext_resource type="Texture2D" uid="uid://56se6t0u3a00" path="res://assets/progressbar/32x32 circle bar under.png" id="6_cqbpi"]
 [ext_resource type="Texture2D" uid="uid://cky0lms1y3d4n" path="res://assets/progressbar/32x32 circle bar over.png" id="7_kp628"]
 [ext_resource type="Texture2D" uid="uid://32b8oomhl3xe" path="res://assets/progressbar/32x32 circle bar progress green.png" id="8_x764d"]
-[ext_resource type="Script" path="res://ui/friday_container.gd" id="10_ibyny"]
+[ext_resource type="Script" uid="uid://rkbhhrhdfxty" path="res://ui/friday_container.gd" id="10_ibyny"]
 [ext_resource type="Texture2D" uid="uid://cnx8sd80vyyxn" path="res://assets/frame_varied.png" id="11_853ds"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qss3b"]
-texture = ExtResource("4_ybfjq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_76q70"]
 texture = ExtResource("4_ybfjq")
@@ -24,6 +21,84 @@ modulate_color = Color(0, 0.568627, 0.643137, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmn3w"]
 texture = ExtResource("5_lqrp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qss3b"]
+texture = ExtResource("4_ybfjq")
+
+[sub_resource type="Animation" id="Animation_nc5bw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PreviousDay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextDay:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PreviousDay:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextDay:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(860, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextDay:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PreviousDay:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jaggh"]
 resource_name = "day_change"
@@ -101,85 +176,10 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_nc5bw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PreviousDay:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("NextDay:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PreviousDay:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NextDay:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(860, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("NextDay:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PreviousDay:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tfbuj"]
 _data = {
-"RESET": SubResource("Animation_nc5bw"),
-"day_change": SubResource("Animation_jaggh")
+&"RESET": SubResource("Animation_nc5bw"),
+&"day_change": SubResource("Animation_jaggh")
 }
 
 [node name="UI" type="CanvasLayer"]
@@ -243,9 +243,9 @@ script = ExtResource("4_kyt6h")
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_qss3b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_76q70")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tmn3w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qss3b")
 toggle_mode = true
 script = ExtResource("6_7rd2k")
 
@@ -350,7 +350,7 @@ text = "Dilluns"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FridayLabel/DayChange"]
 libraries = {
-"": SubResource("AnimationLibrary_tfbuj")
+&"": SubResource("AnimationLibrary_tfbuj")
 }
 
 [node name="FridayContainer" type="PanelContainer" parent="."]

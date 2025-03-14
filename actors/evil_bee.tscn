@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://f85oyoih74nu"]
 
-[ext_resource type="Script" path="res://actors/evil_bee.gd" id="1_lohrp"]
+[ext_resource type="Script" uid="uid://buwa35avwwgcd" path="res://actors/evil_bee.gd" id="1_lohrp"]
 [ext_resource type="Texture2D" uid="uid://dh0b728qf4d2f" path="res://assets/14-bee/Bee_Idle.png" id="1_lwut2"]
 [ext_resource type="AudioStream" uid="uid://c663ndcvk3f7m" path="res://assets/14-bee/BeeSound.ogg" id="3_hd18y"]
 [ext_resource type="AudioStream" uid="uid://cksim7x7erdow" path="res://assets/14-bee/BeeHit.wav" id="4_36quc"]
@@ -63,8 +63,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2mpmr"]
 _data = {
-"RESET": SubResource("Animation_df1ei"),
-"idle_right": SubResource("Animation_576au")
+&"RESET": SubResource("Animation_df1ei"),
+&"idle_right": SubResource("Animation_576au")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j751b"]

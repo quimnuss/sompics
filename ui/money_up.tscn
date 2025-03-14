@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1ogmkterloe4"]
 
-[ext_resource type="Script" path="res://ui/money_up.gd" id="1_ctdgb"]
+[ext_resource type="Script" uid="uid://c73by3i56ikd7" path="res://ui/money_up.gd" id="1_ctdgb"]
 
 [node name="MoneyUp" type="Control"]
 layout_mode = 3

@@ -1,26 +1,26 @@
 [gd_scene load_steps=48 format=3 uid="uid://5pltqell3s4h"]
 
 [ext_resource type="Texture2D" uid="uid://cwgphnnfwj3pf" path="res://intro_world/assets/GandalfHardcore Background layers_layer 5.png" id="1_ar44y"]
-[ext_resource type="Script" path="res://scenes/intro_world_medieval.gd" id="1_x1nh6"]
+[ext_resource type="Script" uid="uid://b03meaveahw6w" path="res://scenes/intro_world_medieval.gd" id="1_x1nh6"]
 [ext_resource type="Texture2D" uid="uid://bubiokecv02fh" path="res://intro_world/clouds.png" id="2_hjlit"]
 [ext_resource type="Texture2D" uid="uid://bnj3o1yf0cv65" path="res://intro_world/assets/GandalfHardcore Background layers_layer 4.png" id="3_l1vnx"]
 [ext_resource type="Texture2D" uid="uid://d0imarthe77sx" path="res://intro_world/far-grounds.png" id="3_qcb1j"]
 [ext_resource type="Texture2D" uid="uid://b4nedqlrl8ycr" path="res://intro_world/forest.png" id="4_al6lh"]
 [ext_resource type="Texture2D" uid="uid://dl2038md53kpx" path="res://intro_world/assets/GandalfHardcore Platformer Assets.png" id="5_n4sde"]
-[ext_resource type="Script" path="res://actors/player_spawner.gd" id="6_8gqh5"]
+[ext_resource type="Script" uid="uid://dgbfoqx0hh2ki" path="res://actors/player_spawner.gd" id="6_8gqh5"]
 [ext_resource type="PackedScene" uid="uid://by8qmrfqhlfnr" path="res://world/pics_camera.tscn" id="7_0c23k"]
 [ext_resource type="Texture2D" uid="uid://o0dxjnt2lyy6" path="res://intro_world/assets/Pixel Art Wheat.png" id="7_cq11k"]
 [ext_resource type="Texture2D" uid="uid://csuhk53q5pue5" path="res://assets/water_tileset.png" id="8_6okk3"]
 [ext_resource type="Texture2D" uid="uid://c46qwbk77ldxs" path="res://intro_world/assets/Campfire sheet.png" id="8_beani"]
-[ext_resource type="Script" path="res://world/pics_2d_camera.gd" id="8_tn018"]
+[ext_resource type="Script" uid="uid://c6pkq2ukjhkh8" path="res://world/pics_2d_camera.gd" id="8_tn018"]
 [ext_resource type="Texture2D" uid="uid://c6c8ahpb6m58j" path="res://assets/tile_square.png" id="9_xgfio"]
-[ext_resource type="Script" path="res://intro_world/fire.gd" id="12_5ocd5"]
+[ext_resource type="Script" uid="uid://dmbbkdf4jg4m8" path="res://intro_world/fire.gd" id="12_5ocd5"]
 [ext_resource type="Texture2D" uid="uid://cjfpp7o1r8a27" path="res://intro_world/assets/foliage/sprite_0086.png" id="13_vcvao"]
 [ext_resource type="Texture2D" uid="uid://co2a34tb81sfh" path="res://intro_world/dr_tenma.png" id="14_32ghq"]
-[ext_resource type="Script" path="res://intro_world/dr_tenma_encounter.gd" id="14_dtnqf"]
+[ext_resource type="Script" uid="uid://d11krmbcho0dh" path="res://intro_world/dr_tenma_encounter.gd" id="14_dtnqf"]
 [ext_resource type="Texture2D" uid="uid://da7okakqncchm" path="res://intro_world/dr_tenma_spritesheet.png" id="15_v4rm1"]
 [ext_resource type="Texture2D" uid="uid://lsru6ngsupom" path="res://intro_world/bridge.png" id="19_2cscu"]
-[ext_resource type="Script" path="res://actors/bridge.gd" id="20_sp1i2"]
+[ext_resource type="Script" uid="uid://dbirj721deq24" path="res://actors/bridge.gd" id="20_sp1i2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_04tin"]
 tile_data = PackedInt32Array(131072, 1245184, 21, 196608, 1245184, 22, 262144, 1245184, 23, 65537, 1310720, 20, 131073, 1310720, 21, 196609, 1310720, 22, 262145, 1310720, 23, 65538, 1376256, 20, 131074, 1376256, 21, 196610, 1376256, 22, 262146, 1376256, 23, 3, 1441792, 19, 65539, 1441792, 20, 131075, 1441792, 21, 196611, 1441792, 22, 262147, 1441792, 23, 327683, 1441792, 24, 393219, 1441792, 25, 4, 1507328, 19, 65540, 1507328, 20, 131076, 1507328, 21, 196612, 1507328, 22, 262148, 1507328, 23, 327684, 1507328, 24, 393220, 1507328, 25, 5, 1572864, 19, 65541, 1572864, 20, 131077, 1572864, 21, 196613, 1572864, 22, 262149, 1572864, 23, 327685, 1572864, 24, 65542, 1638400, 20, 131078, 1638400, 21, 196614, 1638400, 22, 262150, 1638400, 23, 327686, 1638400, 24, 196615, 1703936, 22, 262151, 1703936, 23)
@@ -1063,9 +1063,9 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0325t"]
 _data = {
-"DrBack": SubResource("Animation_u1few"),
-"Intro": SubResource("Animation_j66gf"),
-"RESET": SubResource("Animation_0l1k8")
+&"DrBack": SubResource("Animation_u1few"),
+&"Intro": SubResource("Animation_j66gf"),
+&"RESET": SubResource("Animation_0l1k8")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmxgr"]
@@ -1210,10 +1210,10 @@ layer_5/tile_data = PackedInt32Array(983085, 589824, 21, 983086, 589824, 19, 983
 modulate = Color(0.972549, 0.54902, 0.388235, 1)
 position = Vector2(680, 352)
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_m5x0c")
 texture = ExtResource("13_vcvao")
 lifetime = 5.0
 randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_m5x0c")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="GPUParticles2D"]
 occluder = SubResource("OccluderPolygon2D_l7vql")
@@ -1256,7 +1256,7 @@ script = ExtResource("12_5ocd5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0325t")
+&"": SubResource("AnimationLibrary_0325t")
 }
 autoplay = "Intro"
 

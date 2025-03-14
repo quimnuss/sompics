@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://cfa1h1cv5i3ab"]
 
-[ext_resource type="Script" path="res://actors/pic.gd" id="1_5ledp"]
+[ext_resource type="Script" uid="uid://cwrbvko2uwo0r" path="res://actors/pic.gd" id="1_5ledp"]
 [ext_resource type="Texture2D" uid="uid://bqfcakkq4u0tm" path="res://assets/13-Dialogue Boxes/!!! In (24x8).png" id="2_b3t8c"]
-[ext_resource type="Script" path="res://actors/pic_body.gd" id="4_2rafj"]
+[ext_resource type="Script" uid="uid://n8cjppwpauns" path="res://actors/pic_body.gd" id="4_2rafj"]
 [ext_resource type="Texture2D" uid="uid://c3rhcrxwnne0l" path="res://assets/it/marta.png" id="4_mvi6l"]
 [ext_resource type="AudioStream" uid="uid://dj2q23b8ll78y" path="res://assets/jump.ogg" id="5_h2mhi"]
 
@@ -156,11 +156,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cx35m"]
 _data = {
-"RESET": SubResource("Animation_fb4sd"),
-"death": SubResource("Animation_r27js"),
-"idle": SubResource("Animation_q8xk1"),
-"jump": SubResource("Animation_qnnbc"),
-"run": SubResource("Animation_cbf36")
+&"RESET": SubResource("Animation_fb4sd"),
+&"death": SubResource("Animation_r27js"),
+&"idle": SubResource("Animation_q8xk1"),
+&"jump": SubResource("Animation_qnnbc"),
+&"run": SubResource("Animation_cbf36")
 }
 
 [node name="Pic" type="CharacterBody2D"]

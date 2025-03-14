@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Sompics"
 run/main_scene="res://scenes/welcome_level.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/Items/icon.png"
 
 [autoload]
@@ -28,7 +28,7 @@ directories/dch_directory={
 "beedata_character": "res://dialogs/beedata_character.dch",
 "ce_character": "res://dialogs/ce_character.dch",
 "collectible_character": "res://dialogs/collectible_character.dch",
-"doctor_back": "res://dialogs/doctor_back_character.dch",
+"doctor_back_character": "res://dialogs/doctor_back_character.dch",
 "goose_luis_character": "res://dialogs/goose_luis_character.dch",
 "helpscout_character": "res://dialogs/helpscout_character.dch",
 "juanpe_character": "res://dialogs/juanpe_character.dch",

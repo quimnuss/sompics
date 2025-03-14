@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dt5nqhyp3f8ob"]
 
-[ext_resource type="Script" path="res://actors/weight_platform_rigid.gd" id="1_305q7"]
+[ext_resource type="Script" uid="uid://b8kv4ecjj8no0" path="res://actors/weight_platform_rigid.gd" id="1_305q7"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_doop6"]
-[ext_resource type="Script" path="res://actors/weight_platform_rigidbody.gd" id="3_7b0is"]
+[ext_resource type="Script" uid="uid://b05dfjhs5n54h" path="res://actors/weight_platform_rigidbody.gd" id="3_7b0is"]
 
 [sub_resource type="Curve2D" id="Curve2D_h6c8s"]
 _data = {

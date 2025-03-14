@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://beieffefrp6x"]
 
 [ext_resource type="Texture2D" uid="uid://bsage84pqoh1q" path="res://assets/08-Box/Idle.png" id="1_iftxx"]
-[ext_resource type="Script" path="res://actors/collectible.gd" id="1_injlv"]
+[ext_resource type="Script" uid="uid://dv0h5uda4bktw" path="res://actors/collectible.gd" id="1_injlv"]
 [ext_resource type="StyleBox" uid="uid://cus6mnsir8ysj" path="res://ui/button_style_hover.tres" id="3_a04pn"]
-[ext_resource type="Script" path="res://ui/carrousel_container.gd" id="3_hakwb"]
+[ext_resource type="Script" uid="uid://dd5tsgb5o2csi" path="res://ui/carrousel_container.gd" id="3_hakwb"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="3_hx4ch"]
 [ext_resource type="StyleBox" uid="uid://x8u3seqyt5bn" path="res://ui/button_style.tres" id="3_y5viw"]
 [ext_resource type="Texture2D" uid="uid://cfc7lriau3noe" path="res://assets/collectibles.png" id="4_ahdw8"]
-[ext_resource type="Script" path="res://scripts/money_up_component.gd" id="7_inxvf"]
+[ext_resource type="Script" uid="uid://cwvobfwygdx3e" path="res://scripts/money_up_component.gd" id="7_inxvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5y3k"]
 size = Vector2(30, 30)
@@ -111,9 +111,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j26bj"]
 _data = {
-"RESET": SubResource("Animation_p518p"),
-"idle": SubResource("Animation_ibosl"),
-"wobble": SubResource("Animation_8ljqi")
+&"RESET": SubResource("Animation_p518p"),
+&"idle": SubResource("Animation_ibosl"),
+&"wobble": SubResource("Animation_8ljqi")
 }
 
 [node name="Collectible" type="Node2D"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpgt4i1nf2hxx"]
 
-[ext_resource type="Script" path="res://ui/money_bar.gd" id="1_f7a7a"]
-[ext_resource type="Script" path="res://ui/shake_component.gd" id="2_3f2mp"]
+[ext_resource type="Script" uid="uid://b77qpnv1ebr7c" path="res://ui/money_bar.gd" id="1_f7a7a"]
+[ext_resource type="Script" uid="uid://tan56anvy4qw" path="res://ui/shake_component.gd" id="2_3f2mp"]
 [ext_resource type="Texture2D" uid="uid://l1bif7021k6f" path="res://intro_world/astroboy_sheet.png" id="3_eiip6"]
-[ext_resource type="Script" path="res://ui/labeled_progressbar.gd" id="4_7qgwn"]
+[ext_resource type="Script" uid="uid://cd2lhxl011ci5" path="res://ui/labeled_progressbar.gd" id="4_7qgwn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cb6bn"]
 content_margin_left = 10.0

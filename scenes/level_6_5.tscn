@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch5t64xy3dtly"]
+[gd_scene load_steps=10 format=3 uid="uid://ch5t64xy3dtly"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_o10md"]
-[ext_resource type="Resource" path="res://dialogs/ce_death_timeline.dtl" id="2_ccpav"]
+[ext_resource type="Resource" uid="uid://c8ssg6g800ayv" path="res://dialogs/ce_death_timeline.dtl" id="2_ccpav"]
 [ext_resource type="PackedScene" uid="uid://btkb2wr52a3v5" path="res://actors/caged_ce.tscn" id="3_uef8u"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="4_pjr4y"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="5_2ic63"]
 [ext_resource type="Resource" uid="uid://bif02tpjpqnpi" path="res://data/fita_ce_qualitat.tres" id="6_eydqt"]
+[ext_resource type="Script" uid="uid://c3vsklt7mt5u4" path="res://scripts/collectible_data.gd" id="6_wcg82"]
 [ext_resource type="Resource" uid="uid://dsr8iyfv2mejq" path="res://data/fita_ce_indicadors.tres" id="7_m2nyr"]
 [ext_resource type="Resource" uid="uid://dwxqxhv4h6sva" path="res://data/fita_webapps_components.tres" id="8_7xstq"]
 
@@ -24,6 +25,6 @@ position = Vector2(240, 400)
 
 [node name="Collectible" parent="." instance=ExtResource("5_2ic63")]
 position = Vector2(856, 344)
-collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("6_eydqt"), ExtResource("7_m2nyr"), ExtResource("8_7xstq")])
+collectible_datas = Array[ExtResource("6_wcg82")]([ExtResource("6_eydqt"), ExtResource("7_m2nyr"), ExtResource("8_7xstq")])
 
 [connection signal="button_pressed" from="Button" to="CagedCE" method="_on_button_button_pressed"]

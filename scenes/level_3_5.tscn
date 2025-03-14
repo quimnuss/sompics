@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ideujsqdlr7"]
+[gd_scene load_steps=7 format=3 uid="uid://c3ideujsqdlr7"]
 
 [ext_resource type="PackedScene" uid="uid://dvow33fo5kkyf" path="res://scenes/intermission_level.tscn" id="1_weeqf"]
 [ext_resource type="PackedScene" uid="uid://beieffefrp6x" path="res://actors/collectible.tscn" id="2_fsj8o"]
-[ext_resource type="Resource" path="res://dialogs/sage_defeat.dtl" id="2_xu7u8"]
+[ext_resource type="Resource" uid="uid://dfp367boxrrdi" path="res://dialogs/sage_defeat.dtl" id="2_xu7u8"]
 [ext_resource type="Resource" uid="uid://bhnkadlavrxa6" path="res://data/fita_erp_odoo.tres" id="4_mr2u6"]
+[ext_resource type="Script" uid="uid://c3vsklt7mt5u4" path="res://scripts/collectible_data.gd" id="4_vh2ve"]
 [ext_resource type="Resource" uid="uid://mi2j2npq21o5" path="res://data/fita_po_deute_tecnic.tres" id="5_ix50g"]
 
 [node name="MainLevel" type="Node2D"]
@@ -15,4 +16,4 @@ villan_2_name = ""
 
 [node name="Collectible" parent="." instance=ExtResource("2_fsj8o")]
 position = Vector2(272, 392)
-collectible_datas = Array[Resource("res://scripts/collectible_data.gd")]([ExtResource("4_mr2u6"), ExtResource("5_ix50g")])
+collectible_datas = Array[ExtResource("4_vh2ve")]([ExtResource("4_mr2u6"), ExtResource("5_ix50g")])

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://e26va6kudm8j"]
 
-[ext_resource type="Script" path="res://scenes/playground.gd" id="1_63r2d"]
+[ext_resource type="Script" uid="uid://i8elsoobnbx8" path="res://scenes/playground.gd" id="1_63r2d"]
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="2_ip288"]
 [ext_resource type="PackedScene" uid="uid://dftg54mjw1fp8" path="res://networking/debug_client.tscn" id="3_xq0mu"]
 [ext_resource type="PackedScene" uid="uid://cwf4yqf0soyw2" path="res://ui/fueguito_count.tscn" id="4_r6435"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="6_pavfa"]
 [ext_resource type="PackedScene" uid="uid://dlw6umpweb060" path="res://actors/key.tscn" id="7_nxdgj"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="9_i1sfu"]
-[ext_resource type="Script" path="res://actors/respawn_all.gd" id="10_5bm0w"]
+[ext_resource type="Script" uid="uid://sh7d40pso84d" path="res://actors/respawn_all.gd" id="10_5bm0w"]
 [ext_resource type="Texture2D" uid="uid://cnr7jd458p5nk" path="res://assets/Items/door_openMid.png" id="11_wsllh"]
 [ext_resource type="PackedScene" uid="uid://bh44brmlp1s8k" path="res://actors/platform.tscn" id="12_r568a"]
 [ext_resource type="PackedScene" uid="uid://c5erylmd5leup" path="res://actors/drop_box.tscn" id="13_6klsw"]

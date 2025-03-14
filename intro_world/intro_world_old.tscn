@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bqanpsoo6txmg" path="res://intro_world/parallax_background.tscn" id="1_7vlhd"]
 [ext_resource type="TileSet" uid="uid://cara46vlt5bdv" path="res://intro_world/world-tileset.tres" id="2_d2u6m"]
-[ext_resource type="Script" path="res://actors/player_spawner.gd" id="3_fd7vu"]
+[ext_resource type="Script" uid="uid://dgbfoqx0hh2ki" path="res://actors/player_spawner.gd" id="3_fd7vu"]
 [ext_resource type="PackedScene" uid="uid://by8qmrfqhlfnr" path="res://world/pics_camera.tscn" id="4_qsbmc"]
-[ext_resource type="Script" path="res://world/pics_2d_camera.gd" id="5_ap3yn"]
+[ext_resource type="Script" uid="uid://c6pkq2ukjhkh8" path="res://world/pics_2d_camera.gd" id="5_ap3yn"]
 
 [node name="World" type="Node2D"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bn6jwigf2spgp"]
 
-[ext_resource type="Script" path="res://assets/characters/goose_luis_portait.gd" id="1_lta6p"]
+[ext_resource type="Script" uid="uid://cqmtcplj3jh1h" path="res://assets/characters/goose_luis_portait.gd" id="1_lta6p"]
 [ext_resource type="Texture2D" uid="uid://0gjvf8xk877m" path="res://assets/characters/gooseluis_spritesheet.png" id="2_560j1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s342q"]

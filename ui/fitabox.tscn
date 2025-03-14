@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxuryq5nc5b0r" path="res://assets/checkbox_checked_icon.png" id="1_dknbu"]
 [ext_resource type="Texture2D" uid="uid://bw5kkbsbd86nx" path="res://assets/checkbox_empty_icon.png" id="2_aeahe"]
-[ext_resource type="Script" path="res://ui/fitabox.gd" id="3_65eam"]
+[ext_resource type="Script" uid="uid://dgstxhogkj4mm" path="res://ui/fitabox.gd" id="3_65eam"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v002f"]
 bg_color = Color(0.6, 1, 0.6, 1)

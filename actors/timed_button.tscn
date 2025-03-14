@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xaaky5nuxjpn"]
 
-[ext_resource type="Script" path="res://actors/timed_button.gd" id="1_0bcdo"]
+[ext_resource type="Script" uid="uid://bvk7wltswyuvu" path="res://actors/timed_button.gd" id="1_0bcdo"]
 [ext_resource type="PackedScene" uid="uid://cxpnihdumldpm" path="res://actors/button.tscn" id="1_jp3dd"]
 
 [node name="TimedButton" type="Node2D"]

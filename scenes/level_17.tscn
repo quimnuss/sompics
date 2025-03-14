@@ -1,19 +1,19 @@
 [gd_scene load_steps=19 format=4 uid="uid://x2jloum5dt5r"]
 
 [ext_resource type="PackedScene" uid="uid://82aeqqi2rddp" path="res://ui/ui.tscn" id="1_1pcra"]
-[ext_resource type="Script" path="res://scenes/level_contracts.gd" id="1_5p0fe"]
+[ext_resource type="Script" uid="uid://4xhp50t7prp6" path="res://scenes/level_contracts.gd" id="1_5p0fe"]
 [ext_resource type="TileSet" uid="uid://c537katjoknov" path="res://world/level_tileset.tres" id="2_m38kj"]
 [ext_resource type="PackedScene" uid="uid://c3htqdtri5tvh" path="res://ui/ui_timer.tscn" id="2_y83gk"]
 [ext_resource type="PackedScene" uid="uid://31y11begqd5e" path="res://actors/door.tscn" id="3_nmk4a"]
-[ext_resource type="Script" path="res://scripts/fade_out.gd" id="4_yn3ha"]
-[ext_resource type="Script" path="res://actors/contract_receiver.gd" id="6_10gvf"]
-[ext_resource type="Script" path="res://actors/player_spawner.gd" id="7_ipxdm"]
-[ext_resource type="Script" path="res://actors/area_spawner.gd" id="8_gfw8s"]
+[ext_resource type="Script" uid="uid://bo8cms1enf0iq" path="res://scripts/fade_out.gd" id="4_yn3ha"]
+[ext_resource type="Script" uid="uid://c78pqv5rw5tms" path="res://actors/contract_receiver.gd" id="6_10gvf"]
+[ext_resource type="Script" uid="uid://dgbfoqx0hh2ki" path="res://actors/player_spawner.gd" id="7_ipxdm"]
+[ext_resource type="Script" uid="uid://di64ew3x3cmpy" path="res://actors/area_spawner.gd" id="8_gfw8s"]
 [ext_resource type="AudioStream" uid="uid://b4odq8vtywypw" path="res://assets/pickup_sound.ogg" id="9_j23bo"]
-[ext_resource type="Script" path="res://actors/killzone_generic.gd" id="9_shls2"]
+[ext_resource type="Script" uid="uid://ca4gym1inanp1" path="res://actors/killzone_generic.gd" id="9_shls2"]
 [ext_resource type="AudioStream" uid="uid://d3407fp1xxmrt" path="res://assets/pickup_wrong_sound.ogg" id="10_xa7fm"]
 [ext_resource type="SpriteFrames" uid="uid://dkqtboo71wasm" path="res://actors/villans_spriteframes.tres" id="11_owru2"]
-[ext_resource type="Script" path="res://scripts/spawner.gd" id="12_w1o01"]
+[ext_resource type="Script" uid="uid://cr7um1j7ttbk4" path="res://scripts/spawner.gd" id="12_w1o01"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1eyb5"]
 
@@ -102,8 +102,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_smka0"]
 _data = {
-"RESET": SubResource("Animation_inmpi"),
-"drback_defeated": SubResource("Animation_08s2v")
+&"RESET": SubResource("Animation_inmpi"),
+&"drback_defeated": SubResource("Animation_08s2v")
 }
 
 [node name="MainLevel" type="Node2D"]

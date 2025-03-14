@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cu2vvs65nt8c0"]
 
-[ext_resource type="Script" path="res://actors/rigipic.gd" id="1_l0lg7"]
+[ext_resource type="Script" uid="uid://nyef2s7ea3fk" path="res://actors/rigipic.gd" id="1_l0lg7"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="2_6l2uj"]
 [ext_resource type="FontFile" uid="uid://ba83hhpxi8hh2" path="res://assets/fonts/Monaspace/MonaspaceNeon-Medium.otf" id="3_6kyno"]
 

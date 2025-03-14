@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bccbc5duw7bn4"]
 
-[ext_resource type="Script" path="res://actors/solar_light.gd" id="1_dyj4g"]
+[ext_resource type="Script" uid="uid://57v5vpd4n4x6" path="res://actors/solar_light.gd" id="1_dyj4g"]
 [ext_resource type="Texture2D" uid="uid://easspnx0hcne" path="res://assets/wall_gem.png" id="2_p2kfh"]
 
 [sub_resource type="Gradient" id="Gradient_48ci1"]

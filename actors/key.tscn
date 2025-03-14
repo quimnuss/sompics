@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlw6umpweb060"]
 
-[ext_resource type="Script" path="res://actors/key.gd" id="1_0i6wk"]
+[ext_resource type="Script" uid="uid://bxcm0kqgg4tvq" path="res://actors/key.gd" id="1_0i6wk"]
 [ext_resource type="Texture2D" uid="uid://cpovhsdha56n7" path="res://assets/Items/keyYellow.png" id="2_mnq15"]
 [ext_resource type="Texture2D" uid="uid://dl5x1b16nbbsh" path="res://assets/Items/git-pr.png" id="4_wsg5w"]
 
@@ -64,8 +64,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m7mhq"]
 _data = {
-"RESET": SubResource("Animation_qq227"),
-"default": SubResource("Animation_1nq4q")
+&"RESET": SubResource("Animation_qq227"),
+&"default": SubResource("Animation_1nq4q")
 }
 
 [node name="Key" type="RigidBody2D"]

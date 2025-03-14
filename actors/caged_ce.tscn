@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://btkb2wr52a3v5"]
 
-[ext_resource type="Script" path="res://actors/cagedce.gd" id="1_ndrgt"]
+[ext_resource type="Script" uid="uid://cnxrnpvccqyep" path="res://actors/cagedce.gd" id="1_ndrgt"]
 [ext_resource type="SpriteFrames" uid="uid://00v4a50ywped" path="res://actors/ce_workers_spriteframes.tres" id="2_r80vj"]
 [ext_resource type="PackedScene" uid="uid://c8s25jps0hbv6" path="res://actors/cage.tscn" id="3_ueb3r"]
 [ext_resource type="Texture2D" uid="uid://s1q7osic64rb" path="res://assets/cage-door-spritesheet.png" id="4_t5f38"]
 [ext_resource type="Texture2D" uid="uid://bfc436ex1mydc" path="res://assets/it-faces.png" id="5_hcia7"]
-[ext_resource type="Script" path="res://actors/head.gd" id="6_7u7gp"]
+[ext_resource type="Script" uid="uid://bwhyrlopki82a" path="res://actors/head.gd" id="6_7u7gp"]
 
 [sub_resource type="Animation" id="Animation_rb1mk"]
 length = 0.001
@@ -176,9 +176,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eskns"]
 _data = {
-"RESET": SubResource("Animation_rb1mk"),
-"free_ce": SubResource("Animation_y7gn8"),
-"reposess_ce": SubResource("Animation_3ourh")
+&"RESET": SubResource("Animation_rb1mk"),
+&"free_ce": SubResource("Animation_y7gn8"),
+&"reposess_ce": SubResource("Animation_3ourh")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e30g2"]

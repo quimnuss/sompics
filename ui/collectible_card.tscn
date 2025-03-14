@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bw585chtqxktl"]
 
-[ext_resource type="Script" path="res://ui/collectible_card.gd" id="1_5xgjg"]
+[ext_resource type="Script" uid="uid://ckgqolukryu2u" path="res://ui/collectible_card.gd" id="1_5xgjg"]
 [ext_resource type="Theme" uid="uid://5c6ik58qnw2u" path="res://ui/fita_theme.tres" id="1_turvf"]
 [ext_resource type="Texture2D" uid="uid://cnx8sd80vyyxn" path="res://assets/frame_varied.png" id="2_cyq3q"]
 [ext_resource type="Texture2D" uid="uid://c87v5ldogpg1e" path="res://assets/collectible_all.png" id="4_76wg0"]
