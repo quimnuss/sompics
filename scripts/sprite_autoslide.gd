@@ -4,4 +4,4 @@ extends Sprite2D
 
 
 func _physics_process(delta):
-    region_rect.position -= speed * delta
+	region_rect.position -= speed * delta
